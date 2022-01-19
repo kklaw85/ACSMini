@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="HiPA.Communicator.Forms.Ctrl_SerialComSet"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 mc:Ignorable="d"
+			 Loaded="UserControl_Loaded" IsVisibleChanged="UserControl_IsVisibleChanged" Width="auto" Height="auto">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="{StaticResource SerialPort}" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Stretch" Height="Auto" Width="70" Style="{StaticResource STYL_GENERAL_LBL_Right}"/>
+            <Label Content="" HorizontalAlignment="Left" x:Name="Lbl_SerialCom" Style="{StaticResource STYLE_POS_CONTENT}" VerticalAlignment="Center" Margin="0,0,0,0" Width="70"/>
+            <Button x:Name="Btn_SerialCom" Content=". . ." HorizontalAlignment="Left" ToolTip="{StaticResource SerialComm}" VerticalAlignment="Center" Width="30" Height="25" Click="Btn_SerialCom_Click" Margin="5,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

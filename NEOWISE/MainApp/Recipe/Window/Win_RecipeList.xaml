@@ -1,0 +1,57 @@
+﻿<Controls:WindowBase
+             xmlns:Controls="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+             x:Class="NeoWisePlatform.Recipe.Windows.Win_RecipeList"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" 
+			 xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             Width="552" Height="370"
+             Loaded="UserControl_Loaded" Topmost="True" Title="Recipe List" ShowTitleBar="False" WindowStartupLocation="CenterScreen" ShowCloseButton="False" ShowMinButton="False" ShowMaxRestoreButton="False" WindowStyle="None" Background="Transparent" Closing="WindowBase_Closing">
+    <Grid Margin="0,0,0,0">
+        <Rectangle Style="{StaticResource Rectangle_SUB_PAGE}"/>
+        <StackPanel Orientation="Vertical" Margin="10,10">
+            <StackPanel Height="56" VerticalAlignment="Top">
+                <Label Content="{StaticResource ChooseRecipe}" Style="{StaticResource STYLE_SUB_TITLE_LABEL}" Width="532"/>
+                <Label Content="{StaticResource DoubleClickRecipe}" Style="{StaticResource STYL_GENERAL_LBL_Left}" Width="532"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,10">
+                    <Button x:Name="btnNew" Click="BtnRecipe_Clicked" Tag="New" Content="{StaticResource New}" Style="{StaticResource ButtonSub}" Margin="0,0,5,0" Width="80" Height="25"/>
+                    <Button x:Name="btnCopy" Click="BtnRecipe_Clicked" IsEnabled="{Binding CanCopy}" Tag="Copy" Content="{StaticResource Copy}" Style="{StaticResource ButtonSub}"  Margin="0,0,5,0" Width="80" Height="25"/>
+                    <Button x:Name="btnRemove" Click="BtnRecipe_Clicked" IsEnabled="{Binding CanRemove}" Tag="Remove" Content="{StaticResource Remove}" Style="{StaticResource ButtonSub}"  Margin="0,0,5,0" Width="80" Height="25"/>
+                    <Button x:Name="btnRefresh" Click="BtnRecipe_Clicked" Tag="Refresh" Content="{StaticResource Refresh}" Style="{StaticResource ButtonSub}"  Margin="0,0,5,0" Width="80" Height="25"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,0,0" VerticalAlignment="Top">
+                    <ListView x:Name="lvwRecipeList" Height="200" VerticalAlignment="Top" MouseDoubleClick="lvwRecipeList_MouseDoubleClick" SelectedIndex="{Binding LstSelIdx}" SelectionMode="Single" Style="{StaticResource MahApps.Styles.ListView}">
+                        <ListView.View>
+                            <GridView AllowsColumnReorder="False">
+                                <GridViewColumn Width="50"  x:Name="RecipeSelection">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Rectangle Fill="{Binding Applied, Converter={StaticResource LimeBoolToStateColor}}" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="{StaticResource CapRecipe}" Width="220">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Name}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="10">
+            <Button x:Name="btnExit" Content="{StaticResource Exit}" Style="{StaticResource ButtonSub}" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Bottom" Width="116" Height="30" Click="BtnExit_Click"/>
+            <Button x:Name="btnSubmit" Content="{StaticResource ConfirmWindow}" Style="{StaticResource ButtonSub}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="116" Height="30" Click="BtnSubmit_Click"/>
+
+        </StackPanel>
+    </Grid>
+</Controls:WindowBase>

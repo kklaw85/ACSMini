@@ -1,0 +1,26 @@
+﻿<Window
+             x:Class="NeoWisePlatform.UI.Windows.Win_Wait_Home"
+             xmlns:Controls="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+			 xmlns:Panelbase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" 
+			 xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls"
+             Topmost="True"
+             mc:Ignorable="d"  
+             Height="317" Width="521"
+             Title="Waiting Home"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="Transparent" Cursor="Arrow" ShowInTaskbar="False">
+
+    <Grid Background="{StaticResource BR_DARK_GRAY_10}" >
+        <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+            <Image Source="/Icons/HipaLogo.png" Height="38" Margin="0,50,0,0"/>
+            <TextBlock x:Name="Lbl_AppTitle" Text="Inspection System" Margin="0,2,0,0" TextAlignment="Center" VerticalAlignment="Center" FontSize="14" Foreground="WhiteSmoke" FontStyle="Italic"/>
+            <TextBlock x:Name="lbl_AppName" Text="Caution" TextAlignment="Center" Margin="0,30,0,0" Foreground="Red" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" />
+            <TextBlock x:Name="Lbl_Current_Init_Status" Text="Machine is homing... Please wait and keep out of the machine." TextAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" Foreground="#FFC3C3C3"/>
+        </StackPanel>
+
+    </Grid>
+
+</Window>

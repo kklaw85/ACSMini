@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CA805057-07CD-4FB2-A56E-2B2AA037A030}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HiPA.Common</RootNamespace>
+    <AssemblyName>HiPA.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>false</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ControlzEx, Version=5.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
+      <HintPath>..\IntelNeowise\packages\ControlzEx.5.0.0\lib\net452\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
+      <HintPath>..\IntelNeowise\packages\MahApps.Metro.2.4.6\lib\net46\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics, Version=4.12.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\NEOWISE_262\packages\MathNet.Numerics.4.12.0\lib\net461\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\IntelNeowise\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.31\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\IntelNeowise\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\IntelNeowise\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\IntelNeowise\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\IntelNeowise\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\NEOWISE\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\IPagePanelBase.cs" />
+    <Compile Include="Forms\MenuPanelBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\PagePanelInstrument.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\PagePanelTitle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\TextBoxCanReadOnly.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LoginUserMgt.cs" />
+    <Compile Include="MachineStateMgr.cs" />
+    <Compile Include="DPAD.cs" />
+    <Compile Include="MathExt.cs" />
+    <Compile Include="MultilingualErrModule.cs" />
+    <Compile Include="Report\ReportHelper.cs" />
+    <Compile Include="UControl\UICommands.cs" />
+    <Compile Include="UControl\WindowBase.cs" />
+    <Compile Include="UILockingControl.cs" />
+    <Compile Include="Minidump.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\RecipeItemBase.cs" />
+    <Compile Include="Recipe\RecipeManager.cs" />
+    <Compile Include="MachineStateMng.cs" />
+    <Compile Include="UControl\PanelBase .cs" />
+    <Compile Include="UControl\PageBase.cs" />
+    <Compile Include="Utils\DataUtilities.cs" />
+    <Compile Include="Utils\ReflectionTool.cs" />
+    <Compile Include="Constructor.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Equipment.cs" />
+    <Compile Include="ErrorManager.cs" />
+    <Compile Include="Forms\PagePanelBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InstrumentBase.cs" />
+    <Compile Include="Log\LogCommon.cs" />
+    <Compile Include="Log\LogConfiguration.cs" />
+    <Compile Include="Log\LogEvent.cs" />
+    <Compile Include="Log\Logger.cs" />
+    <Compile Include="Log\LogManager.cs" />
+    <Compile Include="Log\LogPersistent.cs" />
+    <Compile Include="ModuleBase.cs" />
+    <Compile Include="Utils\AsyncExecutor.cs" />
+    <Compile Include="Utils\DeepCopy.cs" />
+    <Compile Include="DictionaryHelper.cs" />
+    <Compile Include="Disposable.cs" />
+    <Compile Include="Utils\EventArgsT.cs" />
+    <Compile Include="Forms\ListableControlExtension.cs" />
+    <Compile Include="Forms\NumericUpDownCanReadOnly.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\PictureBoxIntP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\ROISettingUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ROISettingUI.Designer.cs">
+      <DependentUpon>ROISettingUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Minidump.cs" />
+    <Compile Include="Utils\PointD.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Ratio.cs" />
+    <Compile Include="Utils\RectangleD.cs" />
+    <Compile Include="Utils\SizeD.cs" />
+    <Compile Include="Utils\Win32Extension.cs" />
+    <Compile Include="XmlHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\PagePanelTitle.resx">
+      <DependentUpon>PagePanelTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ErrorHandler\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

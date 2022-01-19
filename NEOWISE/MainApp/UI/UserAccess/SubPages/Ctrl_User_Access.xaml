@@ -1,0 +1,147 @@
+﻿<Pagebase:PageBase
+			 xmlns:Pagebase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+			 x:Class="NeoWisePlatform.UserAccess.SubPages.Ctrl_User_Access"
+             xmlns:local="clr-namespace:NeoWisePlatform.UserAccess.SubPages"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Globalizer="clr-namespace:WPFSharp.Globalizer;assembly=WPFSharp.Globalizer" xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Zondicons" xmlns:iconPacks1="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material"
+    Width="645"
+             Loaded="UserControl_Loaded">
+    <StackPanel Orientation="Vertical" x:Name="Stk" HorizontalAlignment="Left">
+        <TextBlock Text="{Globalizer:GlobalizedResource UserAccessConfig, FallbackValue='User Access Configuration'}" Style="{StaticResource STYLE_MAIN_TITLE_LABEL_TB}"/>
+        <StackPanel x:Name="Sp_UserInfo" Orientation="Horizontal" Margin="20">
+            <iconPacks1:PackIconMaterial Kind="Account" Width="22" Height="22" />
+            <StackPanel Orientation="Vertical">
+                <StackPanel x:Name="Sp_CurrentAccessUser" Visibility="Visible" Orientation="Vertical" Margin="0,0,0,0" Width="575">
+                    <local:Ctrl_CurrentLoginUser x:Name="CtrlCurrentLoginUser" IsMainDisplay="False"/>
+                </StackPanel>
+                <StackPanel x:Name="Sp_Login" Visibility="Collapsed" Orientation="Horizontal" Width="652">
+                    <StackPanel Orientation="Vertical" Margin="10,0,2,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Globalizer:GlobalizedResource UserID, FallbackValue='ID'}" HorizontalAlignment="Left" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="70"/>
+                            <TextBox x:Name="Txt_UserID" BorderBrush="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="230" KeyUp="Txt_UserID_KeyUp"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                            <Label Content="{Globalizer:GlobalizedResource Password, FallbackValue='Password'}" HorizontalAlignment="Left" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="70"/>
+                            <PasswordBox x:Name="PB_Password" BorderBrush="Transparent" HorizontalAlignment="Left" Width="230" Height="25" KeyUp="PB_Password_KeyUp"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <Button x:Name="Btn_Login" Content="{Globalizer:GlobalizedResource Login, FallbackValue='Login'}" Style="{StaticResource Button_CyanContent}" Margin="5,0,0,0" Width="67" Height="54" Click="Button_Click"/>
+                    <Label x:Name="Lbl_Log_In_Status" Content="{Globalizer:GlobalizedResource LoginTryAgain, FallbackValue='Incorrect ID or Password. Please try again!'}" FontSize="11" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Style="{StaticResource STYL_PROP_LBL}" Foreground="Red" Margin="5,30,0,2" Width="237" Height="23" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="Sp_AddUser" Orientation="Vertical" Margin="25,2,20,5">
+            <StackPanel Background="DimGray" Width="auto" Height="1"></StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
+                <Image Source="/Icons/Add.png" Stretch="Fill" Width="15" Margin="5,0,0,0" Height="15" ToolTip="{Globalizer:GlobalizedResource AddUser, FallbackValue='Add User'}"/>
+                <Label x:Name="Lbl_AddUser" Content="{Globalizer:GlobalizedResource AddUser, FallbackValue='Add User'}" Margin="10,0,0,0" FontWeight="Bold" Foreground="{StaticResource BR_BG_GRAY}" HorizontalContentAlignment="Left" Style="{StaticResource STYL_GENERAL_LBL_Left}" Width="200" Height="22" Cursor="Hand" MouseUp="Lbl_MouseUp"/>
+            </StackPanel>
+            <StackPanel x:Name="Sp_AddUserContent" Visibility="Visible" Margin="40,5,0,10">
+                <Border Style="{StaticResource Panel}">
+                    <StackPanel x:Name="Exp_Create_User" Margin="10" Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Globalizer:GlobalizedResource UserID, FallbackValue='ID'}"  Width="145" Style="{StaticResource STYL_GENERAL_LBL_Right}"/>
+                            <TextBox x:Name="PB_Create_New_User" Style="{StaticResource STYLE_POS_TEXTBOX_Frameless}" Width="350"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                            <Label Content="{Globalizer:GlobalizedResource Password, FallbackValue='Password'}" Width="145" Style="{StaticResource STYL_GENERAL_LBL_Right}"/>
+                            <PasswordBox x:Name="PB_Create_New_UserPW" BorderBrush="Transparent" Height="25" Background="Black" BorderThickness="0" Width="350"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                            <Label Content="{Globalizer:GlobalizedResource UserLevel, FallbackValue='User Level'}" Width="145" Style="{StaticResource STYL_GENERAL_LBL_Right}"/>
+                            <ComboBox x:Name="Cb_Create_New_GroupID" BorderBrush="Transparent" Width="350"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                            <Button Content="{Globalizer:GlobalizedResource CreateUser, FallbackValue='Create User'}" x:Name="Btn_CreateUser" Style="{StaticResource Button_SubMenu}" Width="200" Height="30" Click="Button_Click" Margin="146,0,0,0"/>
+                            <Button Content="{Globalizer:GlobalizedResource Cancel, FallbackValue='Cancel'}" x:Name="Btn_CreateCancel" Style="{StaticResource Button_SubMenu}" Width="145" Height="30" Click="Button_Click" Margin="5,0,0,0"/>
+                        </StackPanel>
+                        <Label x:Name="Lbl_CreateUser_Change_Status" Visibility="Collapsed" Content="Try Again" HorizontalContentAlignment="Left" Margin="147,0,0,10" VerticalAlignment="Top" Height="28" Width="362" Style="{StaticResource STYL_PROP_LBL}" Foreground="Red" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="Sp_EditDelUser" Orientation="Vertical" Margin="25,2,20,5">
+            <StackPanel Background="DimGray" Width="auto" Height="1"></StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
+                <Image Source="/Icons/PageAccessConfig.png" Stretch="Fill" Width="15" Margin="5,0,0,0" Height="15" ToolTip="{StaticResource ApplyPrivilege}"/>
+                <Label x:Name="Lbl_EditDelete" Content="{Globalizer:GlobalizedResource EditDelUser, FallbackValue='Edit/Delete User'}" Margin="10,0,0,0" FontWeight="Bold" Foreground="{StaticResource BR_BG_GRAY}" HorizontalContentAlignment="Left" Style="{StaticResource STYL_GENERAL_LBL_Left}" Width="200" Height="22" Cursor="Hand" MouseUp="Lbl_MouseUp"/>
+            </StackPanel>
+            <StackPanel x:Name="Sp_EditDeleteContent" Visibility="Visible" Margin="40,5,0,10">
+                <Border Style="{StaticResource Panel}">
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Globalizer:GlobalizedResource UserList, FallbackValue='User List'}" Width="145" Style="{StaticResource STYL_GENERAL_LBL_Right}" />
+                            <ComboBox x:Name="CB_UserList" IsEnabled="True" Margin="0,0,0,0" SelectionChanged="CB_UserList_SelectionChanged" HorizontalAlignment="Left" Width="350"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                            <Label Content="{Globalizer:GlobalizedResource Privilege, FallbackValue='Privilege'}" Width="145" Style="{StaticResource STYL_GENERAL_LBL_Right}" />
+                            <DataGrid x:Name="PrivilegeDG" BorderBrush="DimGray" FontSize="14" ItemsSource="{Binding UserPrivilege, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HeadersVisibility="All" GridLinesVisibility="All" SelectionMode="Single" SelectionUnit="FullRow" IsReadOnly="true" AutoGenerateColumns="False" Margin="0,0,0,0" HorizontalAlignment="Left" Width="350" HorizontalGridLinesBrush="DimGray" VerticalGridLinesBrush="DimGray" CanUserAddRows="False" Height="314" VerticalAlignment="Top">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Width="200" Binding="{Binding Page}" >
+                                        <DataGridTextColumn.Header>
+                                            <TextBlock Text="Page"  TextAlignment="Center" TextWrapping="Wrap" Width="184"/>
+                                        </DataGridTextColumn.Header>
+                                    </DataGridTextColumn>
+                                    <DataGridTemplateColumn Width="150">
+                                        <DataGridTemplateColumn.Header>
+                                            <TextBlock Width="140" Text="Privilege" TextAlignment="Center" TextWrapping="Wrap"/>
+                                        </DataGridTemplateColumn.Header>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <ComboBox ItemsSource="{Binding Path=DataContext.AccessRightList, Mode=TwoWay, 
+                                                        RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, UpdateSourceTrigger=PropertyChanged}" 
+                                                         SelectedItem="{Binding Privilege, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                        <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                            <Button x:Name="Btn_ApplyPrivilege" Content="{Globalizer:GlobalizedResource ApplyPrivilege, FallbackValue='Apply Privilege'}" Style="{StaticResource Button_SubMenu}" Margin="145,0,0,0" VerticalAlignment="Top" Width="175" Height="34" HorizontalAlignment="Left" Click="Button_Click"/>
+                            <Button x:Name="Btn_Delete" Content="{Globalizer:GlobalizedResource DelUser, FallbackValue='Delete User'}" Style="{StaticResource Button_SubMenu_RedContent}" Margin="5,0,0,0" VerticalAlignment="Top" Width="170" Height="34" HorizontalAlignment="Left" Click="Button_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="Sp_ChangePassword" Orientation="Vertical" Margin="25,2,20,5">
+            <StackPanel Background="DimGray" Width="auto" Height="1"></StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
+                <Image Source="/Icons/PadLock.png" Stretch="Fill" Width="15" Margin="5,0,0,0" Height="15" ToolTip="{StaticResource ChangePassword}"/>
+                <Label x:Name="Lbl_ChangePassword" Content="{Globalizer:GlobalizedResource ChangePassword, FallbackValue='Change Password'}" Margin="10,0,0,0" FontWeight="Bold" Foreground="{StaticResource BR_BG_GRAY}" HorizontalContentAlignment="Left" Style="{StaticResource STYL_GENERAL_LBL_Left}" Width="200" Height="22" Cursor="Hand" MouseUp="Lbl_MouseUp"/>
+            </StackPanel>
+            <StackPanel x:Name="Sp_ChangePasswordContent" Visibility="Visible" Margin="40,5,0,10">
+                <Border Style="{StaticResource Panel}">
+                    <StackPanel Margin="10">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                            <Label Content="{Globalizer:GlobalizedResource OldPassword, FallbackValue='Old Password'}" Width="145" Style="{StaticResource STYL_GENERAL_LBL_Right}" />
+                            <PasswordBox x:Name="PB_Old_Password" BorderBrush="Transparent" Height="25" Background="Black" BorderThickness="0" Width="350"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                            <Label Content="{Globalizer:GlobalizedResource NewPassword, FallbackValue='New Password'}" Width="145" Style="{StaticResource STYL_GENERAL_LBL_Right}"/>
+                            <PasswordBox x:Name="PB_New_Password" BorderBrush="Transparent" Height="25" Background="Black" BorderThickness="0" Width="350"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                            <Label Content="{Globalizer:GlobalizedResource RetypeNewPassword, FallbackValue='Retype New Password'}" Width="145" Style="{StaticResource STYL_GENERAL_LBL_Right}"/>
+                            <PasswordBox x:Name="PB_Comfirm_Password" BorderBrush="Transparent" Height="25" Background="Black" BorderThickness="0" Width="350"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="145,5,0,0">
+                            <Button Content="{Globalizer:GlobalizedResource ChangePassword, FallbackValue='Change Password'}" x:Name="Btn_ChangePassword" Style="{StaticResource Button_SubMenu}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="175" Height="34" Click="Button_Click" Margin="0,0,0,0"/>
+                            <Button Content="{Globalizer:GlobalizedResource Cancel, FallbackValue='Cancel'}" x:Name="Btn_CancelChangePassword" Style="{StaticResource Button_SubMenu}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="170" Height="34" Click="Button_Click" Margin="5,0,0,0"/>
+                        </StackPanel>
+                        <Label x:Name="Lbl_Change_Status" Visibility="Collapsed" Content="{Globalizer:GlobalizedResource ChangePasswordTryAgain, FallbackValue='Password mismatch. Please try again!' }" Height="28" Width="Auto" HorizontalContentAlignment="Left" Style="{StaticResource STYL_PROP_LBL}" Foreground="Red" Margin="148,5,0,5"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="Sp_Logout" Orientation="Vertical" Margin="25,2,20,0">
+            <StackPanel Background="DimGray" Width="auto" Height="1"></StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
+                <Image Source="/Icons/Power.png" Stretch="Fill" Width="15" Margin="5,0,0,0" Height="15" ToolTip="{Globalizer:GlobalizedResource Logout, FallbackValue='Logout'}"/>
+                <Label x:Name="Lbl_Logout" Content="{Globalizer:GlobalizedResource Logout, FallbackValue='Logout'}" Margin="10,0,0,0" Foreground="{StaticResource BR_BG_GRAY}" FontWeight="Bold" HorizontalContentAlignment="Left" Style="{StaticResource STYL_GENERAL_LBL_Left}" Width="200" Height="22"  Cursor="Hand" MouseUp="Lbl_MouseUp"/>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Pagebase:PageBase>

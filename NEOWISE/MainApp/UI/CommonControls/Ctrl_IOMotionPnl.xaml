@@ -1,0 +1,27 @@
+﻿<Panelbase:PanelBase
+			 xmlns:Panelbase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+			 x:Class="NeoWisePlatform.CommonControls.Ctrl_IOMotionPnl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NeoWisePlatform.UI.CommonControls.Panels" 
+			 xmlns:mahapp="http://metro.mahapps.com/winfx/xaml/controls"
+			 mc:Ignorable="d" 
+			 Loaded="UserControl_Loaded" Width="160" Height="185">
+	<Grid>
+        <Rectangle Style="{StaticResource Rectangle_SUB_SUB_PAGE}" Grid.RowSpan="5"/>
+		<StackPanel>
+            <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" x:Name="LblAxisName" Content="Axis Name"/>
+			<StackPanel Orientation="Vertical" Margin="10,0,10,10">
+				<Label x:Name="Label_Timeout" Content="{StaticResource Timeout}" HorizontalAlignment="Left" Style="{StaticResource STYL_GENERAL_LBL_Center}"/>
+                <mahapp:NumericUpDown x:Name="Timeout" Value="9999" Margin="0,5,0,0" Width="132" StringFormat="F0" />
+				<local:Ctrl_IOMotionViewOnly x:Name="IOsStatus" Margin="0,5,0,0"/>
+				<StackPanel x:Name="Stp_Button" Orientation="Horizontal" Margin="0,5,0,0">
+					<Button x:Name="Btn_Reset" Content="{StaticResource Off}" Style="{StaticResource Button_RedContent}" Width="65" Click="Btn_Move_Click" Margin="0,0,0,0"/>
+                    <Button x:Name="Btn_Move" Content="{StaticResource On}"  Style="{StaticResource Button_LimeContent}" Width="65" Click="Btn_Move_Click" Margin="5,0,0,0"/>
+				</StackPanel>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</Panelbase:PanelBase>

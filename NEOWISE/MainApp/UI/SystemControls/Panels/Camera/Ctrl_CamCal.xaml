@@ -1,0 +1,107 @@
+﻿<Panelbase:PanelBase xmlns:Panels="clr-namespace:NeoWisePlatform.UI.CommonControls.Panels" 
+			 xmlns:Panelbase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+			 x:Class="NeoWisePlatform.UI.SystemControls.Panels.Camera.Ctrl_CamCal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NeoWisePlatform.SystemControls.Panels"
+			 xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls" xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    mc:Ignorable="d" 
+             Loaded="UserControl_Loaded">
+    <StackPanel Orientation="Horizontal">
+        <Border Style="{StaticResource PanelInnerThin}">
+            <StackPanel Orientation="Vertical" Margin="0">
+                <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" Content="{StaticResource MmfViewer}"/>
+                <StackPanel Margin="5">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <Button x:Name="Btn_ExportMMF" Tag="Export,MMF" Content="{StaticResource Export}" HorizontalAlignment="Left" Margin="0,0,5,0" VerticalAlignment="Top" Width="75" Click="Btn_Click" />
+                        <Button x:Name="Btn_ImportMMF" Tag="Import,MMF" Content="{StaticResource Import}" HorizontalAlignment="Left" Margin="0,0,5,0" VerticalAlignment="Top" Width="75" Click="Btn_Click"/>
+                    </StackPanel>
+                    <WindowsFormsHost x:Name="DisplayMMF" Tag="Display,MMF" Height="300" Width="300" Margin="0,5,0,0" VerticalAlignment="Top">
+                        <wf:Panel x:Name="wfHost_DispMMF" Tag="PanelDisp,MMF" Dock="Fill" BackgroundImageLayout="Zoom"/>
+                    </WindowsFormsHost>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+        <Border Style="{StaticResource PanelInnerThin}" Margin="5,0,0,0">
+            <StackPanel>
+                <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" Content="{StaticResource CamScale}"/>
+                <Border Style="{StaticResource PanelInnerThin}" Margin="5">
+                    <StackPanel Margin="5">
+                        <Label Content="{StaticResource ScalePixmm}" Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="X" Margin="10,0,0,0" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
+                            <MahApp:NumericUpDown x:Name="XPixMM" Width="100" StringFormat="F3"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Y" Margin="10,0,0,0" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
+                            <MahApp:NumericUpDown x:Name="YPixMM" Width="100" StringFormat="F3"/>
+                        </StackPanel>
+                        <Label Content="{StaticResource ActualLengthMM}" Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" Margin="0,5,0,0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="X" Margin="10,0,0,0" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
+                            <MahApp:NumericUpDown x:Name="XMM" Width="100" StringFormat="F3"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Y" Margin="10,0,0,0" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
+                            <MahApp:NumericUpDown x:Name="YMM" Width="100" StringFormat="F3"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource PanelInnerThin}" Margin="5,0,5,5">
+                    <Grid>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <Border Style="{StaticResource PanelInnerThin}">
+                                    <Grid Margin="0,0,5,5">
+                                        <StackPanel Orientation="Vertical">
+                                            <Label Content="First Point" Style="{StaticResource STYL_GENERAL_LBL_Center}" Width="80" />
+                                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                                <Label Content="X" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
+                                                <Label x:Name="X1" Style="{StaticResource STYLE_POS_CONTENT}" Width="80" />
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                                <Label Content="Y" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
+                                                <Label x:Name="Y1" Style="{StaticResource STYLE_POS_CONTENT}" Width="80" />
+                                            </StackPanel>
+                                            <Button Name="Find1" Width="60" Content="Find" Click="BtnClick" Margin="0,10,0,0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                                <Border Style="{StaticResource PanelInnerThin}" Margin="5,0,0,0">
+                                    <Grid Margin="0,0,5,5">
+                                        <StackPanel Orientation="Vertical">
+                                            <Label Content="Second Point" Style="{StaticResource STYL_GENERAL_LBL_Center}" Width="80" />
+                                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                                <Label Content="X" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
+                                                <Label x:Name="X2" Style="{StaticResource STYLE_POS_CONTENT}" Width="80" />
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                                <Label Content="Y" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
+                                                <Label x:Name="Y2" Style="{StaticResource STYLE_POS_CONTENT}" Width="80" />
+                                            </StackPanel>
+                                            <Button Name="Find2" Width="60" Content="Find" Click="BtnClick" Margin="0,10,0,0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
+                                <ComboBox x:Name="CalDir" Width="90"/>
+                                <Button Name="Calculate" Width="65" Content="Calculate" Height="25" Click="BtnClick" Margin="5,0,0,0"/>
+                                <Button Name="Clear" Width="55" Content="Clear" Height="25" Click="BtnClick"  Margin="5,0,0,0"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </Border>
+        <Border Style="{StaticResource PanelInnerThin}" Margin="5,0,0,0">
+            <StackPanel>
+                <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" Content="{StaticResource CamScale}"/>
+                <Panels:Ctrl_ROIParameter x:Name="TeachROI" Margin="5"/>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</Panelbase:PanelBase>

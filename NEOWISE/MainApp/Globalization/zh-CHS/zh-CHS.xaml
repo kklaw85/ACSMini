@@ -1,0 +1,89 @@
+﻿<Globalization:GlobalizationResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:Globalization="clr-namespace:WPFSharp.Globalizer;assembly=WPFSharp.Globalizer"
+    Name="es-ES"
+    LinkedStyle="es-ES-style"
+    >
+
+    <!-- Main Window -->
+    <sys:String x:Key="MainWindow_Title">WPF Globalization Example (Chinese)</sys:String>
+
+    <!-- Menu strings -->
+
+    <sys:String x:Key="en-US">英语</sys:String>
+    <sys:String x:Key="cs-CZ">捷克语</sys:String>
+    <sys:String x:Key="zh-CHS">简体中文</sys:String>
+    
+    <!-- Ctrl_Alarm -->
+    <sys:String x:Key="TimeStamp">时间戳</sys:String>
+    <sys:String x:Key="Class">班级</sys:String>
+    <sys:String x:Key="Grade">级别</sys:String>
+    <sys:String x:Key="Type">类型</sys:String>
+    <sys:String x:Key="Msg">信息</sys:String>
+    <sys:String x:Key="Clear">清除</sys:String>
+
+    <!-- Ctrl_User_Access -->
+    <sys:String x:Key="LoginTryAgain">ID 或密码不正确。请再试一次！</sys:String>
+    <sys:String x:Key="ChangePasswordTryAgain">密码不匹配。请再试一次！</sys:String>
+    <sys:String x:Key="UserAccessConfig">用户访问配置</sys:String>
+    <sys:String x:Key="AddUser">添加用户</sys:String>
+    <sys:String x:Key="EditDelUser">编辑/删除用户</sys:String>
+    <sys:String x:Key="DelUser">删除用户</sys:String>
+    <sys:String x:Key="ChangePassword">更改密码</sys:String>
+    <sys:String x:Key="NewPassword">新密码</sys:String>
+    <sys:String x:Key="OldPassword">旧密码</sys:String>
+    <sys:String x:Key="RetypeNewPassword">重新输入新密码</sys:String>
+    <sys:String x:Key="Logout">登出</sys:String>
+    <sys:String x:Key="UserID">ID</sys:String>
+    <sys:String x:Key="Password">密码</sys:String>
+    <sys:String x:Key="UserLevel">用户级别</sys:String>
+    <sys:String x:Key="Login">登录</sys:String>
+    <sys:String x:Key="CreateUser">创建用户</sys:String>
+    <sys:String x:Key="Cancel">取消</sys:String>
+    <sys:String x:Key="ApplyPrivilege">申请特权</sys:String>
+    <sys:String x:Key="UserList">用户列表</sys:String>
+    <sys:String x:Key="Privilege">特权</sys:String>
+
+    <!-- Ctrl_AutoPnl -->
+    <sys:String x:Key="Pause">暂停</sys:String>
+    <sys:String x:Key="Stop">停止</sys:String>
+    <sys:String x:Key="CycleStop">循环停止</sys:String>
+
+    <!-- Ctrl_AutoStartPnl -->
+    <sys:String x:Key="StartStation1">开始 Station1</sys:String>
+    <sys:String x:Key="StartStation2">开始 Station2</sys:String>
+    <sys:String x:Key="Start">开始</sys:String>
+
+    <!-- Ctrl_TrayStatusViewOnly -->
+    <sys:String x:Key="TopCover">顶盖</sys:String>
+    <sys:String x:Key="Stopper">塞子</sys:String>
+    <sys:String x:Key="TrayClosed">托盘关闭</sys:String>
+
+    <!-- Ctrl_ShopFloorInfo -->
+    <sys:String x:Key="Cavity">腔体</sys:String>
+    <sys:String x:Key="Serial">序列号</sys:String>
+    <sys:String x:Key="ProductType">产品类别</sys:String>
+    <sys:String x:Key="Color">颜色</sys:String>
+    <sys:String x:Key="ImagePath">图片路径</sys:String>
+
+    <!-- Ctrl_AutoStatistical -->
+    <sys:String x:Key="AutoStatistical">统计状态</sys:String>
+    <sys:String x:Key="Reset">Reset</sys:String>
+    <sys:String x:Key="Counter">标记 计数器</sys:String>
+    <sys:String x:Key="MeasuredHeight">测量高度 (mm)</sys:String>
+    <sys:String x:Key="MeasuredProdWidth">测量产品宽度 (mm)</sys:String>
+    <sys:String x:Key="MeasuredProdRotY">测量产品旋转 Y (mm)</sys:String>
+    <sys:String x:Key="MeasuredProdAngle">测量产品角度 (°)</sys:String>
+
+    <!-- Ctrl_AutoStationFlag -->
+    <sys:String x:Key="isReadyToMark">准备好标记</sys:String>
+
+    <!-- Ctrl_AutoRunStatusTray -->
+    <sys:String x:Key="Sequences">序列</sys:String>
+    <sys:String x:Key="Tray">托盘</sys:String>
+
+    <sys:String x:Key="LanguageSelectionLabel">语言选择标签</sys:String>
+
+</Globalization:GlobalizationResourceDictionary>

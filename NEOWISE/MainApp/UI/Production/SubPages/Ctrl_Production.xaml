@@ -1,0 +1,63 @@
+﻿<Pagebase:PageBase xmlns:Camera="clr-namespace:NeoWisePlatform.UI.ProductionSetup.Panels.Camera" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:Pagebase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+             xmlns:Panels1="clr-namespace:NeoWisePlatform.Production.Panels"
+             xmlns:CommonControls1="clr-namespace:NeoWisePlatform.UI.CommonControls"
+    x:Class="NeoWisePlatform.Production.SubPages.Ctrl_Production"
+             mc:Ignorable="d" Width="1300"
+             Loaded="UserControl_Loaded">
+    <Grid Margin="0,0,0,0">
+        <Rectangle Style="{StaticResource  Rectangle_SUB_PAGE}"/>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+            <Grid>
+                <StackPanel Orientation="Vertical" Margin="10" >
+                    <Panels1:Ctrl_AutoRunCommon x:Name="SeqStatus" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5"/>
+                </StackPanel>
+            </Grid>
+            <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+                <Grid>
+                    <StackPanel Orientation="Vertical" Margin="10">
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+        <DockPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
+                    <CommonControls1:Ctrl_DisplayPanels x:Name="FOV1" Height="Auto" Margin="0,0,5,0"/>
+                    <CommonControls1:Ctrl_DisplayPanels x:Name="FOV2" Height="Auto"/>
+                </StackPanel>
+                <Border Style="{StaticResource Panel}" Background="{StaticResource Gradient_Panel}" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" >
+                    <StackPanel Margin="5">
+                        <StackPanel Orientation="Vertical" >
+                            <Border Style="{StaticResource Panel}">
+                                <StackPanel Orientation="Vertical">
+                                    <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" Content="Inspection Data (Stage)"/>
+                                    <Camera:Ctrl_CollectiveInspectionStatus x:Name="StageInsp" Margin="5"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource Panel}" Margin="0,5,0,0">
+                                <StackPanel Orientation="Vertical">
+                                    <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" Content="Inspection Data (PNP)"/>
+                                    <Camera:Ctrl_CollectiveInspectionStatus x:Name="PNPInsp" Margin="5"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+
+
+            </StackPanel>
+        </DockPanel>
+        <DockPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10">
+                <Panels1:Ctrl_AutoPnl  x:Name="btn_StopButton"/>
+            </StackPanel>
+
+        </DockPanel>
+    </Grid>
+</Pagebase:PageBase>

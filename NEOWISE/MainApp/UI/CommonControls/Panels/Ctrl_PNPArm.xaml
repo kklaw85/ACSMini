@@ -1,0 +1,129 @@
+﻿<Panelbase:PanelBase xmlns:Panels="clr-namespace:NeoWisePlatform.UI.CommonControls.Panels" 
+			 xmlns:Panelbase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="NeoWisePlatform.UI.CommonControls.Panels.Ctrl_PNPArm" 
+			 xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             Loaded="UserControl_Loaded">
+    <StackPanel Orientation="Vertical">
+        <Label x:Name="NameLbl" Content="Name" Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}"/>
+        <StackPanel x:Name="Expanderpnl">
+            <Expander Header="{StaticResource ArmCfg}" Margin="5" Expanded="HandleExpanderExpanded">
+                <StackPanel Orientation="Vertical" x:Name="ArmCfg" Margin="5">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{StaticResource Timeout}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="70"/>
+                        <MahApp:NumericUpDown x:Name="ArmTimeout" Width="60" StringFormat="f0" Value="{Binding Configuration.TimeOut}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Expander>
+            <Expander Header="{StaticResource PickCfg}" Margin="5" Expanded="HandleExpanderExpanded">
+                <StackPanel Orientation="Vertical" x:Name="PickCfg" Margin="5">
+                    <StackPanel Orientation="Horizontal"  Margin="0,0,0,5">
+                        <Label Content="{StaticResource Timeout}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="70"/>
+                        <MahApp:NumericUpDown x:Name="PickTimeout" Width="60" StringFormat="f0" Value="{Binding Configuration.Pick.TimeOut}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{StaticResource Delayms}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="70"/>
+                        <MahApp:NumericUpDown x:Name="PickDelay" Width="60" StringFormat="f0" Value="{Binding Configuration.Pick.Delay}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Expander>
+            <Expander Header="{StaticResource PlaceCfg}" Margin="5" Expanded="HandleExpanderExpanded">
+                <StackPanel Orientation="Vertical" x:Name="PlaceCfg" Margin="5">
+                    <StackPanel Orientation="Horizontal"  Margin="0,0,0,5">
+                        <Label Content="{StaticResource Timeout}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="70"/>
+                        <MahApp:NumericUpDown x:Name="PlaceTimeout" Width="60" StringFormat="f0" Value="{Binding Configuration.Place.TimeOut}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{StaticResource Delayms}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="70"/>
+                        <MahApp:NumericUpDown x:Name="PlaceDelay" Width="60" StringFormat="f0" Value="{Binding Configuration.Place.Delay}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Expander>
+        </StackPanel>
+        <Border Style="{StaticResource PanelInner}" Margin="5">
+            <StackPanel Margin="0,0,0,0">
+                <Label Content="IO State" Style="{StaticResource STYL_GENERAL_LBL_Center}"/>
+                <Border Style="{StaticResource PanelInnerThin}" Margin="5">
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="Arm" Style="{StaticResource STYL_BUTTON_LBL_COMPACT_RightAligned}" Width="50"/>
+                        <StackPanel Orientation="Vertical" Margin="5,0,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="I." Style="{StaticResource STYL_BUTTON_LBL_COMPACT_RightAligned}" Width="20"/>
+                                <Rectangle Style="{StaticResource Slot_Input}" Height="10" Width="15" x:Name="InResetPos" Fill="{Binding _ResetPos.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
+                                <Rectangle Style="{StaticResource Slot_Input}" Height="10" Width="15" x:Name="InInPos" Fill="{Binding _InPos.Value, Converter={StaticResource DioValueToBrushIORec}}" Margin="2,0,0,0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                                <Label Content="O." Style="{StaticResource STYL_BUTTON_LBL_COMPACT_RightAligned}" Width="20"/>
+                                <Rectangle Style="{StaticResource Slot_Input}" Height="10" Width="15" x:Name="OutResetPos" Fill="{Binding _ToResetCylinder.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
+                                <Rectangle Style="{StaticResource Slot_Input}" Height="10" Width="15" x:Name="OutInPos" Fill="{Binding _ToPosCylinder.Value, Converter={StaticResource DioValueToBrushIORec}}" Margin="2,0,0,0"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource PanelInnerThin}" Margin="5,0,5,5">
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="Suction" Style="{StaticResource STYL_BUTTON_LBL_COMPACT_RightAligned}" Width="50"/>
+                        <StackPanel Orientation="Vertical"  Margin="5,0,0,0">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                                <Label Content="I." Style="{StaticResource STYL_BUTTON_LBL_COMPACT_RightAligned}" Width="20"/>
+                                <Rectangle Style="{StaticResource Slot_Input}" Height="10" Width="15" x:Name="SucI" Fill="{Binding _VacuumSuctionSense.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                                <Label Content="O." Style="{StaticResource STYL_BUTTON_LBL_COMPACT_RightAligned}" Width="20"/>
+                                <Rectangle Style="{StaticResource Slot_Input}" Height="10" Width="15" x:Name="SucO" Fill="{Binding _VacuumSuction.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+        <Border Style="{StaticResource PanelInner}" Margin="5">
+            <StackPanel Margin="0,0,0,0">
+                <Label Content="Manual Ctrl." Style="{StaticResource STYL_GENERAL_LBL_Center}"/>
+                <Border Style="{StaticResource PanelInnerThin}" Margin="5">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Clamp" Style="{StaticResource STYL_GENERAL_LBL_Center}"/>
+                        <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
+                            <Button x:Name="BtnArmUp" Style="{StaticResource Button_SubMenu}" Width="50" Height="50" Click="Btn_Click" ToolTip="Arm Up">
+                                <Image Style="{StaticResource STYL_LBL_IMG_IO_MENU_ICON}" Source="/Icons/DPAD_Up.png"/>
+                            </Button>
+                            <Button x:Name="BtnArmDown" Style="{StaticResource Button_SubMenu}" Width="50" Height="50" Margin="5,0,0,0" Click="Btn_Click" ToolTip="Arm Down">
+                                <Image Style="{StaticResource STYL_LBL_IMG_IO_MENU_ICON}" Source="/Icons/DPAD_Down.png"/>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource PanelInnerThin}" Margin="5,0,5,5">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Suction" Style="{StaticResource STYL_GENERAL_LBL_Center}"/>
+                        <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
+                            <Button x:Name="BtnSuctionOff" Style="{StaticResource Button_SubMenu}" Width="50" Height="50" Click="Btn_Click" ToolTip="Suction off">
+                                <Image Style="{StaticResource STYL_LBL_IMG_IO_MENU_ICON}" Source="/Icons/StageSuctionOff.png"/>
+                            </Button>
+                            <Button x:Name="BtnSuctionOn" Style="{StaticResource Button_SubMenu}" Width="50" Height="50" Margin="5,0,0,0" Click="Btn_Click" ToolTip="Suction on">
+                                <Image Style="{StaticResource STYL_LBL_IMG_IO_MENU_ICON}" Source="/Icons/StageSuctionOn.png"/>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+        <Border Style="{StaticResource PanelInner}" Margin="5">
+            <StackPanel Margin="0,0,0,0">
+                <Label Content="Seq. Ctrl." Style="{StaticResource STYL_GENERAL_LBL_Center}"/>
+                <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
+                    <Button x:Name="BtnPlace" Style="{StaticResource Button_SubMenu}" Width="50" Height="50" Click="Btn_Click" ToolTip="Place">
+                        <Image Style="{StaticResource STYL_LBL_IMG_IO_MENU_ICON}" Source="/Icons/Place.png"/>
+                    </Button>
+                    <Button x:Name="BtnPick" Style="{StaticResource Button_SubMenu}" Width="50" Height="50" Click="Btn_Click" ToolTip="Pick" Margin="5,0,0,0">
+                        <Image Style="{StaticResource STYL_LBL_IMG_IO_MENU_ICON}" Source="/Icons/Pick.png"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</Panelbase:PanelBase>

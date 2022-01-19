@@ -1,0 +1,145 @@
+# Description: 
+# The file tells git what files to ignore during add and commit
+# operations. This has been optimized for development using 
+# Microsoft Visual Studio 2010.
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+
+ Files built by Visual Studio
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
+
+# Others
+ClientBin/
+~$*
+*~
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pfx
+*.publishsettings
+orleans.codegen.cs
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+
+# Visual Studio 2017 auto generated files
+Generated\ Files/
+
+# Visual Studio 6 build log
+*.plg
+
+# Visual Studio 6 workspace options file
+*.opt
+
+# MIT Prj specific tmp
+PrjObj/
+[Bb]ench Debug 300/
+[Dd]ebug 300/
+[Bb]enchDebug300/
+[Dd]ebug300/
+[Bb]enchDebug/
+[Dd]ebug/
+# Others
+*.log
+/mitcontrol/Control/SGLog
+/Machine/Application/Prj.exe
+
+#WPF C#
+/src/*/*/bin/*
+/src/*/*/obj/*
+/logs
+/*.suo
+/src/tests/TestResults
+/*.testsettings
+/*.vsmdi
+*.user
+/msbuild.log
+/buildartifacts/*
+StyleCop.Cache
+/StyleCopViolations.xml
+pskill.exe
+PsExec.exe
+PsExec64.exe
+/src/app/Library/MItLib.Components/obj
+/src/app/Library/MItLib.Components/bin
+/src/app/Library/MitLib.Infrastructure/obj
+/src/app/Library/MitLib.Infrastructure/bin
+/src/app/Library/MitLib.InfrastructureModules/obj
+/src/app/Library/MitLib.InfrastructureModules/bin
+/src/app/Library/MitLib.IOT/obj
+/src/app/Library/MitLib.IOT/bin
+/src/app/Library/MitLib.Utility/obj
+/src/app/Library/MitLib.Utility/bin
+/src/app/Library/UserControls/MitLib.UserControls.UCWaferInfo/obj
+/src/app/Library/UserControls/MitLib.UserControls.UCWaferInfo/bin
+/src/app/Library/UserControls/MitLib.UserControls.UCWaferTable/obj
+/src/app/Library/UserControls/MitLib.UserControls.UCWaferTable/bin
+/obj
+/src/app/Library/UserControls/MitLib.UserControls.UCWaferInfo
+/Machine/Manual/PDF

@@ -1,0 +1,969 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib">
+
+    <!--ENGLISH-->
+    <System:String x:Key="LanguageSelection">Language</System:String>
+    <System:String x:Key="English">ENG</System:String>
+    <System:String x:Key="UserAccessConfig">User Access Configuration</System:String>
+    <System:String x:Key="CurrentUser">Current User</System:String>
+    <System:String x:Key="CreateUser">Create User</System:String>
+    <System:String x:Key="NewUser">New User</System:String>
+    <System:String x:Key="ChangePassword">Change Password</System:String>
+    <System:String x:Key="OldPassword">Old Password</System:String>
+    <System:String x:Key="NewPassword">New Password</System:String>
+    <System:String x:Key="RetypeNewPassword">Retype New Password</System:String>
+    <System:String x:Key="Confirm">Confirm</System:String>
+    <System:String x:Key="GroupID">GroupID</System:String>
+    <System:String x:Key="UserList">User List</System:String>
+    <System:String x:Key="Privilege">Privilege</System:String>
+    <System:String x:Key="ApplyPrivilege">Apply Privilege</System:String>
+    <System:String x:Key="EditDelUser">Edit/Delete User</System:String>
+    <System:String x:Key="UserLevel">User Level</System:String>
+    <System:String x:Key="Password">Password</System:String>
+    <System:String x:Key="Login">Login</System:String>
+    <System:String x:Key="Logout">Logout</System:String>
+    <System:String x:Key="LoginTryAgain">Incorrect ID or Password. Please try again!</System:String>
+    <System:String x:Key="ChangePasswordTryAgain">Password mismatch. Please try again!</System:String>
+    <System:String x:Key="AddUser">Add User</System:String>
+    <System:String x:Key="DelUser">Delete User</System:String>
+    <System:String x:Key="AssignPrivilege">Assign Privilege</System:String>
+
+    <System:String x:Key="RecipeList">Recipe List</System:String>
+    <System:String x:Key="ProductList">Product List</System:String>
+    <System:String x:Key="RecipeName">Recipe Name</System:String>
+
+    <!--Main Window-->
+    <System:String x:Key="MotionIO">Motion I/O</System:String>
+    <System:String x:Key="Lift">Lift</System:String>
+    <System:String x:Key="Step1LoadUnloadMat">Step 1.Load Mat.</System:String>
+    <System:String x:Key="Step2WorkPos">Step 2.Work Pos.</System:String>
+    <System:String x:Key="Step3Vision">Step 3.Vision</System:String>
+    <System:String x:Key="LiftCtrl">Lift Ctrl.</System:String>
+    <System:String x:Key="LiftCfg">Lift Cfg.</System:String>
+
+    <!--PreInitialization-->
+    <System:String x:Key="SystemInitialzationStatus">System Initialization Status</System:String>
+    <System:String x:Key="MotionController">AMP204C Motion/IO Controller</System:String>
+    <System:String x:Key="IOCard">PCI-7432 IO Controller </System:String>
+    <System:String x:Key="StageSys">Stage System</System:String>
+    <System:String x:Key="PNPSys">PNP System</System:String>
+    <System:String x:Key="NewLiftSys">New Lift System</System:String>
+    <System:String x:Key="QICLiftSys">QIC Lift System</System:String>
+    <System:String x:Key="VisionProcessing">Vision Processing</System:String>
+    <System:String x:Key="CSTLightSource">CST LightSource</System:String>
+    <System:String x:Key="Exit">Exit</System:String>
+    <System:String x:Key="MotionInitFailed">Motion Card Init Failed</System:String>
+    <System:String x:Key="IOInitFailed">IO Card Init Failed</System:String>
+    <System:String x:Key="EZCADInitFailed">EzCad Init Failed</System:String>
+    <System:String x:Key="LaserHeadInitFailed">LaserHead Init Failed</System:String>
+    <System:String x:Key="Station1InitFailed">Station1 Init Failed</System:String>
+    <System:String x:Key="Station2InitFailed">Station2 Init Failed</System:String>
+    <System:String x:Key="VisionProcessingInitFailed">Vision Processing Init Failed</System:String>
+    <System:String x:Key="CSTLightSourceInitFailed">CST LightSource Init Failed</System:String>
+    <System:String x:Key="ThermoHygroInitFailed">ThermoHygro Init Failed</System:String>
+    <System:String x:Key="InitializationCompleted">Initialization Completed</System:String>
+    
+    <!--Production Setting-->
+    <System:String x:Key="ProductionSetting">Production Setting</System:String>
+    <System:String x:Key="Enable">Enable</System:String>
+    <System:String x:Key="LaserControl">Laser Control</System:String>
+    <System:String x:Key="PowerWatts">Power(Watts)</System:String>
+    <System:String x:Key="EnableContour">En.Contour</System:String>
+    <System:String x:Key="ContourFirst">Contour First</System:String>
+    <System:String x:Key="Min">Min</System:String>
+    <System:String x:Key="Max">Max</System:String>
+    <System:String x:Key="Interval">Int.</System:String>
+    <System:String x:Key="On">ON</System:String>
+    <System:String x:Key="Off">OFF</System:String>
+    <System:String x:Key="Toggle">Toggle</System:String>
+    <System:String x:Key="ApplyToAll">Apply To All</System:String>
+    <System:String x:Key="UserID">ID</System:String>
+    <System:String x:Key="Ok">OK</System:String>
+    
+    <!--BP View-->
+    <System:String x:Key="CameraSetting">Camera Sett.</System:String>
+    <System:String x:Key="General">General</System:String>
+    <System:String x:Key="ExposureSetting">Exposure Sett.</System:String>
+    <System:String x:Key="ExposureGammaSetting">Exposure/Gamma Sett.</System:String>
+    <System:String x:Key="GammaSetting">Gamma Sett.</System:String>
+    <System:String x:Key="ShowCrosshair">Show Crosshair</System:String>
+    <System:String x:Key="Gain">Gain</System:String>
+    <System:String x:Key="Exposure">Exposure</System:String>
+    <System:String x:Key="Gamma">Gamma</System:String>
+    <System:String x:Key="OrAl">Orientation/Alignment</System:String>
+    <System:String x:Key="CC">Content Check</System:String>
+
+    <!--Carriage Theta Control-->
+    <System:String x:Key="ExitApplication">Exit Application？</System:String>
+    <System:String x:Key="Copy">Copy</System:String>
+    <System:String x:Key="Remove">Remove</System:String>
+    <System:String x:Key="Home">Home</System:String>
+    <System:String x:Key="Reset">Reset</System:String>
+    <System:String x:Key="SaveImg">Save Image</System:String>
+    <System:String x:Key="SaveBinImg">Save Bin. Img.</System:String>
+    <System:String x:Key="SaveProcImg">Save Proc. Img.</System:String>
+    <System:String x:Key="LoadFile">Load File</System:String>
+    <System:String x:Key="Version">Version (2.3.0.28)</System:String>
+    <System:String x:Key="Laser">Laser</System:String>
+    <!--Axis instrument UI-->
+    <System:String x:Key="MotionConfig">Motion Configuration.</System:String>
+    <System:String x:Key="Motion">Motion.</System:String>
+    <System:String x:Key="IO">IO.</System:String>
+    <System:String x:Key="Config">Configuration.</System:String>
+    <System:String x:Key="CamConfig">Config.</System:String>
+    <System:String x:Key="AxisStatusIOPos">Axis Status (IO/Position).</System:String>
+    <System:String x:Key="AxisConfig">Axis Configuration.</System:String>
+    <System:String x:Key="AxisID">Axis ID.</System:String>
+    <System:String x:Key="ModuleNo">Module No.</System:String>
+    <System:String x:Key="AxisNegDir">Axis Neg Dir.</System:String>
+    <System:String x:Key="MotionScale">Motion Scale (Pulse/mm).</System:String>
+    <System:String x:Key="MotionUnit">Motion Unit.</System:String>
+    <System:String x:Key="MaxAcc">Max Acceleration.</System:String>
+    <System:String x:Key="MaxDec">Max Deceleration.</System:String>
+    <System:String x:Key="MaxVel">Max Velocity.</System:String>
+    <System:String x:Key="PosUSL">Position Upper Limit (mm).</System:String>
+    <System:String x:Key="PosLSL">Position Lower Limit (mm).</System:String>
+    <System:String x:Key="MotionProfileGen">Motion Profile (General Move)</System:String>
+    <System:String x:Key="GenVel">General Velocity (mm/s)</System:String>
+    <System:String x:Key="GenAcc">General Acceleration (mm/s2)</System:String>
+    <System:String x:Key="GenDec">General Deceleration (mm/s2)</System:String>
+    <System:String x:Key="MotionProfileCmd">Motion Profile (Commanded Move)</System:String>
+    <System:String x:Key="ComVel">Commanded Velocity (mm/s)</System:String>
+    <System:String x:Key="ComAcc">Commanded Acceleration (mm/s2)</System:String>
+    <System:String x:Key="ComDec">Commanded Deceleration (mm/s2)</System:String>
+    <System:String x:Key="Vel">Velocity (mm/s)</System:String>
+    <System:String x:Key="Acc">Acceleration (mm/s2)</System:String>
+    <System:String x:Key="Dec">Deceleration (mm/s2)</System:String>
+    <System:String x:Key="UseGen">Use General</System:String>
+    <System:String x:Key="UseCom">Use Commanded</System:String>
+
+    <System:String x:Key="TgtMov">Target Move (mm)</System:String>
+    <System:String x:Key="StpMov">Step Move (mm)</System:String>
+    <System:String x:Key="VelMov">Velocity Move (mm/s)</System:String>
+
+    <System:String x:Key="MoveTest">Move Test</System:String>
+
+    <System:String x:Key="CMDPos">Command Position (mm)</System:String>
+    <System:String x:Key="FeedBackPos">Feedback Position (mm)</System:String>
+    <System:String x:Key="ErrorPos">Error Position (mm)</System:String>
+
+    <!--Axis Board instrument UI-->
+    <System:String x:Key="AxisBoardCfg">Axis Board Configuration.</System:String>
+    <System:String x:Key="AxisBoardCfgFilePath">Config FilePath.</System:String>
+    <System:String x:Key="AxisBoardStartID">Axis Start ID.</System:String>
+    <System:String x:Key="AxisMNETTxRate">MNET Transfer Rate.</System:String>
+    <System:String x:Key="AdlinkType">Type</System:String>
+    <System:String x:Key="AxisHSLTxRate">HSL Transfer Rate.</System:String>
+    <System:String x:Key="AxisCardID">Card ID</System:String>
+
+    <!--IO instrument UI-->
+    <System:String x:Key="Input">Input</System:String>
+    <System:String x:Key="Output">Output</System:String>
+    <System:String x:Key="Vac">Vacuum</System:String>
+    <System:String x:Key="PollingRate">Polling Rate(ms)</System:String>
+
+    <!--Camera-->
+    <System:String x:Key="Name">Name</System:String>
+    <System:String x:Key="CamName">Cam Name</System:String>
+    <System:String x:Key="CamID">Camera ID</System:String>
+    <System:String x:Key="YPixMM">Y(Pixels/mm)</System:String>
+    <System:String x:Key="XPixMM">X(Pixels/mm)</System:String>
+    <System:String x:Key="ScalePixmm">Image Scale (Pixels/mm)</System:String>
+    <System:String x:Key="ActualLengthMM">Actual Length (mm)</System:String>
+    <System:String x:Key="CamCal">Calibration</System:String>
+    <System:String x:Key="ImgRotationAngle">Img Rot. θ</System:String>
+
+    <!--Serial Communication UI-->
+    <System:String x:Key="SerialComm">Serial Communicator</System:String>
+    <System:String x:Key="BaudRate">Baud Rate</System:String>
+    <System:String x:Key="DataBit">Data Bits</System:String>
+    <System:String x:Key="Parity">Parity</System:String>
+    <System:String x:Key="StopBit">Stop Bits</System:String>
+    <System:String x:Key="DtrEn">Dtr Enable</System:String>
+    <System:String x:Key="RtsEn">Rts Enable</System:String>
+    <System:String x:Key="ReadTimeOut">Read T/O (ms)</System:String>
+    <System:String x:Key="ReadBufferSize">Read Buffer Size (bytes)</System:String>
+    <System:String x:Key="WriteTimeOut">Write T/O (ms)</System:String>
+    <System:String x:Key="WriteBufferSize">Write Buffer Size (bytes)</System:String>
+    <System:String x:Key="Prefix">Prefix</System:String>
+    <System:String x:Key="Suffix">Suffix</System:String>
+    <System:String x:Key="AsHex">Show as HEX</System:String>
+
+    <System:String x:Key="HomingProfile">Homing Profile</System:String>
+    <System:String x:Key="HomeMode">Home Mode</System:String>
+    <System:String x:Key="HomeDir">Home Dir.</System:String>
+    <System:String x:Key="HomeEZ">Home EZ. (Steps)</System:String>
+    <System:String x:Key="HomeVMax">Home Max. Vel.(mm/s)</System:String>
+    <System:String x:Key="HomeVO">Home Org. Vel.(mm/s)</System:String>
+    <System:String x:Key="HomeOff">Home Offset.(mm)</System:String>
+    <System:String x:Key="TimeAcc">Time Acc. (mm/s^2)</System:String>
+    <System:String x:Key="TimeDec">Time Dec.(mm/s^2)</System:String>
+
+    <System:String x:Key="HomeVelMode">Home Vel. Mode</System:String>
+
+
+    <!--Optx Height Sensor UI-->
+    <System:String x:Key="HeightSensor">Height Sensor</System:String>
+    <System:String x:Key="HeightValue">Height(mm)</System:String>
+    <System:String x:Key="HeightRaw">Raw Height</System:String>
+    <System:String x:Key="Sensitivity">Sensitivity</System:String>
+    <System:String x:Key="SamplingPeriod">Sampling Period</System:String>
+
+    <System:String x:Key="NFC">NFC</System:String>
+    <System:String x:Key="FieldLevel">Field Level</System:String>
+    <System:String x:Key="RFSPD">RF Speed</System:String>
+    <System:String x:Key="RFTYPE">RF Type</System:String>
+    <System:String x:Key="DataSend">Data</System:String>
+    <System:String x:Key="DEF">DEF</System:String>
+    <System:String x:Key="EnNFCState">EnNFCState</System:String>
+
+    <System:String x:Key="HeightSensorSetCalibrate">Height Sensor Setting and Calibration</System:String>
+    <System:String x:Key="Settings">Settings</System:String>
+    <System:String x:Key="Current">Current</System:String>
+    <System:String x:Key="Mid">Middle(mm)</System:String>
+    <System:String x:Key="Top">Top(mm)</System:String>
+    <System:String x:Key="Bot">Bottom(mm)</System:String>
+    <System:String x:Key="Read">Read</System:String>
+    <System:String x:Key="Apply">Apply</System:String>
+    <System:String x:Key="Delayms">Delay(ms)</System:String>
+    <System:String x:Key="LaserPower">Laser Power</System:String>
+    <System:String x:Key="NoOfAveraging">No of Averaging</System:String>
+    <System:String x:Key="NoOfSteps">No of Steps</System:String>
+	<System:String x:Key="OptexSensorSetting">Optex Sensor Setting.</System:String>
+    <System:String x:Key="OPMGain">Gain</System:String>
+    <System:String x:Key="OPMOffset">Offset</System:String>
+
+    <System:String x:Key="LaserHeadMotionCameraDelayms">LH Camera Delay(ms)</System:String>
+    <!--EzCard UI-->
+    <System:String x:Key="GalvoToCamCenterOffset">Galvo to Cam off.</System:String>
+    <System:String x:Key="EzLaserPos">Laser Position</System:String>
+    <System:String x:Key="EzLaserJog">Laser Jog</System:String>
+    <System:String x:Key="EzStep">Step (mm)</System:String>
+    <System:String x:Key="EzPosX">Pos. X (mm)</System:String>
+    <System:String x:Key="EzPosY">Pos. Y (mm)</System:String>
+    <System:String x:Key="EzRotate">Angle (°)</System:String>
+
+    <System:String x:Key="EzPenSetting">Pen. Setting</System:String>
+    <System:String x:Key="EzFreq">Frequency (Hz)</System:String>
+    <System:String x:Key="EzPulseW">Pulse Width (us)</System:String>
+    <System:String x:Key="EzSpeed">Speed (mm/s)</System:String>
+    <System:String x:Key="EzPower">Power (W)</System:String>
+    <System:String x:Key="EzStartTC">Start TC (us)</System:String>
+    <System:String x:Key="EzEndTC">End TC (us)</System:String>
+    <System:String x:Key="EzLaserOffTC">Laser Off TC (us)</System:String>
+    <System:String x:Key="EzPolygonTC">Polygon TC (us)</System:String>
+    <System:String x:Key="EzJump">Jump (mm/s)</System:String>
+    <System:String x:Key="EzJumpLimit">Jump Limit (mm)</System:String>
+    <System:String x:Key="EzMinJump">Min. Jump (us)</System:String>
+    <System:String x:Key="EzMaxJump">Max. Jump (us)</System:String>
+    <System:String x:Key="Status">Status</System:String>
+
+    <System:String x:Key="EzFillSetting">Fill Setting</System:String>
+    <System:String x:Key="EzFillType">Fill Type</System:String>
+    <System:String x:Key="EzTxtHeight">Text Height (mm)</System:String>
+    <System:String x:Key="EzTxtWidth">Text Width (mm)</System:String>
+    <System:String x:Key="EzLineSpace">Line Spacing (mm)</System:String>
+    <System:String x:Key="EzBitmapDPI">Bitmap DPI</System:String>
+    <System:String x:Key="EzSaveParam">Save Parameters</System:String>
+
+    <!--SMEMA UI-->
+    <System:String x:Key="InletSetting">Inlet Setting</System:String>
+    <System:String x:Key="OutletSetting">Outlet Setting</System:String>
+    <System:String x:Key="SMEMASetting">SMEMA Setting</System:String>
+    <System:String x:Key="SMEMAType">SMEMA Type</System:String>
+    <System:String x:Key="SMEMAInlet">SMEMA In.</System:String>
+    <System:String x:Key="SMEMAOutlet">SMEMA Out.</System:String>
+    <System:String x:Key="ConveyorEmptyDelay">Conveyor Empty Delay.(ms)</System:String>
+    <System:String x:Key="ConveyorPalletCnDelay">Pallet Count Delay.(ms)</System:String>
+    <System:String x:Key="AvailabeSignalDelay">Board Available Signal Delay.(ms)</System:String>
+    <System:String x:Key="BoardDetect">Board Detect Delay.(ms)</System:String>
+    <System:String x:Key="RequestSignalDelay">Board Request Signal Delay.(ms)</System:String>
+    <System:String x:Key="ConveyorRunTimeout">Conveyor Run T/O.(ms)</System:String>
+    <System:String x:Key="ConveyorRunTimeout3Boards">Board Clear Delay 3 Boards.(ms)</System:String>
+
+    <!--SMEMA Inlet Manual UI-->
+    <System:String x:Key="BoardAvailable">Board Avai.</System:String>
+    <System:String x:Key="Ready">Ready</System:String>
+    <System:String x:Key="ReadySignal">Ready Signal</System:String>
+    <System:String x:Key="AvailableSignal">Available Signal</System:String>
+    <System:String x:Key="ReadyTransfer3Board">Trf. 3 Brds.</System:String>
+
+    <!--LaserHead autorun UI-->
+    <System:String x:Key="SeqStatus">Sequence Status</System:String>
+    <System:String x:Key="MainSeq">Main</System:String>
+    <System:String x:Key="LaserHeadSeq">LaserHead</System:String>
+    <System:String x:Key="PNP">PNP</System:String>
+    <System:String x:Key="Stage">Stage</System:String>
+    <System:String x:Key="NewLift">New Lift</System:String>
+    <System:String x:Key="QICLift">QIC Lift</System:String>
+    <System:String x:Key="ActiveStation">Active Stn.</System:String>
+    <System:String x:Key="LaserHead">Laser Head</System:String>
+
+    <!--LaserHead autorun Statistical-->
+    <System:String x:Key="AutoStatistical">Statistical Status</System:String>
+    <System:String x:Key="Counter">Marked Qty.</System:String>
+    <System:String x:Key="MeasuredHeight">Meas. Height (mm)</System:String>
+    <System:String x:Key="MeasuredProdWidth">Prod. Width (mm)</System:String>
+    <System:String x:Key="MeasuredProdRotY">Meas. Rot. Y (mm)</System:String>
+    <System:String x:Key="MeasuredProdAngle">Meas. Prod. Angle (°)</System:String>
+    <System:String x:Key="MeasuredOffX">Meas. Off. X (mm)</System:String>
+    <System:String x:Key="MeasuredOffY">Meas. Off. Y (mm)</System:String>
+    <System:String x:Key="MeasuredAngle">Meas. Angle (°)</System:String>
+    
+    <!--ConveyorJog UI-->
+    <System:String x:Key="Inlet">Inlet</System:String>
+    <System:String x:Key="Outlet">Outlet</System:String>
+    <System:String x:Key="ConveyorInlet">Convy. In</System:String>
+    <System:String x:Key="ConveyorOutlet">Convy. Out</System:String>
+    <System:String x:Key="ConveyorInletState">CV In State</System:String>
+    <System:String x:Key="ConveyorOutletState">CV Out State</System:String>
+    <!-- Check Height - Slanted Products Checking-->
+
+    <System:String x:Key="SlantedProductChecking">Slanted Products Checking</System:String>
+    <System:String x:Key="MultiPointCheck">Multipoint Height Check</System:String>
+    <System:String x:Key="DisableCheck">Disable</System:String>
+    <System:String x:Key="SlantedCheckX">Scan Range X(±mm)</System:String>
+    <System:String x:Key="SlantedCheckY">Scan Range Y(±mm)</System:String>
+    <System:String x:Key="CompensationTolerance">Comp. Lmt.(±mm)</System:String>
+    <System:String x:Key="AcceptanceTolerance">Accept Lmt.(±mm)</System:String>
+    <System:String x:Key="CheckLimit">Checking Limit(±mm)</System:String>
+    <System:String x:Key="RejectionTolerance">Reject Tol(±mm)</System:String>
+    <System:String x:Key="AcceptanceTolerance_tooltip">Height difference within this limit will not be compensated(±mm)</System:String>
+    <System:String x:Key="CompensationTolerance_tooltip">Height difference within the Acceptance and Compensation limit will be compensated(±mm)</System:String>
+    <System:String x:Key="TaughtHeight">Taught Height(mm)</System:String>
+    <System:String x:Key="SlantedCheckDelay">Height Read Delay(ms)</System:String>
+    <System:String x:Key="SlantedCheckDelay_tooltip">Delay time for height read after motion stop</System:String>
+
+    <!-- PalletSenseConfiguration-->
+    <System:String x:Key="PalletSenseConfig">Pallet Sense Config (Delay ms.)</System:String>
+    <System:String x:Key="Pallet1DetDelay">Sens. 1 Det(ms)</System:String>
+    <System:String x:Key="Pallet2DetDelay">Sens. 2 Det(ms)</System:String>
+    <System:String x:Key="Pallet3DetDelay">Sens. 3 Det(ms)</System:String>
+    <System:String x:Key="Pallet1OffDelay">Sens. 1 Off(ms)</System:String>
+    <System:String x:Key="Pallet2OffDelay">Sens. 2 Off(ms)</System:String>
+    <System:String x:Key="Pallet3OffDelay">Sens. 3 Off(ms)</System:String>
+    <System:String x:Key="Pallet1Sense">Pallet 1</System:String>
+    <System:String x:Key="Pallet2Sense">Pallet 2</System:String>
+    <System:String x:Key="Pallet3Sense">Pallet 3</System:String>
+    <System:String x:Key="InletDetect">In.Det.</System:String>
+    <System:String x:Key="OutletDetect">Out.Det.</System:String>
+
+    <!-- Conveyor -->
+    <System:String x:Key="Conveyor">Conveyor</System:String>
+    <System:String x:Key="Conveyor1">Conveyor 1</System:String>
+    <System:String x:Key="Conveyor2">Conveyor 2</System:String>
+    <System:String x:Key="Station1">Station 1</System:String>
+    <System:String x:Key="Station2">Station 2</System:String>
+    <System:String x:Key="OnLight">On Lights</System:String>
+    <System:String x:Key="ToggleLight">Toggle Lights</System:String>
+    <System:String x:Key="ToggleCameraLight">Toggle Camera Lights</System:String>
+    <System:String x:Key="ToggleMachineLight">Toggle Machine Light</System:String>
+    <System:String x:Key="ToggleDoorLock">Toggle DoorLock</System:String>
+    <System:String x:Key="TogglePNPJog">Toggle PNPHead Jog Panel</System:String>
+    <System:String x:Key="OpenCover">Open Cover</System:String>
+    <!-- Camera Calibration -->
+    <System:String x:Key="CameraCalibration1">Camera Calibration Z1 Settings</System:String>
+    <System:String x:Key="CameraCalibration2">Camera Calibration Z2 Settings</System:String>
+    <System:String x:Key="Cal_OffsetX">Offset X(mm)</System:String>
+    <System:String x:Key="Cal_OffsetY">Offset Y(mm)</System:String>
+    <System:String x:Key="Cal_RowSpacing">Row Spacing(mm)</System:String>
+    <System:String x:Key="Cal_ColSpacing">Col. Spacing(mm)</System:String>
+    <System:String x:Key="Cal_FilePath">File Path</System:String>
+    <System:String x:Key="Cal_FolderPath">.MCA Save Path</System:String>
+
+    <System:String x:Key="CamCalGenerate">Generate .MCA</System:String>
+
+    <!--Camera Calibration Working Motion-->
+    <System:String x:Key="CalibFileType">Calibration File Type</System:String>
+    <System:String x:Key="Z1FocusPos">Z1 Focus Pos</System:String>
+    <System:String x:Key="Z2FocusPos">Z2 Focus Pos</System:String>
+    <System:String x:Key="WorkPosStation1">Station 1 Working Pos.</System:String>
+    <System:String x:Key="WorkPosStation2">Station 2 Working Pos.</System:String>
+
+    <!-- ROIParameter -->
+    <System:String x:Key="ROIPara">ROI Parameter</System:String>
+    <System:String x:Key="ROIOffsetX">Offset X(Pixel)</System:String>
+    <System:String x:Key="ROIOffsetY">Offset Y(Pixel)</System:String>
+    <System:String x:Key="ROIWidth">Width(Pixels)</System:String>
+    <System:String x:Key="ROIHeight">Height(Pixels)</System:String>
+
+    <!-- ContentCheckParameter -->
+    <System:String x:Key="ContentCheckParam">Content Check Params</System:String>
+    <System:String x:Key="FontType">Font Type</System:String>
+    <System:String x:Key="FontSize">Font Size(Pixels)</System:String>
+    <System:String x:Key="BinThreshold">Binarized Threshold</System:String>
+    <System:String x:Key="TestCriteria">Test Criteria</System:String>
+    <System:String x:Key="CheckPara">Check Parameter</System:String>
+    <System:String x:Key="ModelScore">Model Score</System:String>
+    <System:String x:Key="TargetScore">Target Score</System:String>
+    <System:String x:Key="OffTolX">Off. Tol. X(±mm)</System:String>
+    <System:String x:Key="OffTolY">Off. Tol. Y(±mm)</System:String>
+    <System:String x:Key="AngleTol">Angle Tol.(±Deg)</System:String>
+
+    <!-- ContentCheckFolderPath -->
+    <System:String x:Key="ContentCheckFolderPath">ContentCheck Model Folder Path</System:String>
+
+    <!-- ContentCheckLoadEmojiToMSR -->
+    <System:String x:Key="ContentCheckAddEmojiToMSR">Add Emoji To MSR</System:String>
+
+    <!-- ContentCheckGenerateMMF -->
+    <System:String x:Key="GenerateMMF">Generate MMF</System:String>
+
+    <!-- ContentCheckTesting -->
+    <System:String x:Key="CCTest">Content Check Test</System:String>
+    <System:String x:Key="CheckContent">Check Content</System:String>
+    
+    <!-- CleanContentCheckTesting -->
+    <System:String x:Key="CCCTest">Clean Content Check Test</System:String>
+    <System:String x:Key="FoundEtching">Found Etching</System:String>
+    <System:String x:Key="CheckEtch">Check For Etching</System:String>
+    <System:String x:Key="SizeThres">Size Threshold</System:String>
+
+    <!-- Conveyor Speed Config -->
+    <System:String x:Key="ConveyorStationSpeedConfig">Station Speed Configuration</System:String>
+    <System:String x:Key="ConveyorSpeedConfig">Conveyor Speed Configuration</System:String>
+    <System:String x:Key="Conveyor_LowSpeed">Low Speed</System:String>
+    <System:String x:Key="Conveyor_HighSpeed">High Speed</System:String>
+
+    <!-- Jog -->
+    <System:String x:Key="Jog_Step">Step</System:String>
+    <System:String x:Key="Jog_Velocity">Velocity</System:String>
+    <System:String x:Key="Jog_Absolute">Absolute</System:String>
+    <System:String x:Key="Jog_TargetPos">Target Pos.</System:String>
+    <System:String x:Key="Jog_X">X</System:String>
+    <System:String x:Key="Jog_Y">Y</System:String>
+    <System:String x:Key="Jog_Z">Z</System:String>
+    <System:String x:Key="Jog_AbsMove">Move</System:String>
+
+    <!-- Recipe -->
+    <System:String x:Key="ProductType">Product Type</System:String>
+
+    <!-- ShopFloorComm -->
+    <System:String x:Key="ShopFloorComm">Shop Floor Communication</System:String>
+    <System:String x:Key="ShopFloor">Shop Floor</System:String>
+
+    <!-- Laser Pen Config -->
+    <System:String x:Key="LaserPenConfiguration">Laser Pen Configuration</System:String>
+    <System:String x:Key="LaserMarkDisable">Disable Laser Mark</System:String>
+    <System:String x:Key="LaserMarkDisable_Yes">Yes</System:String>
+    <System:String x:Key="LaserMarkDisable_No">No</System:String>
+    <System:String x:Key="LaserMarkFrequency">Laser Frequency(Hz)</System:String>
+    <System:String x:Key="LaserMarkSpeed">Laser Speed(mm/s)</System:String>
+    <System:String x:Key="LaserMarkLoop">Laser Mark Loop</System:String>
+    <System:String x:Key="PowerRatio">Laser Power Ratio(%)</System:String>
+    <System:String x:Key="PulseWidth">Pulse Width(ns)</System:String>
+    <System:String x:Key="StartTC">Start TC(μs)</System:String>
+    <System:String x:Key="LaserOffTC">Laser Off TC(μs)</System:String>
+    <System:String x:Key="PolyTC">Poly TC(μs)</System:String>
+    <System:String x:Key="EndTC">End TC(μs)</System:String>
+    <System:String x:Key="JumpSpeed">Jump Speed(mm/s)</System:String>
+    <System:String x:Key="MinJumpDelayTC">Min. Jump Delay TC(μs)</System:String>
+    <System:String x:Key="MaxJumpDelayTC">Max. Jump Delay TC(μs)</System:String>
+    <System:String x:Key="JumpLengthLimit">Jump Length Limit(mm)</System:String>
+    <System:String x:Key="PointTime">Point Time(ms)</System:String>
+    <System:String x:Key="ParaRecipe">Laser Recipe</System:String>
+    <System:String x:Key="DXFSetting">DXF Setting</System:String>
+    <System:String x:Key="LaserPenRecipe">Laser Pen Recipe</System:String>
+    <System:String x:Key="SPIWave">SPI Wave</System:String>
+    <System:String x:Key="LaserJogPage">Laser Head</System:String>
+    <System:String x:Key="LiftZAxis">Lift Z Axis</System:String>
+    <System:String x:Key="WorkPosLiftZAxis">Lift Z Working Pos</System:String>
+    <System:String x:Key="TaughtOffset">Taught Off.(mm)</System:String>
+    <System:String x:Key="TaughtOffsetX">Off. X(mm)</System:String>
+    <System:String x:Key="TaughtOffsetY">Off. Y(mm)</System:String>
+    <System:String x:Key="StandbyPosLiftZAxis">Lift Z Standby Pos</System:String>
+
+    <!-- vision alignment -->
+    <System:String x:Key="LeftArc">Left Arc Coordinate</System:String>
+    <System:String x:Key="RightArc">Right Arc Coordinate</System:String>
+
+
+
+
+    <!-- ZFocus Pos -->
+    <System:String x:Key="FocusPosition">Z Focus Position</System:String>
+    <System:String x:Key="FocusPosition1">Position 1(mm)</System:String>
+    <System:String x:Key="FocusPosition2">Position 2(mm)</System:String>
+    <System:String x:Key="FocusPosition3">Position 3(mm)</System:String>
+
+    <!-- alarmconfig -->
+    <System:String x:Key="USL">Upper Spec. Limit</System:String>
+    <System:String x:Key="LSL">Lower Spec. Limit</System:String>
+    <System:String x:Key="EnableCheck">Enable Check</System:String>
+
+    <!-- ZFocus Pos -->
+    <System:String x:Key="ZSafety">Z Safety</System:String>
+    <System:String x:Key="ZSafetyPos">Z Safety Position(mm)</System:String>
+    <System:String x:Key="ZStandby">Z Standby</System:String>
+    <System:String x:Key="ZStandbyPos">Z Standby Pos(mm)</System:String>
+    <!-- Working position page -->
+	<System:String x:Key="LaserCalWkPos">Laser Head Calibration Position</System:String>
+	<System:String x:Key="WorkPosDef">Work Position</System:String>
+	<System:String x:Key="LHPosX">X Pos(mm)</System:String>
+	<System:String x:Key="LHPosY">Y Pos(mm)</System:String>
+	<System:String x:Key="LHPosZ">Z Pos(mm)</System:String>
+    <!-- MainWindow Buttons -->
+    <System:String x:Key="LaserMark">Laser Mark</System:String>
+
+    <System:String x:Key="Vision">Vision</System:String>
+    <System:String x:Key="VisionOrientation">Orientation</System:String>
+    <System:String x:Key="VisionAlignment">Alignment</System:String>
+    <System:String x:Key="VisionContentCheck">Content Check</System:String>
+    <System:String x:Key="XHairPositioning">X-Hair Positioning</System:String>
+    <!-- Recipe -->
+    <System:String x:Key="ChooseRecipe">Choose Recipe</System:String>
+    <System:String x:Key="CapRecipe">RECIPE</System:String>
+    <System:String x:Key="DoubleClickRecipe">* Double click to select Recipe and its product for data configuration</System:String>
+    <System:String x:Key="NewRecipe">New Recipe</System:String>
+    <System:String x:Key="CopyRecipe">Copy Recipe</System:String>
+    <System:String x:Key="RemoveRecipe">Remove Recipe</System:String>
+    <System:String x:Key="RefreshRecipe">Refresh Recipe</System:String>
+    <System:String x:Key="Refresh">Refresh</System:String>
+    <System:String x:Key="ProductListForSlctRcp">Product List for selected Recipe</System:String>
+    <System:String x:Key="NewProduct">New</System:String>
+    <System:String x:Key="CopyProduct">Copy</System:String>
+    <System:String x:Key="RemoveProduct">Remove</System:String>
+    <System:String x:Key="RenameProduct">Rename</System:String>
+    <System:String x:Key="CapProduct">PRODUCT</System:String>
+    <System:String x:Key="ConfirmWindow">Confirm</System:String>
+    <System:String x:Key="SelectedRecipe">Selected Recipe</System:String>
+    <System:String x:Key="SelectedProduct">Selected Product</System:String>
+    <System:String x:Key="NoRecipeSelected">No Recipe Selected</System:String>
+    <System:String x:Key="NoProductSelected">No Product Selected</System:String>
+    <System:String x:Key="Import">Import</System:String>
+    <System:String x:Key="Export">Export</System:String>
+
+    <!-- Orientation Config -->
+    <System:String x:Key="OrientationConfig">Orientation Configuration</System:String>
+    <System:String x:Key="DefineIndexes">Define Indexes</System:String>
+    <System:String x:Key="Acceptance">Acceptance</System:String>
+    <System:String x:Key="ScaleMinMax">Scale/Min/Max</System:String>
+    <System:String x:Key="CamScale">Camera Scale Calibration</System:String>
+    <System:String x:Key="AngleMinMax">Angle/Min/Max</System:String>
+    <System:String x:Key="Certainty">Certainty</System:String>
+    <System:String x:Key="SearchNumber">Search Number</System:String>
+    <System:String x:Key="Smoothness">Smoothness</System:String>
+
+    <!-- Orientation Config -->
+    <System:String x:Key="TrayLabelVer">Tray Label Verification</System:String>
+    <System:String x:Key="Label">Label</System:String>
+
+    <!-- Alarm Page-->
+    <System:String x:Key="AlarmNotice">Alarm Notification</System:String>
+    <System:String x:Key="AlarmCode">Code</System:String>
+    <System:String x:Key="AlarmGrade">Grade</System:String>
+    <System:String x:Key="AlarmTimeStamp">Time Stamp</System:String>
+    <System:String x:Key="AlarmErrClass">Class</System:String>
+    <System:String x:Key="AlarmType">Type</System:String>
+    <System:String x:Key="AlarmMsg">Message</System:String>
+
+    <!-- Vision Orientation -->
+    <System:String x:Key="VO_Define">Define</System:String>
+    <System:String x:Key="VO_Save">Save</System:String>
+    <System:String x:Key="VO_Find">Find</System:String>
+    <System:String x:Key="VO_Load">Load</System:String>
+    <System:String x:Key="ModelDisplay">Model Display</System:String>
+    <System:String x:Key="PercentageLevel">Percentage Level(%)</System:String>
+    <System:String x:Key="PixelPosition">Pixel Position</System:String>
+    <System:String x:Key="PositionMM">Pos. (mm)</System:String>
+    <System:String x:Key="AutoPositioning">Auto-Pos.</System:String>
+    <System:String x:Key="ManualPositioning">Manual-Pos.</System:String>
+    <System:String x:Key="CalcPos">Calc.</System:String>
+    <System:String x:Key="StartContinuous">Start Continuous</System:String>
+    <System:String x:Key="ReadValues">Read Values</System:String>
+    <System:String x:Key="MmfViewer">MMF Viewer</System:String>
+    <System:String x:Key="MetViewer">MET Viewer</System:String>
+    <System:String x:Key="MetViewer1">MET Viewer 1</System:String>
+    <System:String x:Key="MetViewer2">MET Viewer 2</System:String>
+    <System:String x:Key="MetViewer3">MET Viewer 3</System:String>
+    <System:String x:Key="ProdWidth">Prod. Width(mm)</System:String>
+    <System:String x:Key="ProdAngle">Prod. Angle(°)</System:String>
+    <System:String x:Key="ProdAngleTolerance">Lmt.(±°)</System:String>
+    <System:String x:Key="ProdRotY">Prod. Rot Y Lmt.(±mm)</System:String>
+    <System:String x:Key="ProdAcceptLimit">Lmt.(±mm)</System:String>
+
+    <System:String x:Key="BottomFidMMF">Bottom MMF</System:String>
+    <System:String x:Key="TopFidMMF">Top MMF</System:String>
+    <System:String x:Key="LogoMMF">Logo MMF</System:String>
+    <System:String x:Key="BCnArcMET">BC/Arc MET</System:String>
+
+
+
+    <!-- Optical power meter -->
+    <System:String x:Key="OPowerMeter">Power Meter</System:String>
+    <System:String x:Key="PowermW">Power(mW)</System:String>
+    <System:String x:Key="Intervalms">Interval(ms)</System:String>
+    <System:String x:Key="Intervals">Interval(s)</System:String>
+    <System:String x:Key="ToleranceW">Tolerance(W)</System:String>
+    <System:String x:Key="NoOfPoint">No. Of Checking Pts.</System:String>
+	<System:String x:Key="PowerMeterAlarmSet">Power Meter Alarm Setting</System:String>
+
+    <!-- LaserPowerCalibration -->
+    <System:String x:Key="CalEz3Path">Calibration File Path</System:String>
+    <System:String x:Key="VerLaserCal">Verify Laser Cal.</System:String>
+    <System:String x:Key="Condition">Condition</System:String>
+    <System:String x:Key="LHPosition">LH Position</System:String>
+    <System:String x:Key="HWPost">Hw Position</System:String>
+    <System:String x:Key="VisionSet">Vision</System:String>
+    <System:String x:Key="EnableVerLaser">Enable Verification</System:String>
+
+    <!-- Laser Power Calibration Validation -->
+    <System:String x:Key="Skip">Skip</System:String>
+    <System:String x:Key="Ack">Acknowledge</System:String>
+    <System:String x:Key="LaserPwrCalibVfy">Laser Power Calibration Validation</System:String>
+
+    <!-- Laser Power Calibration Validation -->
+    <System:String x:Key="HardwarenBypassStatusFailed">Faulty Modules and Bypass condition</System:String>
+    <System:String x:Key="FaultyModule">Faulty Modules</System:String>
+    <System:String x:Key="AppliedBypass">Applied Bypass</System:String>
+    <System:String x:Key="ModuleName">Name</System:String>
+    
+    <!-- ThermoHydro -->
+    <System:String x:Key="ThermoHygro">Thermo Hygro</System:String>
+    <System:String x:Key="ThermoHygroTitle">Thermo Hygro Setting.</System:String>
+    <System:String x:Key="Temp">Temperature(°C)</System:String>
+    <System:String x:Key="Hygro">Hygro(%)</System:String>
+    <System:String x:Key="ReadThermoAndHygro">Read Temperature and Hygro</System:String>
+    <System:String x:Key="HumidityAlarmSet">Humidity Alarm Setting</System:String>
+    <System:String x:Key="TemperatureAlarmSet">Temperature Alarm Setting</System:String>
+    <!-- BarcodeReader -->
+	<System:String x:Key="BarcodeReader">Barcode Reader</System:String>
+	<System:String x:Key="BarcodeRetry">Barcode Reader Retry</System:String>
+	<System:String x:Key="NFCConfiguration">NFC Configuration</System:String>
+    <!-- HiPA Communicator -->
+    <System:String x:Key="SerialPort">Serial Port</System:String>
+
+    <!-- Tray -->
+    <!-- Tray workposition-->
+    <System:String x:Key="Drawer">Drawer</System:String>
+    <System:String x:Key="ProximitySensor">Proximity Sensor</System:String>
+    <System:String x:Key="CylinderStopper">Cylinder Stopper</System:String>
+    <System:String x:Key="CylinderZAxis">Cylinder Z Axis</System:String>
+    <System:String x:Key="CylinderXAxis">Cylinder X Axis</System:String>
+    <System:String x:Key="TopCover">Top Cover</System:String>
+    <System:String x:Key="Tray">Tray</System:String>
+    <System:String x:Key="TrayClosed">Tray Closed</System:String>
+    <System:String x:Key="Tray1">Tray 1</System:String>
+    <System:String x:Key="Tray2">Tray 2</System:String>
+    <System:String x:Key="Station1Barcode">Station 1 Barcode</System:String>
+    <System:String x:Key="Station2Barcode">Station 2 Barcode</System:String>
+
+    <!-- Tray production-->
+    <System:String x:Key="ServerComm">Server Comm</System:String>
+    <System:String x:Key="UploadToServer">Upload Report To Server</System:String>
+    <System:String x:Key="BarcodeReaderFunc2">Load Image</System:String>
+    <System:String x:Key="Upload">Upload</System:String>
+    <System:String x:Key="LoadUpload">Load/Unload Substrate</System:String>
+    <System:String x:Key="BarcodeUpload">Barcode Uploader</System:String>
+    <System:String x:Key="LoadImage">Load Image</System:String>
+    <System:String x:Key="SerialNo">Serial No.</System:String>
+    <System:String x:Key="AutorunMode">Autorun Mode</System:String>
+    <System:String x:Key="AutorunConfig">Autorun Config</System:String>
+    <System:String x:Key="Path">Path</System:String>
+    <System:String x:Key="ProductRecipe">Product Recipe</System:String>
+
+
+    <System:String x:Key="MarkDrawingPara">Laser Mark Drawing Parameter</System:String>
+    <System:String x:Key="ScanY">Scan Y</System:String>
+    <System:String x:Key="Dither">Dither</System:String>
+    <System:String x:Key="BiDir">BiDir</System:String>
+    <System:String x:Key="Optim">Optimize</System:String>
+    <System:String x:Key="FixedDPI">Fixed DPI</System:String>
+    <System:String x:Key="TrueDPI">True DPI</System:String>
+    <System:String x:Key="DpiX">DPI X</System:String>
+    <System:String x:Key="DpiY">DPI Y</System:String>
+    <System:String x:Key="ScanInc">Scan Increment</System:String>
+    <System:String x:Key="DisableMarkLowGrayPt">Disable Low Gray Pt.</System:String>
+    <System:String x:Key="MarkWidth">Marking Width</System:String>
+    <System:String x:Key="MarkHeight">Marking Height</System:String>
+
+    <System:String x:Key="HatchPara">Hatch Parameters</System:String>
+    <System:String x:Key="ParamSize">Para Size</System:String>
+    <System:String x:Key="AllCalc">All Calc.</System:String>
+    <System:String x:Key="FollowEdge">Follow Edge</System:String>
+    <System:String x:Key="AverageLine">Avg. Line</System:String>
+    <System:String x:Key="LoopReverse">Loop Reverse</System:String>
+    <System:String x:Key="Cross">Cross</System:String>
+    <System:String x:Key="Type">Type</System:String>
+    <System:String x:Key="LineDist">Line Distance</System:String>
+    <System:String x:Key="EdgeDist">Edge Distance</System:String>
+    <System:String x:Key="StartOffset">Start Offset</System:String>
+    <System:String x:Key="EndOffset">End Offset</System:String>
+    <System:String x:Key="EnAutoRotate">Auto Rotate</System:String>
+    <System:String x:Key="RotateAngle">Rotate Angle</System:String>
+    <System:String x:Key="LineReduction">Line Reduction</System:String>
+    <System:String x:Key="LoopDist">Loop Distance</System:String>
+    <System:String x:Key="EdgeLoop">Edge Loop</System:String>
+    <System:String x:Key="CycCount">Cycle Count</System:String>
+
+
+
+    <System:String x:Key="InitFile">Init File</System:String>
+    <System:String x:Key="STLPath">STL Path</System:String>
+    <System:String x:Key="DXFPath">DXF Path</System:String>
+    <System:String x:Key="LaserDrawing">Laser Drawing</System:String>
+    <System:String x:Key="MarkDuration">Mark Duration (ms)</System:String>
+    <System:String x:Key="StartMark">Start Marking</System:String>
+    <System:String x:Key="StopMark">Stop Marking</System:String>
+    <System:String x:Key="RotateLeft">Rotate Left</System:String>
+    <System:String x:Key="RotateRight">Rotate Right</System:String>
+    <System:String x:Key="MoveUp">Move Up</System:String>
+    <System:String x:Key="MoveDown">Move Down</System:String>
+    <System:String x:Key="MoveLeft">Move Left</System:String>
+    <System:String x:Key="MoveRight">Move Right</System:String>
+    <System:String x:Key="CurrentPosition">Current Position (pixel)</System:String>
+    <System:String x:Key="StepPixel">Steps (pixel)</System:String>
+    <System:String x:Key="PNG2DXF">PNG to DXF</System:String>
+
+	<!-- Handheld BarCode Scanner-->
+	<System:String x:Key="ListOfDevices">List of Devices</System:String>
+	<System:String x:Key="ProdID">Product ID</System:String>
+	<System:String x:Key="VendorID">VendorID</System:String>
+
+    <System:String x:Key="ListOfBarcodeReader">List of Barcode Reader</System:String>
+    <System:String x:Key="ResultType">Result Type</System:String>
+    <System:String x:Key="Text">Text</System:String>
+    <System:String x:Key="Image">Image</System:String>
+    <System:String x:Key="ImageGraphics">Image Graphics</System:String>
+    <System:String x:Key="IntensitySetting">Intensity Setting</System:String>
+    <System:String x:Key="Result">Result</System:String>
+    <System:String x:Key="CheckOrientation">Check Orientation</System:String>
+    <System:String x:Key="CheckAlignment">Check AL.</System:String>
+    <System:String x:Key="ClearAlignment">Clear AL.</System:String>
+    <System:String x:Key="CheckBottomAlignment">Bot. AL.</System:String>
+    <System:String x:Key="CheckTopAlignment">Top AL.</System:String>
+    <System:String x:Key="CheckBothAlignment">Both AL.</System:String>
+    <System:String x:Key="BarcodeResult">Barcode Result</System:String>
+    <System:String x:Key="Sensors">Sensors</System:String>
+
+    <System:String x:Key="IOBrdCfg">IO Board Configuration</System:String>
+    <System:String x:Key="ZCompensation">Height Comp.</System:String>
+	<System:String x:Key="ReadHeight">Get Height</System:String>
+	<System:String x:Key="ApplyHeight">Apply Height</System:String>
+	<System:String x:Key="SetZero">Set Zero</System:String>
+    <System:String x:Key="FOV1">FOV1</System:String>
+    <System:String x:Key="CameraLighting">Camera Lighting</System:String>
+    <System:String x:Key="LightChannel">Light Channel</System:String>
+    <System:String x:Key="ListOfAxis">List of Axis</System:String>
+    <System:String x:Key="IOBoard">IO Board</System:String>
+    <System:String x:Key="ListOfIoBoard">List of IO Board</System:String>
+
+
+    <System:String x:Key="ResetPos">Reset Pos</System:String>
+    <System:String x:Key="InPos">In Pos</System:String>
+    <System:String x:Key="CylinderDO">CylinderDO</System:String>
+    <System:String x:Key="Timeout">T/O (ms)</System:String>
+
+    <!-- Conveyor jog -->
+    <System:String x:Key="Protract">Protract</System:String>
+    <System:String x:Key="Retract">Retract</System:String>
+    <System:String x:Key="Fast">Fast</System:String>
+    <System:String x:Key="Slow">Slow</System:String>
+    <System:String x:Key="Stop">Stop</System:String>
+
+    <System:String x:Key="LaserType">Laser Type</System:String>
+    <System:String x:Key="MachineType">Machine Type</System:String>
+    <System:String x:Key="Restart">Restart</System:String>
+    <System:String x:Key="SetConfig">Set Config</System:String>
+
+    <System:String x:Key="CalFilePaths">Calibration File Paths</System:String>
+    <System:String x:Key="ImgType">Image Type</System:String>
+    <System:String x:Key="ConfigSetup">Configuration Setup</System:String>
+    <System:String x:Key="GalvoToCamOffset">Galvo Center to Cam. Offset</System:String>
+    <System:String x:Key="GalvoJog">Galvo Jog</System:String>
+    <System:String x:Key="IOMotionControl">IO Motion Control</System:String>
+    <System:String x:Key="ThreadsStatus">Threads Status</System:String>
+
+    <System:String x:Key="LaserHeadTemperature">Laser Head Temp (°C)</System:String>
+    <System:String x:Key="LaserDiodeTemperature">Diode Temp (°C)</System:String>
+    <System:String x:Key="PosSense">Pos Sense</System:String>
+    <System:String x:Key="PosSense2">Pos Sense 2</System:String>
+    <System:String x:Key="AlignmentCfg">Alignment Config</System:String>
+    <System:String x:Key="CalibrationFilePath">.MCA Load Path</System:String>
+    <System:String x:Key="ConveyorCalibration">Conveyor Calibration</System:String>
+    <System:String x:Key="CamCalibration">Camera Calibration</System:String>
+    <System:String x:Key="ShopFloorLink">ShopFloor Link</System:String>
+
+    <System:String x:Key="ProductInfoLinkRecipe">Product Information/Recipe Matching</System:String>
+    <System:String x:Key="ShopFloorMachineSetting">Shopfloor info. to machine sett. link</System:String>
+    <System:String x:Key="ImageSourceArchivePath">Image Source/Archive Path</System:String>
+    <System:String x:Key="ImagePath">Image Path</System:String>
+    <System:String x:Key="MfrByPass">Mfr. Bypass</System:String>
+    <System:String x:Key="EOLTimeSetting">EOL Time Set.</System:String>
+    <System:String x:Key="LaserCalVer">Laser Calibration Verification</System:String>
+
+    <System:String x:Key="InStopper">I.Stop</System:String>
+    <System:String x:Key="OutStopper">O.Stop</System:String>
+    <System:String x:Key="NFCTest">NFC Test</System:String>
+    <!-- StationSeq flags -->
+    <System:String x:Key="isReadyToMark">Ready To Mark</System:String>
+    <System:String x:Key="MarkComplete">Mark Complete</System:String>
+    <System:String x:Key="ReleaseLaserHead">Release LaserHead</System:String>
+
+    <System:String x:Key="ReverseX">Reverse X</System:String>
+    <System:String x:Key="ReverseY">Reverse Y</System:String>
+    <System:String x:Key="ReverseAngle">Reverse Angle</System:String>
+    <System:String x:Key="ManufacturerOverride">Manufacturer Override</System:String>
+    <System:String x:Key="Marking">Marking</System:String>
+
+    <System:String x:Key="CamLightStation">Camera Light Station</System:String>
+    <System:String x:Key="ImgCaptureDelay">Img. Capture Dly(ms)</System:String>
+    <!-- Contentcheckresult flags -->
+    <System:String x:Key="AnglePass">Angle Passed</System:String>
+    <System:String x:Key="OffsetX">Offset X</System:String>
+    <System:String x:Key="OffsetY">Offset Y</System:String>
+    <System:String x:Key="ScorePass">Score Passed</System:String>
+
+    <!-- Ctrl_Sequences -->
+    <System:String x:Key="TestSeq">Testing Sequences</System:String>
+
+    <!-- Contentcheck file path -->
+    <System:String x:Key="CCFilePath">Content Check Filepath</System:String>
+    <System:String x:Key="GoldenPNG">GoldenPNG Path</System:String>
+    <System:String x:Key="ProductImg">ProdImg. Path</System:String>
+    <System:String x:Key="Emoji">Emoji Path</System:String>
+    <System:String x:Key="MSR">MSR Path</System:String>
+
+    <System:String x:Key="isAirTags">AirTags</System:String>
+
+    <!-- Image file path for manual 228-->
+    <System:String x:Key="SourcePath">Source Folder</System:String>
+    <System:String x:Key="PostAction">Post. Action</System:String>
+    <System:String x:Key="ArchivePath">Archive Folder</System:String>
+
+    <System:String x:Key="LHCarrierLblPos">LaserHead Carrier Label Position</System:String>
+
+    <System:String x:Key="TestSequences">Test Sequences</System:String>
+    <System:String x:Key="ModuleEOLSetting">Module EOL Settings</System:String>
+
+    <System:String x:Key="Station1Test">Station1 Test</System:String>
+    <System:String x:Key="Station2Test">Station2 Test</System:String>
+
+    <!-- NFC test-->
+    <System:String x:Key="NoofBytes">No. of Bytes</System:String>
+    <System:String x:Key="DXFMode">DXF</System:String>
+    <System:String x:Key="ThreeDMode">3D</System:String>
+    <System:String x:Key="STLOrientation">STL Orientation</System:String>
+    <System:String x:Key="STLOffset">STL Offset</System:String>
+    <System:String x:Key="GalvoDir">Galvo Direction</System:String>
+    <System:String x:Key="XDeg">X(Deg)</System:String>
+    <System:String x:Key="YDeg">Y(Deg)</System:String>
+    <System:String x:Key="ZDeg">Z(Deg)</System:String>
+    <System:String x:Key="NFCSeq">NFC Seq</System:String>
+    <System:String x:Key="Sequences">Sequences</System:String>
+    <System:String x:Key="ImageAcq">Image Acquisition</System:String>
+    <System:String x:Key="NoOfIterations">No. Of Iterations</System:String>
+    <System:String x:Key="CurrIterations">Current Iteration</System:String>
+    <System:String x:Key="StartStatic">Static Img. Acq.</System:String>
+    <System:String x:Key="StartDynamic">Dynamic Img. Acq.</System:String>
+    <System:String x:Key="DryRun">DryRun</System:String>
+    <System:String x:Key="AlignnMark">Align and Mark</System:String>
+    <System:String x:Key="StopTest">Stop Tests</System:String>
+    <System:String x:Key="GRRTest">GRR</System:String>
+    <System:String x:Key="CPKTest">CPK</System:String>
+
+    <!-- EOL setting -->
+    <System:String x:Key="EOLHour">EOL(Hr)</System:String>
+    <System:String x:Key="LifeTimeHour">Life Time(Hr)</System:String>
+    <System:String x:Key="EOLLaser">Laser</System:String>
+    <System:String x:Key="EOLCoolant">Coolant</System:String>
+    <System:String x:Key="EOLAirFilter">Air Filter</System:String>
+
+    <!-- Inspection Machine -->
+    <System:String x:Key="MachineInspection">Mach. Inspection</System:String>
+    <System:String x:Key="MinAngle">Min</System:String>
+
+    <System:String x:Key="ComPort">ComPort</System:String>
+    <System:String x:Key="Mark">Mark</System:String>
+    <System:String x:Key="Angle">Angle</System:String>
+    <System:String x:Key="Cancel">Cancel</System:String>
+    <System:String x:Key="Factor">Factor</System:String>
+    <System:String x:Key="Offset">Offset</System:String>
+    <System:String x:Key="Offsetmm">Offset (um)</System:String>
+    <System:String x:Key="CurrentPos">Current Pos (mm)</System:String>
+    <System:String x:Key="Step">Step(mm)</System:String>
+    <System:String x:Key="MuteBuzzer">Mute Buzzer</System:String>
+    <System:String x:Key="Camera">Camera</System:String>
+    <System:String x:Key="CameraList">Camera List</System:String>
+    <System:String x:Key="New">New</System:String>
+    <System:String x:Key="Width">Width</System:String>
+    <System:String x:Key="Height">Height</System:String>
+
+
+    <!--AELimitKey-->
+
+    <System:String x:Key="Carrier_SN">Carrier_SN</System:String>
+    <System:String x:Key="Mark_Incorrect">Mark_Incorrect</System:String>
+    <System:String x:Key="Mark_delta_X">Mark_delta_X</System:String>
+    <System:String x:Key="Mark_delta_Y">Mark_delta_Y</System:String>
+    <System:String x:Key="Mark_delta_Angle">Mark_delta_Angle</System:String>
+    <System:String x:Key="Mark_delta_gray">Mark_delta_gray</System:String>
+    <System:String x:Key="ErrorCode">ErrorCode</System:String>
+    <System:String x:Key="LASER_TYPE">LASER_TYPE</System:String>
+    <System:String x:Key="LASER_BAY">LASER_BAY</System:String>
+    <System:String x:Key="Z_Height">Z_Height</System:String>
+    <System:String x:Key="Z_Height_delta">Z_Height_delta</System:String>
+    <System:String x:Key="POWER">POWER</System:String>
+    <System:String x:Key="FREQUENCY">FREQUENCY</System:String>
+    <System:String x:Key="HATCH_DISTANCE">HATCH_DISTANCE</System:String>
+    <System:String x:Key="SPEED">SPEED</System:String>
+    <System:String x:Key="LAYERS">LAYERS</System:String>
+    <System:String x:Key="Unit_Width">Unit_Width</System:String>
+    <System:String x:Key="Unit_Case_Length">Unit_Case_Length</System:String>
+    <System:String x:Key="Unit_Grayscale">Unit_Grayscale</System:String>
+    <System:String x:Key="Unit_Exposure">Unit_Exposure</System:String>
+    <System:String x:Key="Unit_Orientation">Unit_Orientation</System:String>
+    <System:String x:Key="Unit_Pos_X">Unit_Pos_X</System:String>
+    <System:String x:Key="Unit_Pos_Y">Unit_Pos_Y</System:String>
+    <System:String x:Key="Unit_Pos_Angle">Unit_Pos_Angle</System:String>
+    <System:String x:Key="CYCLE_TIME">CYCLE_TIME</System:String>
+    <System:String x:Key="MARK_TIME">MARK_TIME</System:String>
+    <System:String x:Key="Holding_Time">Holding_Time</System:String>
+    <System:String x:Key="Door_Open_Time">Door_Open_Time</System:String>
+    <System:String x:Key="Online">Online</System:String>
+    <System:String x:Key="Peak_Voltage">Peak_Voltage</System:String>
+    <System:String x:Key="Peak_Current">Peak_Current</System:String>
+    <System:String x:Key="Active_energy_current_unit">AE unit</System:String>
+    <System:String x:Key="Active_Energy_cumulative">AE cumulative</System:String>
+    <System:String x:Key="Operator_ID">Operator_ID</System:String>
+    <System:String x:Key="Mode">Mode</System:String>
+    <System:String x:Key="TestSeriesID">TestSeriesID</System:String>
+    <System:String x:Key="Priority">Priority</System:String>
+
+    <!--workpos-->
+    <System:String x:Key="WorkPos">Work Pos.</System:String>
+    <System:String x:Key="PNPWorkPos">PNP Work Pos.</System:String>
+    <System:String x:Key="PickPos">Pick Pos.</System:String>
+    <System:String x:Key="LoadPos">Load Pos.</System:String>
+    <System:String x:Key="PlaceNGPos">Place NG Pos.</System:String>
+    <System:String x:Key="PlaceKIVPos">Place KIV Pos.</System:String>
+    <System:String x:Key="WaitPos">Wait Pos.</System:String>
+    
+    <!--Arm control-->
+    <System:String x:Key="PNPArmControl">PNP Arm Ctrl.</System:String>
+    <System:String x:Key="PNPPositions">PNP Positions</System:String>
+    <System:String x:Key="ArmCfg">Arm Cfg.</System:String>
+    <System:String x:Key="PickCfg">Pick Cfg.</System:String>
+    <System:String x:Key="PlaceCfg">Place Cfg.</System:String>
+    <System:String x:Key="UnInspectRes">Uninsp. judged as</System:String>
+
+    <!--stage control-->
+    <System:String x:Key="StageCtrl">Stage Ctrl.</System:String>
+    <System:String x:Key="ClampCfg">Clamper Cfg.</System:String>
+    <System:String x:Key="SuctionHoldCfg">Suction Hold Cfg.</System:String>
+    <System:String x:Key="SuctionReleaseCfg">Suction Release Cfg.</System:String>
+    <System:String x:Key="ByPassSensors">Byp. Sens.</System:String>
+</ResourceDictionary>
+
+
+
+
+
+
+
+
+
+
+
+

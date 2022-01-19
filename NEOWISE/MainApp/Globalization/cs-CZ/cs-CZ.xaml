@@ -1,0 +1,89 @@
+﻿<Globalization:GlobalizationResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:Globalization="clr-namespace:WPFSharp.Globalizer;assembly=WPFSharp.Globalizer"
+    Name="cs-CZ"
+    LinkedStyle="cs-CZ-style"
+    >
+
+    <!-- Main Window -->
+    <sys:String x:Key="MainWindow_Title">WPF Globalization Example (Czech)</sys:String>
+
+    <!-- Menu strings -->
+    <sys:String x:Key="Menu_File">_File</sys:String>
+    <sys:String x:Key="Menu_File_Exit">_Exit</sys:String>
+    <sys:String x:Key="Menu_Language">_Jazyk</sys:String>
+    <sys:String x:Key="Menu_Language_English">_Angličtina</sys:String>
+    <sys:String x:Key="zh-CHS">Zjednodušená čínština</sys:String>
+
+    <!-- Ctrl_Alarm -->
+    <sys:String x:Key="TimeStamp">Časové razítko</sys:String>
+    <sys:String x:Key="Class">Třída</sys:String>
+    <sys:String x:Key="Grade">Grade</sys:String>
+    <sys:String x:Key="Type">Type</sys:String>
+    <sys:String x:Key="Msg">informace</sys:String>
+    <sys:String x:Key="Clear">Průhledná</sys:String>
+
+    <!-- Ctrl_User_Access -->
+    <sys:String x:Key="LoginTryAgain">ID nebo heslo je nesprávné. prosím zkuste to znovu!</sys:String>
+    <sys:String x:Key="ChangePasswordTryAgain">Hesla se neshodují. prosím zkuste to znovu!</sys:String>
+    <sys:String x:Key="UserAccessConfig">Konfigurace přístupu uživatele</sys:String>
+    <sys:String x:Key="AddUser">Přidat uživatele</sys:String>
+    <sys:String x:Key="EditDelUser">Upravit / odstranit uživatele</sys:String>
+    <sys:String x:Key="DelUser">mazat uživatele</sys:String>
+    <sys:String x:Key="ChangePassword">změnit heslo</sys:String>
+    <sys:String x:Key="NewPassword">nové heslo</sys:String>
+    <sys:String x:Key="OldPassword">staré heslo</sys:String>
+    <sys:String x:Key="RetypeNewPassword">Znovu zadejte nové heslo</sys:String>
+    <sys:String x:Key="Logout">Odhlásit se</sys:String>
+    <sys:String x:Key="UserID">ID</sys:String>
+    <sys:String x:Key="Password">Heslo</sys:String>
+    <sys:String x:Key="UserLevel">uživatelská úroveň</sys:String>
+    <sys:String x:Key="Login">přihlásit se</sys:String>
+    <sys:String x:Key="CreateUser">Vytvořit uživatele</sys:String>
+    <sys:String x:Key="Cancel">zrušení</sys:String>
+    <sys:String x:Key="ApplyPrivilege">Požádejte o oprávnění</sys:String>
+    <sys:String x:Key="UserList">seznam uživatelů</sys:String>
+    <sys:String x:Key="Privilege">privilegium</sys:String>
+
+    <!-- Ctrl_AutoPnl -->
+    <sys:String x:Key="Pause">Časový limit</sys:String>
+    <sys:String x:Key="Stop">Stop</sys:String>
+    <sys:String x:Key="CycleStop">Cyklus Stop</sys:String>
+
+    <!-- Ctrl_AutoStartPnl -->
+    <sys:String x:Key="StartStation1">začít Station1</sys:String>
+    <sys:String x:Key="StartStation2">začít Station2</sys:String>
+    <sys:String x:Key="Start">začít</sys:String>
+
+    <!-- Ctrl_TrayStatusViewOnly -->
+    <sys:String x:Key="TopCover">Horní kryt</sys:String>
+    <sys:String x:Key="Stopper">Zátka</sys:String>
+    <sys:String x:Key="TrayClosed">Zásobník uzavřen</sys:String>
+
+    <!-- Ctrl_ShopFloorInfo -->
+    <sys:String x:Key="Cavity">Kavita</sys:String>
+    <sys:String x:Key="Serial">Sériové číslo</sys:String>
+    <sys:String x:Key="ProductType">Typ produktu</sys:String>
+    <sys:String x:Key="Color">Barva</sys:String>
+    <sys:String x:Key="ImagePath">Cesta obrázku</sys:String>
+
+    <!-- Ctrl_AutoStatistical -->
+    <sys:String x:Key="AutoStatistical">Statistický stav</sys:String>
+    <sys:String x:Key="Reset">Resetovat</sys:String>
+    <sys:String x:Key="Counter">Označené množství</sys:String>
+    <sys:String x:Key="MeasuredHeight">Měřená výška (mm)</sys:String>
+    <sys:String x:Key="MeasuredProdWidth">Měřená šířka produktu (mm)</sys:String>
+    <sys:String x:Key="MeasuredProdRotY">Měřená rotace produktu Y (mm)</sys:String>
+    <sys:String x:Key="MeasuredProdAngle">Měřený úhel produktu (°)</sys:String>
+
+    <!-- Ctrl_AutoStationFlag -->
+    <sys:String x:Key="isReadyToMark">Připraveno ke značce</sys:String>
+
+    <!-- Ctrl_AutoRunStatusTray -->
+    <sys:String x:Key="Sequences">Sekvence</sys:String>
+    <sys:String x:Key="Tray">podnos</sys:String>
+
+    <sys:String x:Key="LanguageSelectionLabel">_Jazyk</sys:String>
+</Globalization:GlobalizationResourceDictionary>

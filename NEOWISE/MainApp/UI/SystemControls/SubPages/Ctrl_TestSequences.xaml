@@ -1,0 +1,40 @@
+﻿<Pagebase:PageBase
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" 
+			 xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:Panels="clr-namespace:NeoWisePlatform.SystemControls.Panels"
+			 xmlns:Panels2="clr-namespace:NeoWisePlatform.CommonControls"
+			 xmlns:Pagebase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+             x:Class="NeoWisePlatform.SystemControls.SubPages.Ctrl_TestSequences"
+             mc:Ignorable="d" 
+             Width="1625" Height="1004"
+             Loaded="UserControl_Loaded">
+    <Grid x:Name="Grid">
+        <Rectangle Style="{StaticResource Rectangle_SUB_PAGE}"/>
+        <StackPanel>
+            <TextBlock Text="{StaticResource TestSequences}" Style="{StaticResource STYLE_MAIN_TITLE_LABEL_TB}"/>
+            <StackPanel x:Name="StkPnlCtrlLst" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label x:Name="lblSeq" Width="110" Content="{StaticResource NoOfIterations}" Style="{StaticResource STYL_GENERAL_LBL_Left}"/>
+                        <MahApp:NumericUpDown x:Name="Txt_Seq" Width="80" Value="5" ></MahApp:NumericUpDown>
+                        <Label x:Name="lblCurrSeq" Width="Auto" Content="{StaticResource CurrIterations}" Style="{StaticResource STYL_GENERAL_LBL_Left}" Margin="5,0,0,0"/>
+                        <MahApp:NumericUpDown x:Name="Txt_CurSeq" Width="80" Value="5" IsReadOnly="True" ></MahApp:NumericUpDown>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0,10,0,0" HorizontalAlignment="Left">
+                        <Label Content="{StaticResource Sequences}" Style="{StaticResource STYLE_SUBCHILD_TITLE_LABEL}"/>
+                        <Button Content="Stop" x:Name="Stop" Width="120" Click="Stop_Click" Margin="0,5,0,0"/>
+                        <Button Content="{StaticResource DryRun}" x:Name="Dryrun" Width="120" Click="Button_Click" Margin="0,5,0,0"/>
+                        <Button Content="GRR"  Width="120" x:Name="GRRTest"  Click="Button_Click" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Pagebase:PageBase>

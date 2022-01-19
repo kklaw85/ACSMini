@@ -1,0 +1,1203 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib">
+
+    <!--ENGLISH-->
+    <System:String x:Key="LanguageSelection">語言選擇(作者:李建農)</System:String>
+    <System:String x:Key="English">ENG/英文</System:String>
+    <System:String x:Key="Traditional">CHT/繁體</System:String>
+	<System:String x:Key="Simplified">CHS/簡体</System:String>
+    <System:String x:Key="UserAccessConfig">用户级别配置</System:String>
+    <System:String x:Key="CurrentUser">當前用戶</System:String>
+    <System:String x:Key="ChangePassword">更改密碼</System:String>
+    <System:String x:Key="OldPassword">舊密碼</System:String>
+    <System:String x:Key="NewPassword">新密码</System:String>
+    <System:String x:Key="Confirm">确认</System:String>
+
+    <System:String x:Key="UserLevel">用户级别</System:String>
+    <System:String x:Key="Password">密码</System:String>
+    <System:String x:Key="Login">登录</System:String>
+    <System:String x:Key="Logout">登出</System:String>
+    <System:String x:Key="ResetPassword">重设密码</System:String>
+
+    <System:String x:Key="AccessConfig">访问配置</System:String>
+    <System:String x:Key="AllowToAccess">访问级别</System:String>
+    <System:String x:Key="Operator">操作者</System:String>
+    <System:String x:Key="Engineer">工程师</System:String>
+    <System:String x:Key="Admin">管理员</System:String>
+
+    <System:String x:Key="ResistorParmeterSetup">电阻的参数设置</System:String>
+    <System:String x:Key="CutParameterSetup">切割参数设置</System:String>
+    <System:String x:Key="MotionPositionsSetup">运动位置设置</System:String>
+    <System:String x:Key="TrimmingPositioningCalibration">微调位置校准</System:String>
+    <System:String x:Key="InterleaveOptionSetup">交错选项设置</System:String>
+    <System:String x:Key="ManualTrimAction">手动修剪行动</System:String>
+    <System:String x:Key="SystemCameraCalibration">相机校准</System:String>
+    <System:String x:Key="SystemLaserCalibration">激光校准</System:String>
+    <System:String x:Key="SystemMotionIOCheck">系统IO入住</System:String>
+    <!--<System:String x:Key="ProductionSetting">生产设定</System:String>-->
+    <System:String x:Key="ProductionControlOption">生产控制选项</System:String>
+    <System:String x:Key="SequenceTestOption">序列测试选项</System:String>
+    <System:String x:Key="GraphDislayOption">图形显示选项</System:String>
+    <System:String x:Key="ManualBarcodeEntry">手动条码输入</System:String>
+    <System:String x:Key="RecipeEditor">产品文件编辑器</System:String>
+    <System:String x:Key="PowerMeterControlAndLaserTesting">电表控制和激光测试</System:String>
+    <System:String x:Key="PRSetup">视力设置</System:String>
+    <System:String x:Key="CrossHairControl">十字線控制</System:String>
+    <System:String x:Key="GalvoCenterControl">振鏡中心控制</System:String>
+    <System:String x:Key="ProbeMapControl">探針接腳圖控制</System:String>
+    <System:String x:Key="AutoProbingFeature">自动探测选项</System:String>
+    <System:String x:Key="AutoProbingCleaningSetup">自动探针清洗设置</System:String>
+    <System:String x:Key="MotionDurationSetting">运动持续时间设置</System:String>    
+    <System:String x:Key="TrimmingAdjustment">修阻调整</System:String>
+
+    <!--Main Window-->
+    <!--<System:String x:Key="RecipeName">檔案名稱</System:String>-->
+    <System:String x:Key="RelayTest">连接器测试</System:String>
+    <!--<System:String x:Key="PowerRamp">功率曲缐</System:String>-->
+    <System:String x:Key="MotionIO">运动部件I/O接口</System:String>
+    <System:String x:Key="Camera">相机</System:String>
+    <System:String x:Key="ProductionSett">生产设置</System:String>
+    <System:String x:Key="TrimAdjust">修剪裁切调整</System:String>
+    <System:String x:Key="ClearNGTray">清空NG品托盘</System:String>
+    <System:String x:Key="SystemHome">系统归位</System:String>
+    <System:String x:Key="ProbenMeas">探頭和測量</System:String>
+    <System:String x:Key="Setup">設定</System:String>
+    <System:String x:Key="PRAlignment">PR對準</System:String>
+    <System:String x:Key="PNPPosition">PNP位置</System:String>
+    <System:String x:Key="OtherPositions">其他位置</System:String>
+    <System:String x:Key="PNPMovement">PNP移動</System:String>
+    <System:String x:Key="STAGEMovement">平台移動</System:String>
+    <System:String x:Key="Left">向左</System:String>
+    <System:String x:Key="Right">向右</System:String>
+    <System:String x:Key="In">进</System:String>
+    <System:String x:Key="Out">出</System:String>
+    <System:String x:Key="AlarmOff">报警复位</System:String>
+    <System:String x:Key="Power">电源</System:String>
+    <System:String x:Key="TargetOff">目标阻值偏移量</System:String>
+    <System:String x:Key="TargetOff_2">目标阻值偏移量</System:String>
+    <System:String x:Key="ManualMode">手动模式</System:String>
+    <System:String x:Key="SemiAutoRunning">半自动运行</System:String>
+    <System:String x:Key="AutoRunning">自动运行</System:String>
+    <System:String x:Key="WorkInProgress">工作进行中</System:String>
+    <System:String x:Key="Interleave">跳切选择</System:String>
+    <System:String x:Key="DUTSelection">DUT选择</System:String>
+    <!--Barcode Entry-->
+    <System:String x:Key="BarcodeEntry">条码录入</System:String>
+    <System:String x:Key="AllowManualEntry">允许手动输入</System:String>
+    <System:String x:Key="ScanEntry">扫描录入</System:String>
+    <System:String x:Key="LastEntry">最后输入</System:String>
+    <System:String x:Key="Invalid">无效值</System:String>
+    <System:String x:Key="NominalValue">目标阻值</System:String>
+    <System:String x:Key="SizeInfo">尺寸信息</System:String>
+    <System:String x:Key="Tolerance">精度</System:String>
+    <System:String x:Key="ClearLastEntry">清除最后输入</System:String>
+    <System:String x:Key="UpdateValue">更新数据</System:String>
+
+    <!--MES Barcode Entry-->
+    <System:String x:Key="MESBarcodeEntry">MES条码输入</System:String>
+    <System:String x:Key="MESConnect">MES连接</System:String>
+    <System:String x:Key="MESDisConnect">MES断开连接</System:String>
+    <System:String x:Key="IPAddress">IP地址</System:String>
+    <System:String x:Key="PortNo">端口号</System:String>
+    <System:String x:Key="EquipmentId">设备ID</System:String>
+    <System:String x:Key="WorkOrderQuery">工单查询</System:String>
+    <System:String x:Key="WorkOrderNo">工单号</System:String>
+    <System:String x:Key="PartNo">料号</System:String>
+    <System:String x:Key="BadgeNo">工号</System:String>
+    <System:String x:Key="ProbeNo">探卡編號</System:String>
+    <System:String x:Key="WorkCenterNo">工作中心号码</System:String>
+    <System:String x:Key="WorkCenterName">工作中心名称</System:String>
+    <System:String x:Key="MESCheckIn">MES进站</System:String>
+    <System:String x:Key="MESCheckOut">MES出站</System:String>
+    <System:String x:Key="TrimParamsQuery">修剪参数查询</System:String>
+    <System:String x:Key="EnableMESFeature">启用MES功能</System:String>
+    <System:String x:Key="MESSetting">MES设置</System:String>
+
+    <!--Histogram Graph Setting-->
+    <System:String x:Key="HistogramGraphSetting">直方图设定</System:String>
+    <System:String x:Key="UpgradeGraphWhileRunning">运行時更新图表</System:String>
+    <System:String x:Key="PTHistogramGroup">PT 直方图组别</System:String>
+    <System:String x:Key="PTMinPercent">PT 最小 %</System:String>
+    <System:String x:Key="PTMaxPercent">PT 最大 %</System:String>
+    <System:String x:Key="FTHistogramGroup">FT 直方图组别</System:String>
+    <System:String x:Key="FTMinPercent">FT 最小 %</System:String>
+    <System:String x:Key="FTMaxPercent">FT 最大 %</System:String>
+
+
+    <!--Interleave Setup-->
+    <System:String x:Key="InterleaveSetup">跳斩编辑设置</System:String>
+    <System:String x:Key="LaserControl">镭射控制</System:String>
+    <System:String x:Key="GateControl">闸门控制</System:String>
+    <System:String x:Key="ShutterControl">遮断器控制</System:String>
+    <System:String x:Key="SelectAGroup">选择一组</System:String>
+    <!--<System:String x:Key="Group">组</System:String>-->
+
+
+    <!--ManualLoadingStart-->
+    <System:String x:Key="ManualLoadingStartPoint">手动加载启动</System:String>
+    <System:String x:Key="StartAsNewSub">启动新基板</System:String>
+    <!--<System:String x:Key="Column">行</System:String>-->
+
+    <!--GRR Setting-->
+    <System:String x:Key="PerformGRRMeasurement">GRR测量</System:String>
+    <System:String x:Key="PerformSelectedGroup">执行所选组</System:String>
+    <System:String x:Key="ProberIndexForEachMeasure">每一量測探卡寸動</System:String>
+    <System:String x:Key="GRRSetting">GRR设定</System:String>
+    <System:String x:Key="EndGroup">末组别</System:String>
+    <System:String x:Key="EndColumn">末列</System:String>
+
+    <!--PreInitialization-->
+    <System:String x:Key="SystemInitialzationStatus">系统初始化状态</System:String>
+    <System:String x:Key="MotionController">运動卡</System:String>
+    <System:String x:Key="IOCard">I/O卡</System:String>
+    <System:String x:Key="SmartCore">测量系统</System:String>
+    <System:String x:Key="VisionSystem">視覚系统</System:String>
+    <System:String x:Key="Exit">離開</System:String>
+    <System:String x:Key="MotionInitFailed">运動卡初始化失败</System:String>
+    <System:String x:Key="IOInitFailed">I/O卡初始化失败</System:String>
+    <System:String x:Key="SmartCoreInitFailed">智能核心初始化失败</System:String>
+    <System:String x:Key="PRCamInitFailed">PR相机初始化失败</System:String>
+    <System:String x:Key="PR2CamInitFailed">PR2相机初始化失败</System:String>
+    <System:String x:Key="BPCamInitFailed">BP相机初始化失败</System:String>
+    <System:String x:Key="BPAndPRInitFailed">BP及PR初始化失败</System:String>
+    <System:String x:Key="BPAndPR2InitFailed">BP及PR2初始化失败</System:String>
+    <System:String x:Key="PRAndPR2InitFailed">PR及PR2初始化失败</System:String>
+    <System:String x:Key="BPPRAndPR2InitFailed">BP,PR及PR2初始化失败</System:String>
+    <System:String x:Key="InitializationCompleted">初始化完成</System:String>
+
+    <!--Production Setting-->
+    <System:String x:Key="ProductionSetting">生产设置</System:String>
+
+    <System:String x:Key="ClampBaringLifeTimeLimit">钳轴承寿命限制</System:String>
+    <System:String x:Key="ClampBaringUsageCounts">钳轴承使用次数</System:String>
+    <System:String x:Key="NewVacuumCapLifeTimeLimit">New Vac Cap Lifetime Limit</System:String>
+    <System:String x:Key="NewVacuumCapUsageCounts">New Vac Cap Usage Counts</System:String>
+    <System:String x:Key="CutVacuumCapLifeTimeLimit">Cut Vac Cap Lifetime Limit</System:String>
+    <System:String x:Key="CutVacuumCapUsageCounts">Cut Vac Cap Usage Counts</System:String>
+
+    <System:String x:Key="FirstColSettleDelay">第一列稳态延迟</System:String>
+    <System:String x:Key="FirstDUTSettleDelay">First DUT Settle Delay</System:String>
+    <System:String x:Key="InterleaveSettleDelay">跳切稳态延迟</System:String>
+    <System:String x:Key="OthersColSettleDelay">其它列稳态延迟</System:String>
+    <System:String x:Key="CarrClampWaitDelay">等待钳位器延迟</System:String>
+    <System:String x:Key="DoubleClampDelay">双夹料延迟</System:String>
+    <System:String x:Key="MaxSubInRejectTray">NG倉匣最多基板數</System:String>
+	<System:String x:Key="MaxResistorFailedLimit">最多連續不良電阻數</System:String>
+    <System:String x:Key="Max_Carr_Vacuum_Test_Time">最大车架真空测试时间</System:String>
+    <System:String x:Key="EnableAutoPRAlignment">PR自动对齐功能启用</System:String>
+    <System:String x:Key="MaxPRFailuredSubstrates">最多失败基板</System:String>
+    <!--System:String x:Key="MinScore">最低分数</System:String-->
+    <!--System:String x:Key="MaxThetaOffset">最大角度偏移</System:String-->
+    <System:String x:Key="MaxPositionOff">最大位置偏移</System:String>
+
+    <System:String x:Key="UpdateHistogramInRunning">更新直方图图</System:String>
+    <System:String x:Key="UpdateSubDataDisplayinRunning">更新芯片数据显示屏</System:String>
+    <System:String x:Key="HideSubLayoutDisplay">隐藏基板布局显示第</System:String>
+    <System:String x:Key="ClamperOpenInTrimmingProcess">在修阻过程中夹具夹钳打开</System:String>
+    <System:String x:Key="EnablePartSensorCheck">启用有无料检查</System:String>
+    <System:String x:Key="EnableTemperatureSensorCheck">啓動温度檢知</System:String>
+    <System:String x:Key="EnableClampSensorCheck">启用夹料检查</System:String>
+    <System:String x:Key="EnableVacuumSensorCheck">启用真空检查</System:String>
+    <System:String x:Key="EnableDoubleSubDetectionFeature">启用双片基板检测功能</System:String>
+    <System:String x:Key="EnableDoubleClampCheck">双钳检查</System:String>
+    <System:String x:Key="EnablePickSubAtColumnNo">在列号上选择新的基板</System:String>
+    <System:String x:Key="SetColumnNo">设置列号</System:String>
+    <System:String x:Key="EnableAirKnifeFeature">启用空气刀功能</System:String>
+    <System:String x:Key="EnableBarcodeEntryFeature">启用条码功能</System:String>
+    <System:String x:Key="EnableBarcodeManualEntry">启用条码手工录入</System:String>
+    <System:String x:Key="EnableItmsSystem">啟用ITMS</System:String>
+    <System:String x:Key="FilterPretestFailedInStatisticsDisplay">过滤预测试失败</System:String>
+	<System:String x:Key="FilterFinaltestFailedInStatisticsDisplay">过滤终测试失败</System:String>
+    <System:String x:Key="PretestFailFinaltestPass">预测试失败，但后测合格</System:String>
+    <System:String x:Key="SaveTrimResults">保存修边结果</System:String>
+    <System:String x:Key="SaveMeasureResults">保存测量结果</System:String>
+	<System:String x:Key="SaveSubTrimResults">保存基板切割結果</System:String>
+    <System:String x:Key="SaveSubMeasureResults">保存底測量結果</System:String>
+    <System:String x:Key="EnableMeasureOffset">激活测量偏移</System:String>
+    <System:String x:Key="PercentMeasureOffset">% 测量偏移</System:String>
+    <System:String x:Key="EnableTrimValueOffset">启用切割偏移补偿</System:String>
+    <System:String x:Key="TrimValueOffset">% 切割偏移补偿</System:String>
+    <System:String x:Key="PnPArmWaitAtElevatorPos">PnP手臂在升降机等待</System:String>
+    <System:String x:Key="EnableDoorSensorCheck">启用安全门检查</System:String>
+
+    <System:String x:Key="OnlyMeasureInAutoAndManualLoading">只有测量过程(自动/手册 加载)</System:String>
+    <System:String x:Key="DoIndexTest">执行寸動測试</System:String>
+
+    <System:String x:Key="ProductionControlCol">统计控制(列)</System:String>
+    <System:String x:Key="ProductionControlSub">统计控制(片)</System:String>
+    <System:String x:Key="ProductionControlBatch">统计控制(批)</System:String>
+    <System:String x:Key="MinColSd">最低列SD</System:String>
+    <System:String x:Key="MinColYld">最低列良率</System:String>
+    <System:String x:Key="MinSd">最低SD</System:String>
+    <System:String x:Key="FTMaxSd">最高FT SD</System:String>
+    <System:String x:Key="MinYld">最低良率</System:String>
+    <System:String x:Key="MinSubSd">最低基板SD</System:String>
+    <System:String x:Key="MinSubYld">最低基板良率</System:String>
+    <System:String x:Key="MinBatchSd">最低批SD</System:String>
+    <System:String x:Key="MinBatchYld">最低批良率</System:String>
+    <System:String x:Key="WhenLimitHitSubThrowToNGTrayAndStopProcess">统计超过限制时，停止生产</System:String>
+    <System:String x:Key="PTMinColHigh">最低PT列高</System:String>
+    <System:String x:Key="PTMinColLow">最低PT列低</System:String>
+    <System:String x:Key="PTMinColOpen">最低PT列开路</System:String>
+    <System:String x:Key="PTMinHigh">最低PT高</System:String>
+    <System:String x:Key="PTMinLow">最低PT低</System:String>
+    <System:String x:Key="PTMinOpen">最低PT开路</System:String>
+    <System:String x:Key="PTMinSubHigh">最低PT片高</System:String>
+    <System:String x:Key="PTMinSubLow">最低PT片低</System:String>
+    <System:String x:Key="PTMinSubOpen">最低PT片开路</System:String>
+    <System:String x:Key="PTMinBthHigh">最低PT批高</System:String>
+    <System:String x:Key="PTMinBthLow">最低PT批低</System:String>
+    <System:String x:Key="PTMinBthOpen">最低PT批开路</System:String>
+
+    <System:String x:Key="FTMinColHigh">最低FT列高</System:String>
+    <System:String x:Key="FTMinColLow">最低FT列低</System:String>
+    <System:String x:Key="FTMinColOpen">最低FT列开路</System:String>
+
+    <System:String x:Key="FTMinHigh">最低FT高</System:String>
+    <System:String x:Key="FTMinLow">最低FT低</System:String>
+    <System:String x:Key="FTMinOpen">最低FT开路</System:String>
+    <System:String x:Key="FTMinMean">最低FT平均</System:String>
+    <System:String x:Key="FTMaxMean">最高FT平均</System:String>
+    <System:String x:Key="FTMinSubHigh">最低FT片高</System:String>
+    <System:String x:Key="FTMinSubLow">最低FT片低</System:String>
+    <System:String x:Key="FTMinSubOpen">最低FT片开路</System:String>
+    <System:String x:Key="FTMinBthHigh">最低FT批高</System:String>
+    <System:String x:Key="FTMinBthLow">最低FT批低</System:String>
+    <System:String x:Key="FTMinBthOpen">最低FT批开路</System:String>
+    <System:String x:Key="Percent">百分比</System:String>
+    <System:String x:Key="Count">计数</System:String>
+
+    <System:String x:Key="BatchYield">批良率</System:String>
+    <System:String x:Key="FTYield">FT 良率</System:String>
+    <System:String x:Key="PTYield">PT 良率</System:String>
+    <System:String x:Key="NGYield">NG 良率</System:String>
+
+    <System:String x:Key="CurrentTime">目前时間</System:String>
+    <System:String x:Key="AverageTime">平均时間</System:String>
+    <System:String x:Key="NumberOfSub">Number Of Sub.</System:String>
+    <System:String x:Key="NumberOfSub_1">基板极限探头清洁</System:String>
+    <System:String x:Key="NumberOfSub_2">基板检查限制</System:String>
+    <System:String x:Key="NumberOfSub_3">FT基板测量极限</System:String>
+    <System:String x:Key="Ok">确认</System:String>
+
+    <!--Quick Cut Adjustment-->
+    <System:String x:Key="EnalbeIRVSegControl">启用IRV分部控制</System:String>
+    <System:String x:Key="EnableCleanCut">启用的清洁切</System:String>
+    <System:String x:Key="Enable">启用的</System:String>
+    <System:String x:Key="Enable_Additional_Range">启用额外范围</System:String>
+    <System:String x:Key="CleanCutParamSetup">回切参数设定</System:String>
+    <System:String x:Key="CleanSpeed">回切速度</System:String>
+    <System:String x:Key="CleanDensity">回切密度</System:String>
+    <System:String x:Key="CleanXOffset">回切X-偏移</System:String>
+    <System:String x:Key="CleanYOffset">回切Y-偏移</System:String>
+    <System:String x:Key="CleanLengthOffset">回切长度偏移</System:String>
+    <System:String x:Key="LengthOffset">长度偏移</System:String>
+    <System:String x:Key="SModeMinimum">S-模式最低</System:String>
+    <System:String x:Key="SModeSlope">S-模式斜率</System:String>
+    <System:String x:Key="SModeRate">S-模式速率</System:String>
+    <System:String x:Key="PowerWatts">功率(瓦)</System:String>
+    <System:String x:Key="ForcedPlungeCutPercent">强制直切 (%)</System:String>
+    <System:String x:Key="PlungeCutStopPercent">插截停(%)</System:String>
+    <System:String x:Key="TrimLenFactor">切割长度系数</System:String>
+    <System:String x:Key="LCutTurnXOffset">L-切断关节 X 位移</System:String>
+    <System:String x:Key="LCutTurnYOffset">L-切断关节 Y 位移</System:String>
+    <System:String x:Key="TrimLenXOffset">修剪长度 X 偏移</System:String>
+    <System:String x:Key="TrimLenYOffset">修剪长度 Y 偏移</System:String>
+
+    <!--Reject Cut Adjustment-->
+    <System:String x:Key="TotalCut">总刀數 :</System:String>
+    <System:String x:Key="XStart">X-起切点 :</System:String>
+    <System:String x:Key="YStart">Y-起切点 :</System:String>
+    <System:String x:Key="XPitch">X-間距 :</System:String>
+    <System:String x:Key="YPitch">Y-間距 :</System:String>
+    <System:String x:Key="Length">长度 :</System:String>
+    <System:String x:Key="Speed">速度 :</System:String>
+    <System:String x:Key="PulseRate">脉波率 :</System:String>
+    <System:String x:Key="Direction">方向 :</System:String>
+
+    <System:String x:Key="EnableMinimumCutsCheck">启用最少刀检查</System:String>
+    <System:String x:Key="MinimumCutLimit">最少刀極限 :</System:String>
+    <System:String x:Key="PercentCutLimit">% 刀極限 :</System:String>
+    <System:String x:Key="CheckCutLimit">检查刀極限</System:String>
+    <System:String x:Key="CheckCutPercent">检查刀 % </System:String>
+    <System:String x:Key="CheckOffset">检查修补刀</System:String>
+    <System:String x:Key="EnableCheckPTFailed">启用預測失败检查</System:String>
+    <System:String x:Key="EnableCheckFTFailed">启用终測失败检查</System:String>
+    <System:String x:Key="RejectCutSetting">不良切割设置</System:String>
+
+    <!--Quick Resistor Adjustment-->
+    <System:String x:Key="ResistorSettingAdjustment">调整电阻设定</System:String>
+
+    <!--Recipe Editor-->
+    <System:String x:Key="RecipeExplorer">档案浏览</System:String>
+
+    <!--Target Offset-->
+    <System:String x:Key="TargetOffset">目标偏移</System:String>
+    <System:String x:Key="ApplyToResType">更改相同的电阻类型</System:String>
+    <System:String x:Key="ApplyToAllRes">更改所有电阻</System:String>
+    <System:String x:Key="ApplyToIndividualRes">更改单电阻</System:String>
+    
+    <!--Interleave Selection-->
+    <System:String x:Key="GroupSelect">组选择</System:String>
+    <System:String x:Key="DUTSelect">DUT选择</System:String>
+    <!--Target Offset-->
+    <System:String x:Key="SubstrateColumnAndSpacing">基板柱和间距设置</System:String>
+
+    <!--Auto Probing Adjustment-->
+    <System:String x:Key="AutoProbingAdjustment">自动探头调整</System:String>
+
+    <!--Auto Statistics View-->
+    <System:String x:Key="Statistics">统计数据</System:String>
+    <System:String x:Key="SubstrateData">基板数据</System:String>
+    <System:String x:Key="BatchData">整批数据(累计)</System:String>
+    <System:String x:Key="PreTest">切割前测量</System:String>
+    <System:String x:Key="FinalTest">切割后测量</System:String>
+    <System:String x:Key="Good">良品</System:String>
+    <System:String x:Key="Low">偏低</System:String>
+    <System:String x:Key="High">偏高</System:String>
+    <System:String x:Key="Open">开路</System:String>
+    <System:String x:Key="PercentSD">%SD</System:String>
+    <System:String x:Key="PercentCV">%CV</System:String>
+    <System:String x:Key="SD">SD</System:String>
+    <System:String x:Key="CV">CV</System:String>
+    <System:String x:Key="Cpk">CPK</System:String>
+    <System:String x:Key="Mean">平均值</System:String>
+    <System:String x:Key="Min">最小值</System:String>
+    <System:String x:Key="Max">最大值</System:String>
+    <System:String x:Key="PTNG">PT-NG</System:String>
+    <System:String x:Key="FTNG">FT-NG</System:String>
+
+    <!--BP View-->
+    <System:String x:Key="BPView">BP观察</System:String>
+    <System:String x:Key="CameraSetting">相机设置</System:String>
+    <System:String x:Key="BPCameraSetting">BP 相机设置.</System:String>
+    <System:String x:Key="PRCameraSetting">PR 相机设置.</System:String>
+    <System:String x:Key="PR2CameraSetting">PR2 相机设置.</System:String>    
+    <System:String x:Key="ShowCrosshair">显示十字线</System:String>
+    <System:String x:Key="Gain">增益</System:String>
+    <System:String x:Key="Exposure">曝光</System:String>
+
+    <!--Camera Calibration-->
+    <System:String x:Key="SwitchtoPR">切换到PR</System:String>
+    <System:String x:Key="SwitchtoBP">切换到BP</System:String>
+    <System:String x:Key="BPCamAndCrosshairPosition">BP摄像机十字线定位</System:String>
+    <System:String x:Key="BPCrosshairPosition">BP十字线定位</System:String>
+    <System:String x:Key="BPGalvoCal">BP振镜校准</System:String>
+    <System:String x:Key="Step">步進</System:String>
+    <System:String x:Key="OriginX">原点X</System:String>
+    <System:String x:Key="OriginY">原点Y</System:String>
+    <System:String x:Key="DriffFactorX">差异系数X</System:String>
+    <System:String x:Key="DriffFacotrY">差异系数Y</System:String>
+    <System:String x:Key="CurrentX">当前X</System:String>
+    <System:String x:Key="CurrentY">当前Y</System:String>
+    <System:String x:Key="CalFactorX">校正系数X</System:String>
+    <System:String x:Key="CalFactorY">校正系数Y</System:String>
+    <!--System:String x:Key="PulseLaser">Pulse Laser</System:String-->
+    <System:String x:Key="UpdateOrigin">更新原点</System:String>
+    <System:String x:Key="SaveAdjustment">保存调整</System:String>
+    <System:String x:Key="CalculateDriffFactor">校正差异系数</System:String>
+    <System:String x:Key="StartXhairCalibration">开始十字线校准</System:String>
+
+    <System:String x:Key="PRCameraFactorCalibration">PR相机校准因素</System:String>
+    <System:String x:Key="CurrentPos">当前位置</System:String>
+    <System:String x:Key="TargetPos">目标位置</System:String>
+    <System:String x:Key="XPos">X-位置</System:String>
+    <System:String x:Key="YPos">Y-位置</System:String>
+    <System:String x:Key="XStepSize">X-步进尺寸</System:String>
+    <System:String x:Key="YStepSize">Y-步进尺寸</System:String>
+    <System:String x:Key="Go">转到</System:String>
+    <System:String x:Key="CarriageXAxis">工作台X</System:String>
+    <System:String x:Key="CarriageYAxis">工作台Y</System:String>
+    <System:String x:Key="CarriageThetaAxis">工作台角度轴</System:String>
+    <System:String x:Key="Pos1">位置1</System:String>
+    <System:String x:Key="Pos2">位置2</System:String>
+    <System:String x:Key="Value">值</System:String>
+    <System:String x:Key="Pixel">像素</System:String>
+    <System:String x:Key="Old">舊</System:String>
+    <System:String x:Key="New">新</System:String>
+    <System:String x:Key="XFactor">X因素</System:String>
+    <System:String x:Key="YFactor">Y因素</System:String>
+    <System:String x:Key="ThetaFactor">旋转因数</System:String>
+    <System:String x:Key="ThetaCenter">旋转中心</System:String>
+
+    <System:String x:Key="Start">开始</System:String>
+    <System:String x:Key="LearnRef">学习参考点</System:String>
+    <System:String x:Key="GetPos1">得到位置1</System:String>
+    <System:String x:Key="GetPos2">得到位置2</System:String>
+    <System:String x:Key="SetThetaCenter">设置角度中心</System:String>
+    <System:String x:Key="CalculateFactor">计算因子</System:String>
+    <System:String x:Key="SaveFactor">保存因子</System:String>
+    <System:String x:Key="Rest">复位</System:String>
+
+    <!--Col Statistics View-->
+    <!--<System:String x:Key="PT">預測</System:String>
+    <System:String x:Key="FT">终測</System:String>-->
+    <System:String x:Key="Yield">良率</System:String>
+    <System:String x:Key="Average">平均值</System:String>
+
+    <!--Con Test-->
+    <System:String x:Key="ConTest">连接器测试</System:String>
+    <System:String x:Key="RelayLayout">繼电器佈局</System:String>
+    <System:String x:Key="RelayCardNo">繼电器編号</System:String>
+    <System:String x:Key="UpdateNominal">更新目标值</System:String>
+    <!--<System:String x:Key="Value">数值</System:String>-->
+    <System:String x:Key="MeasureValue">测量值</System:String>
+    <System:String x:Key="Enable_Con_Test_Logging">启用连接器测试数据记录</System:String>
+    <!--Cut Definition-->
+    <System:String x:Key="SubstrateColumnStatistics">基板列统计</System:String>
+    <System:String x:Key="ResistorPositionAndDefinition">电阻位置 和 定义</System:String>
+    <System:String x:Key="TrimCutTemplate">切割模板</System:String>
+    <System:String x:Key="ApplySelectedCut">选定切割方式</System:String>
+    <System:String x:Key="MeasureCoreOptions">測量核心選項</System:String>
+    <System:String x:Key="Cancel">取消</System:String>
+
+    <!--TrimType-->
+    <System:String x:Key="TrimType1">修阻類型一</System:String>
+    <System:String x:Key="TrimType2">修阻類型二</System:String>
+    <System:String x:Key="TrimType3">修阻類型三</System:String>
+    <System:String x:Key="TrimType4">修阻類型四</System:String>
+    <System:String x:Key="TrimType5">修阻類型五</System:String>
+    <System:String x:Key="TrimTypeProbeClean">TrimType Cleaning</System:String>    
+    <System:String x:Key="CopyFromType1">從修阻類型一複制</System:String>
+    <System:String x:Key="CopyFromType2">從修阻類型二複製</System:String>
+    <System:String x:Key="CopyFromType3">從修阻類型三複制</System:String>
+    <System:String x:Key="CopyFromType4">從修阻類型四複製</System:String>
+    <System:String x:Key="CopyFromType5">從修阻類型五複制</System:String>
+
+    <!--Cut Definition Grid-->
+    <System:String x:Key="NoOfCuts">切割刀数</System:String>
+    <System:String x:Key="Update">更新</System:String>
+    <System:String x:Key="LegNo">切割号</System:String>
+    <System:String x:Key="CutPercent">切割比例%</System:String>
+    <System:String x:Key="XPosmm">X-位置(mm)</System:String>
+    <System:String x:Key="YPosmm">Y-位置(mm)</System:String>
+    <System:String x:Key="Lengthmm">切割长度(mm)</System:String>
+    <System:String x:Key="BeamSpeed">切割速度(mm/s)</System:String>
+    <System:String x:Key="Density">光点密度(p/mm)</System:String>
+    <System:String x:Key="QRate">Q-频率(KHz)</System:String>
+    <System:String x:Key="Angle">角度</System:String>
+    <System:String x:Key="Jump">跳行</System:String>
+    <System:String x:Key="Algo">算法.</System:String>
+    <System:String x:Key="Method">方式</System:String>
+    <System:String x:Key="Delay">延迟</System:String>
+    <System:String x:Key="Update_To_TE">更新系统</System:String>
+    <System:String x:Key="First">最先</System:String>
+    <System:String x:Key="Last">最後</System:String>
+    <System:String x:Key="Increment">增量</System:String>
+    <System:String x:Key="Assign">指定</System:String>
+    <System:String x:Key="GlobalUpdate">全部更新</System:String>
+    <System:String x:Key="ForceCut">强切</System:String>
+    
+    <!--Galvo Movement-->
+    <System:String x:Key="UpdateGalvoPos">更新振镜位置</System:String>
+    <System:String x:Key="XGalvo">X Galvo</System:String>
+    <System:String x:Key="YGalvo">Y Galvo</System:String>
+
+    <!--Interleave Group Editor-->
+    <System:String x:Key="GroupToAdjust">组别调整</System:String>
+    <System:String x:Key="OffsetXY">偏移(X,Y)</System:String>
+    <System:String x:Key="AddNewGroup">添加新组别</System:String>
+    <System:String x:Key="RemoveSelectedGroup">删除选定组别</System:String>
+    <System:String x:Key="ClearAllGroup">清除全部组别</System:String>
+    <System:String x:Key="TrimPosAdjust">修剪位置调整</System:String>
+    <System:String x:Key="ReverseCheck">反向組序列</System:String>
+    <System:String x:Key="TrimOffsetXY">修剪偏移(X,Y)</System:String>
+    <System:String x:Key="SelectedColRow">选定的列和行</System:String>
+    <System:String x:Key="ChangeGroupSequence">確認組序列上的更改</System:String>
+    <System:String x:Key="ChangeGroupSequence_Warning">更改組序列將重置所有托架位置。確認繼續？</System:String>
+
+    <!--IO Control-->
+    <System:String x:Key="IOControls">I/O控制</System:String>
+    <System:String x:Key="PowerMeter">功率计</System:String>
+    <System:String x:Key="LaserShutter">激光快门</System:String>
+    <System:String x:Key="Elevator">料夹升降</System:String>
+    <System:String x:Key="RejectTray">拒绝托盘</System:String>
+    <System:String x:Key="Block">断</System:String>
+    <System:String x:Key="UnBlock">通</System:String>
+    <System:String x:Key="ManualControl">手动控制</System:String>
+    <System:String x:Key="AutoControl">自动控制</System:String>
+    <System:String x:Key="CutElevator">收料料夹</System:String>
+    <System:String x:Key="NewElevator">供料料夹</System:String>
+    <System:String x:Key="Full">满</System:String>
+    <System:String x:Key="Empty">空</System:String>
+    <System:String x:Key="On">開</System:String>
+    <System:String x:Key="Off">関</System:String>
+    <System:String x:Key="Toggle">切换</System:String>
+    <System:String x:Key="Trigger">生成</System:String>
+    <System:String x:Key="SnugOut">整料推出</System:String>
+    <System:String x:Key="AirBlow">吹气</System:String>
+    <System:String x:Key="RejectTrayOut">不良品倉匣推出</System:String>
+    <System:String x:Key="RejectTrayVacuum">不良品倉匣真空</System:String>
+    <System:String x:Key="OutPosition">出位置</System:String>
+    <System:String x:Key="InPosition">进位置</System:String>
+    <System:String x:Key="VacuumDetect">真空感应器检测</System:String>
+    <System:String x:Key="DoubleSubDetect">双片检查</System:String>
+    <System:String x:Key="DoorSensorOn">安全门开关开</System:String>
+    <System:String x:Key="DedustSensorOn">除尘风速检测</System:String>
+    
+    <System:String x:Key="LightAndAlarm">指示灯和警报器</System:String>
+    <System:String x:Key="PNPArms">收放料手臂</System:String>
+    <System:String x:Key="Stage">工作台</System:String>
+    <System:String x:Key="BPCameraLight">BP摄像头灯</System:String>
+    <System:String x:Key="MachineLight">机器灯</System:String>
+    <System:String x:Key="TowerRedLight">红灯</System:String>
+    <System:String x:Key="TowerGreenLight">绿灯</System:String>
+    <System:String x:Key="TowerYellowLight">黄灯</System:String>
+    <System:String x:Key="TowerAlarm">报警器</System:String>
+    <System:String x:Key="ToElevatorPos">移动到料夹位置</System:String>
+    <System:String x:Key="ToStagePos">移动到工作台位置</System:String>
+    <System:String x:Key="AtElevatorPos">在料夹位置</System:String>
+    <System:String x:Key="AtStagePos">在工作台位置</System:String>
+    <System:String x:Key="CutArm">收料手臂</System:String>
+    <System:String x:Key="NewArm">供料手臂</System:String>
+    <System:String x:Key="NewArmStopper">供料手臂栓</System:String>
+    <System:String x:Key="UpPos">上位置</System:String>
+    <System:String x:Key="DownPos">下位置</System:String>
+    <System:String x:Key="DownCarrPos">载台下</System:String>
+    <System:String x:Key="DownElevPos">升降机下</System:String>
+    <System:String x:Key="StandbyPos">等待位</System:String>
+    <System:String x:Key="PartDetect">放料检测</System:String>
+    <System:String x:Key="UpLimit">上限</System:String>
+    <!--<System:String x:Key="VacuumDetect">真空檢查</System:String>-->
+    <System:String x:Key="VacuumSuction">真空吸力</System:String>
+    <System:String x:Key="PartPresent">目前部分</System:String>
+    <System:String x:Key="ClamperX">夹持-X</System:String>
+    <System:String x:Key="ClamperY">夹持-Y</System:String>
+    <System:String x:Key="AirKnife">空气刀</System:String>
+    <System:String x:Key="AirBlower">吹气</System:String>
+    <System:String x:Key="Ionizer">Ionizer</System:String>
+    <System:String x:Key="Clamper">夹持</System:String>
+    <System:String x:Key="LaserTrigger">激光触发</System:String>
+    <System:String x:Key="DoorLockControl">门锁控制</System:String>
+    <System:String x:Key="LaserReady">激光Ready</System:String>
+    <System:String x:Key="SafetyDoorLock">安全门锁</System:String>
+    <System:String x:Key="MainAirPressure">主气压</System:String>
+    <!--System:String x:Key="Open">打開</System:String-->
+    <System:String x:Key="Close">闭合</System:String>
+
+    <!--IO Temperature-->
+    <System:String x:Key="Temperature">温度</System:String>
+    <System:String x:Key="Ambient">周围</System:String>
+    
+    <!--IO And PnP Position-->
+    <System:String x:Key="IOAndPnPPosition">I/O和手臂设置</System:String>
+
+    <!--IRV Segment-->
+    <System:String x:Key="FirstLegIRVControl">第一切割IRV控制</System:String>
+    <System:String x:Key="IRVGreaterOrEqual">IRV (大/等于)</System:String>
+
+    <!--Measure Setting-->
+    <System:String x:Key="MeasureSetting">测量设定</System:String>
+    <System:String x:Key="Comp_Offset">補償值(%)</System:String>
+    <System:String x:Key="ResType">电阻型式</System:String>
+    <System:String x:Key="Nominal">目标阻值</System:String>
+    <System:String x:Key="PreNominal">預測-目标阻值</System:String>
+    <System:String x:Key="RefTolerance">参考精度</System:String>
+    <System:String x:Key="PTSample">切割前测量次数</System:String>
+    <System:String x:Key="FTSample">切割后测量册数</System:String>
+    <System:String x:Key="PTDelay">切割前测量延时</System:String>
+    <System:String x:Key="FTDelay">切割后测量延时</System:String>
+    <System:String x:Key="PTHigh">切割前偏高</System:String>
+    <System:String x:Key="FTHigh">切割后偏高</System:String>
+    <System:String x:Key="FTHighSD">切割后偏高 (SD)</System:String>
+    <System:String x:Key="FTHighAVG">切割后偏高 (AVG)</System:String>
+    <System:String x:Key="FTHighYLD">切割后偏高 (YLD)</System:String>
+    <System:String x:Key="PTLow">切割前偏低</System:String>
+    <System:String x:Key="FTLow">切割后偏低</System:String>
+    <System:String x:Key="FTLowSD">切割后偏低 (SD)</System:String>
+    <System:String x:Key="FTLowAVG">切割后偏低 (AVG)</System:String>
+    <System:String x:Key="FTLowYLD">切割后偏低 (YLD)</System:String>
+    <System:String x:Key="CurrentMode">电流模式</System:String>
+    <System:String x:Key="OpenHighLimit">开路上限</System:String>
+    <System:String x:Key="OpenLowLimit">开路下限</System:String>
+    <System:String x:Key="UpdateMeasureSetting">更新测量设置</System:String>
+    <System:String x:Key="MeasureR">测量单颗电阻</System:String>
+    <System:String x:Key="MeasureCol">测量一列电阻</System:String>
+    <System:String x:Key="TrimType">修剪类型</System:String>
+    <System:String x:Key="TrimTypeCopy">从裁切类型复制</System:String>
+    <System:String x:Key="ContinuousColumnMeasure">連續列測量</System:String>
+    <System:String x:Key="FTColumnMeasure">终測列测量</System:String>
+
+    <System:String x:Key="LaserTrimDelay">激光修剪延迟</System:String>
+    <System:String x:Key="LotNumber">批号</System:String>
+    <System:String x:Key="MachineId">Machine Id</System:String>
+    <System:String x:Key="SubstrateSize">基板尺寸</System:String>
+    <System:String x:Key="UserID">User ID</System:String>
+
+    <!--Mode 2-->
+    <System:String x:Key="StampPos1">标注1</System:String>
+    <System:String x:Key="StampPos2">标注2</System:String>
+    <System:String x:Key="SetAdjustPoint">设置调整点</System:String>
+    <System:String x:Key="ClearOff">清除偏移量</System:String>
+    <System:String x:Key="CalculatePos">计算位置</System:String>
+    <System:String x:Key="ColtoColSpacingAdj">列间距调整</System:String>
+    <System:String x:Key="RowtoRowSpacingAdj">行间距调整</System:String>
+
+    <!--Mode 3-->
+    <System:String x:Key="GlobalOff">全部偏移</System:String>
+    <System:String x:Key="GlobalOffX">全部偏移X =</System:String>
+    <System:String x:Key="GlobalOffY">全部偏移Y =</System:String>
+
+    <!--MOde 4-->
+    <System:String x:Key="TeachResistor">教电阻器</System:String>
+    <System:String x:Key="TeachNetwork">教学网络</System:String>
+    <System:String x:Key="TeachCrosshair">教十字架</System:String>
+
+    <!--Motion/IO Diagnostics-->
+    <System:String x:Key="MotionIODiagnostics">运动I/O诊断</System:String>
+
+    <!--PNP Pos Adjustment-->
+    <System:String x:Key="PnPPosAdjustment">收放料位置调整</System:String>
+    <System:String x:Key="SubLoadPositionXY">基板放料位置(X, Y)</System:String>
+    <System:String x:Key="GoToLoadPositoin">移动到放料位置</System:String>
+    <System:String x:Key="UpdateLoadPosition">更新放料位置</System:String>
+    <System:String x:Key="SubUnloadPositionXY">基板收料位置(X, Y)</System:String>
+    <System:String x:Key="GoToUnloadPosition">移动到收料位置</System:String>
+    <System:String x:Key="UpdateUnloadPosition">更新收料位置</System:String>
+    <System:String x:Key="DoubleSubCheckPositionXY">双片检测位置(X, Y)</System:String>
+    <System:String x:Key="GoToDoubleSubCheckPosition">移动到双片检测位置</System:String>
+    <System:String x:Key="UpdatePosition">更新位置</System:String>
+    <System:String x:Key="GalvoPos">Galvo-Pos</System:String>
+    <System:String x:Key="CalibratePts">Cal-Pts</System:String>
+    <System:String x:Key="GoToNGTrayClearPos">移动至NG倉匣正确位置</System:String>
+
+    <System:String x:Key="PnPCarriagePosition">手臂平台位置</System:String>
+    <System:String x:Key="PnPElevatorPosition">手臂升降機位置</System:String>
+    <System:String x:Key="PnPNGTrayPosition">手臂廢料盒位置</System:String>
+
+    <System:String x:Key="MoveTo">移至</System:String>
+    <System:String x:Key="RegisterTo">储存至</System:String>
+
+    <!--Power Ramp-->
+    <System:String x:Key="PowerRamp">功率曲线</System:String>
+    <System:String x:Key="LaserInfo">激光资讯</System:String>
+    <System:String x:Key="DiodeUsage">二極体使用时數</System:String>
+    <System:String x:Key="DiodeTemp">二極体温度</System:String>
+    <System:String x:Key="LaserCurrent">电流(A)</System:String>
+    <System:String x:Key="LaserCurrentPercent">电流(%)</System:String>
+    <System:String x:Key="ReadInfo">读取信息</System:String>
+    <System:String x:Key="StartCurrent">起始电流%</System:String>
+    <System:String x:Key="MaxCurrent">最大电流(A)</System:String>
+    <System:String x:Key="ReadingTime">时间消耗(s)</System:String>
+    <System:String x:Key="Running">运行时间 (ms)</System:String>
+    <System:String x:Key="ReadingWatts">读取功率</System:String>
+    <System:String x:Key="SetCurrent">设置电流(%)</System:String>
+    <System:String x:Key="SetFrequency">设置频率(Hz)</System:String>
+    <System:String x:Key="SetPower">设置功率 (%)</System:String>
+    <System:String x:Key="SetDiodeCurrent">设置二極体电流</System:String>
+    <System:String x:Key="LastCalibratedPowerRamp">最后校准功率斜线</System:String>
+    <System:String x:Key="PowerReading">读取功率</System:String>
+    <System:String x:Key="LoadLastInfo">载入最后信息</System:String>
+    <System:String x:Key="StartPowerRampProcess">开始功率校正</System:String>
+    <System:String x:Key="AbortProcess">终止过程</System:String>
+    <System:String x:Key="UpdateRampInfo">更新斜线信息</System:String>
+    <System:String x:Key="LaserPowerTest">镭射功率测试</System:String>
+    <System:String x:Key="BlockMeter">断</System:String>
+    <System:String x:Key="UnBlockMeter">通</System:String>
+
+    <System:String x:Key="PowerControl">功率控制</System:String>
+    <System:String x:Key="Laserpower">激光功率</System:String>
+    <System:String x:Key="SeedControl">Seed 控制</System:String>
+    <System:String x:Key="Amp1Control">Amp1 控制</System:String>
+    <System:String x:Key="Diode">二極体</System:String>
+    <System:String x:Key="Shutter">遮断器</System:String>
+    <System:String x:Key="ActualCurrent">实际电流(A)</System:String>
+    <System:String x:Key="PulseControl">脉波控制</System:String>
+    <System:String x:Key="PRF">PRF(Hz)</System:String>
+    <System:String x:Key="PEC">PEC(%)</System:String>
+    <System:String x:Key="PRFSource">PRF 来源</System:String>
+    <System:String x:Key="GateSource">Gate 来源</System:String>
+    <System:String x:Key="PECSource">PEC 来源</System:String>
+    <System:String x:Key="PC">PC</System:String>
+    <System:String x:Key="AOM">AOM</System:String>
+    <System:String x:Key="PCDelay">PC 延迟</System:String>
+    <System:String x:Key="RGHBurstMode">RGH 突冲模式</System:String>
+    <System:String x:Key="Fire">激发</System:String>
+    <System:String x:Key="NA">NA</System:String>
+    <System:String x:Key="NB">NB</System:String>
+    <System:String x:Key="INT">内控</System:String>
+    <System:String x:Key="EXT">外控</System:String>
+    <System:String x:Key="KeySwitch">钥匙开关</System:String>
+    <System:String x:Key="LDD">LDD</System:String>
+    <System:String x:Key="Pulse">脉波</System:String>
+    <System:String x:Key="ShutterInterlock">遮断器开关</System:String>
+    <System:String x:Key="LDDInterlock">LDD 开关</System:String>
+    <System:String x:Key="PowerOn">电源开</System:String>
+    <System:String x:Key="SystemMonitor">系统监控</System:String>
+    <System:String x:Key="TemperatureMonitor">温度监控</System:String>
+    <System:String x:Key="Monitor">监视器</System:String>
+    <System:String x:Key="Seed">种子源</System:String>
+    <System:String x:Key="SHG">SHG</System:String>
+    <System:String x:Key="THG">THG</System:String>
+    <System:String x:Key="Amp1">Amp1</System:String>
+    <System:String x:Key="FlowRate">水流速</System:String>
+    <System:String x:Key="LaserOn">激光打开</System:String>
+    <System:String x:Key="LaserOff">激光并闭</System:String>
+    <System:String x:Key="Connect">连接</System:String>
+    <System:String x:Key="DisConnect">断开</System:String>
+
+    <!--Power Test-->
+    <System:String x:Key="PulseLaser">镭射打点</System:String>
+    <System:String x:Key="SetWatts">设置功率</System:String>
+    <!--<System:String x:Key="ReadingWatts">讀取瓦数</System:String>-->
+    <System:String x:Key="ElapsedTime">时间消耗(s)</System:String>
+    <System:String x:Key="ReadPower">读取功率</System:String>
+    <System:String x:Key="StopReading">停止读取</System:String>
+
+    <!--PR Check Info-->
+    <System:String x:Key="Ref1">参考1</System:String>
+    <System:String x:Key="Ref2">参考2</System:String>
+    <System:String x:Key="PRScr">分数</System:String>
+    <System:String x:Key="PROff">偏移量</System:String>
+    <System:String x:Key="AngleOff">角度偏移量</System:String>
+    <System:String x:Key="PositionOff">位置偏移量</System:String>
+    <System:String x:Key="PRFailed">PR 失败</System:String>
+
+    <!--PR Teach-->
+    <System:String x:Key="Learn_ROI_Top_Left_X">Learn ROI左上角X位置</System:String>
+    <System:String x:Key="Learn_ROI_Top_Left_Y">Learn ROI左上角Y位置</System:String>
+    <System:String x:Key="Learn_ROI_Bottom_Right_X">Learn ROI右下X位置</System:String>
+    <System:String x:Key="Learn_ROI_Bottom_Right_Y">Learn ROI右下Y位置</System:String>
+    <System:String x:Key="Learn_ROI_Width">Learn ROI宽度</System:String>
+    <System:String x:Key="Learn_ROI_Height">Learn ROI高度</System:String>
+    <System:String x:Key="Width">宽度</System:String>
+    <System:String x:Key="Height">高度</System:String>
+    
+    <System:String x:Key="Update_Learn_ROI">更新Learn ROI</System:String>
+    <System:String x:Key="Set_Learn_ROI_To_Middle">将Learn ROI移到中心</System:String>
+
+    <!--PR Teach-->
+    <System:String x:Key="PRView">PR观察</System:String>
+    <System:String x:Key="PR2View">PR2 观察</System:String>
+    <System:String x:Key="ShowLearnROI">显示学习ROI</System:String>
+    <System:String x:Key="ShowSearchROI">显示搜寻ROI</System:String>
+    <System:String x:Key="TeachPRPatternAndPos">教導PR目標及位置</System:String>
+    <System:String x:Key="AutoCenterPosAdjust">自動中心位置調整</System:String>
+    <System:String x:Key="LearnPattern">学习样式</System:String>
+    <System:String x:Key="TestScore">测试分数</System:String>
+    <System:String x:Key="TestAndCenterPos">测试和中心位置</System:String>
+    <System:String x:Key="MinScore">最小分数</System:String>
+    <System:String x:Key="MaxThetaOffset">最大角度偏移</System:String>
+    <System:String x:Key="MaxPosOffset">最大位置偏移</System:String>
+    <System:String x:Key="PRCheckDelay">PR 扫瞄延迟</System:String>
+    <System:String x:Key="SaveSetting">存储设定</System:String>
+    <System:String x:Key="Score">分数</System:String>
+    <System:String x:Key="FoundPixel">找到像素</System:String>
+    <System:String x:Key="Offsetmm">偏移量(mm)</System:String>
+    <System:String x:Key="SubLocatorPRTeaching">基板定位PR设定</System:String>
+    <System:String x:Key="TrimThetaPos">角度位置</System:String>
+    <System:String x:Key="RefLoc1PosXY">到参考点1(X, Y)</System:String>
+    <System:String x:Key="RefLoc2PosXY">到参考点2(X, Y)</System:String>
+    <System:String x:Key="CarriageThetaTrimPos">平台角度切割位置</System:String>
+    <System:String x:Key="GoToRef1Pos">移动到参考点1</System:String>
+    <System:String x:Key="UpdateRef1Pos">更新参考点1</System:String>
+    <System:String x:Key="GoToRef2Pos">移动到参考点2</System:String>
+    <System:String x:Key="UpdateRef2Pos">更新参考点2</System:String>
+
+    <System:String x:Key="EnableSmartPR">启用智能 PR</System:String>
+    <System:String x:Key="PRThetaTol">PR 角度公差</System:String>
+    <System:String x:Key="PRXPosTol">PR X位置公差</System:String>
+    <System:String x:Key="PRYPosTol">PR Y位置公差</System:String>
+    <System:String x:Key="PRRetryCount">PR 重试次數</System:String>
+    <System:String x:Key="PRThetaFactor">PR 角度因子</System:String>
+    <System:String x:Key="PRXPosFactor">PR X位置因子</System:String>
+    <System:String x:Key="PRYPosFactor">PR Y位置因子</System:String>
+    <System:String x:Key="PRCameraScaleFactor">PR 相機比例因數</System:String>
+
+    <!--Galvo Calibration-->
+    <System:String x:Key="GoToCalPos">转到校准位置</System:String>
+    <System:String x:Key="SavePosition">保存位置</System:String>
+    <System:String x:Key="StartCalibrate">开始校准</System:String>
+
+    <!--Probe Action-->
+    <System:String x:Key="ManualProbingAdjustment">手动探头调整</System:String>
+    <System:String x:Key="Up">探卡抬起</System:String>
+    <System:String x:Key="Index">移动索引</System:String>
+    <System:String x:Key="Down">探卡压下</System:String>
+    <System:String x:Key="ProbeUp">探卡抬起</System:String>
+    <System:String x:Key="ProbeCleanPos">探针清洁位置</System:String>
+    <System:String x:Key="ResetProbeCleanPos">重置探针清洁位置</System:String>
+    <System:String x:Key="ResetProbeDownPos">探卡下位置复位</System:String>
+    <System:String x:Key="StepSize">步进尺寸</System:String>
+    <System:String x:Key="IndexDistance">探头索引距离</System:String>
+    <System:String x:Key="SafetyPos">安全位置</System:String>
+    <System:String x:Key="IndexPos">探头索引位置</System:String>
+    <System:String x:Key="MeasurePos">测量位置</System:String>
+    <!--<System:String x:Key="CurrentPos">目前位置</System:String>-->
+
+
+    <!--Probe Cleaning-->
+    <System:String x:Key="ProbeCleaningSetup">探头清洁设置</System:String>
+    <System:String x:Key="EnableProbeCleaningFeature">启用探头清洁功能</System:String>
+    <System:String x:Key="CleanProbeInEvery">探头清洁每</System:String>
+    <System:String x:Key="Substrate">基板</System:String>
+    <System:String x:Key="DownUp">探头向下-探头最多</System:String>
+    <System:String x:Key="Times">时报</System:String>
+    <System:String x:Key="CleanPos">探头清洁地点</System:String>
+    <System:String x:Key="ProbeCleanDelay">清针延迟</System:String>
+    <System:String x:Key="SaveSettings">儲存設定</System:String>
+    <System:String x:Key="UpdateCarCleaningPos">更新探头清洁的位置（X，Y）</System:String>
+    <System:String x:Key="CleanDistanceX">清针距离-X</System:String>
+    <System:String x:Key="CleanDistanceY">清针距离-Y</System:String>
+    <System:String x:Key="CleanSpeedX">清针速度-X</System:String>
+    <System:String x:Key="CleanSpeedY">清针速度-Y</System:String>
+    <System:String x:Key="CleanPosXY">清洁的位置（X，Y）</System:String>
+    <System:String x:Key="CarriageCleanPos">夹具探针清洁位置(X, Y)</System:String>
+    <System:String x:Key="TestProbeCleanBrush">测试探针清洗 (Brush)</System:String>
+    <System:String x:Key="TestProbeCleanLaser">Test Probe Clean (Laser)</System:String>
+    <System:String x:Key="Abort">退出</System:String>
+
+
+
+    <!--Probe Map-->
+    <!--<System:String x:Key="SubstrateColumnStatistics">基板行統計</System:String>-->
+    <System:String x:Key="Col">列</System:String>
+    <System:String x:Key="Group">组</System:String>
+    <System:String x:Key="Row">行</System:String>
+    <System:String x:Key="ColRow">列,行</System:String>
+    <System:String x:Key="ChannelAssignmentAndSubInfoSetting">探卡通道分配和基板信息设置</System:String>
+    <System:String x:Key="No">编号</System:String>
+    <System:String x:Key="HF">HF</System:String>
+    <System:String x:Key="HS">HS</System:String>
+    <System:String x:Key="LF">LF</System:String>
+    <System:String x:Key="LS">LS</System:String>
+    <System:String x:Key="GF">GF</System:String>
+    <System:String x:Key="GS">GS</System:String>
+
+    <System:String x:Key="2TTwoTerminalMeasurement">2T测量</System:String>
+    <System:String x:Key="4TFourTerminalMeasurement">4T测量</System:String>
+    <System:String x:Key="SelectHeader">选择通道</System:String>
+    <System:String x:Key="StartRes">起始电阻</System:String>
+    <System:String x:Key="EndRes">结束电阻</System:String>
+    <System:String x:Key="StartChannelNo">起始通道号</System:String>
+    <System:String x:Key="INCDEC">递增/递减</System:String>
+    <System:String x:Key="EveryNext">相隔…颗电阻</System:String>
+    <System:String x:Key="SwitchHighAndLowCh">切换H和L通道</System:String>
+    <System:String x:Key="GenerateAssignment">生成</System:String>
+    <System:String x:Key="DownloadChannel">下载</System:String>
+    <System:String x:Key="OpenChannelConfigFile">加载配置文件</System:String>
+    <System:String x:Key="SaveChannelConfigFile">保存配置文件</System:String>
+    <System:String x:Key="TotalResistor">总电阻数</System:String>
+    <System:String x:Key="TotalResistorType">总电阻型式</System:String>
+    <System:String x:Key="TotalNetwork">总电路數</System:String>
+    <System:String x:Key="UpdateTotalRes">更新总电阻数</System:String>
+
+    <!--Production Summary Summary-->
+    <System:String x:Key="SubstrateSummary">基板摘要</System:String>
+    <System:String x:Key="R">电阻</System:String>
+    <System:String x:Key="Tol">精度</System:String>
+    <System:String x:Key="Sub">基板</System:String>
+    <System:String x:Key="SubTime">時間</System:String>
+    <System:String x:Key="Hour">小時</System:String>
+    <System:String x:Key="SubsRate">片/小时</System:String>
+    <System:String x:Key="NGTray">不良品倉匣</System:String>
+
+    <!--PT/FT Histogram-->
+    <System:String x:Key="PTAndFTHistogram">預測/终測直方图</System:String>
+    <System:String x:Key="FinalTestHistogram">终測直方图</System:String>
+    <System:String x:Key="PreTestHistogram">預測直方图</System:String>
+    <System:String x:Key="MyComputer">我的电脑</System:String>
+    <System:String x:Key="RecipeName">档案名称</System:String>
+    <System:String x:Key="DateModified">修改日期</System:String>
+    <System:String x:Key="DateAccessed">访问日期</System:String>
+    <System:String x:Key="LoadRecipe">载入产品文件</System:String>
+    <System:String x:Key="ReLoadRecipe">重新载入文件</System:String>
+    <System:String x:Key="Copy">复制文件</System:String>
+    <System:String x:Key="Remove">删除文件</System:String>
+    <System:String x:Key="Calculate">演算</System:String>
+
+    <System:String x:Key="View">观察</System:String>
+
+    <!--Running Auto-->
+    <System:String x:Key="ManualLoading">手动载入</System:String>
+    <System:String x:Key="AutoLoading">自动载入</System:String>
+    <System:String x:Key="ExternalLoading">外部载入</System:String>
+    
+    <!--Sequence Test-->
+    <System:String x:Key="PNPSequenceTest">收放料测试</System:String>
+    <System:String x:Key="PickSubFromNewMagzine">从供料料夹吸一片基板</System:String>
+    <System:String x:Key="PlaceSubToNewMagazine">吸一片基板放入供料料夹</System:String>
+    <System:String x:Key="DoubleSubCheckAndLoad">两片测试后放到工作台</System:String>
+    <System:String x:Key="UnloadSubToRejectTray">把基板放入NG倉匣</System:String>
+    <System:String x:Key="UnloadSubToNGTray">把基板放入NG倉匣</System:String>
+    <System:String x:Key="UnloadSubFromCarriage">从工作台上收料</System:String>
+    <System:String x:Key="PlaceSubToCutMagazine">把基板放入收料料夹</System:String>
+    <System:String x:Key="PlaceTrimmedSubToMagazine">将切割基板放入托盘</System:String>
+    <System:String x:Key="PickNewSubAndLoad">吸一片基板</System:String>
+    <System:String x:Key="UnloadSubAndPlace">收料和放置</System:String>
+    <System:String x:Key="PickAndPlacePnPTest">收放料全过程测试</System:String>
+    <System:String x:Key="PickAndDoubleSubCheck">拾取和双基板检查</System:String>
+    <System:String x:Key="Move_Arm_To_Carr">将臂移到平台</System:String>
+
+    <System:String x:Key="PrepareNewSub">准备新基板</System:String>
+    <System:String x:Key="UnloadTrimmedSubFromCarr">捡起切好的基板</System:String>
+    <System:String x:Key="LoadNewSubToCarr">将新基板放置到平台上</System:String>
+    <System:String x:Key="HomeArm">PNP手臂回到原位</System:String>
+
+    <!--PR Testing-->
+    <System:String x:Key="PRTesting">测试PR功能</System:String>
+    <System:String x:Key="TestPR">测试PR功能</System:String>
+    <System:String x:Key="ThetaOffset">角度偏移</System:String>
+    <System:String x:Key="PositionOffset">位置偏移</System:String>
+    <System:String x:Key="CheckRef1">进行检查参考位置1</System:String>
+    <System:String x:Key="CheckRef2">进行检查参考位置2</System:String>
+    <System:String x:Key="InspectPR1">检查 PR1</System:String>
+    <System:String x:Key="InspectPR2">检查 PR2</System:String>
+    <System:String x:Key="ReferencePos1Result">参考位置1结果</System:String>
+    <System:String x:Key="ReferencePos2Result">参考位置2结果</System:String>
+    <System:String x:Key="FoundXYOffset">结果（X，Y）偏移</System:String>
+    <System:String x:Key="MaxSearchROI">最大扫瞄范围</System:String>
+    <!--<System:String x:Key="CarrOut">平台退出</System:String>-->
+
+
+    <!--Theta and First Col Pos-->
+    <!--System:String x:Key="TrimThetaPos">切割角度位置</System:String-->
+    <System:String x:Key="TrimmingPosition">切割位置</System:String>
+    <System:String x:Key="CalibrationAndResistorMovement">校准和电阻移动</System:String>
+    <System:String x:Key="GoToTrimThetaPos">移动到角度位置</System:String>
+    <System:String x:Key="UpdateTrimThetaPos">更新角度位置</System:String>
+    <System:String x:Key="UpdateCol1Pos">更新第一列位置</System:String>
+    <System:String x:Key="ColPositionGlobalAdjust">列位置调整</System:String>
+    <System:String x:Key="AdjustGalvoPos">调整Galvo个位置</System:String>
+    <System:String x:Key="Column1PosXY">第一列位置</System:String>
+    <System:String x:Key="CurrentPosXY">当前位置 (X, Y) mm</System:String>
+    <System:String x:Key="GoToCol1Pos">移动到第一列位置</System:String>
+    <System:String x:Key="FirstColumnAndThetaPosition">第一列和角度位置 (1)</System:String>
+    <System:String x:Key="DUTProbeAdj">DUT探针位置校准 (2)</System:String>
+    <System:String x:Key="ColumnToColumnProbing">列跟列探测間距 (2)</System:String>
+    <System:String x:Key="ColumnToColumnGlobalCalibration">列跟列切割位置校准 (3)</System:String>
+    <System:String x:Key="ResistorToResistorCalibration">电阻間切割位置校准 (4)</System:String>
+    <System:String x:Key="GlobalCalibration">全局校准(4)</System:String>
+    <System:String x:Key="DUTGalvoCalibration">DUT振镜位置校准 (4)</System:String>
+    <System:String x:Key="ResPosTeach">電阻位置教學 (3)</System:String>
+
+    <!--Carriage Theta Control-->
+    <System:String x:Key="CarriageThetaControls">工作台角度控制</System:String>
+    <System:String x:Key="Home">原点</System:String>
+    <System:String x:Key="Reset">复位</System:String>
+    <System:String x:Key="ThetaPos">角度位置</System:String>
+    <System:String x:Key="SaveFile">保存</System:String>
+    <System:String x:Key="LoadFile">加载</System:String>
+
+    <System:String x:Key="Home_X">原点 X</System:String>
+    <System:String x:Key="Home_Y">原点 Y</System:String>
+    <!--To Col Move-->
+    <System:String x:Key="StageControl">平台控制</System:String>
+    <System:String x:Key="PRCheckEnable">启用PR检查</System:String>
+    <System:String x:Key="AutoProbeDown">自動点测上下</System:String>
+    <System:String x:Key="Column">列</System:String>
+    <System:String x:Key="ColumnRowDef">列和行的定义</System:String>
+    <System:String x:Key="SubDef">Sub. Def.</System:String>
+    <System:String x:Key="CarrIn">工作台进入</System:String>
+    <System:String x:Key="CarrOut">工作台退出</System:String>
+
+    <!--Total Column-->
+    <System:String x:Key="NoOfCol">列数</System:String>
+    <System:String x:Key="NoOfRow">行数</System:String>
+    <System:String x:Key="XSpacing">X间距</System:String>
+    <System:String x:Key="ColSpacing">列间距</System:String>
+    <System:String x:Key="RowSpacing">行间距</System:String>
+    <System:String x:Key="UpdateGeometry">更新数据</System:String>
+    <System:String x:Key="SubGeometrySetting">基板尺寸設定</System:String>
+    <System:String x:Key="ResistorTypeSetting">电阻型式設定</System:String>
+
+    <!--Probing and Trimming-->
+    <System:String x:Key="ProbingAndTrimming">修阻和探测动作</System:String>
+    <!--<System:String x:Key="MeasureR">量一顆</System:String>
+	<System:String x:Key="MeasureCol">量一列</System:String>-->
+    <!--System:String x:Key="Up">上</System:String-->
+    <!--System:String x:Key="Index">寸動</System:String-->
+    <!--System:String x:Key="Down">下</System:String-->
+    <!--System:String x:Key="PulseLaser">打激光</System:String-->
+    <System:String x:Key="ZDownPos">探针下压位置</System:String>
+    <System:String x:Key="ZCurrentPos">探针当前位置</System:String>
+    <System:String x:Key="TrimR">切一个电阻</System:String>
+    <System:String x:Key="TrimCol">切一列电阻</System:String>
+    <System:String x:Key="Res">电阻数</System:String>
+
+
+    <System:String x:Key="CarriageXControl">工作台X控制</System:String>
+    <System:String x:Key="CarriageControl">工作台控制</System:String>
+    <System:String x:Key="CarriageYControl">工作台Y控制</System:String>
+    <System:String x:Key="ProberZControl">探卡Z控制</System:String>
+    <System:String x:Key="CarriageXYControl">工作台XY控制</System:String>
+    
+    <!--System Initialization Messages-->
+    <System:String x:Key="ReadingSystemSetting">读取系统设定..</System:String>
+    <System:String x:Key="CheckSystemFolder">核对系统文件夹..</System:String>
+    <System:String x:Key="LoadRecipeInfo">载入产品文件信息..</System:String>
+    <System:String x:Key="TrimmingDataInitialization">修边数据初始化..</System:String>
+    <System:String x:Key="MotionControllerInitialization">运动控制器初始化..</System:String>
+    <System:String x:Key="VisionSystemInitialization">视觉系统初始化..</System:String>
+    <System:String x:Key="LaserInitialization">激光启動中,请稍候...</System:String>
+    <System:String x:Key="SmartCoreInitialization">智能核心初始化..</System:String>
+    <System:String x:Key="SystemInitializationDone">系统初始化完成..</System:String>
+    <System:String x:Key="Version">版本 (JS 2.3.1.5A-14)</System:String>
+    <System:String x:Key="ExitApplication">退出应用程序？</System:String>
+    <!--<System:String x:Key="Exit">退出</System:String>-->
+    <System:String x:Key="PositionNotGoodToSave">位置不适合的以使用</System:String>
+    <System:String x:Key="RegisterInterleaveGroup">储存跳切组别</System:String>
+    <System:String x:Key="RegisterGroup">储存组别</System:String>
+    <System:String x:Key="ClearAllInterleaveGroup">清除所有跳切组别</System:String>
+    <System:String x:Key="ClearGroup">清除组别</System:String>
+
+    <!--Production Statistics-->
+    <System:String x:Key="DayShift">早班</System:String>
+    <System:String x:Key="NightShift">夜班</System:String>
+    <System:String x:Key="Date">日期</System:String>
+    <System:String x:Key="DaysOfWeek">一周中的天数</System:String>
+    <System:String x:Key="DayCount">上午计数</System:String>
+    <System:String x:Key="NightCount">夜数</System:String>
+    <System:String x:Key="SubCount">基板计数</System:String>
+    <System:String x:Key="TotalSubCount">基板总数</System:String>
+    <System:String x:Key="TotalResCount">总电阻数</System:String>
+
+    <!--ErrorMessage-->
+
+    <System:String x:Key="ProductionContolLimit">生产控制限制警告</System:String>
+    <System:String x:Key="DoYouWantToBypassCurrentSub">当前基板不再报警？</System:String>
+    <System:String x:Key="ColSDHitLimit">列SD 达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="SubSDHitLimit">片SD 达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="BatchSDHitLimit">批SD 达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+
+    <System:String x:Key="ColYieldHitLimit">列良率低于设定值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="ColPtHighHitLimit">列 PT 高达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="ColPtLowHitLimit">列 PT 低达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="ColPtOpenHitLimit">列 PT 开路达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="ColFtHighHitLimit">列 FT 高达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="ColFtLowHitLimit">列 FT 低达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="ColFtOpenHitLimit">列 FT 开路达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="ColFtSDHitLimit">列 FT SD达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="ColFtMeanHitLimit">列 FT 平均值达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+
+    <System:String x:Key="SubYieldHitLimit">片良率低于设定值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="SubPtHighHitLimit">片 PT 高达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="SubPtLowHitLimit">片 PT 低达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="SubPtOpenHitLimit">片 PT 开路达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="SubFtHighHitLimit">片 FT 高达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="SubFtLowHitLimit">片 FT 低达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="SubFtOpenHitLimit">片 FT 开路达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="SubFtSDHitLimit">片 FT SD达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="SubFtMeanHitLimit">片 FT 平均值达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+
+    <System:String x:Key="BatchYieldHitLimit">批良率低于设定值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="BatchPtHighHitLimit">批 PT 高达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="BatchPtLowHitLimit">批 PT 低达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="BatchPtOpenHitLimit">批 PT 开路达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="BatchFtHighHitLimit">批 FT 高达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="BatchFtLowHitLimit">批 FT 低达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="BatchFtOpenHitLimit">批 FT 开路达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="BatchFtSDHitLimit">批 FT SD达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    <System:String x:Key="BatchFtMeanHitLimit">批 FT 平均值达到極限值 \r 更改限制设置或停止生产 \r 停止生产?</System:String>
+    
+    <System:String x:Key="DoYouWantToResetColumn1Pos">是否重置第一列位置？注意：重置后需要重新调整首列位置！</System:String>
+    <System:String x:Key="DoYouWantToResetSystem">是否重置系统错误？</System:String>
+
+    <System:String x:Key="JPTLaserSetting">JPT-激光设置</System:String>
+    <System:String x:Key="PILaserSetting">PI-激光设置</System:String>
+    <System:String x:Key="LaserSetting">激光设置</System:String>
+
+    <System:String x:Key="DiodeCurrent">二極管電流</System:String>
+    <System:String x:Key="ReputationRate">重覆率</System:String>
+    <System:String x:Key="QSMode">Q-开关模式</System:String>
+    <System:String x:Key="RegulationMode">調節模式</System:String>
+    <System:String x:Key="Laser">激光</System:String>
+    <System:String x:Key="Status">状态</System:String>
+    <System:String x:Key="CrystalTemp">Crystal Temp</System:String>
+    <System:String x:Key="THGTemp">THG Temp</System:String>
+
+    <!--JPTLaserSetting-->
+    <System:String x:Key="ComPort">串列埠</System:String>
+    <System:String x:Key="Mark">標記</System:String>
+    <System:String x:Key="RequestControl">請求控制</System:String>
+    <System:String x:Key="PowerPercent">功率(%)</System:String>
+    <System:String x:Key="PulseReputationRate">脈衝重覆率</System:String>
+
+    <System:String x:Key="DefaultSetting">默認設置</System:String>
+    <System:String x:Key="DefaultSimmer">默認涌動值</System:String>
+    <System:String x:Key="DefaultPRR">默認 PRR</System:String>
+    <System:String x:Key="DefaultPulses">默認脈衝</System:String>
+    <System:String x:Key="ExternalPRR">外部 PRR</System:String>
+
+    <System:String x:Key="LaserSystemPRFO">激光系統 (PRFO)</System:String>
+    <System:String x:Key="PreSimmer">預涌動值</System:String>
+    <System:String x:Key="PreMark">前標記</System:String>
+    <System:String x:Key="BoardTempH">板溫-H</System:String>
+    <System:String x:Key="PowMark">功率標記</System:String>
+    <System:String x:Key="PowSimH">功率涌動-H</System:String>
+    <System:String x:Key="PumpTempH">泵溫度-H</System:String>
+    <System:String x:Key="ClearAt">清除在</System:String>
+    <System:String x:Key="TXData">傳輸數據</System:String>
+    <System:String x:Key="RXData">接收數據</System:String>
+
+    <System:String x:Key="LaserStatus">激光狀態</System:String>
+    <System:String x:Key="BoardTemp">板溫</System:String>
+    <System:String x:Key="PumpTemp">泵溫度</System:String>
+    <System:String x:Key="PumpTempE">泵溫度-E</System:String>
+    <System:String x:Key="BoardTempE">板溫-E</System:String>
+    <System:String x:Key="PreLowE">前低-E</System:String>
+    <System:String x:Key="SeedTecE">種子TecE</System:String>
+    <System:String x:Key="NoPulseE">无脈波E</System:String>
+
+    <!--FT Remeasurement-->
+    <System:String x:Key="FT_Remeasurement">FT重测参数</System:String>
+    <System:String x:Key="HuaTeng_Measurement_Option">华腾测量参数</System:String>
+    <System:String x:Key="FT_AVG_Low">平均下限</System:String>
+    <System:String x:Key="FT_AVG_High">平均上限</System:String>
+    <System:String x:Key="FT_SD_High">SD上限</System:String>
+    <System:String x:Key="Load_FT_Files">加载FT重新测量参数文件</System:String>
+    <!--PNP PLC-->
+    <System:String x:Key="PNP_PLC">PNP PLC</System:String>
+    <System:String x:Key="PNP_PLC_Unload">卸载基板</System:String>
+    <System:String x:Key="PNP_PLC_Load">加载基板</System:String>
+    <System:String x:Key="PNP_PLC_Unload_NG">卸载NG基板</System:String>    
+    <System:String x:Key="PNP_PLC_Prepare_New_Sub">准备新基板</System:String>
+    <System:String x:Key="PNP_PLC_E_Stop">紧急停</System:String>
+    <System:String x:Key="PNP_PLC_Clear_Double_Sub">清除双基板</System:String>
+    <System:String x:Key="PNP_PLC_System_Busy">系统忙</System:String>
+    <System:String x:Key="PNP_PLC_Send_Error">发错误</System:String>
+    <System:String x:Key="PNP_PLC_Init_Homing">初始化和归位</System:String>
+    <System:String x:Key="PNP_PLC_Error">系统错误</System:String>
+    <System:String x:Key="PNP_PLC_HOMING">手臂归位</System:String>
+    <System:String x:Key="PNP_PLC_Last_Sub">最后基板</System:String>
+    <System:String x:Key="PNP_PLC_Cut_Arm_PickUp_Sub_Done">切割臂拾取基板完成</System:String>
+    <System:String x:Key="PNP_PLC_New_Arm_Place_Sub_Done">新臂 放下基底完成</System:String>
+    <System:String x:Key="PNP_PLC_Wait_To_Pick_New_Sub">等待拾取新基板</System:String>
+    <System:String x:Key="PNP_PLC_Pause">PLC 暂停</System:String>
+
+    <System:String x:Key="CarriageMoveTo">平台移至</System:String>
+    <System:String x:Key="Enable_Disable">启用/禁用</System:String>
+    <System:String x:Key="Select">选择</System:String>
+    <System:String x:Key="SideCylinder">压块</System:String>
+    <System:String x:Key="SideCylinderLeft">压块左</System:String>
+    <System:String x:Key="SideCylinderRight">压块右</System:String>
+    <System:String x:Key="FlexSubstrate">翘基板</System:String>
+    <System:String x:Key="RegularSubstrate">普通基板</System:String>
+
+    <!--Trim_SEquence Grid-->
+    <System:String x:Key="SequenceNo">#</System:String>
+    <System:String x:Key="DUTColNo">DUT 列#</System:String>
+    <System:String x:Key="DUTRowNo">DUT 行#</System:String>
+    <System:String x:Key="TrimmingSequence">DUT切割顺序</System:String>
+    <System:String x:Key="AcrossDownS">跨下S</System:String>
+    <System:String x:Key="DownAcrossS">下跨 S</System:String>
+    <System:String x:Key="AcrossDown">跨下</System:String>
+    <System:String x:Key="DownAcross">下跨</System:String>
+    <System:String x:Key="ApplySelectedTrimSequence">应用选定的修剪顺序</System:String>
+
+    <!--Windows substrate definition-->
+    <System:String x:Key="SubstrateRowandColumndefinition">基板行和列定义</System:String>
+    <System:String x:Key="TrimCarPosAdj">切割和平台位置调整</System:String>
+    <System:String x:Key="TrimSequence">切割顺序</System:String>
+
+	<!--Optx Height Sensor UI-->
+	<!--<System:String x:Key="HeightSensorSetCalibrate">高度传感器设置和校准</System:String>
+	<System:String x:Key="Settings">设置</System:String>
+	<System:String x:Key="Current">目前</System:String>
+	<System:String x:Key="HeightSensorCalivrationMid">高度传感器校准 中(mm):</System:String>
+	<System:String x:Key="HeightSensorCalivrationTop">高度传感器校准 上(mm):</System:String>
+	<System:String x:Key="HeightSensorCalivrationBot">高度传感器校准 下(mm):</System:String>
+	<System:String x:Key="Read">读取</System:String>
+	<System:String x:Key="Apply">更改</System:String>-->
+</ResourceDictionary>

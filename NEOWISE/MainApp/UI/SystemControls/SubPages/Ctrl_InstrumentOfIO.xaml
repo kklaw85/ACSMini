@@ -1,0 +1,147 @@
+﻿<Pagebase:PageBase xmlns:Panels="clr-namespace:NeoWisePlatform.SystemControls.Panels" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:Pagebase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+             xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls"
+             x:Class="NeoWisePlatform.UI.SystemControls.SubPages.Ctrl_InstrumentOfIO"
+             mc:Ignorable="d"
+             Loaded="UserControl_Loaded">
+    <Grid Margin="0,0,0,0">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="{StaticResource IO}" Style="{StaticResource STYLE_MAIN_TITLE_LABEL_TB}"/>
+            <StackPanel Orientation="Horizontal" Margin="10" Height="720">
+                <Expander ExpandDirection="Right" Background="{StaticResource Gradient_SubPage}">
+                    <Expander.Header>
+                        <TextBlock Text="{StaticResource ListOfIoBoard}" Style="{StaticResource STYLE_SUB_TITLE_LABEL_TB}" RenderTransformOrigin="0.5,0.5" Margin="-136,135,0,0" Width="300">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Expander.Header>
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <Panels:Ctrl_InstrumentOfIOBoard x:Name="IOBoard" />
+                    </StackPanel>
+                </Expander>
+                <Expander ExpandDirection="Right" Background="{StaticResource Gradient_SubPage}" IsExpanded="True" Margin="5,0,0,0">
+                    <Expander.Header>
+                        <TextBlock Text="{StaticResource Input}" Style="{StaticResource STYLE_SUB_TITLE_LABEL_TB}" RenderTransformOrigin="0.5,0.5" Margin="-136,135,0,0" Width="300">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Expander.Header>
+                    <StackPanel Orientation="Vertical">
+                        <DataGrid x:Name="InputGrid"            
+                                  AutoGenerateColumns="False" CanUserAddRows="False" SelectionUnit="Cell" EnableRowVirtualization="True" GridLinesVisibility="All"   
+                                  ColumnHeaderHeight="30" Margin="10" Grid.Row="1" IsReadOnly="True" RowHeight="25" SelectionMode="Single" Height="700">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="250" x:Name="Name_Col" TextBlock.TextAlignment="Left" CanUserSort="False" CanUserResize="False" CanUserReorder="False"/>
+                                <DataGridTextColumn Header="CardID" Binding="{Binding Configuration.CardID}" IsReadOnly="True" Width="60" x:Name="CardID_Col" TextBlock.TextAlignment="Left" CanUserSort="False" CanUserResize="False" CanUserReorder="False"/>
+                                <DataGridTextColumn Header="Mod" Binding="{Binding Configuration.ModuleNo}" IsReadOnly="True" Width="50" x:Name="ModuleNo_Col" TextBlock.TextAlignment="Left" CanUserSort="False" CanUserResize="False" CanUserReorder="False" />
+                                <DataGridTextColumn Header="Ch" Binding="{Binding Configuration.Line}" IsReadOnly="True" Width="50" x:Name="AddressNo_Col" TextBlock.TextAlignment="Left"  CanUserSort="False" CanUserResize="False" CanUserReorder="False"/>
+                                <DataGridTemplateColumn x:Name="NormalHigh_Col" Header="NormalHigh" Width="120" IsReadOnly="False">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox IsEnabled="True" IsChecked="{Binding Configuration.NormalHigh, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn x:Name="Value_Col" Header="State" Width="60" IsReadOnly="True">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox IsEnabled="False" IsChecked="{Binding Value, Converter={StaticResource DioValueToBool}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </Expander>
+                <Expander ExpandDirection="Right" Background="{StaticResource Gradient_SubPage}" IsExpanded="True"  Margin="5,0,0,0">
+                    <Expander.Header>
+                        <TextBlock Text="{StaticResource Output}" Style="{StaticResource STYLE_SUB_TITLE_LABEL_TB}" RenderTransformOrigin="0.5,0.5" Margin="-136,135,0,0" Width="300">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Expander.Header>
+                    <StackPanel Orientation="Vertical">
+                        <DataGrid x:Name="OutputGrid"                  
+	  AutoGenerateColumns="False" CanUserAddRows="False" 
+	  SelectionUnit="Cell"
+	  EnableRowVirtualization="True"
+	  GridLinesVisibility="All"   
+	  ColumnHeaderHeight="30"
+	  Margin="10" IsReadOnly="True" SelectionMode="Single" RowHeight="25" Height="700">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Name" 
+			  Binding="{Binding Name}" 
+			  IsReadOnly="True" Width="250" 
+			  x:Name="Name_Col1"
+			  TextBlock.TextAlignment="Left" 
+			  CanUserSort="False"
+			  CanUserResize="False" CanUserReorder="False"
+                />
+                                <DataGridTextColumn Header="CardID" 
+    			Binding="{Binding Configuration.CardID}" 
+    			IsReadOnly="True" Width="60" 
+    			x:Name="CardID_Col1"
+    			TextBlock.TextAlignment="Left" 
+                CanUserSort="False"
+                CanUserResize="False" CanUserReorder="False"
+                />
+                                <DataGridTextColumn Header="Mod" 
+    			Binding="{Binding Configuration.ModuleNo}" 
+    			IsReadOnly="True" Width="50" 
+    			x:Name="ModuleNo_Col1"
+    			TextBlock.TextAlignment="Left" 
+                CanUserSort="False"
+                CanUserResize="False" CanUserReorder="False"
+                />
+                                <DataGridTextColumn Header="Ch" 
+    			Binding="{Binding Configuration.Line}" 
+    			IsReadOnly="True" Width="50" 
+    			x:Name="AddressNo_Col1"
+    			TextBlock.TextAlignment="Left" 
+                CanUserSort="False"
+                CanUserResize="False" CanUserReorder="False"
+                />
+                                <DataGridTemplateColumn x:Name="Value_Col1" Header="State" Width="60" IsReadOnly="True">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox IsEnabled="False" IsChecked="{Binding Value, Converter={StaticResource DioValueToBool}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Toggle State" Width="100" IsReadOnly="True">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button x:Name="Btn_ToggleOutput" Content="Toggle" Click="Btn_ToggleOutput_Click"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Pagebase:PageBase>

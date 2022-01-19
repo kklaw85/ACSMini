@@ -1,0 +1,62 @@
+﻿<Controls:MetroWindow x:Class="HiPA.Instrument.Camera.Win_CamSetting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        Title="Camera Setting" ShowTitleBar="False"
+        ShowCloseButton="False" ShowMinButton="False" ShowMaxRestoreButton="False"
+        WindowStyle="None" Background="Transparent"
+		IsWindowDraggable="True"
+        Loaded="MetroWindow_Loaded_1" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/xaml/behaviors" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="357" Width="147" Visibility="Visible" ShowInTaskbar="False" ResizeMode="NoResize">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="34"/>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+		<Rectangle Style="{StaticResource Rectangle_Main_UserCtrl}" Grid.RowSpan="2"/>
+		<Grid Grid.Column="0" Grid.Row="0">
+			<Label Content="{StaticResource CameraSetting}" Style="{StaticResource STYLE_SUB_TITLE_LABEL}" 
+                       HorizontalAlignment="Left"
+                       Height="Auto" Margin="0,0,0,0" Padding="5,0,0,0" DockPanel.Dock="Left" Width="147" />
+		</Grid>
+		<Slider HorizontalAlignment="Left" Margin="-80,120,0,0"
+                Grid.Row="1" VerticalAlignment="Top" Height="25" Width="240" 
+                RenderTransformOrigin="0.5,0.5" x:Name="Sld_Gain" IsMoveToPointEnabled="True" ValueChanged="Sld_ValueChanged" Thumb.DragCompleted="Slider_DragCompleted" Style="{StaticResource MahApps.Styles.Slider.Win10}">
+			<Slider.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="-90"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Slider.RenderTransform>
+		</Slider>
+		<Button x:Name="Btn_Close_Cam_Sett" Content="✖" Style="{StaticResource Button_RedContent}"
+        	HorizontalAlignment="Left" 
+        	VerticalAlignment="Top"
+        	ToolTip="Camera Setting"
+        	Width="30" Height="30" Margin="115,2,0,0" Click="Btn_Close_Cam_Sett_Click" >
+		</Button>
+		<Slider HorizontalAlignment="Left" Margin="-15,120,-73,0" Grid.Row="1" 
+                VerticalAlignment="Top" Height="25" Width="240" 
+                RenderTransformOrigin="0.5,0.5" x:Name="Sld_Exposure" IsMoveToPointEnabled="True" ValueChanged="Sld_ValueChanged" Thumb.DragCompleted="Slider_DragCompleted" Style="{StaticResource MahApps.Styles.Slider.Win10}"
+                Minimum="0" Maximum="497">
+			<Slider.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="-90"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Slider.RenderTransform>
+		</Slider>
+		<Label Content="{StaticResource Gain}" HorizontalAlignment="Left" Style="{StaticResource STYL_GENERAL_LBL_Center}"
+               Margin="8,267,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60"/>
+		<Label Content="{StaticResource Exposure}" HorizontalAlignment="Left" Style="{StaticResource STYL_GENERAL_LBL_Center}"
+        	   Margin="73,267,0,0" Grid.Row="1" 
+               VerticalAlignment="Top" Width="64"/>
+		<Label Content="0" HorizontalAlignment="Left" x:Name="Lbl_Gain_Val" Style="{StaticResource STYLE_POS_CONTENT}"
+        	Margin="8,288,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60"/>
+		<Label Content="0" HorizontalAlignment="Left" x:Name="Lbl_Exposure_Val" Style="{StaticResource STYLE_POS_CONTENT}"
+        	Margin="73,288,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60"/>
+	</Grid>
+</Controls:MetroWindow>

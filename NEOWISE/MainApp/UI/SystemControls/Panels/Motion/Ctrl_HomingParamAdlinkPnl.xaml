@@ -1,0 +1,39 @@
+﻿<Panelbase:PanelBase
+			 xmlns:Panelbase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+			 x:Class="NeoWisePlatform.SystemControls.Panels.Ctrl_HomingParamAdlinkPnl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls"
+			 mc:Ignorable="d" 
+             Loaded="UserControl_Loaded">
+    <Grid>
+        <StackPanel x:Name="StkPnl_Cfg" Orientation="Horizontal" Margin="10">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{StaticResource HomingProfile}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="165"/>
+                    <MahApp:NumericUpDown x:Name="Txt_HomeMode" Width="120" StringFormat="F0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <Label Content="{StaticResource HomeDir}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="165"/>
+                    <ComboBox HorizontalAlignment="Left" Width="120" x:Name="Cb_HomeDir"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <Label Content="{StaticResource HomeEZ}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="165"/>
+                    <MahApp:NumericUpDown x:Name="Txt_HomeEZ" Width="120" StringFormat="F3" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                    <Label Content="{StaticResource HomeVMax}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="165"/>
+                    <MahApp:NumericUpDown x:Name="Txt_HomeMaxVel" Width="120" StringFormat="F3" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <Label Content="{StaticResource HomeVO}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="165"/>
+                    <MahApp:NumericUpDown x:Name="Txt_HomeOrgVel" Width="120" StringFormat="F3" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Panelbase:PanelBase>

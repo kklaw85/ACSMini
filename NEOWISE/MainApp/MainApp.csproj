@@ -1,0 +1,1018 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34C50DAA-35D8-4D68-A677-4ECF2C479046}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NeoWisePlatform</RootNamespace>
+    <AssemblyName>Neowise</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>C:\Neowise\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>HiPA.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>C:\RTX\</OutputPath>
+    <DefineConstants>DEBUG;DEBUG, SIMULATION</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>NeoWisePlatform.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>C:\IntelNeowise\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ADODB, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Cognex.DataMan.SDK.Discovery.PC">
+      <HintPath>..\dll\Cognex.DataMan.SDK.Discovery.PC.dll</HintPath>
+    </Reference>
+    <Reference Include="ControlzEx, Version=5.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.5.0.0\lib\net452\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="CsvHelper, Version=27.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.27.0.2\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="IronBarCode, Version=2020.12.2.0, Culture=neutral, PublicKeyToken=b971bb3971bdf306, processorArchitecture=MSIL">
+      <HintPath>..\packages\BarCode.2020.12.2\lib\net40\IronBarCode.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.2.4.6\lib\net46\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.BootstrapIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.BootstrapIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.BoxIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.BoxIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Codicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.Codicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Coolicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.Coolicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Entypo, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.Entypo.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.EvaIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.EvaIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.FeatherIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.FeatherIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.FileIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.FileIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Fontaudio, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.Fontaudio.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.FontAwesome, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.FontAwesome.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Fontisto, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.Fontisto.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.ForkAwesome, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.ForkAwesome.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Ionicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.Ionicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.JamIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.JamIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Material, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.Material.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.MaterialDesign, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.MaterialDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.MaterialLight, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.MaterialLight.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Microns, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.Microns.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Modern, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.Modern.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Octicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.Octicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.PicolIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.PicolIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.PixelartIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.PixelartIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.RadixIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.RadixIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.RemixIcon, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.RemixIcon.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.RPGAwesome, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.RPGAwesome.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.SimpleIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.SimpleIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Typicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.Typicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Unicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.Unicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.VaadinIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.VaadinIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.WeatherIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.WeatherIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Zondicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net46\MahApps.Metro.IconPacks.Zondicons.dll</HintPath>
+    </Reference>
+    <Reference Include="Matrox.MatroxImagingLibrary, Version=10.30.595.0, Culture=neutral, PublicKeyToken=5a83d419d44a9d98, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\JPTDLL\x64\Matrox.MatroxImagingLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.2\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.31\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RawInput.Sharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\dll\RawInput.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.5.0.1\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.5.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=2.0.0.11, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.2.0.0.11\lib\net40\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Controls.DataVisualization.Toolkit.4.0.0.0\lib\net40-Client\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\WPFToolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Sequence\PNPSeq.cs" />
+    <Compile Include="Sequence\LiftSeq.cs" />
+    <Compile Include="Sequence\StageSeq.cs" />
+    <Compile Include="UI\Alarm\Subpages\Ctrl_Alarm.xaml.cs">
+      <DependentUpon>Ctrl_Alarm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonControls\Ctrl_LiftsControl.xaml.cs">
+      <DependentUpon>Ctrl_LiftsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonControls\Ctrl_SingleAxisJog.xaml.cs">
+      <DependentUpon>Ctrl_SingleAxisJog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonControls\Panels\Ctrl_EntryMotion.xaml.cs">
+      <DependentUpon>Ctrl_EntryMotion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonControls\Panels\Ctrl_IOMotionViewOnly.xaml.cs">
+      <DependentUpon>Ctrl_IOMotionViewOnly.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter\Converter.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Module\LiftModuleBase.cs" />
+    <Compile Include="Module\StageModule.cs" />
+    <Compile Include="Module\MachineMiscSystem.cs" />
+    <Compile Include="UI\CommonControls\Ctrl_IOMotionViewOnlyPnl.xaml.cs">
+      <DependentUpon>Ctrl_IOMotionViewOnlyPnl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonControls\Ctrl_IOMotionPnl.xaml.cs">
+      <DependentUpon>Ctrl_IOMotionPnl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonControls\Ctrl_InitBar.xaml.cs">
+      <DependentUpon>Ctrl_InitBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Module\SubModule\GenIO.cs" />
+    <Compile Include="UI\CommonControls\Panels\Ctrl_DPAD.xaml.cs">
+      <DependentUpon>Ctrl_DPAD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonControls\Panels\Ctrl_LiftControl.xaml.cs">
+      <DependentUpon>Ctrl_LiftControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonControls\Panels\Ctrl_Stage.xaml.cs">
+      <DependentUpon>Ctrl_Stage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonControls\Panels\Ctrl_PNPControl.xaml.cs">
+      <DependentUpon>Ctrl_PNPControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonControls\Panels\Ctrl_ROIParameter.xaml.cs">
+      <DependentUpon>Ctrl_ROIParameter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonControls\Panels\Ctrl_PNPArm.xaml.cs">
+      <DependentUpon>Ctrl_PNPArm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductionSetup\Panels\Camera\Ctrl_CollectiveInspection.xaml.cs">
+      <DependentUpon>Ctrl_CollectiveInspection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductionSetup\Panels\Camera\Ctrl_CollectiveInspectionStatus.xaml.cs">
+      <DependentUpon>Ctrl_CollectiveInspectionStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductionSetup\Panels\Camera\Ctrl_SingleInspectionStatus.xaml.cs">
+      <DependentUpon>Ctrl_SingleInspectionStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductionSetup\SubPages\Ctrl_SetupVision.xaml.cs">
+      <DependentUpon>Ctrl_SetupVision.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductionSetup\SubPages\Ctrl_SetupLoadUnload.xaml.cs">
+      <DependentUpon>Ctrl_SetupLoadUnload.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Production\Panels\Ctrl_AutoRunCommon.xaml.cs">
+      <DependentUpon>Ctrl_AutoRunCommon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Production\Panels\Ctrl_AutoRunCommonSeq.xaml.cs">
+      <DependentUpon>Ctrl_AutoRunCommonSeq.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductionSetup\Panels\WorkPos\Ctrl_PNPWorkPos.xaml.cs">
+      <DependentUpon>Ctrl_PNPWorkPos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductionSetup\Panels\Camera\Ctrl_InspectionModel.xaml.cs">
+      <DependentUpon>Ctrl_InspectionModel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SystemControls\Panels\Camera\Ctrl_CamCal.xaml.cs">
+      <DependentUpon>Ctrl_CamCal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SystemControls\Panels\Camera\Ctrl_CamConfigPnl.xaml.cs">
+      <DependentUpon>Ctrl_CamConfigPnl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SystemControls\Panels\Ctrl_AlarmConfig.xaml.cs">
+      <DependentUpon>Ctrl_AlarmConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SystemControls\Panels\Motion\Ctrl_InstrumentOfIOBoard.xaml.cs">
+      <DependentUpon>Ctrl_InstrumentOfIOBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductionSetup\SubPages\Ctrl_SetupWorkPosPage.xaml.cs">
+      <DependentUpon>Ctrl_SetupWorkPosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Production\Panels\Ctrl_AutoPnl.xaml.cs">
+      <DependentUpon>Ctrl_AutoPnl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Production\SubPages\Ctrl_Production.xaml.cs">
+      <DependentUpon>Ctrl_Production.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\Panels\Ctrl_SelectedRecipe.xaml.cs">
+      <DependentUpon>Ctrl_SelectedRecipe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\Window\Win_RecipeList.xaml.cs">
+      <DependentUpon>Win_RecipeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sequence\AutoSeq.cs" />
+    <Compile Include="Sequence\FuncObjects.cs" />
+    <Compile Include="Sequence\SequenceBase.cs" />
+    <Compile Include="Sequence\WorkerThread.cs" />
+    <Compile Include="Classes\SystemInfo.cs" />
+    <Compile Include="Classes\Validation.cs" />
+    <Compile Include="Classes\Validator.cs" />
+    <Compile Include="Module\SubModule\IoModules.cs" />
+    <Compile Include="Module\PNPModule.cs" />
+    <Compile Include="Module\MTEquipment.cs" />
+    <Compile Include="Recipe\RecipeContainer.cs" />
+    <Compile Include="Recipe\RecipeItemHandler.cs" />
+    <Compile Include="Recipe\PackageRecipe.cs" />
+    <Compile Include="UI\CommonControls\Ctrl_AxisJogPage.xaml.cs">
+      <DependentUpon>Ctrl_AxisJogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\Window\Win_DialogProductName.xaml.cs">
+      <DependentUpon>Win_DialogProductName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SystemControls\Panels\Motion\Ctrl_HomingParamAdlinkPnl.xaml.cs">
+      <DependentUpon>Ctrl_HomingParamAdlinkPnl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SystemControls\Panels\Motion\Ctrl_InstrumentOfAxis.xaml.cs">
+      <DependentUpon>Ctrl_InstrumentOfAxis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SystemControls\Panels\Motion\Ctrl_InstrumentOfAxisBoard.xaml.cs">
+      <DependentUpon>Ctrl_InstrumentOfAxisBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SystemControls\Panels\Motion\Ctrl_MotionProfile.xaml.cs">
+      <DependentUpon>Ctrl_MotionProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonControls\Ctrl_DisplayPanels.xaml.cs">
+      <DependentUpon>Ctrl_DisplayPanels.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SystemControls\SubPages\Ctrl_ManufacturerBypassOption.xaml.cs">
+      <DependentUpon>Ctrl_ManufacturerBypassOption.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SystemControls\SubPages\Ctrl_InstrumentOfIO.xaml.cs">
+      <DependentUpon>Ctrl_InstrumentOfIO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SystemControls\SubPages\Ctrl_InstrumentOfCamera.xaml.cs">
+      <DependentUpon>Ctrl_InstrumentOfCamera.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SystemControls\SubPages\Ctrl_InstrumentOfMotion.xaml.cs">
+      <DependentUpon>Ctrl_InstrumentOfMotion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SystemControls\SubPages\Ctrl_TestSequences.xaml.cs">
+      <DependentUpon>Ctrl_TestSequences.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UserAccess\Panels\Ctrl_CurrentLoginUser.xaml.cs">
+      <DependentUpon>Ctrl_CurrentLoginUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UserAccess\SubPages\Ctrl_User_Access.xaml.cs">
+      <DependentUpon>Ctrl_User_Access.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\Splash_Sreen_Window.xaml.cs">
+      <DependentUpon>Splash_Sreen_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\Window\Win_DialogRecipeName.xaml.cs">
+      <DependentUpon>Win_DialogRecipeName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\Win_Wait_Home.xaml.cs">
+      <DependentUpon>Win_Wait_Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\Win_Pre_Init.xaml.cs">
+      <DependentUpon>Win_Pre_Init.xaml</DependentUpon>
+    </Compile>
+    <Page Include="UI\Alarm\Subpages\Ctrl_Alarm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CommonControls\Ctrl_LiftsControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CommonControls\Ctrl_SingleAxisJog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CommonControls\Panels\Ctrl_EntryMotion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CommonControls\Panels\Ctrl_IOMotionViewOnly.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CommonControls\Ctrl_IOMotionViewOnlyPnl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CommonControls\Ctrl_IOMotionPnl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CommonControls\Ctrl_InitBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomAccents\Dark.Accent1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomAccents\Dark.Accent2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomAccents\Light.Accent1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomAccents\Light.Accent2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\DataUtilities.cs" />
+    <Compile Include="Classes\Error_Event_Map.cs" />
+    <Compile Include="Classes\Main_Manager.cs" />
+    <Compile Include="Classes\Shared_Data.cs" />
+    <Compile Include="Classes\UI_Manager.cs" />
+    <Page Include="Globalization\cs-CZ\cs-CZ-style.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Globalization\cs-CZ\cs-CZ.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Globalization\en-US\en-US-style.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Globalization\en-US\en-US.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Globalization\zh-CHS\zh-CHS-style.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Globalization\zh-CHS\zh-CHS.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CommonControls\Panels\Ctrl_DPAD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="UI\CommonControls\Panels\Ctrl_LiftControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CommonControls\Panels\Ctrl_Stage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CommonControls\Panels\Ctrl_PNPControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CommonControls\Panels\Ctrl_ROIParameter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CommonControls\Panels\Ctrl_PNPArm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductionSetup\Panels\Camera\Ctrl_CollectiveInspection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductionSetup\Panels\Camera\Ctrl_CollectiveInspectionStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductionSetup\Panels\Camera\Ctrl_SingleInspectionStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductionSetup\SubPages\Ctrl_SetupVision.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductionSetup\SubPages\Ctrl_SetupLoadUnload.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Production\Panels\Ctrl_AutoRunCommon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Production\Panels\Ctrl_AutoRunCommonSeq.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductionSetup\Panels\WorkPos\Ctrl_PNPWorkPos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RT_Resource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductionSetup\Panels\Camera\Ctrl_InspectionModel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SystemControls\Panels\Camera\Ctrl_CamCal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SystemControls\Panels\Camera\Ctrl_CamConfigPnl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SystemControls\Panels\Ctrl_AlarmConfig.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SystemControls\Panels\Motion\Ctrl_InstrumentOfIOBoard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductionSetup\SubPages\Ctrl_SetupWorkPosPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Production\Panels\Ctrl_AutoPnl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Production\SubPages\Ctrl_Production.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Recipe\Panels\Ctrl_SelectedRecipe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Recipe\Window\Win_RecipeList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Recipe\Window\Win_DialogProductName.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RT_Chs.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RT_Cht.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RT_Eng.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CommonControls\Ctrl_AxisJogPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SystemControls\Panels\Motion\Ctrl_HomingParamAdlinkPnl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SystemControls\Panels\Motion\Ctrl_InstrumentOfAxis.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SystemControls\Panels\Motion\Ctrl_InstrumentOfAxisBoard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SystemControls\Panels\Motion\Ctrl_MotionProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CommonControls\Ctrl_DisplayPanels.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SystemControls\SubPages\Ctrl_ManufacturerBypassOption.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SystemControls\SubPages\Ctrl_InstrumentOfIO.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SystemControls\SubPages\Ctrl_InstrumentOfCamera.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SystemControls\SubPages\Ctrl_InstrumentOfMotion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SystemControls\SubPages\Ctrl_TestSequences.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UserAccess\Panels\Ctrl_CurrentLoginUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UserAccess\SubPages\Ctrl_User_Access.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\Splash_Sreen_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Recipe\Window\Win_DialogRecipeName.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\Win_Wait_Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\Win_Pre_Init.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Cursors\aero_busy.ani" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ADOX">
+      <Guid>{00000600-0000-0010-8000-00AA006D2EA4}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\HiPA.Common\HiPA.Common.csproj">
+      <Project>{ca805057-07cd-4fb2-a56e-2b2aa037a030}</Project>
+      <Name>HiPA.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HiPA.Communicator\HiPA.Communicator.csproj">
+      <Project>{e786d738-d48f-4265-a51b-ad14f53306d9}</Project>
+      <Name>HiPA.Communicator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HiPA.Instrument\HiPA.Instrument.csproj">
+      <Project>{b85b6eb2-d4d2-4f7a-85a4-f2a7da9f50c2}</Project>
+      <Name>HiPA.Instrument</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\JptCamera\JptCamera.csproj">
+      <Project>{256C4EB1-33EF-461C-847B-BF095A3EAE5E}</Project>
+      <Name>JptCamera</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\JptMatroxSystem\JptMatroxSystem.csproj">
+      <Project>{53e00c91-ff2d-411d-b4d4-f632e6255072}</Project>
+      <Name>JptMatroxSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Vision_Processing\B262_Vision_Processing.csproj">
+      <Project>{9CC5BD89-CE66-40BC-A66B-335B10E90752}</Project>
+      <Name>B262_Vision_Processing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WPFSharp.Globalizer\WPFSharp.Globalizer.csproj">
+      <Project>{715461e8-4e54-4993-80a8-8e72892135e0}</Project>
+      <Name>WPFSharp.Globalizer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="HiPA.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="HipaLogo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="HiPASoftwareIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Recipe\SubPages\" />
+    <Folder Include="UI\ProductionSetup\Panels\Tray\" />
+    <Folder Include="UI\SystemControls\Panels\Lift\" />
+    <Folder Include="UI\UserAccess\Window\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Add.png" />
+    <Resource Include="Icons\Alignment.png" />
+    <Resource Include="Icons\Bell.png" />
+    <Resource Include="Icons\Camera.png" />
+    <Resource Include="Icons\Center_Pos.png" />
+    <Resource Include="Icons\Clear.png" />
+    <Resource Include="Icons\ClockWise.png" />
+    <Resource Include="Icons\CounterClockWise.png" />
+    <Resource Include="Icons\Delete.png" />
+    <Resource Include="Icons\Diagnostics.png" />
+    <Resource Include="Icons\DPAD_Down.png" />
+    <Resource Include="Icons\DPAD_Left.png" />
+    <Resource Include="Icons\DPAD_NE.png" />
+    <Resource Include="Icons\DPAD_NW.png" />
+    <Resource Include="Icons\DPAD_Right.png" />
+    <Resource Include="Icons\DPAD_SE.png" />
+    <Resource Include="Icons\DPAD_Stop.png" />
+    <Resource Include="Icons\DPAD_SW.png" />
+    <Resource Include="Icons\DPAD_Up.png" />
+    <Resource Include="Icons\Edit.png" />
+    <Resource Include="Icons\Exposure_Gain.png" />
+    <Resource Include="Icons\Fast.png" />
+    <Resource Include="Icons\HipaLogo.png" />
+    <Resource Include="Icons\HiPASoftwareIcon.ico" />
+    <Resource Include="Icons\IO_Motors.png" />
+    <Resource Include="Icons\Last.png" />
+    <Resource Include="Icons\Last_Res.png" />
+    <Resource Include="Icons\Minus.png" />
+    <Resource Include="Icons\Motor_Home.png" />
+    <Resource Include="Icons\Motor_Reset.png" />
+    <Resource Include="Icons\Mute.png" />
+    <Resource Include="Icons\Origin_Pos.png" />
+    <Resource Include="Icons\PNP_Pos.png" />
+    <Resource Include="Icons\Power.png" />
+    <Resource Include="Icons\Probe_Move_Down.png" />
+    <Resource Include="Icons\Probe_Move_Up.png" />
+    <Resource Include="Icons\Production.png" />
+    <Resource Include="Icons\Production_Setting.png" />
+    <Resource Include="Icons\PR_Live.png" />
+    <Resource Include="Icons\PR_Pause.png" />
+    <Resource Include="Icons\PR_Save.png" />
+    <Resource Include="Icons\Recipe_Copy.png" />
+    <Resource Include="Icons\Recipe_Delete.png" />
+    <Resource Include="Icons\Recipe_Load.png" />
+    <Resource Include="Icons\Recipe_Reload.png" />
+    <Resource Include="Icons\Save_Icon.png" />
+    <Resource Include="Icons\Setting.png" />
+    <Resource Include="Icons\Slow.png" />
+    <Resource Include="Icons\Statistic.png" />
+    <Resource Include="Icons\Stop.png" />
+    <Resource Include="Icons\Sub_PR.png" />
+    <Resource Include="Icons\Zoom_In.png" />
+    <Resource Include="Icons\Zoom_Out.png" />
+    <Resource Include="Icons\Zoom_Reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\User_Acc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MotionConfig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\IO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\WorkingPos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\IOMotion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\PadLock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\PageAccessConfig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Pick.png" />
+    <Resource Include="Icons\Place.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Automated.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\StopAutomation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\LiftUpDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ClampHold.png" />
+    <Resource Include="Icons\ClampRelease.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\StageHold.png" />
+    <Resource Include="Icons\StageRelease.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\StageSuctionOff.png" />
+    <Resource Include="Icons\StageSuctionOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Cycle_Stop.png" />
+    <Resource Include="Icons\Pause.png" />
+    <Resource Include="Icons\Play.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>RD /S /Q "$(TargetDir)cs\"
+RD /S /Q "$(TargetDir)cs-CZ\"
+RD /S /Q "$(TargetDir)da\"
+RD /S /Q "$(TargetDir)de\"
+RD /S /Q "$(TargetDir)es\"
+RD /S /Q "$(TargetDir)fa\"
+RD /S /Q "$(TargetDir)fi\"
+RD /S /Q "$(TargetDir)fr\"
+RD /S /Q "$(TargetDir)it\"
+RD /S /Q "$(TargetDir)hu\"
+RD /S /Q "$(TargetDir)ja-JP\"
+RD /S /Q "$(TargetDir)ko\"
+RD /S /Q "$(TargetDir)mk\"
+RD /S /Q "$(TargetDir)nl\"
+RD /S /Q "$(TargetDir)pl\"
+RD /S /Q "$(TargetDir)pt\"
+RD /S /Q "$(TargetDir)pt-BR\"
+RD /S /Q "$(TargetDir)ru\"
+RD /S /Q "$(TargetDir)ro\"
+RD /S /Q "$(TargetDir)sv\"
+RD /S /Q "$(TargetDir)tr\"
+RD /S /Q "$(TargetDir)zh-CN\"
+RD /S /Q "$(TargetDir)zh-Hans\"
+XCOPY "$(ProjectDir)Globalization\*.*" "$(TargetDir)Globalization\" /S /Y/E
+XCOPY "$(ProjectDir)RT_Eng.xaml" "$(TargetDir)SystemFiles\" /S /Y
+XCOPY "$(SolutionDir)dll\APS168x64.dll" "$(TargetDir)" /S /Y
+XCOPY "$(SolutionDir)dll\Microsoft.Expression.Interactions.dll" "$(TargetDir)" /S /Y
+XCOPY "$(SolutionDir)dll\Microsoft.Xaml.Behaviors.dll" "$(TargetDir)" /S /Y
+XCOPY "$(SolutionDir)dll\Microsoft.Xaml.Behaviors.pdb" "$(TargetDir)" /S /Y
+XCOPY "$(SolutionDir)dll\Microsoft.Xaml.Behaviors.xml" "$(TargetDir)" /S /Y
+XCOPY "$(SolutionDir)dll\milmetrol.dll" "$(TargetDir)" /S /Y
+XCOPY "$(SolutionDir)dll\milmod.dll" "$(TargetDir)" /S /Y
+XCOPY "$(SolutionDir)dll\System.Windows.Interactivity.dll" "$(TargetDir)" /S /Y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

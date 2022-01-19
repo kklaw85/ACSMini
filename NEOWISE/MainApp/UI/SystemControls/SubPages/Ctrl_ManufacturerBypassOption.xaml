@@ -1,0 +1,24 @@
+﻿<Pagebase:PageBase
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" 
+			 xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:Panels="clr-namespace:NeoWisePlatform.SystemControls.Panels"
+			 xmlns:Panels2="clr-namespace:NeoWisePlatform.CommonControls"
+			 xmlns:Pagebase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+             x:Class="NeoWisePlatform.UI.SystemControls.SubPages.Ctrl_ManufacturerBypassOption"
+             mc:Ignorable="d" 
+             Width="1625" Height="1004">
+	<Grid x:Name="Grid">
+		<Rectangle Style="{StaticResource Rectangle_SUB_PAGE}"/>
+		<StackPanel Orientation="Vertical">
+            <TextBlock Text="{StaticResource ManufacturerOverride}" Style="{StaticResource STYLE_MAIN_TITLE_LABEL_TB}"/>
+            <StackPanel Margin="10" x:Name="StkPnlCtrlLst">
+                <!--<CheckBox x:Name="Chk_EnForceUnlock" IsChecked="False" Content="Force Unlock" Margin="0,10,0,0"/>-->
+            </StackPanel>
+		</StackPanel>
+
+	</Grid>
+</Pagebase:PageBase>

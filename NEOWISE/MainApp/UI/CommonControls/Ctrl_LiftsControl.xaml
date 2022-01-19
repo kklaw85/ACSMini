@@ -1,0 +1,24 @@
+﻿<Panelbase:PanelBase
+			 xmlns:Panelbase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+			 x:Class="NeoWisePlatform.CommonControls.Ctrl_LiftsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NeoWisePlatform.UI.CommonControls.Panels" 
+			 xmlns:mahapp="http://metro.mahapps.com/winfx/xaml/controls"
+			 mc:Ignorable="d" 
+			 Loaded="UserControl_Loaded">
+    <StackPanel>
+        <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" x:Name="LblAxisName" Content="{StaticResource LiftCtrl}"/>
+        <StackPanel Orientation="Horizontal" Margin="5,0,5,5">
+            <Border Margin="0,0,5,0" Style="{StaticResource PanelInner}">
+                <local:Ctrl_LiftControl x:Name="New"/>
+            </Border>
+            <Border Margin="0,0,5,0" Style="{StaticResource PanelInner}">
+                <local:Ctrl_LiftControl x:Name="QIC"/>
+            </Border>
+
+        </StackPanel>
+    </StackPanel>
+</Panelbase:PanelBase>

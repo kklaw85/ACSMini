@@ -1,0 +1,32 @@
+﻿<Panelbase:PanelBase xmlns:CommonControls="clr-namespace:NeoWisePlatform.UI.CommonControls"  xmlns:Panels="clr-namespace:NeoWisePlatform.UI.CommonControls.Panels" 
+			 xmlns:Panelbase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="NeoWisePlatform.UI.CommonControls.Panels.Ctrl_PNPControl" 
+			 xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             Loaded="UserControl_Loaded">
+    <Border Style="{StaticResource Panel}" Background="{StaticResource Gradient_Panel}">
+        <StackPanel Orientation="Vertical">
+            <Label Style="{StaticResource STYLE_SUBCHILD_TITLE_LABEL}" Content="{StaticResource PNPArmControl}"/>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Style="{StaticResource STYL_GENERAL_LBL_Left}" Content="{StaticResource UnInspectRes}"/>
+                <ComboBox x:Name="UnInspResult" Width="70" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,0,5,5">
+                <Border Style="{StaticResource PanelInner}">
+                    <CommonControls:Ctrl_SingleAxisJog x:Name="PnpAxis" Margin="0,0,5,0"/>
+                </Border>
+                <Border Margin="5,0,0,0" Style="{StaticResource PanelInner}">
+                    <Panels:Ctrl_PNPArm x:Name="LoadArm"/>
+                </Border>
+                <Border Margin="5,0,0,0" Style="{StaticResource PanelInner}">
+                    <Panels:Ctrl_PNPArm x:Name="UnloadArm"/>
+                </Border>
+
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Panelbase:PanelBase>
