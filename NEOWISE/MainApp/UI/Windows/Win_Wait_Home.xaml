@@ -12,8 +12,7 @@
              mc:Ignorable="d"  
              Height="317" Width="521"
              Title="Waiting Home"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="Transparent" Cursor="Arrow" ShowInTaskbar="False">
-
-    <Grid Background="{StaticResource BR_DARK_GRAY_10}" >
+    <Grid Background="{StaticResource BR_WHITE}" >
         <StackPanel Orientation="Vertical" Margin="0,0,0,0">
             <Image Source="/Icons/HipaLogo.png" Height="38" Margin="0,50,0,0"/>
             <TextBlock x:Name="Lbl_AppTitle" Text="Inspection System" Margin="0,2,0,0" TextAlignment="Center" VerticalAlignment="Center" FontSize="14" Foreground="WhiteSmoke" FontStyle="Italic"/>

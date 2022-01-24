@@ -9,10 +9,10 @@
              mc:Ignorable="d" 
              Loaded="UserControl_Loaded">
     <StackPanel Orientation="Vertical">
-        <Label x:Name="NameLbl" Content="Name" Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}"/>
+        <Label x:Name="NameLbl" Content="Name" Style="{StaticResource LB_ItemTitle}"/>
         <Expander Header="{StaticResource LiftCfg}" Margin="5">
             <StackPanel Orientation="Horizontal"  Margin="5" x:Name="Configs">
-                <Label Content="{StaticResource Timeout}" Style="{StaticResource STYL_GENERAL_LBL_Right}"/>
+                <Label Content="{StaticResource Timeout}" Style="{StaticResource LB_ItemContent_Right}"/>
                 <MahApp:NumericUpDown x:Name="Timeout" Width="60" StringFormat="f0" Value="{Binding Configuration.MovementTimeout}"/>
             </StackPanel>
         </Expander>

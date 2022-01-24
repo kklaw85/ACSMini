@@ -67,10 +67,7 @@ namespace NeoWisePlatform
 				.Where( prop => typeof( Color ).IsAssignableFrom( prop.PropertyType ) )
 				.Select( prop => new KeyValuePair<String, Color>( prop.Name, ( Color )prop.GetValue( null ) ) )
 				.ToList();
-
-			//var appTheme = ThemeManager.Current.DetectTheme( Application.Current );
-			//ThemeManager.Current.ChangeTheme( this, appTheme );
-
+			this.ColorsSelector.ItemsSource = this.Colors;
 			var theme = ThemeManager.Current.DetectTheme( Application.Current );
 			ThemeManager.Current.ChangeTheme( Application.Current, ThemeManager.Current.AddTheme( RuntimeThemeGenerator.Current.GenerateRuntimeTheme( theme.BaseColorScheme, ( ( SolidColorBrush )Application.Current.Resources[ "MasterTheme" ] ).Color ) ) );
 			Application.Current?.MainWindow?.Activate();
@@ -81,23 +78,6 @@ namespace NeoWisePlatform
 			{
 				this.Status_Item_Err_Msg.DataContext = Equipment.ErrManager;
 				this.Status_Machine_State.DataContext = this._MachStateMgr;
-				//var b = new Binding();
-				//b.Source = this._MachStateMgr;
-				//b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-				//b.Path = new PropertyPath( "Br_Running_Status" );
-				//this.Status_Machine_State.SetBinding( StatusBarItem.BackgroundProperty, b );
-
-				//b = new Binding();
-				//b.Source = this._MachStateMgr;
-				//b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-				//b.Path = new PropertyPath( "MachineStatus" );
-				//this.Txt_Machine_State.SetBinding( TextBlock.TextProperty, b );
-
-				//b = new Binding();
-				//b.Source = this._MachStateMgr;
-				//b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-				//b.Path = new PropertyPath( "TxtColour_Msg" );
-				//this.Txt_Machine_State.SetBinding( TextBlock.ForegroundProperty, b );
 
 				var b = new Binding();
 				b.Source = this._EM.TowerLight;
@@ -200,8 +180,6 @@ namespace NeoWisePlatform
 		private void Btn_Dialog_Click( object sender, RoutedEventArgs e )
 		{
 			Button Btn = ( Button )sender;
-			//if ( !C_Shared_Data.Info_Sys.IsMachineReady() )
-			//	return;
 			this.Cursor = C_UI_Manager.GetWaitCursor();
 			Btn.IsEnabled = false;
 			this.Load_Dialog( Btn.Name );
@@ -278,17 +256,13 @@ namespace NeoWisePlatform
 				string Curr_Page = C_UI_Manager.Cur_Sub_Pg;
 				this.Show_DialogPage( Curr_Page );
 				this.Title = C_UI_Manager.Get_Page_Info( C_UI_Manager.Cur_Main_Pg, C_UI_Manager.Cur_Sub_Pg );
-				//C_Shared_Data.Info_Sys.Machine_State = Machine_State.MANUAL_MODE;
-				//MsgHandler.process_Event( C_Shared_Data.EventMap.SYS_READY );
 				this.Cursor = Cursors.Arrow;
 			}
 			catch ( Exception ex )
 			{
 				sErr = ex.Message + Environment.NewLine +
 								"Load Dialog";
-				//C_Shared_Data.Info_Sys.Machine_State = Machine_State.MANUAL_MODE;
 				Equipment.ErrManager.RaiseError( this.FormatErrMsg( this.Name, ex ), ErrorTitle.InvalidOperation, ErrorClass.E6 );
-				//MessageBox.Show( sErr );
 				this.Cursor = Cursors.Arrow;
 			}
 			return sErr;
@@ -304,13 +278,12 @@ namespace NeoWisePlatform
 
 				if ( PageName == this.Btn_Recipe_Editor.Name )
 				{
-					var name = Recipes.HandlerRecipes()?.GetAppliedRecipe().Name;
+					var name = Recipes.HandlerRecipes()?.GetAppliedRecipe()?.Name;
 					if ( name != null )
 					{
 						if ( MessageBox.Show( "Do you want to save Recipe File before re-select the Recipe and Product?", "Save Recipe File", MessageBoxButton.YesNo, MessageBoxImage.Question ) == MessageBoxResult.Yes )
 						{
 							var recipe = Recipes.HandlerRecipes()?.GetAppliedRecipe();
-							if ( recipe == null ) throw new Exception( $"^{( int )RunErrors.ERR_RecipeObjNull }^" );
 							Recipes.HandlerRecipes()?.Save( recipe );
 						}
 						else
@@ -526,11 +499,11 @@ namespace NeoWisePlatform
 		#endregion
 		private void Win_Main_Closing( object sender, System.ComponentModel.CancelEventArgs e )
 		{
-			//if ( !C_Shared_Data.Info_Sys.IsMachineReady() )
-			//{
-			//	e.Cancel = true;
-			//	return;
-			//}
+			if ( ( Constructor.GetInstance()?.Equipment as MTEquipment ).AutoSeq?.State != Sequence.SequenceState.IsNotStarted )
+			{
+				e.Cancel = true;
+				return;
+			}
 			Constructor.GetInstance().Save();
 			if ( !this.Exit_Without_Confirm )
 			{
@@ -559,7 +532,6 @@ namespace NeoWisePlatform
 			try
 			{
 				Constructor.GetInstance().Shutdown();
-				//JptMatroxSystem.MatroxSystem.Free();
 				Thread.Sleep( 50 );
 				GC.Collect();
 				Application.Current.Shutdown();
@@ -596,19 +568,15 @@ namespace NeoWisePlatform
 			{ }
 		}
 
-		private void ProductIdx_TextChanged( object sender, TextChangedEventArgs e )
-		{
-		}
-
 		private void Color_SelectionChanged( object sender, SelectionChangedEventArgs e )
 		{
 			var selectedColor = e.AddedItems.OfType<KeyValuePair<string, Color>?>().FirstOrDefault();
 			if ( selectedColor != null )
 			{
-				//var theme = ThemeManager.Current.DetectTheme( Application.Current );
-				//ThemeManager.Current.ChangeTheme( Application.Current, ThemeManager.Current.AddTheme( RuntimeThemeGenerator.Current.GenerateRuntimeTheme( theme.BaseColorScheme, selectedColor.Value.Value ) ) );
-				//Application.Current?.MainWindow?.Activate();
-				//C_UI_Manager.ForegroundColor = new SolidColorBrush( selectedColor.Value.Value );;
+				var theme = ThemeManager.Current.DetectTheme( Application.Current );
+				ThemeManager.Current.ChangeTheme( Application.Current, ThemeManager.Current.AddTheme( RuntimeThemeGenerator.Current.GenerateRuntimeTheme( theme.BaseColorScheme, selectedColor.Value.Value ) ) );
+				Application.Current?.MainWindow?.Activate();
+				C_UI_Manager.ForegroundColor = new SolidColorBrush( selectedColor.Value.Value ); ;
 			}
 		}
 	}//Mainmanager 

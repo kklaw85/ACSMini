@@ -9,27 +9,27 @@
              mc:Ignorable="d" Loaded="UserControl_Loaded">
     <Border Style="{StaticResource Panel}" Background="{StaticResource Gradient_Panel}">
         <StackPanel>
-            <Label Style="{StaticResource STYLE_SUBCHILD_TITLE_LABEL}" Content="{StaticResource SeqStatus}"/>
+            <Label Style="{StaticResource LB_PanelTitle}" Content="{StaticResource SeqStatus}"/>
             <StackPanel Orientation="Vertical" Margin="10,0,10,10">
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                    <TextBlock Text="{StaticResource MainSeq}" Width="80"  Style="{StaticResource STYL_GENERAL_TB_Left}"/>
-                    <Label x:Name="AutoSeq" Content="SequenceStatus" Width="180" Style="{StaticResource STYLE_POS_CONTENT}"/>
+                    <Label Content="{StaticResource MainSeq}" Width="80"  Style="{StaticResource LB_ItemContent_Left}"/>
+                    <Label x:Name="AutoSeq" Content="SequenceStatus" Width="180" Style="{StaticResource LB_ItemData_Left}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <TextBlock Text="{StaticResource PNP}" Width="80"  Style="{StaticResource STYL_GENERAL_TB_Left}"/>
-                    <Label x:Name="PNPSeq" Content="SequenceStatus" Width="180" Style="{StaticResource STYLE_POS_CONTENT}"/>
+                    <Label Content="{StaticResource PNP}" Width="80"  Style="{StaticResource LB_ItemContent_Left}"/>
+                    <Label x:Name="PNPSeq" Content="SequenceStatus" Width="180" Style="{StaticResource LB_ItemData_Left}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <TextBlock Text="{StaticResource Stage}" Width="80"  Style="{StaticResource STYL_GENERAL_TB_Left}"/>
-                    <Label x:Name="StageSeq" Content="SequenceStatus" Width="180" Style="{StaticResource STYLE_POS_CONTENT}"/>
+                    <Label Content="{StaticResource Stage}" Width="80"  Style="{StaticResource LB_ItemContent_Left}"/>
+                    <Label x:Name="StageSeq" Content="SequenceStatus" Width="180" Style="{StaticResource LB_ItemData_Left}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <TextBlock Text="{StaticResource NewLift}" Width="80"  Style="{StaticResource STYL_GENERAL_TB_Left}"/>
-                    <Label x:Name="NewLiftSeq" Content="SequenceStatus" Width="180" Style="{StaticResource STYLE_POS_CONTENT}"/>
+                    <Label Content="{StaticResource NewLift}" Width="80"  Style="{StaticResource LB_ItemContent_Left}"/>
+                    <Label x:Name="NewLiftSeq" Content="SequenceStatus" Width="180" Style="{StaticResource LB_ItemData_Left}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <TextBlock Text="{StaticResource QICLift}" Width="80"  Style="{StaticResource STYL_GENERAL_TB_Left}"/>
-                    <Label x:Name="QICLiftSeq" Content="SequenceStatus" Width="180" Style="{StaticResource STYLE_POS_CONTENT}"/>
+                    <Label Content="{StaticResource QICLift}" Width="80"  Style="{StaticResource LB_ItemContent_Left}"/>
+                    <Label x:Name="QICLiftSeq" Content="SequenceStatus" Width="180" Style="{StaticResource LB_ItemData_Left}"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

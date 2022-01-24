@@ -12,7 +12,7 @@
     <StackPanel Orientation="Horizontal">
         <Border Style="{StaticResource PanelInnerThin}">
             <StackPanel Orientation="Vertical" Margin="0">
-                <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" Content="{StaticResource MmfViewer}"/>
+                <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource MmfViewer}"/>
                 <StackPanel Margin="5">
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                         <Button x:Name="Btn_ExportMMF" Tag="Export,MMF" Content="{StaticResource Export}" HorizontalAlignment="Left" Margin="0,0,5,0" VerticalAlignment="Top" Width="75" Click="Btn_Click" />
@@ -27,25 +27,25 @@
         </Border>
         <Border Style="{StaticResource PanelInnerThin}" Margin="5,0,0,0">
             <StackPanel>
-                <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" Content="{StaticResource CamScale}"/>
+                <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource CamScale}"/>
                 <Border Style="{StaticResource PanelInnerThin}" Margin="5">
                     <StackPanel Margin="5">
-                        <Label Content="{StaticResource ScalePixmm}" Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}"/>
+                        <Label Content="{StaticResource ScalePixmm}" Style="{StaticResource LB_ItemTitle}"/>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="X" Margin="10,0,0,0" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
+                            <Label Content="X" Margin="10,0,0,0" Style="{StaticResource LB_ItemContent_Right}" Width="20" />
                             <MahApp:NumericUpDown x:Name="XPixMM" Width="100" StringFormat="F3"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="Y" Margin="10,0,0,0" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
+                            <Label Content="Y" Margin="10,0,0,0" Style="{StaticResource LB_ItemContent_Right}" Width="20" />
                             <MahApp:NumericUpDown x:Name="YPixMM" Width="100" StringFormat="F3"/>
                         </StackPanel>
-                        <Label Content="{StaticResource ActualLengthMM}" Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" Margin="0,5,0,0"/>
+                        <Label Content="{StaticResource ActualLengthMM}" Style="{StaticResource LB_ItemTitle}" Margin="0,5,0,0"/>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="X" Margin="10,0,0,0" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
+                            <Label Content="X" Margin="10,0,0,0" Style="{StaticResource LB_ItemContent_Right}" Width="20" />
                             <MahApp:NumericUpDown x:Name="XMM" Width="100" StringFormat="F3"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="Y" Margin="10,0,0,0" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
+                            <Label Content="Y" Margin="10,0,0,0" Style="{StaticResource LB_ItemContent_Right}" Width="20" />
                             <MahApp:NumericUpDown x:Name="YMM" Width="100" StringFormat="F3"/>
                         </StackPanel>
                     </StackPanel>
@@ -57,14 +57,14 @@
                                 <Border Style="{StaticResource PanelInnerThin}">
                                     <Grid Margin="0,0,5,5">
                                         <StackPanel Orientation="Vertical">
-                                            <Label Content="First Point" Style="{StaticResource STYL_GENERAL_LBL_Center}" Width="80" />
+                                            <Label Content="First Point" Style="{StaticResource LB_ItemTitle}"/>
                                             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                                                <Label Content="X" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
-                                                <Label x:Name="X1" Style="{StaticResource STYLE_POS_CONTENT}" Width="80" />
+                                                <Label Content="X" Style="{StaticResource LB_ItemContent_Right}" Width="20" />
+                                                <Label x:Name="X1" Style="{StaticResource LB_ItemData_Left}" Width="80" />
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                                                <Label Content="Y" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
-                                                <Label x:Name="Y1" Style="{StaticResource STYLE_POS_CONTENT}" Width="80" />
+                                                <Label Content="Y" Style="{StaticResource LB_ItemContent_Right}" Width="20" />
+                                                <Label x:Name="Y1" Style="{StaticResource LB_ItemData_Left}" Width="80" />
                                             </StackPanel>
                                             <Button Name="Find1" Width="60" Content="Find" Click="BtnClick" Margin="0,10,0,0"/>
                                         </StackPanel>
@@ -73,14 +73,14 @@
                                 <Border Style="{StaticResource PanelInnerThin}" Margin="5,0,0,0">
                                     <Grid Margin="0,0,5,5">
                                         <StackPanel Orientation="Vertical">
-                                            <Label Content="Second Point" Style="{StaticResource STYL_GENERAL_LBL_Center}" Width="80" />
+                                            <Label Content="Second Point" Style="{StaticResource LB_ItemTitle}"/>
                                             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                                                <Label Content="X" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
-                                                <Label x:Name="X2" Style="{StaticResource STYLE_POS_CONTENT}" Width="80" />
+                                                <Label Content="X" Style="{StaticResource LB_ItemContent_Right}" Width="20" />
+                                                <Label x:Name="X2" Style="{StaticResource LB_ItemData_Left}" Width="80" />
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                                                <Label Content="Y" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
-                                                <Label x:Name="Y2" Style="{StaticResource STYLE_POS_CONTENT}" Width="80" />
+                                                <Label Content="Y" Style="{StaticResource LB_ItemContent_Right}" Width="20" />
+                                                <Label x:Name="Y2" Style="{StaticResource LB_ItemData_Left}" Width="80" />
                                             </StackPanel>
                                             <Button Name="Find2" Width="60" Content="Find" Click="BtnClick" Margin="0,10,0,0"/>
                                         </StackPanel>
@@ -99,7 +99,7 @@
         </Border>
         <Border Style="{StaticResource PanelInnerThin}" Margin="5,0,0,0">
             <StackPanel>
-                <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" Content="{StaticResource CamScale}"/>
+                <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource CamScale}"/>
                 <Panels:Ctrl_ROIParameter x:Name="TeachROI" Margin="5"/>
             </StackPanel>
         </Border>

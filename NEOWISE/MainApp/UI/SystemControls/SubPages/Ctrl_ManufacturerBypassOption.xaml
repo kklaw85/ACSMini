@@ -11,10 +11,9 @@
              x:Class="NeoWisePlatform.UI.SystemControls.SubPages.Ctrl_ManufacturerBypassOption"
              mc:Ignorable="d" 
              Width="1625" Height="1004">
-	<Grid x:Name="Grid">
-		<Rectangle Style="{StaticResource Rectangle_SUB_PAGE}"/>
-		<StackPanel Orientation="Vertical">
-            <TextBlock Text="{StaticResource ManufacturerOverride}" Style="{StaticResource STYLE_MAIN_TITLE_LABEL_TB}"/>
+    <Grid x:Name="Grid">
+        <StackPanel Orientation="Vertical">
+            <Label Content="{StaticResource ManufacturerOverride}" Style="{StaticResource LB_MainTitle}"/>
             <StackPanel Margin="10" x:Name="StkPnlCtrlLst">
                 <!--<CheckBox x:Name="Chk_EnForceUnlock" IsChecked="False" Content="Force Unlock" Margin="0,10,0,0"/>-->
             </StackPanel>

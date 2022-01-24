@@ -10,9 +10,8 @@
              mc:Ignorable="d"
              Loaded="UserControl_Loaded">
     <Grid>
-        <Rectangle Style="{StaticResource Rectangle_SUB_PAGE}"/>
         <StackPanel>
-            <Label Content="{StaticResource WorkPosDef}" Style="{StaticResource STYLE_MAIN_TITLE_LABEL}"/>
+            <Label Content="{StaticResource WorkPosDef}" Style="{StaticResource LB_MainTitle}"/>
             <Panels31:Ctrl_PNPWorkPos x:Name="PNPWorkPos" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
             <StackPanel Margin="10,0,10,10" Orientation="Horizontal">
                 <Panels:Ctrl_PNPControl x:Name="PNPControl" Margin="0,0,5,0"/>

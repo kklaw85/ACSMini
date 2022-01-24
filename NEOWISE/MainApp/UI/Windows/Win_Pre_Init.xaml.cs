@@ -59,7 +59,7 @@ namespace NeoWisePlatform.Windows
 		private void MetroWindow_Loaded_1( object sender, RoutedEventArgs e )
 		{
 			this.Lbl_Log_In_Status.Visibility = Visibility.Collapsed;
-			this.lbl_AppName.Text = C_System_info.GetApplicationName();
+			this.lbl_AppName.Content = C_System_info.GetApplicationName();
 			this.Lbl_Software_Version.Text = "Version " + C_System_info.Software_Version;
 			this.DataContext = ( Constructor.GetInstance().Equipment as MTEquipment );
 			this.IsStartEnable = true;

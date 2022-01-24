@@ -13,7 +13,7 @@
 			<Label x:Name="TitleBar" Content="temporary" Style="{StaticResource STYL_WINDOW_TITLE_LBL}"/>
 			<StackPanel Margin="10">
 				<StackPanel Orientation="Horizontal">
-					<Label Content="{StaticResource Name}" Style="{StaticResource STYL_GENERAL_LBL_Right}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50"/>
+					<Label Content="{StaticResource Name}" Style="{StaticResource LB_ItemContent_Right}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50"/>
                     <TextBox x:Name="txtRecipeName" Style="{StaticResource STYLE_POS_TEXTBOX_Left}" Text="TextBox" Width="230"/>
 				</StackPanel>
 				<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="155,5,0,0">

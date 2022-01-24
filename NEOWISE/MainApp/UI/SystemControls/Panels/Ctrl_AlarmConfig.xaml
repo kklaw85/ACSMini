@@ -11,11 +11,11 @@
         <StackPanel>
             <CheckBox x:Name="ChkEnableCheck" Content="{StaticResource Enable}" Margin="120,0,0,0"/>
             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                <Label Content="{StaticResource LSL}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="120"/>
+                <Label Content="{StaticResource LSL}" Style="{StaticResource LB_ItemContent_Right}" Width="120"/>
                 <Mahapp:NumericUpDown x:Name="Txt_LSL" Value="0" Width="120" StringFormat="F3"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                <Label Content="{StaticResource USL}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="120"/>
+                <Label Content="{StaticResource USL}" Style="{StaticResource LB_ItemContent_Right}" Width="120"/>
                 <Mahapp:NumericUpDown x:Name="Txt_USL" Value="0" Width="120" StringFormat="F3"/>
             </StackPanel>
         </StackPanel>

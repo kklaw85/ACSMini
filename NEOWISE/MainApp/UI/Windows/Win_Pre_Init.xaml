@@ -6,53 +6,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="System Initialization Status" ShowTitleBar="False" WindowStartupLocation="CenterScreen" 
         ShowCloseButton="False" ShowMinButton="False" ShowMaxRestoreButton="False"
-        WindowStyle="None" Topmost="True"
-        Background="Transparent" GlowBrush="Transparent"
+        WindowStyle="None" Topmost="True" AllowsTransparency="True" Background="Transparent" BorderThickness="0"
         Loaded="MetroWindow_Loaded_1" mc:Ignorable="d" Height="520" Width="360" ShowInTaskbar="False" ResizeMode="NoResize">
-    <Border Style="{StaticResource Frameless}" Background="{StaticResource Gradient_SubPage}">
+    <Border Style="{StaticResource Frameless}" Background="{StaticResource WindowsBackground}">
         <Grid>
-            <!--<Image Source="/NeoWisePlatform;component/Icons/HipaLogo.png" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"/>-->
-            <!--<TextBlock x:Name="Lbl_AppTitle" Text="Laser Marking System" Margin="0,2,0,0" TextAlignment="Center" VerticalAlignment="Center" FontSize="8" Foreground="WhiteSmoke" FontStyle="Italic"/>-->
-            <TextBlock x:Name="lbl_AppName" Text="NeoWise" HorizontalAlignment="Right" TextAlignment="right" Margin="10" Foreground="White" FontSize="14" FontWeight="Bold" VerticalAlignment="Top" Width="160" />
+            <Image Source="/Icons/HipaLogo.png" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"/>
+            <Label x:Name="Lbl_AppTitle" Content="Inspection System" Margin="0,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="8" Style="{StaticResource LB_PanelTitle}" FontStyle="Italic"/>
+            <Label x:Name="lbl_AppName" Content="NeoWise" HorizontalAlignment="Right" Style="{StaticResource LB_ItemContent_Right}" Margin="10" FontSize="14" FontWeight="Bold" VerticalAlignment="Top" Width="160" />
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,40,0,0">
-                <Border Style="{StaticResource Panel}">
+                <Border Style="{StaticResource PanelThin}" Background="White">
+                    <Border.Effect>
+                        <DropShadowEffect/>
+                    </Border.Effect>
                     <StackPanel Orientation="Vertical" Margin="10" >
-                        <Label Content="{StaticResource SystemInitialzationStatus}" Style="{StaticResource STYL_MAIN_TITLE_LBL}" HorizontalContentAlignment="Left" Height="Auto"/>
+                        <Label Content="{StaticResource SystemInitialzationStatus}" Style="{StaticResource LB_MainTitle}" Margin="0,0,0,5" HorizontalContentAlignment="Left" Height="Auto"/>
                         <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                             <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding MotionBoard.IsValid, Converter= {StaticResource BoolToBrushIOGreenRedRec}}"/>
-                            <Label Content="{StaticResource MotionController}" Style="{StaticResource STYL_GENERAL_LBL_Center}" Margin="10,0,0,0"/>
+                            <Label Content="{StaticResource MotionController}" Style="{StaticResource LB_ItemContent_Left}" Margin="10,0,0,0"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                             <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding IoBoard2.IsValid, Converter= {StaticResource BoolToBrushIOGreenRedRec}}"/>
-                            <Label Content="{StaticResource IOCard}" Style="{StaticResource STYL_GENERAL_LBL_Center}" Margin="10,0,0,0"/>
+                            <Label Content="{StaticResource IOCard}" Style="{StaticResource LB_ItemContent_Left}" Margin="10,0,0,0"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                             <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding Stage.IsValid, Converter= {StaticResource BoolToBrushIOGreenRedRec}}"/>
-                            <Label Content="{StaticResource StageSys}" Style="{StaticResource STYL_GENERAL_LBL_Center}" Margin="10,0,0,0"/>
+                            <Label Content="{StaticResource StageSys}" Style="{StaticResource LB_ItemContent_Left}" Margin="10,0,0,0"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                             <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding PNP.IsValid, Converter= {StaticResource BoolToBrushIOGreenRedRec}}"/>
-                            <Label Content="{StaticResource PNPSys}" Style="{StaticResource STYL_GENERAL_LBL_Center}" Margin="10,0,0,0"/>
+                            <Label Content="{StaticResource PNPSys}" Style="{StaticResource LB_ItemContent_Left}" Margin="10,0,0,0"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                             <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding NewLift.IsValid, Converter= {StaticResource BoolToBrushIOGreenRedRec}}"/>
-                            <Label Content="{StaticResource NewLiftSys}" Style="{StaticResource STYL_GENERAL_LBL_Center}" Margin="10,0,0,0"/>
+                            <Label Content="{StaticResource NewLiftSys}" Style="{StaticResource LB_ItemContent_Left}" Margin="10,0,0,0"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                             <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding QICLift.IsValid, Converter= {StaticResource BoolToBrushIOGreenRedRec}}"/>
-                            <Label Content="{StaticResource QICLiftSys}" Style="{StaticResource STYL_GENERAL_LBL_Center}" Margin="10,0,0,0"/>
+                            <Label Content="{StaticResource QICLiftSys}" Style="{StaticResource LB_ItemContent_Left}" Margin="10,0,0,0"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <Border Margin="0,10,0,0" Style="{StaticResource Panel}">
+                <Border Margin="0,10,0,0" Style="{StaticResource PanelThin}">
                     <StackPanel x:Name="LoginStk" Orientation="Horizontal" Margin="10" >
                         <StackPanel Orientation="Vertical" Margin="0,0,2,0">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="{StaticResource UserID}" HorizontalAlignment="Left" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="70"/>
+                                <Label Content="{StaticResource UserID}" HorizontalAlignment="Left" Style="{StaticResource LB_ItemContent_Right}" Width="70"/>
                                 <TextBox x:Name="Txt_UserID" HorizontalAlignment="Left" BorderBrush="{StaticResource MahApps.Brushes.ThemeForeground}" Background="Transparent" VerticalAlignment="Top" Height="25" Width="100" KeyUp="Txt_UserID_KeyUp"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
-                                <Label Content="{StaticResource Password}" HorizontalAlignment="Left" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="70"/>
+                                <Label Content="{StaticResource Password}" HorizontalAlignment="Left" Style="{StaticResource LB_ItemContent_Right}" Width="70"/>
                                 <PasswordBox x:Name="PB_Password" HorizontalAlignment="Left" BorderBrush="{StaticResource MahApps.Brushes.ThemeForeground}" Background="Transparent" Width="100" Height="25" KeyUp="PB_Password_KeyUp"/>
                             </StackPanel>
                         </StackPanel>

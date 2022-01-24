@@ -15,9 +15,8 @@
              mc:Ignorable="d" Width="1500"
              Loaded="UserControl_Loaded">
     <Grid>
-        <Rectangle Style="{StaticResource Rectangle_SUB_PAGE}"/>
         <StackPanel Orientation="Vertical">
-            <Label Content="{StaticResource Vision}" Style="{StaticResource STYLE_MAIN_TITLE_LABEL}"/>
+            <Label Content="{StaticResource Vision}" Style="{StaticResource LB_MainTitle}"/>
             <DockPanel  Margin="10">
                 <StackPanel HorizontalAlignment="Left" DockPanel.Dock="Left">
                     <Camera:Ctrl_CollectiveInspection x:Name="CollectiveInsp" Margin="0,0,0,10" HorizontalAlignment="Left"/>

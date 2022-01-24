@@ -6,502 +6,10 @@
                     xmlns:C_UI_Manager="clr-namespace:NeoWisePlatform"
                     xmlns:MahApps="http://metro.mahapps.com/winfx/xaml/controls">
 
-
-    <!-- Theme Brushes -->
-
-    <SolidColorBrush x:Key="MasterTheme"  Color="LightSlateGray" />
-    <SolidColorBrush x:Key="MinorTheme"  Color="DarkSlateGray" />
-    <Color x:Key="C_UNP_BLUE"       A='255' R="7"    G="7"   B="78" />
-    <Color x:Key="C_UNP_GRAY"       A='255' R="128"   G="128"  B="128" />
-    <Color x:Key="C_ULTRA_LIGHT_GRAY"     A='255' R="220"   G="220"  B="220" />
-    <Color x:Key="C_TITLE_TXT"      A='255' R="255"  G="255" B="255" />
-    <Color x:Key="C_LBL_TXT"        A='255' R="51"  G="153" B="255" />
-    <Color x:Key="C_LIGHT_BLUE"        A='255' R="51"  G="153" B="255" />
-    <Color x:Key="C_LBL_TXT_SELECTED" A='255' R="255"  G="255" B="255" />
-    <Color x:Key="C_RESULT_LOW"     A="255" R="255" G="247" B="153" />
-    <Color x:Key="C_RESULT_PASS"    A="255" R="65" G="217" B="165" />
-    <Color x:Key="C_RESULT_HIGH"    A="255" R="223" G="90" B="51" />
-    <Color x:Key="C_RESULT_OPEN"    A="255" R="230" G="86" B="247" />
-    <Color x:Key="C_RESULT_PRE_FAILED"     A='255' R="51"  G="153" B="255" />
-    <Color x:Key="C_STATISTICS_HEADER"    A="255" R="184" G="226" B="242" />
-    <Color x:Key="C_STATISTICS_DATA_PASS"    A="255" R="255" G="255" B="255" />
-    <Color x:Key="C_STATISTICS_DATA_WARN"    A="255" R="255" G="200" B="200" />
-    <Color x:Key="C_NEED_TO_SAVE"    A="255" R="255" G="25" B="25" />
-    <Color x:Key="C_State_Ready"    A="255" R="7" G="7" B="78" />
-    <SolidColorBrush x:Key="BR_STATE_READY"  Color="{StaticResource C_State_Ready}" />
-    <SolidColorBrush x:Key="BR_UNP_BLUE"  Color="{StaticResource C_UNP_BLUE}" />
-    <SolidColorBrush x:Key="BR_UNP_GRAY"  Color="{StaticResource C_UNP_GRAY}" />
-    <SolidColorBrush x:Key="BR_TITLE_TXT" Color="{StaticResource C_TITLE_TXT}" />
-    <SolidColorBrush x:Key="BR_CTRL_TXT" Color="Silver"/>
-    <SolidColorBrush x:Key="BR_ULTRA_LIGHT_GRAY" Color="{StaticResource C_ULTRA_LIGHT_GRAY}" />
-    <SolidColorBrush x:Key="BR_LBL_TXT" Color="{StaticResource C_LBL_TXT}" />
-    <SolidColorBrush x:Key="BR_LBL_TXT_SELECTED" Color="WhiteSmoke" />
-    <SolidColorBrush x:Key="BR_LIGHT_BLUE" Color="{StaticResource C_LIGHT_BLUE}" />
-
-    <SolidColorBrush x:Key="BR_RESULT_LOW" Color="{StaticResource C_RESULT_LOW}" />
-    <SolidColorBrush x:Key="BR_RESULT_PASS" Color="{StaticResource C_RESULT_PASS}" />
-    <SolidColorBrush x:Key="BR_RESULT_HIGH" Color="{StaticResource C_RESULT_HIGH}" />
-    <SolidColorBrush x:Key="BR_RESULT_OPEN" Color="{StaticResource C_RESULT_OPEN}" />
-    <SolidColorBrush x:Key="BR_RESULT_PRE_FAILED" Color="{StaticResource C_RESULT_PRE_FAILED}" />
-
-    <SolidColorBrush x:Key="BR_STATISTICS_HEADER" Color="{StaticResource C_STATISTICS_HEADER}" />
-    <SolidColorBrush x:Key="BR_STATISTICS_DATA_PASS" Color="{StaticResource C_STATISTICS_DATA_PASS}" />
-    <SolidColorBrush x:Key="BR_STATISTICS_DATA_WARN" Color="{StaticResource C_STATISTICS_DATA_WARN}" />
-    <SolidColorBrush x:Key="BR_NEED_TO_SAVE" Color="{StaticResource C_NEED_TO_SAVE}" />
-    <SolidColorBrush x:Key="BR_DARK_GRAY_BACKGROUND" Color="#333333"/>
-    <SolidColorBrush x:Key="BR_DARK_GRAY_TITLE_LBL_BACKGROUND" Color="#222222"/>
-    <SolidColorBrush x:Key="BR_BG_GRAY" Color="#c8c8c8" />
-    <SolidColorBrush x:Key="BR_NORMAL_GRAY"  Color="#6c6c6c" />
-    <SolidColorBrush x:Key="BR_MAIN_TITLE_PROPERTY" Color="#ffeabe" />
-
-    <SolidColorBrush x:Key="BR_ACTIVE_RELAY" Color="#ff38567f" />
-    <SolidColorBrush x:Key="BR_NORMAL_RELAY" Color="#ff737070" />
-    <SolidColorBrush x:Key="BR_FAULTY_RELAY" Color="#FFd30b0b" />
-
-    <FlowDirection x:Key="FlowDirection_Default">LeftToRight</FlowDirection>
-    <FlowDirection x:Key="FlowDirection_Reverse">RightToLeft</FlowDirection>
-
-
-    <!-- Style Form Title -->
-    <Style x:Key="STYL_FORM_TITEL" TargetType="TextBlock">
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Foreground" Value="{StaticResource BR_TITLE_TXT}"/>
-        <Setter Property="FontWeight" Value="Medium" />
-    </Style>
-
-
-    <!--Navigation Menu Button Text Lable-->
-    <Style x:Key="STYL_NAVI_LBL_TEXT" TargetType="TextBlock">
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Foreground" Value="{StaticResource BR_LBL_TXT}"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Width" Value="105"/>
-        <Setter Property="Margin" Value="5,0,0,0"/>
-    </Style>
-    <Style x:Key="STYL_NAVI_LBL_TEXT_SELECTED" TargetType="TextBlock">
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Foreground" Value="{StaticResource BR_LBL_TXT_SELECTED}"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Width" Value="105"/>
-        <Setter Property="Margin" Value="5,0,0,0"/>
-        <Setter Property="FontWeight" Value="Medium" />
-    </Style>
-    <!--Navigation Menu Button Image Lable-->
-    <Style x:Key="STYL_NAVI_LBL_IMG" TargetType="Image">
-
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Width" Value="50"/>
-        <Setter Property="Height" Value="50"/>
-        <Setter Property="Margin" Value="2,0,0,0"/>
-    </Style>
-
-    <Style x:Key="STYL_IO_BTN_IMG" TargetType="Image">
-
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Width" Value="32"/>
-        <Setter Property="Height" Value="32"/>
-        <Setter Property="Margin" Value="2,0,0,0"/>
-    </Style>
-
-    <Style x:Key="STYL_GALVO_DIR_IMG" TargetType="Image">
-
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Width" Value="40"/>
-        <Setter Property="Height" Value="40"/>
-    </Style>
-
-    <!--Navigation Menu Button Image Lable-->
-    <Style x:Key="STYL_ACTION_BTN_IMG" TargetType="Image">
-
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Width" Value="32"/>
-        <Setter Property="Height" Value="32"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-    </Style>
-
-    <!--Lable Property-->
-    <Style x:Key="STYL_MAIN_PROP_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_LBL_TXT}"/>
-        <Setter Property ="HorizontalContentAlignment"  Value="Right"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="40"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="Margin" Value="5,5,0,0"/>
-        <Setter Property="Padding" Value="0,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="12"/>
-    </Style>
-
-    <Style x:Key="STYL_PR_PROP_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_LBL_TXT}"/>
-        <Setter Property ="HorizontalContentAlignment"  Value="Right"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="40"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="Margin" Value="5,5,0,0"/>
-        <Setter Property="Padding" Value="0,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="11"/>
-    </Style>
-
-    <Style x:Key="STYL_PROP_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_UNP_BLUE}"/>
-        <Setter Property ="HorizontalContentAlignment"  Value="Right"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="100"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="Margin" Value="5,5,0,0"/>
-        <Setter Property="Padding" Value="0,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="13"/>
-    </Style>
-    <Style x:Key="STYL_PROP_POS_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_TITLE_TXT}"/>
-        <Setter Property="Background" Value="{StaticResource BR_NormalGray}" />
-        <Setter Property ="HorizontalContentAlignment"  Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="100"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="Margin" Value="5,5,0,0"/>
-        <Setter Property="Padding" Value="10,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="13"/>
-    </Style>
-
-    <Style x:Key="STYL_PROP_POS_FOCUS_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_TITLE_TXT}"/>
-        <Setter Property="Background" Value="{StaticResource BR_UNP_BLUE}" />
-        <Setter Property ="HorizontalContentAlignment"  Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="100"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="Margin" Value="5,5,0,0"/>
-        <Setter Property="Padding" Value="10,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="13"/>
-        <Setter Property="FontWeight" Value="Medium"/>
-    </Style>
-
-    <Style x:Key="STYL_STAT_PROP_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="#000000"/>
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property ="HorizontalContentAlignment"  Value="Right"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="40"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="Margin" Value="5,5,0,0"/>
-        <Setter Property="Padding" Value="0,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="13"/>
-    </Style>
-
-    <Style x:Key="STYL_BTN_EDITOR" TargetType="Button">
-        <Setter Property="Foreground" Value="{StaticResource BR_LBL_TXT}"/>
-        <Setter Property="Background" Value="{StaticResource BR_UNP_BLUE}" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border SnapsToDevicePixels="True"
-				            BorderThickness="0"
-				            BorderBrush="{StaticResource BR_UNP_BLUE}" 
-				            Background="{StaticResource BR_UNP_BLUE}">
-                        <Grid>
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" Value="{StaticResource BorderBrushHighlighted}" />
-                            <Setter Property="Background" Value="{StaticResource BackgroundHighlighted}" />
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="{StaticResource BackgroundSelected}"/>
-                            <Setter Property="BorderBrush" Value="{StaticResource BorderBrushSelected}"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Foreground" Value="{StaticResource BackgroundNormal}"/>
-                            <Setter Property="Background" Value="{StaticResource BR_NormalGray}"/>
-                            <Setter Property="BorderBrush" Value="{StaticResource BR_NormalGray}"/>
-                            <!--<Setter Property="Visibility" Value="Hidden"/>-->
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style x:Key="STYL_RPT_BTN_EDITOR" TargetType="RepeatButton">
-        <Setter Property="Foreground" Value="{StaticResource BR_LBL_TXT}"/>
-        <Setter Property="Background" Value="{StaticResource BR_UNP_GRAY}" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="RepeatButton">
-                    <Border SnapsToDevicePixels="True"
-				            BorderThickness="0"
-				            BorderBrush="{StaticResource BR_UNP_BLUE}" 
-				            Background="{StaticResource BR_UNP_BLUE}">
-                        <Grid>
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" Value="{StaticResource BorderBrushHighlighted}" />
-                            <Setter Property="Background" Value="{StaticResource BackgroundHighlighted}" />
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="{StaticResource BackgroundSelected}"/>
-                            <Setter Property="BorderBrush" Value="{StaticResource BorderBrushSelected}"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Foreground" Value="{StaticResource BackgroundNormal}"/>
-                            <Setter Property="Background" Value="{StaticResource BR_NormalGray}"/>
-                            <Setter Property="BorderBrush" Value="{StaticResource BR_NormalGray}"/>
-                            <!--<Setter Property="Visibility" Value="Hidden"/>-->
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-
-    </Style>
-
-    <Style x:Key="STYL_STAT_PROP_HEADER_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_LBL_TXT}"/>
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property ="HorizontalContentAlignment"  Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="0,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="17"/>
-        <Setter Property="FontWeight" Value="Medium" />
-
-    </Style>
-
-    <Style x:Key="STYL_STAT_PROP_HEADER_GROUP_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_TITLE_TXT}"/>
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property ="HorizontalContentAlignment"  Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="0,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="FontWeight" Value="Medium" />
-
-    </Style>
-
-    <Style x:Key="STYL_STAT_VAL_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="#000000"/>
-        <Setter Property="HorizontalAlignment" Value="Right" />
-        <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property ="HorizontalContentAlignment"  Value="Right"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="0,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="15"/>
-        <Setter Property="FontWeight" Value="Medium" />
-        <Setter Property="Margin" Value="0,0,5,0"/>
-
-    </Style>
-
-    <Style x:Key="STYL_MAIN_VAL_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_TITLE_TXT}"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="140"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="Margin" Value="5,5,0,0"/>
-        <Setter Property="Padding" Value="0,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="13"/>
-        <Setter Property="FontWeight" Value="Medium"/>
-    </Style>
-
-    <Style x:Key="STYL_COLS_STAT_VAL_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="HorizontalContentAlignment" Value="Right"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="140"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="Margin" Value="5,5,0,0"/>
-        <Setter Property="Padding" Value="0,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="13"/>
-        <Setter Property="FontWeight" Value="Medium"/>
-    </Style>
-
-    <Style x:Key="STYL_COLS_STAT_VAL_LBL_WHITE" TargetType="Label">
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="HorizontalContentAlignment" Value="Right"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="140"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="Margin" Value="5,5,0,0"/>
-        <Setter Property="Padding" Value="0,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="13"/>
-        <Setter Property="FontWeight" Value="Medium"/>
-    </Style>
-
-    <Style x:Key="STYL_PR_VAL_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_TITLE_TXT}"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="140"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="Margin" Value="5,5,0,0"/>
-        <Setter Property="Padding" Value="2,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="11"/>
-    </Style>
-
-    <Style x:Key="STYL_SUB_TITLE_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="Background" Value="LightGray"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Margin" Value="5,0,0,0"/>
-        <Setter Property="Padding" Value="0,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="FontWeight" Value="Medium" />
-        <Setter Property="BorderThickness" Value="0,1,0,1"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BR_LIGHT_BLUE}"/>
-    </Style>
-
-    <Style x:Key="STYL_MAIN_TITLE_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-        <Setter Property="Padding" Value="5,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="FontWeight" Value="Medium" />
-        <Setter Property="Height" Value="25" />
-    </Style>
-    <Style x:Key="STYL_WINDOW_TITLE_LBL" TargetType="Label" BasedOn="{StaticResource STYL_MAIN_TITLE_LBL}">
-        <Setter Property="Height" Value="30" />
-    </Style>
-
-
-
-
-
-    <Style x:Key="STYL_PRO_LBL_LIGHT" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_TITLE_TXT}"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="140"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="Margin" Value="5,5,0,0"/>
-        <Setter Property="Padding" Value="0,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="13"/>
-    </Style>
-
-    <Style x:Key="STYL_STAT_TABLE_BACK_REC" TargetType="Rectangle">
-        <Setter Property="Fill" Value="{StaticResource TextBoxBackground}"/>
-        <Setter Property="Stroke" Value="{StaticResource BR_ULTRA_LIGHT_GRAY}"/>
-        <Setter Property="StrokeThickness" Value="0,0,0,1"/>
-    </Style>
-    <Style x:Key="STYL_STAT_TABLE_BACK_REC_DATA_GOOD" TargetType="Rectangle">
-        <Setter Property="Fill" Value="{StaticResource BR_STATISTICS_DATA_PASS}"/>
-        <Setter Property="Stroke" Value="{StaticResource BR_ULTRA_LIGHT_GRAY}"/>
-        <Setter Property="StrokeThickness" Value="0,0,0,1"/>
-    </Style>
-    <Style x:Key="STYL_STAT_TABLE_BACK_REC_DATA_WARN" TargetType="Rectangle">
-        <Setter Property="Fill" Value="{StaticResource BR_STATISTICS_DATA_WARN}"/>
-        <Setter Property="Stroke" Value="{StaticResource BR_ULTRA_LIGHT_GRAY}"/>
-        <Setter Property="StrokeThickness" Value="0,0,0,1"/>
-    </Style>
-    <Style x:Key="STYL_STAT_TABLE_HEADER_BACK_REC" TargetType="Rectangle">
-        <Setter Property="Fill" Value="{StaticResource TextBoxBackground}"/>
-        <Setter Property="Stroke" Value="{StaticResource BR_ULTRA_LIGHT_GRAY}"/>
-        <Setter Property="StrokeThickness" Value="0"/>
-    </Style>
-
-    <Style x:Key="STYL_STAT_TABLE_PAD_BACK_REC" TargetType="Rectangle">
-        <Setter Property="Fill" Value="{StaticResource BR_ULTRA_LIGHT_GRAY}"/>
-        <Setter Property="Stroke" Value="{StaticResource BR_ULTRA_LIGHT_GRAY}"/>
-        <Setter Property="StrokeThickness" Value="2"/>
-    </Style>
-
-    <Style x:Key="DATA_GRID_FILE_RECIPE_STYLE" TargetType="DataGridRow">
-        <Setter Property="Foreground" Value="Black" />
-        <Setter Property="TextElement.Foreground" Value="Black" />
-    </Style>
-
-    <Style x:Key="STYL_TXT_EDIT" TargetType="TextBox">
-        <Setter Property="Background"  Value="#FFFFA500" />
-        <Setter Property="FontWeight" Value="Medium" />
-    </Style>
-
-    <Style x:Key="STYL_TXT_NORMAL" TargetType="TextBox">
-        <Setter Property="Background"  Value="#FF666666"/>
-        <Setter Property="FontWeight" Value="Medium" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TextBox}">
-                    <Grid Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
-                        <ScrollViewer x:Name="PART_ContentHost" Margin="1"/>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Background" Value="{StaticResource BR_DarkBackGround}"/>
-                            <Setter Property="Foreground" Value="White"/>
-                        </Trigger>
-                        <Trigger Property="IsFocused" Value="true">
-                            <Setter Property="Background" Value="{StaticResource BR_DarkBackGround}"/>
-                            <Setter Property="Foreground" Value="White"/>
-                        </Trigger>
-
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style x:Key="STYL_TXT_INVALID" TargetType="TextBox">
-        <Setter Property="Background"  Value="#FFFF0000" />
-        <Setter Property="FontWeight" Value="Medium" />
-    </Style>
-
-    <Style x:Key="STYL_DATA_GRID_EDIT" TargetType="TextBox">
-        <Setter Property="Background"  Value="{StaticResource BR_NormalGray}" />
-        <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="BorderThickness" Value="0" />
-    </Style>
-
-    <Style x:Key="MyFocusVisual">
-        <Setter Property="Control.Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Control}">
-                    <Grid Margin="3 2">
-                        <Rectangle Name="r1" StrokeThickness="1" Stroke="Black" StrokeDashArray="2 2"/>
-                        <Border Name="border" Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}"  CornerRadius="2" BorderThickness="1" />
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
     <!-- Theme Brushes -->
     <Color x:Key="C_ICON_MOUSE_OVER"    A="255" R="255" G="165" B="0" />
     <Color x:Key="C_BLACK" A="255" R="0" G="0" B="0" />
+    <Color x:Key="C_WHITE" A="255" R="255" G="255" B="255" />
     <Color x:Key="C_RED" A="255" R="255" G="0" B="0" />
     <Color x:Key="C_ICON_DEFAULT"    A="255" R="0" G="0" B="0" />
     <Color x:Key="C_ICON_SELECTED"    A="255" R="0" G="255" B="0" />
@@ -509,19 +17,31 @@
     <Color x:Key="C_POS_FOREGROUND" A="255" R="255" G="0" B="0" />
     <Color x:Key="C_FONT_CYAN" A="255" R="0" G="255" B="200" />
     <Color x:Key="C_ORANGE" A="255" R="255" G="165" B="0" />
-    <Color x:Key="C_DARK_GRAY_10" A="255" R="10" G="10" B="10" />
-    <Color x:Key="C_DARK_GRAY_20" A="255" R="20" G="20" B="20" />
-    <Color x:Key="C_DARK_GRAY_30" A="255" R="30" G="30" B="30" />
-    <Color x:Key="C_DARK_GRAY" A="255" R="40" G="40" B="40" />
-    <Color x:Key="C_DARK_GRAY_50" A="255" R="50" G="50" B="50" />
-    <Color x:Key="C_DARK_GRAY_60" A="255" R="60" G="60" B="60" />
-    <Color x:Key="C_DARK_GRAY_70" A="255" R="70" G="70" B="70" />
-    <Color x:Key="C_WHITE" A="255" R="255" G="255" B="255" />
-    <Color x:Key="C_DARK_MID_GRAY" A="255" R="80" G="80" B="80" />
-    <Color x:Key="C_MID_GRAY" A="255" R="128" G="128" B="128" />
-    <Color x:Key="C_BTN_DISABLE" A="255" R="80" G="80" B="80" />
-    <Color x:Key="C_LIGHT_MID_GRAY" A="255" R="164" G="164" B="164" />
-    <Color x:Key="C_LIGHT_GRAY" A="255" R="215" G="215" B="215" />
+    <Color x:Key="C_GRAY_10" A="255" R="10" G="10" B="10" />
+    <Color x:Key="C_GRAY_20" A="255" R="20" G="20" B="20" />
+    <Color x:Key="C_GRAY_30" A="255" R="30" G="30" B="30" />
+    <Color x:Key="C_GRAY_40" A="255" R="40" G="40" B="40" />
+    <Color x:Key="C_GRAY_50" A="255" R="50" G="50" B="50" />
+    <Color x:Key="C_GRAY_60" A="255" R="60" G="60" B="60" />
+    <Color x:Key="C_GRAY_70" A="255" R="70" G="70" B="70" />
+    <Color x:Key="C_GRAY_80" A="255" R="80" G="80" B="80" />
+    <Color x:Key="C_GRAY_90" A="255" R="90" G="90" B="90" />
+    <Color x:Key="C_GRAY_100" A="255" R="100" G="100" B="100" />
+    <Color x:Key="C_GRAY_110" A="255" R="110" G="110" B="110" />
+    <Color x:Key="C_GRAY_120" A="255" R="120" G="120" B="120" />
+    <Color x:Key="C_GRAY_130" A="255" R="130" G="130" B="130" />
+    <Color x:Key="C_GRAY_140" A="255" R="140" G="140" B="140" />
+    <Color x:Key="C_GRAY_150" A="255" R="150" G="150" B="150" />
+    <Color x:Key="C_GRAY_160" A="255" R="160" G="160" B="160" />
+    <Color x:Key="C_GRAY_170" A="255" R="170" G="170" B="170" />
+    <Color x:Key="C_GRAY_180" A="255" R="180" G="180" B="180" />
+    <Color x:Key="C_GRAY_190" A="255" R="190" G="190" B="190" />
+    <Color x:Key="C_GRAY_200" A="255" R="200" G="200" B="200" />
+    <Color x:Key="C_GRAY_210" A="255" R="210" G="210" B="210" />
+    <Color x:Key="C_GRAY_220" A="255" R="220" G="220" B="220" />
+    <Color x:Key="C_GRAY_230" A="255" R="230" G="230" B="230" />
+    <Color x:Key="C_GRAY_240" A="255" R="240" G="240" B="240" />
+    <Color x:Key="C_GRAY_250" A="255" R="250" G="250" B="250" />
 
     <Color x:Key="CHECKBOX_BORDER" A="255" R="164" G="164" B="164"/>
     <Color x:Key="CHECKBOX_BG" A="255" R="0" G="0" B="0"/>
@@ -535,22 +55,34 @@
     <SolidColorBrush x:Key="BR_TEXT_INVALID"  Color="{StaticResource C_RED}" />
     <SolidColorBrush x:Key="BR_StatusBackGround" Color="#07074e" />
     <SolidColorBrush x:Key="BR_BLACK_BG"  Color="Black" />
-    <SolidColorBrush x:Key="BR_DARK_GRAY_10"  Color="{StaticResource C_DARK_GRAY_10}" />
-    <SolidColorBrush x:Key="BR_DARK_GRAY_20"  Color="{StaticResource C_DARK_GRAY_20}" />
-    <SolidColorBrush x:Key="BR_DARK_GRAY_30"  Color="{StaticResource C_DARK_GRAY_30}" />
-    <SolidColorBrush x:Key="BR_DARK_GRAY_BG"  Color="{StaticResource C_DARK_GRAY}" />
+    <SolidColorBrush x:Key="BR_GRAY_10"  Color="{StaticResource C_GRAY_10}" />
+    <SolidColorBrush x:Key="BR_GRAY_20"  Color="{StaticResource C_GRAY_20}" />
+    <SolidColorBrush x:Key="BR_GRAY_30"  Color="{StaticResource C_GRAY_30}" />
+    <SolidColorBrush x:Key="BR_GRAY_40"  Color="{StaticResource C_GRAY_40}" />
+    <SolidColorBrush x:Key="BR_GRAY_50"  Color="{StaticResource C_GRAY_50}" />
+    <SolidColorBrush x:Key="BR_GRAY_60"  Color="{StaticResource C_GRAY_60}" />
+    <SolidColorBrush x:Key="BR_GRAY_70"  Color="{StaticResource C_GRAY_70}" />
+    <SolidColorBrush x:Key="BR_GRAY_80"  Color="{StaticResource C_GRAY_80}" />
+    <SolidColorBrush x:Key="BR_GRAY_90"  Color="{StaticResource C_GRAY_90}" />
+    <SolidColorBrush x:Key="BR_GRAY_100"  Color="{StaticResource C_GRAY_100}" />
+    <SolidColorBrush x:Key="BR_GRAY_110"  Color="{StaticResource C_GRAY_110}" />
+
+    <SolidColorBrush x:Key="BR_GRAY_120"  Color="{StaticResource C_GRAY_120}" />
+    <SolidColorBrush x:Key="BR_GRAY_130"  Color="{StaticResource C_GRAY_130}" />
+    <SolidColorBrush x:Key="BR_GRAY_140"  Color="{StaticResource C_GRAY_140}" />
+    <SolidColorBrush x:Key="BR_GRAY_150"  Color="{StaticResource C_GRAY_150}" />
+    <SolidColorBrush x:Key="BR_GRAY_160"  Color="{StaticResource C_GRAY_160}" />
+    <SolidColorBrush x:Key="BR_GRAY_170"  Color="{StaticResource C_GRAY_170}" />
+    <SolidColorBrush x:Key="BR_GRAY_180"  Color="{StaticResource C_GRAY_180}" />
+    <SolidColorBrush x:Key="BR_GRAY_190"  Color="{StaticResource C_GRAY_190}" />
+    <SolidColorBrush x:Key="BR_GRAY_200"  Color="{StaticResource C_GRAY_200}" />
+    <SolidColorBrush x:Key="BR_GRAY_210"  Color="{StaticResource C_GRAY_210}" />
+    <SolidColorBrush x:Key="BR_GRAY_220"  Color="{StaticResource C_GRAY_220}" />
+    <SolidColorBrush x:Key="BR_GRAY_230"  Color="{StaticResource C_GRAY_230}" />
+    <SolidColorBrush x:Key="BR_GRAY_240"  Color="{StaticResource C_GRAY_240}" />
+    <SolidColorBrush x:Key="BR_GRAY_250"  Color="{StaticResource C_GRAY_250}" />
+
     <SolidColorBrush x:Key="BR_WHITE"  Color="{StaticResource C_WHITE}" />
-
-    <SolidColorBrush x:Key="BR_DARK_MID_GRAY_BG"  Color="{StaticResource C_DARK_MID_GRAY}" />
-
-    <SolidColorBrush x:Key="BR_DARK_GRAY_70"  Color="{StaticResource C_DARK_GRAY_70}" />
-    <SolidColorBrush x:Key="BR_DARK_GRAY_60"  Color="{StaticResource C_DARK_GRAY_60}" />
-    <SolidColorBrush x:Key="BR_DARK_GRAY_50"  Color="{StaticResource C_DARK_GRAY_50}" />
-    <SolidColorBrush x:Key="BR_MID_GRAY_BG"  Color="{StaticResource C_MID_GRAY}" />
-    <SolidColorBrush x:Key="BR_BTN_DISABLE"  Color="{StaticResource C_BTN_DISABLE}" />
-    <SolidColorBrush x:Key="BR_LIGHT_MID_GRAY_BG"  Color="{StaticResource C_LIGHT_MID_GRAY}" />
-    <SolidColorBrush x:Key="BR_LIGHT_GRAY_BG"  Color="{StaticResource C_LIGHT_GRAY}" />
-
 
     <SolidColorBrush x:Key="BR_MIDDLE_BG"  Color="#FF323232" />
     <SolidColorBrush x:Key="BR_SELECTED_BTN"  Color="{StaticResource C_BLACK}" />
@@ -559,38 +91,18 @@
     <SolidColorBrush x:Key="BR_ICON_DEFAULT"  Color="{StaticResource C_ICON_DEFAULT}" />
     <SolidColorBrush x:Key="BR_ICON_PRESSED"  Color="{StaticResource C_ICON_PRESSED}" />
 
-    <SolidColorBrush x:Key="BR_CONTENT_TXT" Color="#FFC0C0C0" />
 
-    <!-- Style Form Title -->
-    <!--Navigation Menu Button Text Lable-->
-    <!--Navigation Menu Button Image Lable-->
-    <!--Navigation Menu Button Image Lable-->
+    <SolidColorBrush x:Key="WindowsBackground"  Color="{StaticResource C_GRAY_230}" />
+    <SolidColorBrush x:Key="TextColor"  Color="{StaticResource C_GRAY_150}" />
+    <SolidColorBrush x:Key="ContentBoxColor"  Color="{StaticResource C_GRAY_80}" />
+    <SolidColorBrush x:Key="IconicTextColor"  Color="{StaticResource C_GRAY_150}" />
+    <SolidColorBrush x:Key="MasterTheme"  Color="LightSlateGray" />
+    <SolidColorBrush x:Key="MinorTheme"  Color="DarkSlateGray" />
+
+    <FlowDirection x:Key="FlowDirection_Default">LeftToRight</FlowDirection>
+    <FlowDirection x:Key="FlowDirection_Reverse">RightToLeft</FlowDirection>
 
     <!--Shape template-->
-    <Style x:Key="GradientBG_MainMenu" TargetType="Rectangle">
-        <Setter Property="Fill">
-            <Setter.Value>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                    <GradientStop Color="{StaticResource C_BLACK}"  Offset="0.0" />
-                    <GradientStop Color="{StaticResource C_DARK_GRAY_50}"  Offset="1.0" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="Height" Value="auto"/>
-        <Setter Property="Width" Value="auto"/>
-    </Style>
-    <Style x:Key="GradientBG_SubMenu" TargetType="Rectangle">
-        <Setter Property="Fill">
-            <Setter.Value>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                    <GradientStop Color="{StaticResource C_DARK_GRAY_50}"  Offset="0.0" />
-                    <GradientStop Color="{StaticResource C_BLACK}"  Offset="1.0" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="Height" Value="auto"/>
-        <Setter Property="Width" Value="auto"/>
-    </Style>
     <Style x:Key="Panel" TargetType="Border">
         <Setter Property="BorderBrush" Value="{StaticResource MasterTheme}"/>
         <Setter Property="BorderThickness" Value="2"/>
@@ -603,8 +115,14 @@
     </Style>
     <Style x:Key="PanelThin" TargetType="Border">
         <Setter Property="BorderBrush" Value="{StaticResource MasterTheme}"/>
+        <Setter Property="Background" Value="White"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="3"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect/>
+            </Setter.Value>
+        </Setter>
     </Style>
     <Style x:Key="PanelInner" TargetType="Border" BasedOn="{StaticResource PanelThin}">
         <Setter Property="BorderBrush" Value="{StaticResource MinorTheme}"/>
@@ -619,246 +137,141 @@
         <Setter Property="CornerRadius" Value="2"/>
     </Style>
 
+    <LinearGradientBrush x:Key="Gradient_MainMenu" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="{StaticResource MahApps.Colors.Gray6}"  Offset="0.0" />
+        <GradientStop Color="{StaticResource C_WHITE}"  Offset="1.0" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="Gradient_SubMenu" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="{StaticResource C_WHITE}"  Offset="0" />
+        <GradientStop Color="{StaticResource MahApps.Colors.Gray6}"  Offset="1.0" />
+    </LinearGradientBrush>
     <LinearGradientBrush x:Key="Gradient_Panel" StartPoint="0,0" EndPoint="0,1">
         <GradientStop Color="{StaticResource C_BLACK}"  Offset="0.0" />
-        <GradientStop Color="{StaticResource C_DARK_GRAY}"  Offset="1.0" />
+        <GradientStop Color="{StaticResource C_GRAY_100}"  Offset="1.0" />
     </LinearGradientBrush>
     <LinearGradientBrush x:Key="Gradient_SubPage" StartPoint="0,0" EndPoint="0,1">
-        <GradientStop Color="{StaticResource C_DARK_MID_GRAY}"  Offset="0.0" />
-        <GradientStop Color="{StaticResource C_DARK_GRAY_30}" Offset="0.4" />
-        <GradientStop Color="{StaticResource C_DARK_GRAY_30}" Offset="0.6" />
-        <GradientStop Color="{StaticResource C_DARK_MID_GRAY}"  Offset="1.0" />
+        <GradientStop Color="{StaticResource C_GRAY_100}"  Offset="0.0" />
+        <GradientStop Color="{StaticResource C_GRAY_30}" Offset="0.4" />
+        <GradientStop Color="{StaticResource C_GRAY_30}" Offset="0.6" />
+        <GradientStop Color="{StaticResource C_GRAY_100}"  Offset="1.0" />
     </LinearGradientBrush>
-    <Style x:Key="GradientBG_Panel" TargetType="Rectangle">
-        <Setter Property="Fill">
-            <Setter.Value>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="{StaticResource C_BLACK}"  Offset="0.0" />
-                    <GradientStop Color="{StaticResource C_DARK_MID_GRAY}"  Offset="1.0" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="RadiusX" Value="7"/>
-        <Setter Property="RadiusY" Value="7"/>
-        <Setter Property="Height" Value="auto"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-    </Style>
-    <Style x:Key="GradientBG_SubPage" TargetType="Rectangle">
-        <Setter Property="Fill">
-            <Setter.Value>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="{StaticResource C_DARK_MID_GRAY}"  Offset="0.0" />
-                    <GradientStop Color="{StaticResource C_DARK_GRAY_30}" Offset="0.4" />
-                    <GradientStop Color="{StaticResource C_DARK_GRAY_30}" Offset="0.6" />
-                    <GradientStop Color="{StaticResource C_DARK_MID_GRAY}"  Offset="1.0" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="RadiusX" Value="7"/>
-        <Setter Property="RadiusY" Value="7"/>
-        <Setter Property="Height" Value="auto"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-    </Style>
-    <Style x:Key="Rectangle_SUB_PAGE" TargetType="Rectangle">
-        <Setter Property="Fill">
-            <Setter.Value>
-                <RadialGradientBrush >
-                    <GradientStop Color="{StaticResource C_DARK_GRAY_10}"  Offset="0.0" />
-                    <GradientStop Color="{StaticResource C_DARK_GRAY_50}"  Offset="1.0" />
-                </RadialGradientBrush>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="Height" Value="auto"/>
-        <Setter Property="Width" Value="auto"/>
-    </Style>
+    <RadialGradientBrush x:Key="Radial_MainPage">
+        <GradientStop Color="{StaticResource majorgrad}"  Offset="0.0" />
+        <GradientStop Color="{StaticResource C_DARK_GRAY_50}"  Offset="1.0" />
+    </RadialGradientBrush>
 
-
-
-
-
-    <Style x:Key="Rectangle_SUB_SUB_PAGE" TargetType="Rectangle">
-        <Setter Property="Fill" Value="{StaticResource BR_DARK_GRAY_70}"/>
-        <Setter Property="RadiusX" Value="7"/>
-        <Setter Property="RadiusY" Value="7"/>
-        <Setter Property="Height" Value="auto"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-    </Style>
-    <Style x:Key="Rectangle_Main_UserCtrl" TargetType="Rectangle">
-        <Setter Property="Fill" Value="{StaticResource BR_DARK_GRAY_BG}"/>
-        <Setter Property="RadiusX" Value="7"/>
-        <Setter Property="RadiusY" Value="7"/>
-        <Setter Property="Height" Value="auto"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-    </Style>
-    <Style x:Key="Rectangle_Sub_UserCtrl" TargetType="Rectangle">
-        <Setter Property="Fill" Value="{StaticResource BR_DARK_GRAY_20}"/>
-        <Setter Property="RadiusX" Value="5"/>
-        <Setter Property="RadiusY" Value="5"/>
-        <Setter Property="Height" Value="auto"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-    </Style>
-    <Style x:Key="Rectangle_Sub_Sub_UserCtrl" TargetType="Rectangle">
-        <Setter Property="Fill" Value="{StaticResource BR_DARK_GRAY_10}"/>
-        <Setter Property="RadiusX" Value="5"/>
-        <Setter Property="RadiusY" Value="5"/>
-        <Setter Property="Height" Value="auto"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-    </Style>
-    <Style x:Key="Rectangle_Sub_Barcode_UserCtrl" TargetType="Rectangle">
-        <Setter Property="Fill" Value="{StaticResource BR_WHITE}"/>
-        <Setter Property="RadiusX" Value="5"/>
-        <Setter Property="RadiusY" Value="5"/>
-        <Setter Property="Height" Value="auto"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-    </Style>
-    <!--Lable Property-->
-    <Style x:Key="STYL_PROP_POS_LBL_2" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
-        <Setter Property="Background" Value="{StaticResource BR_DARK_GRAY_30}" />
-        <Setter Property ="HorizontalContentAlignment"  Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="Margin" Value="5,5,0,0"/>
-        <Setter Property="Padding" Value="10,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="13"/>
-    </Style>
-    <Style x:Key="STYL_CONTENT_LBL_TEXT_RIGHT_ALIGNED" TargetType="Label">
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Right"/>
-        <Setter Property="HorizontalContentAlignment" Value="Right"/>
-        <Setter Property="FontSize" Value="13"/>
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Margin" Value="5,0,0,0"/>
-    </Style>
-    <Style x:Key="STYL_MM_POS_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
-        <Setter Property="Background" Value="{StaticResource BR_NormalGray}" />
-        <Setter Property ="HorizontalContentAlignment"  Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="12"/>
-        <Setter Property="Content" Value="mm"/>
-    </Style>
-    <Style x:Key="STYL_POS_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
-        <Setter Property="Background" Value="{StaticResource BR_NORMAL_GRAY}" />
-        <Setter Property ="HorizontalContentAlignment"  Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="12"/>
-    </Style>
-    <Style x:Key="STYL_GENERAL_TB_Left_Black" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
-        <Setter Property="Background" Value="{StaticResource BR_BLACK_BG}"/>
-        <Setter Property ="HorizontalAlignment"  Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="5,0,0,0"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-        <Setter Property="Width" Value="auto"/>
+    <!--TextBlock style-->
+    <Style x:Key="TB_Default" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
         <Setter Property="Height" Value="25"/>
         <Setter Property="FontFamily" Value="Segoe"/>
         <Setter Property="FontSize" Value="14"/>
-        <Setter Property="FontWeight" Value="Normal"/>
-    </Style>
-    <Style x:Key="STYL_GENERAL_TB_Right_Black" TargetType="Label" BasedOn="{StaticResource STYL_GENERAL_TB_Left_Black}">
-        <Setter Property="Padding" Value="0,0,5,0"/>
-        <Setter Property ="HorizontalAlignment"  Value="Right"/>
-    </Style>
-
-    <Style x:Key="STYL_GENERAL_TB_Left" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
-        <Setter Property ="HorizontalAlignment"  Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Padding" Value="5,0,0,0"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Height" Value="16"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="14"/>
         <Setter Property="FontWeight" Value="Normal"/>
-    </Style>
-
-    <Style x:Key="STYL_GENERAL_TB_Right" TargetType="TextBlock" BasedOn="{StaticResource STYL_GENERAL_TB_Left}">
-        <Setter Property="Padding" Value="0,0,5,0"/>
-        <Setter Property ="HorizontalAlignment"  Value="Right"/>
-    </Style>
-
-    <!--TextBlock style-->
-    <Style x:Key="TextBlock_Default" TargetType="{x:Type TextBlock}">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
-        <Setter Property ="HorizontalAlignment"  Value="Left"/>
-        <Setter Property="Padding" Value="5,0,0,0"/>
-        <Setter Property="Height" Value="16"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="FontWeight" Value="Normal"/>
-    </Style>
-    <Style x:Key="STYLE_MAIN_TITLE_LABEL_TB" TargetType="TextBlock" BasedOn="{StaticResource TextBlock_Default}" >
-        <Setter Property="FontSize" Value="22"/>
-        <Setter Property="Height" Value="24"/>
-        <Setter Property="FontWeight" Value="DemiBold" />
-        <Setter Property="Margin" Value="0,10,0,10" />
         <Setter Property ="HorizontalAlignment" Value="Left"/>
         <Setter Property ="VerticalAlignment" Value="Top"/>
     </Style>
-
-    <Style x:Key="STYLE_SUB_TITLE_LABEL_TB" TargetType="TextBlock" BasedOn="{StaticResource TextBlock_Default}" >
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="FontSize" Value="18"/>
+    <Style x:Key="TB_MainTitle" TargetType="TextBlock" BasedOn="{StaticResource TB_Default}" >
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Height" Value="35"/>
         <Setter Property="FontWeight" Value="DemiBold" />
-        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="0,5,0,5" />
     </Style>
+    <Style x:Key="TB_PanelTitle" TargetType="TextBlock" BasedOn="{StaticResource TB_Default}" >
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="FontWeight" Value="DemiBold" />
 
-    <Style x:Key="STYLE_SUBSUBCHILD_TITLE_LABEL_TB" TargetType="TextBlock" BasedOn="{StaticResource TextBlock_Default}" >
-        <Setter Property="Foreground" Value="White"/>
+    </Style>
+    <Style x:Key="TB_ItemTitle" TargetType="TextBlock" BasedOn="{StaticResource TextBlock_Default}" >
         <Setter Property="FontWeight" Value="Medium" />
-        <Setter Property="Height" Value="25"/>
+        <Setter Property="Height" Value="27"/>
     </Style>
-
-
-
-    <Style x:Key="STYL_GENERAL_LBL_Left" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
-        <Setter Property ="HorizontalAlignment"  Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
+    <Style x:Key="TB_ItemLabel_Left" TargetType="TextBlock" BasedOn="{StaticResource TextBlock_Default}" >
+    </Style>
+    <Style x:Key="TB_ItemLabel_Right" TargetType="TextBlock" BasedOn="{StaticResource TextBlock_Default}" >
+        <Setter Property="Padding" Value="0,0,5,0"/>
+        <Setter Property ="HorizontalAlignment"  Value="Right"/>
+    </Style>
+    <Style x:Key="TB_ItemLabel_Center" TargetType="TextBlock" BasedOn="{StaticResource TextBlock_Default}" >
+        <Setter Property="Padding" Value="0,0,0,0"/>
+        <Setter Property ="HorizontalAlignment"  Value="Center"/>
+    </Style>
+    <Style x:Key="TB_ItemContent" TargetType="TextBlock" BasedOn="{StaticResource TB_Default}" >
+        <Setter Property="Background" Value="{StaticResource ContentBoxColor}"/>
+    </Style>
+    <Style x:Key="TB_ItemContent_Right" TargetType="TextBlock" BasedOn="{StaticResource TB_ItemContent}">
+        <Setter Property="Padding" Value="0,0,5,0"/>
+        <Setter Property ="HorizontalAlignment"  Value="Right"/>
+    </Style>
+    <Style x:Key="TB_ItemContent_Left" TargetType="TextBlock" BasedOn="{StaticResource TB_ItemContent}">
         <Setter Property="Padding" Value="5,0,0,0"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-        <Setter Property ="HorizontalContentAlignment"  Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Height" Value="16"/>
+        <Setter Property ="HorizontalAlignment"  Value="Left"/>
+    </Style>
+    <Style x:Key="TB_ItemContent_Center" TargetType="TextBlock" BasedOn="{StaticResource TB_ItemContent}">
+        <Setter Property="Padding" Value="0,0,0,0"/>
+        <Setter Property ="HorizontalAlignment"  Value="Center"/>
+    </Style>
+    <!--Label style-->
+    <Style x:Key="LB_Default" TargetType="Label">
+        <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
+        <Setter Property="Height" Value="25"/>
         <Setter Property="FontFamily" Value="Segoe"/>
         <Setter Property="FontSize" Value="14"/>
-        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="Padding" Value="5,0,0,0"/>
+        <Setter Property="FontWeight" Value="Light"/>
+        <Setter Property ="HorizontalAlignment" Value="Left"/>
+        <Setter Property ="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
-    <Style x:Key="STYL_GENERAL_LBL_Right" TargetType="Label" BasedOn="{StaticResource STYL_GENERAL_LBL_Left}">
+    <Style x:Key="LB_MainTitle" TargetType="Label" BasedOn="{StaticResource LB_Default}">
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="FontWeight" Value="DemiBold" />
+        <Setter Property="Margin" Value="0,5,0,5" />
+    </Style>
+    <Style x:Key="LB_PanelTitle" TargetType="Label" BasedOn="{StaticResource LB_Default}">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="FontWeight" Value="Medium" />
+    </Style>
+    <Style x:Key="LB_ItemTitle" TargetType="Label" BasedOn="{StaticResource LB_Default}">
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="Height" Value="27"/>
+    </Style>
+    <Style x:Key="LB_ItemContent" TargetType="Label" BasedOn="{StaticResource LB_Default}">
+    </Style>
+    <Style x:Key="LB_ItemContent_Left" TargetType="Label" BasedOn="{StaticResource LB_ItemContent}">
+    </Style>
+    <Style x:Key="LB_ItemContent_Right" TargetType="Label" BasedOn="{StaticResource LB_ItemContent}">
         <Setter Property="Padding" Value="0,0,5,0"/>
         <Setter Property ="HorizontalContentAlignment"  Value="Right"/>
     </Style>
-    <Style x:Key="STYL_GENERAL_LBL_Center" TargetType="Label" BasedOn="{StaticResource STYL_GENERAL_LBL_Left}">
+    <Style x:Key="LB_ItemContent_Center" TargetType="Label" BasedOn="{StaticResource LB_ItemContent}">
         <Setter Property="Padding" Value="0,0,0,0"/>
         <Setter Property ="HorizontalContentAlignment"  Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Stretch"/>
     </Style>
-    <Style x:Key="STYL_GENERAL_LBL_13" TargetType="Label" BasedOn="{StaticResource STYL_GENERAL_LBL_Left}">
+    <Style x:Key="LB_ItemData" TargetType="Label" BasedOn="{StaticResource LB_Default}">
+        <Setter Property="Background" Value="{StaticResource ContentBoxColor}"/>
+    </Style>
+    <Style x:Key="LB_ItemData_Left" TargetType="Label" BasedOn="{StaticResource LB_ItemData}">
+    </Style>
+    <Style x:Key="LB_ItemData_Right" TargetType="Label" BasedOn="{StaticResource LB_ItemData}">
+        <Setter Property="Padding" Value="0,0,5,0"/>
+        <Setter Property ="HorizontalContentAlignment"  Value="Right"/>
+    </Style>
+    <Style x:Key="LB_ItemData_Center" TargetType="Label" BasedOn="{StaticResource LB_ItemData}">
         <Setter Property="Padding" Value="0,0,0,0"/>
-        <Setter Property="FontSize" Value="13"/>
+        <Setter Property ="HorizontalContentAlignment"  Value="Center"/>
     </Style>
+    <Style x:Key="LB_IconicTitle" TargetType="Label" BasedOn="{StaticResource LB_Default}">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Foreground" Value="{StaticResource MinorTheme}"/>
+    </Style>
+
+
     <Style x:Key="STYL_RADIO_LABEL" TargetType="Label">
         <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
         <Setter Property="Width" Value="auto"/>
@@ -872,7 +285,7 @@
         <Setter Property="FontWeight" Value="Light"/>
     </Style>
     <Style x:Key="STYL_BUTTON_LBL_COMPACT" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
         <Setter Property ="HorizontalAlignment"  Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Padding" Value="0,0,0,0"/>
@@ -918,49 +331,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="STYL_POS_FOCUS_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
-        <Setter Property="Background" Value="{StaticResource BR_UNP_BLUE}" />
-        <Setter Property ="HorizontalContentAlignment"  Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="13"/>
-        <Setter Property="FontWeight" Value="Medium"/>
-    </Style>
-    <Style x:Key="STYL_PROP_SUB_CVS_LBL" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
-        <Setter Property ="HorizontalContentAlignment"  Value="Right"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-        <Setter Property="Padding" Value="0,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="13"/>
-    </Style>
-    <Style x:Key="STYL_POS_Textbox" TargetType="TextBox">
-        <Setter Property ="HorizontalContentAlignment"  Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="12"/>
-        <Setter Property="TextWrapping" Value="Wrap"/>
-    </Style>
-    <!--Button style-->
-
-    <Style x:Key="Path_Setter_Button_Default_State">
-        <Setter Property="Path.Fill" Value="{StaticResource BR_ICON_DEFAULT}"/>
-        <Setter Property="Path.Stroke" Value="{StaticResource BR_BLACK_BG}"/>
-        <Setter Property="Path.StrokeThickness" Value="2"/>
-        <!--<Setter Property="Path.Effect">
-            <Setter.Value>
-                <DropShadowEffect Color="{StaticResource C_ICON_DEFAULT}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-            </Setter.Value>
-        </Setter>-->
-    </Style>
+    <!--Indicator style-->
     <Style x:Key="Rec_InputBig" TargetType="Rectangle">
         <Setter Property="Width" Value="35"/>
         <Setter Property="Height" Value="35"/>
@@ -986,16 +357,9 @@
         <Setter Property="RadiusX" Value="1"/>
         <Setter Property="RadiusY" Value="1"/>
     </Style>
-    <Style x:Key="Label_Setter_Button_Radial">
-        <Setter Property="Label.Foreground" Value="{StaticResource BR_FONT_CYAN}"/>
-        <Setter Property="Label.Width" Value="170"/>
-        <Setter Property="Label.Height" Value="86"/>
-        <Setter Property="Label.HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="Label.VerticalContentAlignment" Value="Bottom"/>
-        <Setter Property="Label.FontFamily" Value="Segoe"/>
-        <Setter Property="Label.FontSize" Value="14"/>
-        <Setter Property="Label.FontWeight" Value="Medium"/>
-    </Style>
+
+
+    <!--Button style-->
     <Style x:Key="Label_Setter_Button">
         <Setter Property="Label.Foreground" Value="{StaticResource BR_FONT_CYAN}"/>
         <Setter Property="Label.Height" Value="auto"/>
@@ -1035,13 +399,17 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="ButtonSub" TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource BR_BLACK_BG}"/>
-        <Setter Property="Height" Value="56"/>
-        <Setter Property="Width" Value="56"/>
+
+
+
+
+    <Style TargetType="{x:Type Button}" x:Key="BtnCommon">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Width" Value="Auto"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="Button">
+                <ControlTemplate TargetType="{x:Type Button}">
                     <ControlTemplate.Resources>
                         <Style TargetType="Label" BasedOn="{StaticResource Label_SetterWhitesmoke_Button}"/>
                         <Style TargetType="Image">
@@ -1095,17 +463,8 @@
         </Setter>
     </Style>
     <Style x:Key="Button_MainMenu" TargetType="Button">
-        <!--<Setter Property="Background" Value="{StaticResource BR_BLACK_BG}"/>-->
         <Setter Property="Height" Value="56"/>
         <Setter Property="Width" Value="56"/>
-        <!--<Setter Property="Background">
-            <Setter.Value>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                    <GradientStop Color="{StaticResource C_BLACK}"  Offset="0.0" />
-                    <GradientStop Color="{StaticResource C_DARK_GRAY_50}"  Offset="1.0" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -1400,9 +759,9 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style x:Key="Button_LimeContent" TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource BR_BLACK_BG}"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Height" Value="25"/>
         <Setter Property="Width" Value="56"/>
         <Setter Property="Template">
@@ -1422,7 +781,7 @@
                         <Border Name="border" 
         				BorderThickness="1"
         				CornerRadius="2"
-        				Background="{StaticResource BR_ICON_DEFAULT}" BorderBrush="{StaticResource BR_ICON_DEFAULT}">
+        				Background="Transparent" BorderBrush="{StaticResource BR_ICON_DEFAULT}">
                             <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Label x:Name="Label" Content="{TemplateBinding Content}"/>
                             </Grid>
@@ -1587,1668 +946,17 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="Button_RedContent_Red_Highlight" TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource BR_BLACK_BG}"/>
-        <Setter Property="Height" Value="56"/>
-        <Setter Property="Width" Value="56"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}">
-                            <Setter Property="Foreground" Value="{StaticResource BR_TEXT_INVALID}"/>
-                        </Style>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="38,9,0,0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Grid x:Name="grid">
-                        <Border Name="border" 
-        				BorderThickness="1"
-        				CornerRadius="2"
-        				Background="{StaticResource BR_ICON_DEFAULT}" BorderBrush="{StaticResource BR_TEXT_INVALID}">
-                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                            </Grid>
-                            <Border.Effect>
-                                <DropShadowEffect Color="{StaticResource C_RED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                            </Border.Effect>
-                        </Border>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_SELECTED}"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="border" Property="Background" Value="Transparent"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="0" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="Button_CyanContent_Small_font" TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource BR_BLACK_BG}"/>
-        <Setter Property="Height" Value="56"/>
-        <Setter Property="Width" Value="56"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}">
-                            <Setter Property="FontSize" Value="10"/>
-                        </Style>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="38,9,0,0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Grid x:Name="grid">
-                        <Border Name="border" 
-        				BorderThickness="1"
-        				CornerRadius="2"
-        				Background="{StaticResource BR_ICON_DEFAULT}" BorderBrush="{StaticResource BR_ICON_DEFAULT}">
-                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                            </Grid>
-                        </Border>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_SELECTED}"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="border" Property="Background" Value="Transparent"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="0" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="Button_CyanContent_2" TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource BR_DARK_GRAY_70}"/>
-        <Setter Property="Height" Value="56"/>
-        <Setter Property="Width" Value="56"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="38,9,0,0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Grid x:Name="grid">
-                        <Border Name="border" 
-        				BorderThickness="1"
-        				CornerRadius="2"
-        				Background="{StaticResource BR_DARK_GRAY_70}" BorderBrush="{StaticResource BR_DARK_GRAY_70}">
-                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                            </Grid>
-                        </Border>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_SELECTED}"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="border" Property="Background" Value="Transparent"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="0" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="Button_CyanContent_Custom_Datatrigger" TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource BR_BLACK_BG}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="38,9,0,0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Grid x:Name="grid">
-                        <Border Name="border"
-                            BorderThickness="1"
-        				    CornerRadius="2"
-        				    Background="{StaticResource BR_ICON_DEFAULT}" BorderBrush="{StaticResource BR_ICON_DEFAULT}">
-                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                            </Grid>
-                        </Border>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding State}" Value="1">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Pink" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="Pink"/>
-                        </DataTrigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_SELECTED}"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="border" Property="Background" Value="Transparent"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="0" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="Button_CyanContent_Red_Highlight" TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource BR_BLACK_BG}"/>
-        <Setter Property="Height" Value="56"/>
-        <Setter Property="Width" Value="56"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="38,9,0,0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Grid x:Name="grid">
-                        <Border Name="border" 
-        				BorderThickness="1"
-        				CornerRadius="2"
-        				Background="{StaticResource BR_ICON_DEFAULT}" BorderBrush="{StaticResource BR_TEXT_INVALID}">
-                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                            </Grid>
-                            <Border.Effect>
-                                <DropShadowEffect Color="{StaticResource C_RED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                            </Border.Effect>
-                        </Border>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_SELECTED}"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="border" Property="Background" Value="Transparent"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="0" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
     <Style x:Key="Button_MainMenuSelected" TargetType="Button">
         <Setter Property="Background">
             <Setter.Value>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="{StaticResource C_DARK_GRAY_30}"  Offset="0.0" />
+                    <GradientStop Color="{StaticResource MahApps.Colors.Gray10}"  Offset="0.0" />
                     <GradientStop Color="LightSlateGray"  Offset="1.0" />
                 </LinearGradientBrush>
             </Setter.Value>
         </Setter>
         <Setter Property="Height" Value="56"/>
         <Setter Property="Width" Value="56"/>
-    </Style>
-    <Style x:Key="Button_CyanContent_Lime_Highlight" TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource BR_BLACK_BG}"/>
-        <Setter Property="Height" Value="56"/>
-        <Setter Property="Width" Value="56"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="38,9,0,0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Grid x:Name="grid">
-                        <Border Name="border" 
-        				BorderThickness="1"
-        				CornerRadius="2"
-        				Background="{StaticResource BR_ICON_DEFAULT}" BorderBrush="{StaticResource BR_ICON_SELECTED}">
-                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                            </Grid>
-                            <Border.Effect>
-                                <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                            </Border.Effect>
-                        </Border>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_SELECTED}"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="border" Property="Background" Value="Transparent"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="0" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="RepeatButton_NoContent" TargetType="RepeatButton">
-        <Setter Property="Background" Value="{StaticResource BR_BLACK_BG}"/>
-        <Setter Property="Height" Value="56"/>
-        <Setter Property="Width" Value="56"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="RepeatButton">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}">
-                        </Style>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="38,9,0,0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Grid x:Name="grid">
-                        <Border Name="border" 
-        				BorderThickness="1"
-        				CornerRadius="2"
-        				Background="{StaticResource BR_ICON_DEFAULT}" BorderBrush="{StaticResource BR_ICON_DEFAULT}">
-                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                            </Grid>
-                        </Border>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_SELECTED}"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="border" Property="Background" Value="Transparent"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="0" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="RepeatButton_CyanContent" TargetType="RepeatButton">
-        <Setter Property="OverridesDefaultStyle" Value="True"/>
-        <Setter Property="Background" Value="{StaticResource BR_BLACK_BG}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="RepeatButton">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="38,9,0,0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Border Name="border" 
-        				BorderThickness="1"
-        				Padding="0,0" 
-        				CornerRadius="2" 
-        				Background="{StaticResource BR_ICON_DEFAULT}" BorderBrush="{StaticResource BR_ICON_DEFAULT}">
-                        <Grid  HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                        </Grid>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_SELECTED}"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="border" Property="Background" Value="Transparent"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="0" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="RepeatButton_Round" TargetType="RepeatButton">
-        <Setter Property="OverridesDefaultStyle" Value="True"/>
-        <Setter Property="Background" Value="{StaticResource BR_BLACK_BG}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="RepeatButton">
-                    <Border Name="border" 
-        				BorderThickness="1"
-        				Padding="0,0" 
-        				CornerRadius="999" 
-        				Background="{StaticResource BR_ICON_DEFAULT}" BorderBrush="{StaticResource BR_ICON_DEFAULT}">
-                        <Grid  HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                        </Grid>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_SELECTED}"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="border" Property="Background" Value="Transparent"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="0" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style x:Key="RoundButton_BLACK_BG_HIGHLIGHT_OUTLINE" TargetType="{x:Type Button}">
-        <Setter Property="Height" Value="56"/>
-        <Setter Property="Width" Value="56"/>
-        <Setter Property="Background" Value="{StaticResource BR_ICON_DEFAULT}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="15"/>
-                            <Setter Property="Width" Value="15"/>
-                            <Setter Property="Margin" Value="10,11,0,0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Grid x:Name="grid">
-                        <Border Name="border" 
-        				BorderThickness="1"
-        				CornerRadius="999999"
-        				Background="{StaticResource BR_ICON_DEFAULT}" BorderBrush="Cyan">
-                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                            </Grid>
-                        </Border>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="border" Property="Background" Value="Transparent"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="border" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="0" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <!--Radial button style-->
-    <!--motion-big-->
-    <Style x:Key="PathArcTop" TargetType="{x:Type Button}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="top"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="57,6,0,0"/>
-                        </Style>
-                        <!--<Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>-->
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" Data="M28.531963,28.531963 C65.241249,-8.1773119 124.75875,-8.1773119 161.46803,28.531963 L136.7193,53.2807 C113.67837,30.239765 76.321632,30.239765 53.280701,53.280701 z" HorizontalAlignment="Left" Height="54" Stretch="Uniform" VerticalAlignment="Top" Width="133.936"/>
-                        <Image x:Name="Image" Source="DPAD_Up.png">
-                        </Image>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="PathArcLeft" TargetType="{x:Type Button}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="top"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="6,57,0,0"/>
-                            <!--<Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <ScaleTransform ScaleX="0.95" ScaleY="0.95"></ScaleTransform>
-                                </Setter.Value>
-                            </Setter>-->
-                        </Style>
-                        <!--<Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>-->
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" Data="M28.531963,161.46804 C-8.1773119,124.75875 -8.1773119,65.241249 28.531963,28.531963 L53.2807,53.2807 C30.239765,76.321632 30.239765,113.67837 53.280701,136.7193 z" HorizontalAlignment="Left" Height="133.936" Stretch="Uniform" VerticalAlignment="Top" Width="54"/>
-                        <Image x:Name="Image" Source="DPAD_Left.png">
-                        </Image>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="PathArcDown" TargetType="{x:Type Button}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="top"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="57,26,0,0"/>
-                        </Style>
-                        <!--<Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>-->
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" Data="M161.46804,161.46804 C124.75875,198.17731 65.241249,198.17731 28.531963,161.46803 L53.2807,136.7193 C76.321632,159.76024 113.67837,159.76024 136.7193,136.7193 z" HorizontalAlignment="Left" Height="54"  Stretch="Uniform" VerticalAlignment="Top" Width="133.936"/>
-                        <Image x:Name="Image" Source="DPAD_Down.png">
-                        </Image>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="PathArcRight" TargetType="{x:Type Button}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="top"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="26,57,0,0"/>
-                        </Style>
-                        <!--<Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>-->
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" Data="M161.46804,28.531963 C198.17731,65.241249 198.17731,124.75875 161.46803,161.46803 L136.7193,136.7193 C159.76024,113.67837 159.76024,76.321632 136.7193,53.280701 z" HorizontalAlignment="Left" Height="133.936" Stretch="Uniform" VerticalAlignment="Top" Width="54"/>
-                        <Image x:Name="Image" Source="DPAD_Right.png">
-                        </Image>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <!--galvo-small-->
-    <Style x:Key="PathArcTop_135p" TargetType="{x:Type RepeatButton}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type RepeatButton}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="38,9,0,0"/>
-                        </Style>
-                        <!--<Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>-->
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" HorizontalAlignment="Center" Height="46" Stretch="Uniform" VerticalAlignment="Center" Width="96">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure IsClosed="True" StartPoint="19.770292269908,19.7702922699081">
-                                        <BezierSegment Point3="115.229705810547,19.7702922821045" Point2="88.8693161010742,-6.59009885787964" Point1="46.1306838989258,-6.59009885787964"/>
-                                        <LineSegment Point="90.4809703885628,44.5190296114372"/>
-                                        <BezierSegment IsSmoothJoin="True" Point3="67.5,35" Point2="76.1195373535156,35" Point1="84.3860397338867,38.4240951538086"/>
-                                        <BezierSegment Point3="44.5190277099609,44.5190277099609" Point2="50.6139602661133,38.4240951538086" Point1="58.8804664611816,35"/>
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-                        <Image x:Name="Image" Source="DPAD_Up.png">
-                        </Image>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="PathArcLeft_135p" TargetType="{x:Type RepeatButton}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type RepeatButton}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="9,38,0,0"/>
-                            <!--<Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <ScaleTransform ScaleX="0.95" ScaleY="0.95"></ScaleTransform>
-                                </Setter.Value>
-                            </Setter>-->
-                        </Style>
-                        <!--<Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>-->
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" HorizontalAlignment="Center" Height="96" Stretch="Uniform" VerticalAlignment="Center" Width="46">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure IsClosed="True" StartPoint="19.770292269908,115.229707730092">
-                                        <BezierSegment Point3="19.7702922821045,19.7702922821045" Point2="-6.59009885787964,46.1306838989258" Point1="-6.59009885787964,88.8693161010742"/>
-                                        <LineSegment Point="44.5190296114372,44.5190296114372"/>
-                                        <BezierSegment IsSmoothJoin="True" Point3="35,67.5" Point2="35,58.8804626464844" Point1="38.4240951538086,50.6139602661133"/>
-                                        <BezierSegment Point3="44.5190277099609,90.4809722900391" Point2="38.4240951538086,84.3860397338867" Point1="35,76.1195373535156"/>
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-
-                        <Image x:Name="Image" Source="DPAD_Left.png">
-                        </Image>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="PathArcDown_135p" TargetType="{x:Type RepeatButton}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type RepeatButton}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="38,16,0,0"/>
-                        </Style>
-                        <!--<Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>-->
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" HorizontalAlignment="Center" Height="46" Stretch="Uniform" VerticalAlignment="Center" Width="96">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure IsClosed="True" StartPoint="115.229707730092,115.229707730092">
-                                        <BezierSegment Point3="19.7702922821045,115.229705810547" Point2="46.1306838989258,141.590103149414" Point1="88.8693161010742,141.590103149414"/>
-                                        <LineSegment Point="44.5190296114372,90.4809703885628"/>
-                                        <BezierSegment IsSmoothJoin="True" Point3="67.5,100" Point2="58.8804626464844,100" Point1="50.6139602661133,96.5759048461914"/>
-                                        <BezierSegment Point3="90.4809722900391,90.4809722900391" Point2="84.3860397338867,96.5759048461914" Point1="76.1195373535156,100"/>
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-
-                        <Image x:Name="Image" Source="DPAD_Down.png">
-                        </Image>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="PathArcRight_135p" TargetType="{x:Type RepeatButton}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type RepeatButton}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="20"/>
-                            <Setter Property="Width" Value="20"/>
-                            <Setter Property="Margin" Value="16,38,0,0"/>
-                        </Style>
-                        <!--<Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>-->
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" HorizontalAlignment="Center" Height="96" Stretch="Uniform" VerticalAlignment="Center" Width="46">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure IsClosed="True" StartPoint="115.229707730092,19.770292269908">
-                                        <BezierSegment Point3="115.229705810547,115.229705810547" Point2="141.590103149414,88.8693161010742" Point1="141.590103149414,46.1306838989258"/>
-                                        <LineSegment Point="90.4809703885628,90.4809703885628"/>
-                                        <BezierSegment IsSmoothJoin="True" Point3="100,67.5" Point2="100,76.1195373535156" Point1="96.5759048461914,84.3860397338867"/>
-                                        <BezierSegment Point3="90.4809722900391,44.5190277099609" Point2="96.5759048461914,50.6139602661133" Point1="100,58.8804664611816"/>
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-
-                        <Image x:Name="Image" Source="DPAD_Right.png">
-                        </Image>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style x:Key="BOTTOM_170P" TargetType="{x:Type Button}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="top"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <!--<Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button_Radial}"/>-->
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" Data="M0.50632727,0.5 L20.506328,0.5 20.500001,1 C20.500001,36.622368 49.377633,65.5 85.000001,65.5 120.62237,65.5 149.5,36.622368 149.5,1 L149.49367,0.5 169.49367,0.5 169.5,1 C169.5,47.66806 131.66806,85.5 85.000001,85.5 38.331941,85.5 0.50000089,47.66806 0.5,1 z" HorizontalAlignment="Left" Height="86" Stretch="Uniform" VerticalAlignment="Top" Width="170"/>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                        <Image x:Name="Image"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="TOP_170P" TargetType="{x:Type Button}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="top"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <!--<Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button_Radial}">
-                            <Setter Property="VerticalContentAlignment" Value="Top"/>
-                        </Style>-->
-
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" Data="M84.999999,0.5 C131.66806,0.50000012 169.5,38.33194 169.5,85 L169.49367,85.5 149.49367,85.5 149.5,85 C149.5,49.377632 120.62237,20.5 84.999999,20.499998 49.377631,20.5 20.499999,49.377632 20.499997,85 L20.506324,85.5 0.50632733,85.5 0.5,85 C0.49999893,38.33194 38.331939,0.50000012 84.999999,0.5 z" HorizontalAlignment="Center" Height="86" Stretch="Uniform" VerticalAlignment="Center" Width="170"/>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                        <Image x:Name="Image"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="BOTTOM_GO" TargetType="{x:Type Button}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="top"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Label">
-                            <Setter Property="Foreground" Value="{StaticResource BR_FONT_CYAN}"/>
-                            <Setter Property="Margin" Value="0,6,0,0"/>
-                            <Setter Property="Width" Value="115"/>
-                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                            <Setter Property="VerticalContentAlignment" Value="Center"/>
-                            <Setter Property="FontFamily" Value="Segoe"/>
-                            <Setter Property="FontSize" Value="20"/>
-                            <Setter Property="FontWeight" Value="Bold"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" Data="M0.5,0.5 L115.09653,0.5 115.04109,0.70485687 C107.95728,25.647171 85.01123,43.916 57.798264,43.916 30.585297,43.916 7.6392403,25.647171 0.55543399,0.70485687 z" HorizontalAlignment="Center" Height="46" Stretch="Uniform" VerticalAlignment="Center" Width="116.596"/>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                        <Image x:Name="Image"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="RotateCW" TargetType="{x:Type Button}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="top"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="116"/>
-                            <Setter Property="Width" Value="46"/>
-                            <Setter Property="Margin" Value="20,18,0,0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" Data="M0,0 C41.421358,0 75.000001,33.578648 75.000001,75 75.000001,116.42136 41.421358,150 0,150 L0,125 C27.614244,125 50.000001,102.61423 50.000001,75 50.000001,47.385757 27.614244,25 0,25 z" HorizontalAlignment="Center" Height="150" Stretch="Uniform" VerticalAlignment="Center" Width="76"/>
-                        <Image x:Name="Image" Source="Turn_CW.png"/>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="RotateCCW" TargetType="{x:Type Button}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="top"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="116"/>
-                            <Setter Property="Width" Value="46"/>
-                            <Setter Property="Margin" Value="9,18,0,0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" Data="M75.000002,0 L75.000002,25.000001 C47.385759,25.000001 25.000002,47.385766 25.000002,75.000001 25.000002,102.61424 47.385759,125 75.000002,125 L75.000002,150 C33.578642,150 1.9073486E-06,116.42136 0,75.000001 1.9073486E-06,33.578637 33.578642,9.5367432E-07 75.000002,0 z" HorizontalAlignment="Left" Height="150" Stretch="Uniform" VerticalAlignment="Center" Width="76"/>
-                        <Image x:Name="Image" Source="Turn_CCW.png"/>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="REPEAT_RotateCW" TargetType="{x:Type RepeatButton}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="top"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type RepeatButton}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="116"/>
-                            <Setter Property="Width" Value="46"/>
-                            <Setter Property="Margin" Value="20,18,0,0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" Data="M0,0 C41.421358,0 75.000001,33.578648 75.000001,75 75.000001,116.42136 41.421358,150 0,150 L0,125 C27.614244,125 50.000001,102.61423 50.000001,75 50.000001,47.385757 27.614244,25 0,25 z" HorizontalAlignment="Center" Height="150" Stretch="Uniform" VerticalAlignment="Center" Width="76"/>
-                        <Image x:Name="Image" Source="Turn_CW.png"/>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="REPEAT_RotateCCW" TargetType="{x:Type RepeatButton}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="top"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type RepeatButton}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Image">
-                            <Setter Property="Height" Value="116"/>
-                            <Setter Property="Width" Value="46"/>
-                            <Setter Property="Margin" Value="9,18,0,0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" Data="M75.000002,0 L75.000002,25.000001 C47.385759,25.000001 25.000002,47.385766 25.000002,75.000001 25.000002,102.61424 47.385759,125 75.000002,125 L75.000002,150 C33.578642,150 1.9073486E-06,116.42136 0,75.000001 1.9073486E-06,33.578637 33.578642,9.5367432E-07 75.000002,0 z" HorizontalAlignment="Left" Height="150" Stretch="Uniform" VerticalAlignment="Center" Width="76"/>
-                        <Image x:Name="Image" Source="Turn_CCW.png"/>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="CIRCLE_150P" TargetType="{x:Type Button}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="top"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button_Radial}">
-                            <Setter Property="Width" Value="150"/>
-                            <Setter Property="Label.VerticalContentAlignment" Value="Top"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" HorizontalAlignment="Center" Height="150" Stretch="Fill" VerticalAlignment="Center" Width="150" >
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure IsClosed="True" StartPoint="75,0">
-                                        <BezierSegment IsSmoothJoin="True" Point3="150,75" Point2="150,33.5786476135254" Point1="116.421356201172,0"/>
-                                        <BezierSegment Point3="75,150" Point2="116.421356201172,150" Point1="150,116.421363830566"/>
-                                        <BezierSegment IsSmoothJoin="True" Point3="0,75" Point2="0,116.421356201172" Point1="33.5786399841309,150"/>
-                                        <BezierSegment Point3="75,0" Point2="33.5786399841309,0" Point1="0,33.5786361694336"/>
-                                    </PathFigure>
-                                    <PathFigure IsClosed="True" StartPoint="75,25">
-                                        <BezierSegment IsSmoothJoin="True" Point3="25,75" Point2="25,47.3857650756836" Point1="47.3857612609863,25"/>
-                                        <BezierSegment Point3="75,125" Point2="47.3857612609863,125" Point1="25,102.614242553711"/>
-                                        <BezierSegment IsSmoothJoin="True" Point3="125,75" Point2="125,102.614234924316" Point1="102.614242553711,125"/>
-                                        <BezierSegment Point3="75,25" Point2="102.614242553711,25" Point1="125,47.3857574462891"/>
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                        <Image x:Name="Image"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="BOTTOM_GO_150P" TargetType="{x:Type Button}">
-        <Setter Property="Visibility" Value="Visible"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="top"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="Path" BasedOn="{StaticResource Path_Setter_Button_Default_State}"/>
-                        <Style TargetType="Label">
-                            <Setter Property="Foreground" Value="{StaticResource BR_FONT_CYAN}"/>
-                            <Setter Property="Margin" Value="0,6,0,0"/>
-                            <Setter Property="Width" Value="90"/>
-                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                            <Setter Property="VerticalContentAlignment" Value="Center"/>
-                            <Setter Property="FontFamily" Value="Segoe"/>
-                            <Setter Property="FontSize" Value="20"/>
-                            <Setter Property="FontWeight" Value="Bold"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Canvas>
-                        <Path x:Name="Path" Data="M0,0 L89.991574,0 89.981091,0.82847214 C89.36504,25.144493 69.460271,44.667 44.995785,44.667 20.531296,44.667 0.62653373,25.144493 0.01048341,0.82847214 z" HorizontalAlignment="Left" Height="45" Stretch="Fill" VerticalAlignment="Top" Width="90"/>
-                        <Label x:Name="Label" Content="{TemplateBinding Content}"/>
-                        <Image x:Name="Image"/>
-                    </Canvas>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Cursor" Value="Wait"></Setter>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="Path" Property="Stroke" Value="{StaticResource BR_ICON_SELECTED}"/>
-                            <Setter TargetName="Path" Property="Fill" Value="{StaticResource BR_SELECTED_BTN}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Path" Property="Visibility" Value="Hidden"/>
-                            <Setter TargetName="Path" Property="Stroke" Value="Transparent"/>
-                            <Setter TargetName="Image" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
-                            <Setter TargetName="Path" Property="Border.Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="10" Opacity="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
     </Style>
 
     <!--RadioButton style-->
@@ -3349,7 +1057,7 @@
                                 <Grid Height="15" Width="15">
                                     <!--Define size of the Bullet-->
                                     <!--The two borders-->
-                                    <Border Name="RadioOuter" Background="{StaticResource BR_BLACK_BG}" BorderBrush="{StaticResource BR_MID_GRAY_BG}" BorderThickness="1" CornerRadius="99" />
+                                    <Border Name="RadioOuter" Background="{StaticResource BR_BLACK_BG}" BorderBrush="{StaticResource BR_GRAY_120}" BorderThickness="1" CornerRadius="99" />
                                 </Grid>
                             </BulletDecorator.Bullet>
                             <!--Text element-->
@@ -3358,7 +1066,7 @@
                     </Canvas>
                     <ControlTemplate.Resources>
                         <Style TargetType="Label">
-                            <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
+                            <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
                             <Setter Property="Width" Value="auto"/>
                             <Setter Property="Height" Value="25"/>
                             <Setter Property="Margin" Value="15,-4,0,0"/>
@@ -3583,16 +1291,6 @@
     </LinearGradientBrush>
 
 
-    <Style x:Key="STYLE_MAIN_TITLE_LABEL" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Margin" Value="0,10,0,10" />
-        <Setter Property="Padding" Value="5,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="22"/>
-        <Setter Property="FontWeight" Value="DemiBold" />
-    </Style>
 
     <Style x:Key="STYLE_STATION_TITLE_LABEL" TargetType="Label">
         <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
@@ -3612,21 +1310,6 @@
         <Setter Property="FontFamily" Value="Segoe"/>
         <Setter Property="FontSize" Value="48"/>
         <Setter Property="FontWeight" Value="Bold" />
-    </Style>
-
-    <Style x:Key="STYLE_SUB_TITLE_LABEL" TargetType="Label">
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-        <Setter Property="Padding" Value="5,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="18"/>
-        <Setter Property="FontWeight" Value="DemiBold" />
-        <Setter Property="BorderThickness" Value="0,1,0,1"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="Height" Value="30"/>
     </Style>
     <!--Position 14seg label-->
     <Style x:Key="STYLE_14SEG_POS" TargetType="Label">
@@ -3659,25 +1342,11 @@
         <Setter Property="FontSize" Value="13"/>
         <Setter Property="FontWeight" Value="Medium" />
     </Style>
-    <Style x:Key="STYLE_POS_CONTENT" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
-        <Setter Property="Background" Value="{StaticResource BR_ICON_DEFAULT}"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="HorizontalContentAlignment" Value="Right"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Height" Value="25"/>
-        <Setter Property="Width" Value="auto"/>
-        <Setter Property="Padding" Value="0,0,5,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="FontWeight" Value="Normal" />
-    </Style>
-    <Style x:Key="STYLE_POS_CONTENT_Center" TargetType="Label" BasedOn="{StaticResource STYLE_POS_CONTENT}">
+    <Style x:Key="LB_ItemData_Left_Center" TargetType="Label" BasedOn="{StaticResource LB_ItemData_Left}">
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
-    <Style x:Key="STYLE_POS_CONTENT_GRAY_FOREGROUND" TargetType="Label" BasedOn="{StaticResource STYLE_POS_CONTENT}">
+    <Style x:Key="LB_ItemData_Left_GRAY_FOREGROUND" TargetType="Label" BasedOn="{StaticResource LB_ItemData_Left}">
         <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
     </Style>
     <Style x:Key="STYLE_POS_LABEL" TargetType="Label">
@@ -3764,7 +1433,7 @@
     </Style>
 
     <Style x:Key="STYLE_POS_LABEL_TEXT_WRAPPING_Top_Left" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
         <Setter Property="Background" Value="{StaticResource BR_ICON_DEFAULT}"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
@@ -3815,10 +1484,10 @@
 
     <Style 	x:Key="{x:Type MahApps:NumericUpDown}"
        TargetType="{x:Type MahApps:NumericUpDown}">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
         <Setter Property="Background" Value="{StaticResource BR_ICON_DEFAULT}"/>
         <Setter Property="HideUpDownButtons" Value="True"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BR_GRAY_200}"/>
         <Setter Property="HorizontalContentAlignment" Value="Right"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
@@ -3837,9 +1506,9 @@
     </Style>
 
     <Style x:Key="STYLE_POS_TEXTBOX" TargetType="TextBox">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
         <Setter Property="Background" Value="{StaticResource BR_ICON_DEFAULT}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BR_GRAY_180}"/>
         <Setter Property="HorizontalContentAlignment" Value="Right"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
@@ -3857,7 +1526,7 @@
         </Style.Triggers>
     </Style>
     <Style x:Key="STYLE_POS_TEXTBOX_Frameless" TargetType="TextBox" BasedOn="{StaticResource STYLE_POS_TEXTBOX}">
-        <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
         <Setter Property="Background" Value="{StaticResource BR_ICON_DEFAULT}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -3941,21 +1610,16 @@
     </Style>
 
     <Style x:Key="Button_TextBlock" TargetType="TextBlock">
-        <Setter Property="Foreground" Value = "{StaticResource BR_LBL_TXT_SELECTED}" />
+        <Setter Property="Foreground" Value = "{StaticResource MahApps.Brushes.Gray2}" />
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
-        <Setter Property="Height" Value="16"/>
+        <Setter Property="Height" Value="auto"/>
         <Setter Property="Width" Value="auto"/>
         <Setter Property="Padding" Value="3,0,0,0"/>
         <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="FontWeight" Value="Medium" />
-    </Style>
-    <Style x:Key="Button_TextBlock_SmokeWhite" TargetType="TextBlock" BasedOn="{StaticResource Button_TextBlock}">
-        <Setter Property="Foreground" Value="{StaticResource BR_LBL_TXT_SELECTED}" />
         <Setter Property="FontSize" Value="12"/>
-        <Setter Property="Height" Value="auto"/>
+        <Setter Property="FontWeight" Value="Medium" />
     </Style>
     <!--Separator style-->
     <Style x:Key="STYLE_SEPARATOR_UC" TargetType="Separator">
@@ -3977,7 +1641,7 @@
                 <ControlTemplate TargetType="{x:Type CheckBox}">
                     <ControlTemplate.Resources>
                         <Style TargetType="Label">
-                            <Setter Property="Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
+                            <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
                             <Setter Property="Width" Value="Auto"/>
                             <Setter Property="Padding" Value="20,0,0,0"/>
                             <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -4046,17 +1710,17 @@
         </Setter>
     </Style>
     <Style x:Key="DATA_GRID_ROW_FILE_RECIPE_STYLE" TargetType="DataGridRow">
-        <Setter Property="Foreground" Value="{StaticResource BR_DARK_GRAY_BG}" />
+        <Setter Property="Foreground" Value="{StaticResource BR_GRAY_40}" />
         <Setter Property="TextElement.Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}" />
         <Setter Property="Background" Value="{StaticResource BR_BLACK_BG}"/>
     </Style>
 
 
-    <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="{StaticResource C_LIGHT_GRAY}" />
+    <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="{StaticResource C_GRAY_200}" />
     <SolidColorBrush x:Key="ComboBoxNormalBackgroundBrush" Color="{StaticResource C_BLACK}" />
     <SolidColorBrush x:Key="ComboBoxDisabledForegroundBrush" Color="Transparent" />
     <SolidColorBrush x:Key="ComboBoxDisabledBackgroundBrush" Color="Transparent" />
-    <SolidColorBrush x:Key="ComboBoxDisabledBorderBrush" Color="{StaticResource C_DARK_MID_GRAY}" />
+    <SolidColorBrush x:Key="ComboBoxDisabledBorderBrush" Color="{StaticResource C_GRAY_120}" />
 
     <ControlTemplate TargetType="ToggleButton" x:Key="ComboBoxToggleButtonTemplate">
         <Grid>
@@ -4068,7 +1732,7 @@
               BorderBrush="{StaticResource ComboBoxNormalBorderBrush}" 
               CornerRadius="0" BorderThickness="1, 1, 1, 1" 
               Background="{StaticResource ComboBoxNormalBackgroundBrush}" />
-            <Border Grid.Column="1" Margin="1, 1, 1, 1" BorderBrush="{StaticResource BR_DARK_MID_GRAY_BG}" Name="ButtonBorder"
+            <Border Grid.Column="1" Margin="1, 1, 1, 1" BorderBrush="{StaticResource BR_GRAY_140}" Name="ButtonBorder"
               CornerRadius="0, 0, 0, 0" BorderThickness="0, 0, 0, 0" 
               Background="{StaticResource ComboBoxNormalBackgroundBrush}" />
 
@@ -4079,10 +1743,10 @@
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="UIElement.IsMouseOver" Value="True">
-                <Setter Property="Panel.Background" TargetName="ButtonBorder" Value="{StaticResource BR_DARK_MID_GRAY_BG}"/>
+                <Setter Property="Panel.Background" TargetName="ButtonBorder" Value="{StaticResource BR_GRAY_180}"/>
             </Trigger>
             <Trigger Property="ToggleButton.IsChecked" Value="True">
-                <Setter Property="Panel.Background" TargetName="ButtonBorder" Value="{StaticResource BR_DARK_GRAY_BG}"/>
+                <Setter Property="Panel.Background" TargetName="ButtonBorder" Value="{StaticResource BR_GRAY_40}"/>
                 <Setter Property="Shape.Fill" TargetName="Arrow" Value="#FF8D979E"/>
             </Trigger>
             <Trigger Property="UIElement.IsEnabled" Value="False">
@@ -4103,7 +1767,7 @@
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
-        <Setter Property="TextElement.Foreground" Value="{StaticResource BR_LIGHT_GRAY_BG}"/>
+        <Setter Property="TextElement.Foreground" Value="{StaticResource TextColor}"/>
         <Setter Property="FrameworkElement.FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Control.Template">
             <Setter.Value>
@@ -4138,7 +1802,7 @@
                             <Grid Name="DropDown" SnapsToDevicePixels="True"
                     MinWidth="{TemplateBinding FrameworkElement.ActualWidth}"
                     MaxHeight="{TemplateBinding ComboBox.MaxDropDownHeight}">
-                                <Border Name="DropDownBorder" Background="{StaticResource BR_DARK_MID_GRAY_BG}" Margin="0, 1, 0, 0"
+                                <Border Name="DropDownBorder" Background="{StaticResource BR_GRAY_60}" Margin="0, 1, 0, 0"
                         CornerRadius="0" BorderThickness="1,1,1,1" 
                         BorderBrush="{StaticResource ComboBoxNormalBorderBrush}"/>
                                 <ScrollViewer Margin="4" SnapsToDevicePixels="True">
@@ -4578,7 +2242,7 @@
                         <Border Name="border" 
         				BorderThickness="1"
         				CornerRadius="2"
-        				Background="{StaticResource BR_DARK_GRAY_BG}" BorderBrush="{StaticResource BR_LIGHT_MID_GRAY_BG}">
+        				Background="{StaticResource BR_GRAY_40}" BorderBrush="{StaticResource BR_GRAY_200}">
                             <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Label x:Name="Label" Content="{TemplateBinding Content}"/>
                             </Grid>
@@ -4619,43 +2283,5 @@
         </Setter>
     </Style>
 
-    <!--<Style TargetType="{x:Type Button}" BasedOn="{StaticResource MahApps.Styles.Button.Square.Accent}">
-    </Style>-->
-    <Style x:Key="STYLE_SUBCHILD_TITLE_LABEL" TargetType="Label">
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Margin" Value="0,0,0,10"/>
-        <Setter Property="Padding" Value="5,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="16"/>
-        <Setter Property="FontWeight" Value="SemiBold" />
-        <Setter Property="BorderThickness" Value="0,1,0,1"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="Height" Value="25"/>
-    </Style>
-    <Style x:Key="STYLE_SUBSUBCHILD_TITLE_LABEL" TargetType="Label">
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-        <Setter Property="Padding" Value="5,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="FontWeight" Value="Medium" />
-        <Setter Property="BorderThickness" Value="0,1,0,1"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="Height" Value="25"/>
-    </Style>
-    <Style x:Key="STYLE_SUB_TITLE_TEXTBLOCK" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="TextAlignment" Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-        <Setter Property="Padding" Value="5,0,0,0"/>
-        <Setter Property="FontFamily" Value="Segoe"/>
-        <Setter Property="FontSize" Value="18"/>
-        <Setter Property="FontWeight" Value="DemiBold" />
-        <Setter Property="Height" Value="25"/>
-    </Style>
+
 </ResourceDictionary>

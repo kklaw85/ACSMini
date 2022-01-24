@@ -54,9 +54,9 @@
 		<Label Content="{StaticResource Exposure}" HorizontalAlignment="Left" Style="{StaticResource STYL_GENERAL_LBL_Center}"
         	   Margin="73,267,0,0" Grid.Row="1" 
                VerticalAlignment="Top" Width="64"/>
-		<Label Content="0" HorizontalAlignment="Left" x:Name="Lbl_Gain_Val" Style="{StaticResource STYLE_POS_CONTENT}"
+		<Label Content="0" HorizontalAlignment="Left" x:Name="Lbl_Gain_Val" Style="{StaticResource LB_ItemData_Left}"
         	Margin="8,288,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60"/>
-		<Label Content="0" HorizontalAlignment="Left" x:Name="Lbl_Exposure_Val" Style="{StaticResource STYLE_POS_CONTENT}"
+		<Label Content="0" HorizontalAlignment="Left" x:Name="Lbl_Exposure_Val" Style="{StaticResource LB_ItemData_Left}"
         	Margin="73,288,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60"/>
 	</Grid>
 </Controls:MetroWindow>

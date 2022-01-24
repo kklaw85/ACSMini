@@ -10,7 +10,7 @@
     <Grid>
         <Rectangle Style="{StaticResource Rectangle_Sub_UserCtrl}"/>
         <StackPanel Orientation="Vertical">
-            <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" x:Name="LblAxisName" Content="Axis Name"/>
+            <Label Style="{StaticResource LB_ItemTitle}" x:Name="LblAxisName" Content="Axis Name"/>
             <local:Ctrl_IOMotionViewOnly x:Name="IOsStatus" Margin="10,5,10,10"/>
         </StackPanel>
     </Grid>

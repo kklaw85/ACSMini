@@ -13,15 +13,15 @@
             <StackPanel x:Name="Sp_PageDisplay" Visibility="Visible" Orientation="Horizontal" Margin="0,0,0,0">
                 <StackPanel Orientation="Vertical">
                     <StackPanel Visibility="Visible" Orientation="Vertical" Margin="0,0,0,0">
-                        <Label x:Name="Lbl_UserID1" Content="{StaticResource CurrentUser}" FontSize="16" Foreground="LightSlateGray" FontWeight="Bold" HorizontalContentAlignment="Left" Style="{StaticResource STYL_GENERAL_LBL_Left}" Height="22" HorizontalAlignment="Stretch"/>
-                        <Label x:Name="Lbl_UserLevel1" Content="Engineer" Foreground="LightSlateGray" FontSize="11" HorizontalContentAlignment="Left" Style="{StaticResource STYL_GENERAL_LBL_Left}" Height="22" HorizontalAlignment="Stretch"/>
+                        <Label x:Name="Lbl_UserID1" Content="{StaticResource CurrentUser}" Style="{StaticResource LB_IconicTitle}" Margin="0,3,0,3" HorizontalAlignment="Stretch"/>
+                        <Label x:Name="Lbl_UserLevel1" Content="Engineer" FontSize="11" HorizontalContentAlignment="Left" Style="{StaticResource LB_IconicTitle}" Height="22" HorizontalAlignment="Stretch"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
             <StackPanel x:Name="Sp_MainDisplay" Orientation="Vertical" Margin="0,0,0,0">
-                <iconPacks:PackIconMaterial Kind="AccountBox" Width="40" Height="40" ToolTip="{StaticResource CurrentUser}" Margin="0,8,0,0" HorizontalAlignment="Center" Foreground="{StaticResource MasterTheme}"/>
-                <Label x:Name="Lbl_UserID2" Content="{StaticResource CurrentUser}" FontSize="16" Foreground="LightSlateGray" FontWeight="Bold" HorizontalContentAlignment="Center" Style="{StaticResource STYL_MAIN_VAL_LBL}" Height="22" Width="Auto" Margin="0,5,0,0"/>
-                <Label x:Name="Lbl_UserLevel2" Content="Engineer" Foreground="LightSlateGray" FontSize="11" HorizontalContentAlignment="Center" Style="{StaticResource STYL_MAIN_VAL_LBL}" Height="22" Width="Auto" Margin="0,0,0,0"/>
+                <iconPacks:PackIconMaterial Kind="AccountBox" Width="40" Height="40" ToolTip="{StaticResource CurrentUser}" Margin="0,8,0,0" HorizontalAlignment="Center" Foreground="{StaticResource MinorTheme}"/>
+                <Label x:Name="Lbl_UserID2" Content="{StaticResource CurrentUser}" FontSize="16" Style="{StaticResource LB_IconicTitle}" Height="22" Width="Auto" Margin="0,5,0,0"/>
+                <Label x:Name="Lbl_UserLevel2" Content="Engineer" FontSize="11" Style="{StaticResource LB_IconicTitle}" Height="22" Width="Auto" Margin="0,0,0,0"/>
             </StackPanel>
         </StackPanel>
     </Grid>

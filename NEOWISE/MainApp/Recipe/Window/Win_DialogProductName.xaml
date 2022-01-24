@@ -13,11 +13,11 @@
 			<Label x:Name="TitleBar" Style="{StaticResource STYL_WINDOW_TITLE_LBL}" Content="Temporary"/>
 			<StackPanel Orientation="Vertical" Margin="10">
 				<StackPanel Orientation="Horizontal">
-					<Label Content="{StaticResource Name}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="90"/>
+					<Label Content="{StaticResource Name}" Style="{StaticResource LB_ItemContent_Right}" Width="90"/>
 					<TextBox x:Name="txtRecipeName" Style="{StaticResource STYLE_POS_TEXTBOX_Left}" Text="TextBox" Width="190"/>
 				</StackPanel>
 				<StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-					<Label Content="{StaticResource ProductType}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="90"/>
+					<Label Content="{StaticResource ProductType}" Style="{StaticResource LB_ItemContent_Right}" Width="90"/>
 					<ComboBox x:Name="Cb_ProductType" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190"/>
 				</StackPanel>
 				<StackPanel Orientation="Horizontal" Margin="90,5,0,0">

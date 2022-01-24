@@ -230,7 +230,6 @@ namespace HiPA.Common
 							break;
 					}
 
-
 					if ( this.e_MachineStatus == MachineStateType.UNINITIALIZE )
 						this.AutorunCtrlAllDisabled();
 					else if ( this.e_MachineStatus == MachineStateType.READY )

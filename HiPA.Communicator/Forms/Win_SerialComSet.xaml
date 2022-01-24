@@ -21,47 +21,47 @@
             <Label Content="{StaticResource SerialComm}" Style="{StaticResource STYLE_SUB_TITLE_LABEL}"/>
             <StackPanel Margin="10">
                 <StackPanel Orientation="Horizontal">
-                    <Label Content="{StaticResource ComPort}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="173"/>
+                    <Label Content="{StaticResource ComPort}" Style="{StaticResource LB_ItemContent_Right}" Width="173"/>
                     <ComboBox Width="82"  x:Name="Cb_ComPort"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="{StaticResource BaudRate}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="173"/>
+                    <Label Content="{StaticResource BaudRate}" Style="{StaticResource LB_ItemContent_Right}" Width="173"/>
                     <ComboBox Width="82"  x:Name="CB_BaudRate"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="{StaticResource DataBit}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="173"/>
+                    <Label Content="{StaticResource DataBit}" Style="{StaticResource LB_ItemContent_Right}" Width="173"/>
                     <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="82"  x:Name="Cb_DataBits"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="{StaticResource Parity}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="173"/>
+                    <Label Content="{StaticResource Parity}" Style="{StaticResource LB_ItemContent_Right}" Width="173"/>
                     <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="82"  x:Name="Cb_Parity"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="{StaticResource StopBit}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="173"/>
+                    <Label Content="{StaticResource StopBit}" Style="{StaticResource LB_ItemContent_Right}" Width="173"/>
                     <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="82"  x:Name="Cb_StopBits"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="{StaticResource DtrEn}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="173"/>
+                    <Label Content="{StaticResource DtrEn}" Style="{StaticResource LB_ItemContent_Right}" Width="173"/>
                     <CheckBox x:Name="Chk_DtrEn"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="{StaticResource RtsEn}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="173"/>
+                    <Label Content="{StaticResource RtsEn}" Style="{StaticResource LB_ItemContent_Right}" Width="173"/>
                     <CheckBox x:Name="Chk_RtsEn"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="{StaticResource ReadTimeOut}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="173"/>
+                    <Label Content="{StaticResource ReadTimeOut}" Style="{StaticResource LB_ItemContent_Right}" Width="173"/>
                     <MahApp:NumericUpDown x:Name="Txt_ReadTimeOut" Width="82" StringFormat="F0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="{StaticResource WriteTimeOut}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="173"/>
+                    <Label Content="{StaticResource WriteTimeOut}" Style="{StaticResource LB_ItemContent_Right}" Width="173"/>
                     <MahApp:NumericUpDown x:Name="Txt_WriteTimeout" Width="82" StringFormat="F0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="{StaticResource ReadBufferSize}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="173"/>
+                    <Label Content="{StaticResource ReadBufferSize}" Style="{StaticResource LB_ItemContent_Right}" Width="173"/>
                     <MahApp:NumericUpDown x:Name="Txt_ReadBuffer" Width="82" StringFormat="F0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="{StaticResource WriteBufferSize}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="173"/>
+                    <Label Content="{StaticResource WriteBufferSize}" Style="{StaticResource LB_ItemContent_Right}" Width="173"/>
                     <MahApp:NumericUpDown x:Name="Txt_WriteBuffer" Width="82" StringFormat="F0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">

@@ -11,7 +11,7 @@
     <Grid Margin="0,0,0,0">
         <StackPanel VerticalAlignment="Top" x:Name="StkPnlDisplays">
             <StackPanel x:Name="CamListCmb" Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="{StaticResource Name}" Width="87" Style="{StaticResource TextBlock_Default}"/>
+                <Label Content="{StaticResource Name}" Width="87" Style="{StaticResource LB_ItemContent_Left}"/>
                 <ComboBox x:Name="cmbCameraList"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="270" SelectionChanged="cmbCameraList_SelectionChanged"/>
             </StackPanel>
         </StackPanel>

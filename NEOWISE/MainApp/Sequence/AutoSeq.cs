@@ -88,6 +88,7 @@ namespace NeoWisePlatform.Sequence
 		{
 			Task.Run( () =>
 			{
+				this.State = SequenceState.IsAction;
 				this.WorkerSeq?.Start();
 				this.Station?.Start();
 				Equipment.MachStateMgr.MachineStatus = MachineStateType.AUTO_RUNNING;
@@ -98,10 +99,10 @@ namespace NeoWisePlatform.Sequence
 		{
 			Task.Run( () =>
 			{
-				this.State = SequenceState.IsNotStarted;
 				this.Station?.Stop();
 				this.WorkerSeq?.Stop();
 				Equipment.MachStateMgr.MachineStatus = MachineStateType.READY;
+				this.State = SequenceState.IsNotStarted;
 			} );
 		}
 		public void CycleStopAuto()

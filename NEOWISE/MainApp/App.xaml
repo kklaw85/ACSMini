@@ -11,7 +11,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Dark.Mauve.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Mauve.xaml" />
                 <ResourceDictionary Source="RT_Resource.xaml" />
                 <ResourceDictionary Source="RT_Eng.xaml" />
             </ResourceDictionary.MergedDictionaries>
@@ -21,10 +21,6 @@
             <Converter:DoubleTo2DecimalDisplay x:Key="Dto2D"/>
             <Converter:IntegerToString x:Key="Int2Str"/>
             <Converter:UIntegerToString x:Key="UInt2Str"/>
-            <Converter:BoolToUpdateButtonColor x:Key="bUpdate_Status_to_Color"/>
-            <Converter:BoolToUpdateDataColor x:Key="bUpdate_Data_Status_to_Color"/>
-            <Converter:BoolToStateColor x:Key="BoolToStateColor"/>
-            <DataUtility1:TestResultToStateColor x:Key="TestResultToStateColor"/>
             <DataUtility1:BoolToStyleRed x:Key="BoolToStyleRed"/>
             <Converter:LimeWhiteBoolToStateColor x:Key="LimeBoolToStateColor"/>
             <Converter:BoolToTextBoxBg x:Key="BoolToTextBoxBg"/>

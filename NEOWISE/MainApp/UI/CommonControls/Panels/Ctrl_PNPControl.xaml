@@ -10,9 +10,9 @@
              Loaded="UserControl_Loaded">
     <Border Style="{StaticResource Panel}" Background="{StaticResource Gradient_Panel}">
         <StackPanel Orientation="Vertical">
-            <Label Style="{StaticResource STYLE_SUBCHILD_TITLE_LABEL}" Content="{StaticResource PNPArmControl}"/>
+            <Label Style="{StaticResource LB_PanelTitle}" Content="{StaticResource PNPArmControl}"/>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Style="{StaticResource STYL_GENERAL_LBL_Left}" Content="{StaticResource UnInspectRes}"/>
+                <Label Style="{StaticResource LB_ItemContent_Left}" Content="{StaticResource UnInspectRes}"/>
                 <ComboBox x:Name="UnInspResult" Width="70" HorizontalAlignment="Left" Margin="5,0,0,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5,0,5,5">

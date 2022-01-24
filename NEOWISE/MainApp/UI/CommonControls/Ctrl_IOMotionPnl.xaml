@@ -12,7 +12,7 @@
 	<Grid>
         <Rectangle Style="{StaticResource Rectangle_SUB_SUB_PAGE}" Grid.RowSpan="5"/>
 		<StackPanel>
-            <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" x:Name="LblAxisName" Content="Axis Name"/>
+            <Label Style="{StaticResource LB_ItemTitle}" x:Name="LblAxisName" Content="Axis Name"/>
 			<StackPanel Orientation="Vertical" Margin="10,0,10,10">
 				<Label x:Name="Label_Timeout" Content="{StaticResource Timeout}" HorizontalAlignment="Left" Style="{StaticResource STYL_GENERAL_LBL_Center}"/>
                 <mahapp:NumericUpDown x:Name="Timeout" Value="9999" Margin="0,5,0,0" Width="132" StringFormat="F0" />

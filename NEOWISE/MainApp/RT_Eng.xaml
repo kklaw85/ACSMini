@@ -514,7 +514,7 @@
     <!-- Recipe -->
     <System:String x:Key="ChooseRecipe">Choose Recipe</System:String>
     <System:String x:Key="CapRecipe">RECIPE</System:String>
-    <System:String x:Key="DoubleClickRecipe">* Double click to select Recipe and its product for data configuration</System:String>
+    <System:String x:Key="DoubleClickRecipe">* Double click to select Recipe for data configuration</System:String>
     <System:String x:Key="NewRecipe">New Recipe</System:String>
     <System:String x:Key="CopyRecipe">Copy Recipe</System:String>
     <System:String x:Key="RemoveRecipe">Remove Recipe</System:String>

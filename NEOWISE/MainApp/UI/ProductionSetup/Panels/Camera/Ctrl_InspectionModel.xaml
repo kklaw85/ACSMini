@@ -11,11 +11,11 @@
              Loaded="UserControl_Loaded">
     <Border Style="{StaticResource Panel}">
         <StackPanel Orientation="Vertical">
-            <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" x:Name="LabelName"/>
+            <Label Style="{StaticResource LB_ItemTitle}" x:Name="LabelName"/>
             <StackPanel Margin="5">
                 <Border Style="{StaticResource PanelInner}">
                     <Grid x:Name="Grid_Model1">
-                        <Label Content="{StaticResource MmfViewer}" Style="{StaticResource STYLE_SUBCHILD_TITLE_LABEL}" Margin="0" VerticalAlignment="Top"/>
+                        <Label Content="{StaticResource MmfViewer}" Style="{StaticResource LB_PanelTitle}" Margin="0" VerticalAlignment="Top"/>
                         <StackPanel Orientation="Vertical" Margin="5,30,5,5">
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                                 <Button x:Name="Btn_ExportMMF" Tag="Export,MMF" Content="{StaticResource Export}" HorizontalAlignment="Left" Margin="0,0,5,0" VerticalAlignment="Top" Width="75" Click="Btn_Click" />
@@ -34,14 +34,14 @@
                                 <Border Style="{StaticResource PanelInnerThin}">
                                     <Grid Margin="0,0,5,5">
                                         <StackPanel Orientation="Vertical">
-                                            <Label Content="{StaticResource Offset}" Style="{StaticResource STYL_GENERAL_LBL_Center}" Width="80" />
+                                            <Label Content="{StaticResource Offset}" Style="{StaticResource LB_ItemContent_Left}"/>
                                             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                                                <Label Content="X" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
-                                                <Label x:Name="X1" Style="{StaticResource STYLE_POS_CONTENT}" Width="80" />
+                                                <Label Content="X" Style="{StaticResource LB_ItemContent_Right}" Width="20" />
+                                                <Label x:Name="X1" Style="{StaticResource LB_ItemData_Left}" Width="80" />
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                                                <Label Content="Y" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="20" />
-                                                <Label x:Name="Y1" Style="{StaticResource STYLE_POS_CONTENT}" Width="80" />
+                                                <Label Content="Y" Style="{StaticResource LB_ItemContent_Right}" Width="20" />
+                                                <Label x:Name="Y1" Style="{StaticResource LB_ItemData_Left}" Width="80" />
                                             </StackPanel>
                                         </StackPanel>
                                     </Grid>

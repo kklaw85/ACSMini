@@ -9,28 +9,28 @@
     <StackPanel Orientation="Horizontal">
         <Border Style="{StaticResource PanelInnerThin}">
             <StackPanel Orientation="Vertical" Margin="0" HorizontalAlignment="Center">
-                <Label Content="Inspection Result" Style="{StaticResource STYL_GENERAL_LBL_Center}" />
+                <Label Content="Inspection Result" Style="{StaticResource LB_ItemTitle}" />
                 <StackPanel Orientation="Vertical" Margin="5">
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="Status" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="45" />
-                        <Label x:Name="Status" Style="{StaticResource STYLE_POS_CONTENT}" Content="{Binding VisionOp}" Width="95" />
+                        <Label Content="Status" Style="{StaticResource LB_ItemContent_Right}" Width="45" />
+                        <Label x:Name="Status" Style="{StaticResource LB_ItemData_Left}" Content="{Binding VisionOp}" Width="95" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                        <Label Content="Result" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="45" />
-                        <Label x:Name="Res" Style="{StaticResource STYLE_POS_CONTENT}" Content="{Binding Result}" Width="95" />
+                        <Label Content="Result" Style="{StaticResource LB_ItemContent_Right}" Width="45" />
+                        <Label x:Name="Res" Style="{StaticResource LB_ItemData_Left}" Content="{Binding Result}" Width="95" />
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
         </Border>
         <Border Style="{StaticResource PanelInnerThin}" Margin="5,0,0,0">
             <StackPanel>
-                <Label Content="FOV1 Result" Style="{StaticResource STYL_GENERAL_LBL_Center}" Width="80" />
+                <Label Content="FOV1 Result" Style="{StaticResource LB_ItemTitle}" Width="80" />
                 <Camera:Ctrl_SingleInspectionStatus x:Name="Fov1" Margin="5"/>
             </StackPanel>
         </Border>
         <Border Style="{StaticResource PanelInnerThin}" Margin="5,0,0,0">
             <StackPanel>
-                <Label Content="FOV2 Result" Style="{StaticResource STYL_GENERAL_LBL_Center}" Width="80" />
+                <Label Content="FOV2 Result" Style="{StaticResource LB_ItemTitle}" Width="80" />
                 <Camera:Ctrl_SingleInspectionStatus x:Name="Fov2" Margin="5"/>
             </StackPanel>
         </Border>

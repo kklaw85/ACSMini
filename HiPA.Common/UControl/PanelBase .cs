@@ -206,7 +206,7 @@ namespace HiPA.Common.UControl
 						stk.Margin = new Thickness( 0, 0, 0, 5 );
 						var lbl = new Label();
 						lbl.Content = ( string )this.FindResource( prop.Name );
-						lbl.Style = ( Style )this.FindResource( "STYL_GENERAL_LBL_Right" );
+						lbl.Style = ( Style )this.FindResource( "LB_ItemContent_Right" );
 						lbl.Width = 100;
 						stk.Children.Add( lbl );
 

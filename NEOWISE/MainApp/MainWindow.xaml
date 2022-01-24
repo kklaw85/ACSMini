@@ -11,7 +11,6 @@
         Height="1080" 
         Width="1920" 
 		IsWindowDraggable="True"
-    	WindowTitleBrush="{StaticResource BR_DARK_GRAY_70}"
         ResizeMode="CanResizeWithGrip"
         WindowStyle="None"   
         WindowState="Maximized"
@@ -20,13 +19,9 @@
 		ShowMinButton="True"
         Loaded="Win_Main_Loaded"
         Icon="HiPASoftwareIcon.ico"
-		TitleForeground="White"
-		Background="Black"
-		GlowBrush="Transparent"
 		TitleCharacterCasing="Normal"  Closing="Win_Main_Closing">
-
-    <DockPanel x:Name="Pnl_Wrapper" Background ="{StaticResource BR_DARK_GRAY_10}">
-        <StatusBar x:Name="Status_Bar_Main" Height="50" DockPanel.Dock="Bottom" Background ="{StaticResource BR_BLACK_BG}">
+    <DockPanel x:Name="Pnl_Wrapper">
+        <StatusBar x:Name="Status_Bar_Main" Height="50" DockPanel.Dock="Bottom">
             <StatusBar.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>
@@ -64,8 +59,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="190"/>
             </Grid.ColumnDefinitions>
-            <Grid x:Name="Grd_Main_Navi" HorizontalAlignment="Center" Grid.Column="0" Width="100">
-                <Rectangle Style="{StaticResource GradientBG_MainMenu}"/>
+            <Grid x:Name="Grd_Main_Navi" HorizontalAlignment="Center" Grid.Column="0" Width="100" Background="{StaticResource Gradient_MainMenu}">
                 <DockPanel>
                     <Grid Height="142" DockPanel.Dock="Top">
                         <StackPanel x:Name="WP_User_Info" Orientation="Vertical" Margin="0,0,0,0" VerticalAlignment="Top">
@@ -106,14 +100,12 @@
                 </DockPanel>
             </Grid>
             <Grid x:Name="Grd_UI_View" Grid.Column="1" Grid.Row="0">
-                <Rectangle Style="{StaticResource Rectangle_SUB_PAGE}"/>
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                     <StackPanel x:Name="Cvs_Wrapper"/>
                 </ScrollViewer>
                 <!--<SubPages:Ctrl_InstrumentOfMotion HorizontalAlignment="Left" Height="1040" Margin="0,0,0,0" VerticalAlignment="Top"/>-->
             </Grid>
-            <Grid x:Name="Grd_Sub_Navi"  Grid.Column="2" Width="190">
-                <Rectangle Style="{StaticResource GradientBG_SubMenu}"/>
+            <Grid x:Name="Grd_Sub_Navi"  Grid.Column="2" Width="190" Background="{StaticResource Gradient_SubMenu}">
                 <StackPanel Orientation="Vertical">
                     <Grid Margin="0,0,0,0">
                         <StackPanel x:Name="WP_Recipe_Info" Orientation="Horizontal" VerticalAlignment="Top">
@@ -123,6 +115,12 @@
                             </Button>
                         </StackPanel>
                     </Grid>
+                    <ComboBox x:Name="ColorsSelector"
+                              Margin="2 0 0 0"
+                              VerticalAlignment="Center"
+                              SelectionChanged="Color_SelectionChanged"
+                              DisplayMemberPath="Key"
+                              ItemsSource="{Binding Colors}" />
                 </StackPanel>
                 <Grid Margin="0,100,0,5">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
@@ -130,55 +128,55 @@
                             <Button x:Name="Ctrl_InstrumentOfMotion" Width="170" Height="56" Style="{StaticResource Button_MainMenu}" Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/MotionConfig.png"  Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock_SmokeWhite}" Text="{StaticResource Motion}" Margin="10,0,0,0"/>
+                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource Motion}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_InstrumentOfIO" Width="170" Height="56" Style="{StaticResource Button_MainMenu}" Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/IO.png" Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock_SmokeWhite}" Text="{StaticResource IO}" Margin="10,0,0,0"/>
+                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource IO}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_InstrumentOfCamera" Width="170" Height="56" Style="{StaticResource Button_MainMenu}"  Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/Camera.png" Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock_SmokeWhite}" Text="{StaticResource Camera}" Margin="10,0,0,0"/>
+                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource Camera}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_SetupLoadUnload" Width="170" Height="56" Style="{StaticResource Button_MainMenu}"  Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/LiftUpDown.png" Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock_SmokeWhite}" Text="{StaticResource Step1LoadUnloadMat}" Margin="10,0,0,0" Width="110" />
+                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource Step1LoadUnloadMat}" Margin="10,0,0,0" Width="110" />
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_SetupWorkPosPage" Width="170" Height="56" Style="{StaticResource Button_MainMenu}" Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/WorkingPos.png" Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock_SmokeWhite}" Text="{StaticResource Step2WorkPos}" Margin="10,0,0,0" Width="110" />
+                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource Step2WorkPos}" Margin="10,0,0,0" Width="110" />
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_SetupVision" Width="170" Height="56" Style="{StaticResource Button_MainMenu}" Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/Camera.png" Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock_SmokeWhite}" Text="{StaticResource Step3Vision}" Margin="10,0,0,0" Width="110" />
+                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource Step3Vision}" Margin="10,0,0,0" Width="110" />
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_TestSequences" Width="170" Height="56" Style="{StaticResource Button_MainMenu}" Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/MotionConfig.png"  Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock_SmokeWhite}" Text="{StaticResource TestSequences}" Margin="10,0,0,0"/>
+                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource TestSequences}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_InstrumentOfIOMotion" Width="170" Height="56" Style="{StaticResource Button_MainMenu}"  Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/IO_Motors.png" Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock_SmokeWhite}" Text="{StaticResource MotionIO}" Margin="10,0,0,0"/>
+                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource MotionIO}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_ManufacturerBypassOption" Width="170" Height="56" Style="{StaticResource Button_MainMenu}"  Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/PadLock.png" Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock_SmokeWhite}" Text="{StaticResource MfrByPass}" Margin="10,0,0,0"/>
+                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource MfrByPass}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>

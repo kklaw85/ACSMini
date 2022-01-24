@@ -10,9 +10,8 @@
              mc:Ignorable="d"
              Loaded="UserControl_Loaded">
     <Grid>
-        <Rectangle Style="{StaticResource Rectangle_SUB_PAGE}"/>
         <StackPanel HorizontalAlignment="Left">
-            <Label Content="{StaticResource LoadUpload}" Style="{StaticResource STYLE_MAIN_TITLE_LABEL}"/>
+            <Label Content="{StaticResource LoadUpload}" Style="{StaticResource LB_MainTitle}"/>
             <Border Style="{StaticResource Panel}" Margin="10" Background="{StaticResource Gradient_Panel}">
                 <Panels2:Ctrl_LiftsControl HorizontalAlignment="Left"/>
             </Border>

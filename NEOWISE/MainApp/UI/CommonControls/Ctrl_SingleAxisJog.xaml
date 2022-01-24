@@ -11,16 +11,16 @@
 			 Loaded="UserControl_Loaded">
     <StackPanel>
         <DockPanel VerticalAlignment="Top">
-            <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" x:Name="LblAxisName" Content="Axis Name"
+            <Label Style="{StaticResource LB_ItemTitle}" x:Name="LblAxisName" Content="Axis Name"
                 HorizontalAlignment="Left"
                 DockPanel.Dock="Left"/>
             <Label x:Name="Txt_Curr_Pos" Style="{StaticResource STYLE_14SEG_POS}" Content="888.888" Width="80" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" DockPanel.Dock="Right"/>
-            <Label Content="{StaticResource PositionMM}" Style="{StaticResource STYL_GENERAL_LBL_Right}" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+            <Label Content="{StaticResource PositionMM}" Style="{StaticResource LB_ItemContent_Right}" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
         </DockPanel>
         <StackPanel Orientation="Horizontal">
             <StackPanel Margin="0,10,0,0">
                 <StackPanel Orientation="Horizontal">
-                    <Label Style="{StaticResource STYL_GENERAL_LBL_Right}" Content="{StaticResource Step}" Width="70"/>
+                    <Label Style="{StaticResource LB_ItemContent_Right}" Content="{StaticResource Step}" Width="70"/>
                     <ComboBox x:Name="Cb_StpMove" Margin="10,0,0,0" Width="80"/>
                     <Button x:Name="Btn_Stp_Neg" Click="Btn_Step_Click" Height="35" Width="35" Style="{StaticResource Button_SubMenu}" Margin="5,0,0,0">
                         <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W25H25}" Source="/Icons/DPAD_Left.png"/>

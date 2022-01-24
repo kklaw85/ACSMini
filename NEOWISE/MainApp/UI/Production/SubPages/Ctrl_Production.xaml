@@ -10,7 +10,6 @@
              mc:Ignorable="d" Width="1300"
              Loaded="UserControl_Loaded">
     <Grid Margin="0,0,0,0">
-        <Rectangle Style="{StaticResource  Rectangle_SUB_PAGE}"/>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
             <Grid>
                 <StackPanel Orientation="Vertical" Margin="10" >
@@ -35,13 +34,13 @@
                         <StackPanel Orientation="Vertical" >
                             <Border Style="{StaticResource Panel}">
                                 <StackPanel Orientation="Vertical">
-                                    <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" Content="Inspection Data (Stage)"/>
+                                    <Label Style="{StaticResource LB_PanelTitle}" Content="Inspection Data (Stage)"/>
                                     <Camera:Ctrl_CollectiveInspectionStatus x:Name="StageInsp" Margin="5"/>
                                 </StackPanel>
                             </Border>
                             <Border Style="{StaticResource Panel}" Margin="0,5,0,0">
                                 <StackPanel Orientation="Vertical">
-                                    <Label Style="{StaticResource STYLE_SUBSUBCHILD_TITLE_LABEL}" Content="Inspection Data (PNP)"/>
+                                    <Label Style="{StaticResource LB_PanelTitle}" Content="Inspection Data (PNP)"/>
                                     <Camera:Ctrl_CollectiveInspectionStatus x:Name="PNPInsp" Margin="5"/>
                                 </StackPanel>
                             </Border>

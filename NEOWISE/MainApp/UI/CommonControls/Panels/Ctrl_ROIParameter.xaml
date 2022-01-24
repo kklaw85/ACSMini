@@ -12,19 +12,19 @@
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Vertical">
 				<StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <Label Content="{StaticResource ROIOffsetX}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="90"/>
+                    <Label Content="{StaticResource ROIOffsetX}" Style="{StaticResource LB_ItemContent_Right}" Width="90"/>
                     <mahapp:NumericUpDown x:Name="Txt_OffsetX" Width="120" StringFormat="F0" Value="{Binding roiX}" Background="{Binding BrushX}"/>
 				</StackPanel>
 				<StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <Label Content="{StaticResource ROIOffsetY}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="90"/>
+                    <Label Content="{StaticResource ROIOffsetY}" Style="{StaticResource LB_ItemContent_Right}" Width="90"/>
                     <mahapp:NumericUpDown x:Name="Txt_OffsetY" Width="120" StringFormat="F0" Value="{Binding roiY}" Background="{Binding BrushY}"/>
 				</StackPanel>
 				<StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <Label Content="{StaticResource ROIWidth}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="90"/>
+                    <Label Content="{StaticResource ROIWidth}" Style="{StaticResource LB_ItemContent_Right}" Width="90"/>
                     <mahapp:NumericUpDown x:Name="Txt_Width" Width="120" StringFormat="F0" Value="{Binding roiW}" Background="{Binding BrushW}"/>
 				</StackPanel>
 				<StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <Label Content="{StaticResource ROIHeight}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="90"/>
+                    <Label Content="{StaticResource ROIHeight}" Style="{StaticResource LB_ItemContent_Right}" Width="90"/>
                     <mahapp:NumericUpDown x:Name="Txt_Height" Width="120" StringFormat="F0" Value="{Binding roiH}" Background="{Binding BrushH}"/>
 				</StackPanel>
 				<Button Content="Reset" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" Click="Button_Click"/>

@@ -534,27 +534,6 @@ namespace N_Data_Utilities
 		}
 	}
 
-	[ValueConversion( typeof( bool ), typeof( Style ) )]
-	public class Theta_Trim_Pos_Bool_To_Style : IValueConverter
-	{
-		public object Convert( object value, Type targetType,
-		object parameter, System.Globalization.CultureInfo culture )
-		{
-			bool b = ( bool )( value );
-			if ( b )
-				return Application.Current.Resources[ "Button_CyanContent" ];
-			else
-				return Application.Current.Resources[ "Button_CyanContent_Red_Highlight" ];
-			//return Brushes.Gray;
-		}
-		public object ConvertBack( object value, Type targetType,
-		object parameter, System.Globalization.CultureInfo culture )
-		{
-			float fValue;
-			float.TryParse( ( string )value, out fValue );
-			return fValue;
-		}
-	}
 	[ValueConversion( typeof( bool ), typeof( Visibility ) )]
 	public class BoolToVisibility : IValueConverter
 	{
@@ -786,25 +765,6 @@ namespace N_Data_Utilities
 		}
 	}
 	[ValueConversion( typeof( bool ), typeof( Style ) )]
-	public class BoolToStyleGreen : IValueConverter
-	{
-		public object Convert( object value, Type targetType,
-		object parameter, System.Globalization.CultureInfo culture )
-		{
-			bool tempBool = false;
-			if ( bool.TryParse( value.ToString(), out tempBool ) )
-			{
-				return tempBool ? Application.Current.Resources[ "Button_CyanContent_Lime_Highlight" ] : Application.Current.Resources[ "Button_CyanContent" ];
-			}
-			return Application.Current.Resources[ "Button_CyanContent" ];
-		}
-		public object ConvertBack( object value, Type targetType,
-		object parameter, System.Globalization.CultureInfo culture )
-		{
-			return null;
-		}
-	}
-	[ValueConversion( typeof( bool ), typeof( Style ) )]
 	public class BoolToStyleRed : IValueConverter
 	{
 		public object Convert( object value, Type targetType,
@@ -824,23 +784,6 @@ namespace N_Data_Utilities
 		}
 	}
 
-	[ValueConversion( typeof( MachineStateType ), typeof( Style ) )]
-	public class AutorunStarttoStyle : IValueConverter
-	{
-		public object Convert( object value, Type targetType,
-		object parameter, System.Globalization.CultureInfo culture )
-		{
-			if ( ( ( MachineStateType )value ) == MachineStateType.AUTO_RUNNING )
-				return Application.Current.Resources[ "Button_CyanContent_Lime_Highlight" ];
-			else
-				return Application.Current.Resources[ "Button_CyanContent" ];
-		}
-		public object ConvertBack( object value, Type targetType,
-		object parameter, System.Globalization.CultureInfo culture )
-		{
-			return null;
-		}
-	}
 	[ValueConversion( typeof( MachineStateType ), typeof( Style ) )]
 	public class AutorunPausetoStyle : IValueConverter
 	{
@@ -893,51 +836,6 @@ namespace N_Data_Utilities
 		object parameter, System.Globalization.CultureInfo culture )
 		{
 			return null;
-		}
-	}
-
-	[ValueConversion( typeof( bool ), typeof( Style ) )]
-	public class SaveFile_ToStyle : IValueConverter
-	{
-		public object Convert( object value, Type targetType,
-		object parameter, System.Globalization.CultureInfo culture )
-		{
-			bool b = ( bool )( value );
-			if ( b )
-				return Application.Current.Resources[ "Button_CyanContent_Red_Highlight" ];
-			else
-				return Application.Current.Resources[ "Button_CyanContent" ];
-
-			//return Brushes.Gray;
-		}
-		public object ConvertBack( object value, Type targetType,
-		object parameter, System.Globalization.CultureInfo culture )
-		{
-			return null;
-		}
-	}
-
-	[ValueConversion( typeof( double ), typeof( string ) )]
-	public class D_Trim_Result_Val_Pcnt : IValueConverter
-	{
-		public object Convert( object value, Type targetType,
-		object parameter, System.Globalization.CultureInfo culture )
-		{
-			double tempfloat = 0;
-			if ( double.TryParse( value.ToString(), out tempfloat ) )
-			{
-				double fValue = ( double )value;
-				return fValue.ToString( "F3" ) + " %";
-			}
-			return value.ToString();
-		}
-		public object ConvertBack( object value, Type targetType,
-		object parameter, System.Globalization.CultureInfo culture )
-		{
-
-			double fValue;
-			double.TryParse( ( string )value, out fValue );
-			return fValue;
 		}
 	}
 

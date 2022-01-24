@@ -12,25 +12,25 @@
         <StackPanel x:Name="StkPnl_Cfg" Orientation="Horizontal" Margin="10">
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
-                    <Label Content="{StaticResource HomingProfile}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="165"/>
+                    <Label Content="{StaticResource HomingProfile}" Style="{StaticResource LB_ItemContent_Right}" Width="165"/>
                     <MahApp:NumericUpDown x:Name="Txt_HomeMode" Width="120" StringFormat="F0" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="{StaticResource HomeDir}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="165"/>
+                    <Label Content="{StaticResource HomeDir}" Style="{StaticResource LB_ItemContent_Right}" Width="165"/>
                     <ComboBox HorizontalAlignment="Left" Width="120" x:Name="Cb_HomeDir"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="{StaticResource HomeEZ}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="165"/>
+                    <Label Content="{StaticResource HomeEZ}" Style="{StaticResource LB_ItemContent_Right}" Width="165"/>
                     <MahApp:NumericUpDown x:Name="Txt_HomeEZ" Width="120" StringFormat="F3" />
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                    <Label Content="{StaticResource HomeVMax}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="165"/>
+                    <Label Content="{StaticResource HomeVMax}" Style="{StaticResource LB_ItemContent_Right}" Width="165"/>
                     <MahApp:NumericUpDown x:Name="Txt_HomeMaxVel" Width="120" StringFormat="F3" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="{StaticResource HomeVO}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="165"/>
+                    <Label Content="{StaticResource HomeVO}" Style="{StaticResource LB_ItemContent_Right}" Width="165"/>
                     <MahApp:NumericUpDown x:Name="Txt_HomeOrgVel" Width="120" StringFormat="F3" />
                 </StackPanel>
             </StackPanel>

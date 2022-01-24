@@ -5,7 +5,7 @@
         Title="Splash_Sreen_Window" Height="317" Width="521"
         WindowStartupLocation="CenterScreen" Background="Transparent" WindowStyle="None" 
         Loaded="Window_Loaded" ResizeMode="NoResize" ShowInTaskbar="False">
-    <Grid Background="{StaticResource BR_DARK_GRAY_10}" >
+    <Grid Background="{StaticResource BR_GRAY_10}" >
         <StackPanel Orientation="Vertical" Margin="0,0,0,0">
             <Image Source="/Icons/HipaLogo.png" Height="38" Margin="0,40,0,0"/>
             <TextBlock x:Name="Lbl_AppTitle" Text="Laser Marking System" Margin="0,2,0,0" TextAlignment="Center" VerticalAlignment="Center" FontSize="14" Foreground="WhiteSmoke" FontStyle="Italic"/>

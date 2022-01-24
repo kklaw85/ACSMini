@@ -10,11 +10,11 @@
              Loaded="UserControl_Loaded">
     <Grid Margin="0,0,0,0">
         <StackPanel Orientation="Vertical">
-            <TextBlock Text="{StaticResource IO}" Style="{StaticResource STYLE_MAIN_TITLE_LABEL_TB}"/>
+            <Label Content="{StaticResource IO}" Style="{StaticResource LB_MainTitle}"/>
             <StackPanel Orientation="Horizontal" Margin="10" Height="720">
                 <Expander ExpandDirection="Right" Background="{StaticResource Gradient_SubPage}">
                     <Expander.Header>
-                        <TextBlock Text="{StaticResource ListOfIoBoard}" Style="{StaticResource STYLE_SUB_TITLE_LABEL_TB}" RenderTransformOrigin="0.5,0.5" Margin="-136,135,0,0" Width="300">
+                        <TextBlock Text="{StaticResource ListOfIoBoard}" Style="{StaticResource TB_PanelTitle}" RenderTransformOrigin="0.5,0.5" Margin="-141,125,0,0" Width="300">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -31,7 +31,7 @@
                 </Expander>
                 <Expander ExpandDirection="Right" Background="{StaticResource Gradient_SubPage}" IsExpanded="True" Margin="5,0,0,0">
                     <Expander.Header>
-                        <TextBlock Text="{StaticResource Input}" Style="{StaticResource STYLE_SUB_TITLE_LABEL_TB}" RenderTransformOrigin="0.5,0.5" Margin="-136,135,0,0" Width="300">
+                        <TextBlock Text="{StaticResource Input}" Style="{StaticResource TB_PanelTitle}" RenderTransformOrigin="0.5,0.5" Margin="-141,125,0,0" Width="300">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -71,7 +71,7 @@
                 </Expander>
                 <Expander ExpandDirection="Right" Background="{StaticResource Gradient_SubPage}" IsExpanded="True"  Margin="5,0,0,0">
                     <Expander.Header>
-                        <TextBlock Text="{StaticResource Output}" Style="{StaticResource STYLE_SUB_TITLE_LABEL_TB}" RenderTransformOrigin="0.5,0.5" Margin="-136,135,0,0" Width="300">
+                        <TextBlock Text="{StaticResource Output}" Style="{StaticResource TB_PanelTitle}" RenderTransformOrigin="0.5,0.5" Margin="-141,125,0,0" Width="300">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>

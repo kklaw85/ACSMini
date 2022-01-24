@@ -266,34 +266,10 @@ namespace NeoWisePlatform
 								if ( btn.Name == Current_Sub_Page )
 								{
 									btn.Style = Bg_Btn_Hilighted;
-									StackPanel sp = ( StackPanel )btn.Content;
-									if ( sp != null )
-									{
-										foreach ( TextBlock item in sp.Children.OfType<TextBlock>() )
-										{
-											item.Style = ( Style )item.FindResource( "STYL_NAVI_LBL_TEXT_SELECTED" );
-										}
-									}
 									C_UI_Manager.Cur_Sub_Pg = btn.Name;
-
-									if ( !Click_On_Main )
-									{
-										C_UI_Manager.Set_Last_Sub_Page( C_UI_Manager.Cur_Main_Pg, Page_Name );
-									}
+									if ( !Click_On_Main ) C_UI_Manager.Set_Last_Sub_Page( C_UI_Manager.Cur_Main_Pg, Page_Name );
 								}
-
-								else
-								{
-									btn.Style = Bg_Normal_Btn;
-									StackPanel sp = ( StackPanel )btn.Content;
-									if ( sp != null )
-									{
-										foreach ( TextBlock item in sp.Children.OfType<TextBlock>() )
-										{
-											item.Style = ( Style )item.FindResource( "Button_TextBlock" );
-										}
-									}
-								}
+								else btn.Style = Bg_Normal_Btn;
 							}
 							else
 								btn.Visibility = System.Windows.Visibility.Collapsed;

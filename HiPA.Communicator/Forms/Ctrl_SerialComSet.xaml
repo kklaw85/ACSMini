@@ -7,8 +7,8 @@
 			 Loaded="UserControl_Loaded" IsVisibleChanged="UserControl_IsVisibleChanged" Width="auto" Height="auto">
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <Label Content="{StaticResource SerialPort}" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Stretch" Height="Auto" Width="70" Style="{StaticResource STYL_GENERAL_LBL_Right}"/>
-            <Label Content="" HorizontalAlignment="Left" x:Name="Lbl_SerialCom" Style="{StaticResource STYLE_POS_CONTENT}" VerticalAlignment="Center" Margin="0,0,0,0" Width="70"/>
+            <Label Content="{StaticResource SerialPort}" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Stretch" Height="Auto" Width="70" Style="{StaticResource LB_ItemContent_Right}"/>
+            <Label Content="" HorizontalAlignment="Left" x:Name="Lbl_SerialCom" Style="{StaticResource LB_ItemData_Left}" VerticalAlignment="Center" Margin="0,0,0,0" Width="70"/>
             <Button x:Name="Btn_SerialCom" Content=". . ." HorizontalAlignment="Left" ToolTip="{StaticResource SerialComm}" VerticalAlignment="Center" Width="30" Height="25" Click="Btn_SerialCom_Click" Margin="5,0,0,0"/>
         </StackPanel>
     </Grid>

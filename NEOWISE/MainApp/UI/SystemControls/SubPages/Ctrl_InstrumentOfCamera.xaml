@@ -12,14 +12,13 @@
              Width="1500" Height="1004"
              Loaded="UserControl_Loaded">
     <Grid Margin="0,0,0,0">
-        <Rectangle Style="{StaticResource Rectangle_SUB_PAGE}"/>
         <StackPanel>
-            <TextBlock Text="{StaticResource Camera}" Style="{StaticResource STYLE_MAIN_TITLE_LABEL_TB}"/>
+            <Label Content="{StaticResource Camera}" Style="{StaticResource LB_MainTitle}"/>
             <DockPanel Margin="10">
                 <StackPanel Margin="0" DockPanel.Dock="Left">
                     <CommonControls:Ctrl_InitBar x:Name="InitBar"/>
                     <StackPanel x:Name="Grid_CamLst" Orientation="Horizontal" Margin="0,10,0,0">
-                        <Label Content="{StaticResource CamName}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="90"/>
+                        <Label Content="{StaticResource CamName}" Style="{StaticResource LB_ItemContent_Right}" Width="90"/>
                         <ComboBox x:Name="cmbCameraList" Width="100" SelectionChanged="cmbCameraList_SelectionChanged"/>
                     </StackPanel>
                     <MahApp:MetroTabControl x:Name="CamCfg" Style="{StaticResource MahApps.Styles.TabControl.ColorPicker}" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="0,10,0,0" Width="817" Height="413" SelectionChanged="MetroTabControl_SelectionChanged">

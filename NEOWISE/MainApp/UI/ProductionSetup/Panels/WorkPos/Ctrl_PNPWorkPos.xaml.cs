@@ -64,7 +64,7 @@ namespace NeoWisePlatform.UI.ProductionSetup.Panels.WorkPos
 						var ctrl = new Ctrl_EntryMotion();
 						ctrl.Name = prop.Name;
 						ctrl.Label.Content = ( string )this.FindResource( prop.Name );
-						ctrl.Label.Style = ( Style )this.FindResource( "STYL_GENERAL_LBL_Right" );
+						ctrl.Label.Style = ( Style )this.FindResource( "LB_ItemContent_Right" );
 						ctrl.Label.Width = 100;
 						ctrl.Entry.Width = 80;
 						ctrl.Entry.StringFormat = "F3";

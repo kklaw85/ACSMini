@@ -8,23 +8,23 @@
 			 xmlns:Globalizer="clr-namespace:WPFSharp.Globalizer;assembly=WPFSharp.Globalizer"
              mc:Ignorable="d" Loaded="PageBase_Loaded">
     <StackPanel>
-        <Label Style="{StaticResource STYLE_MAIN_TITLE_LABEL}" Content="{StaticResource AlarmNotice}" VerticalAlignment="Top"/>
+        <Label Style="{StaticResource LB_MainTitle}" Content="{StaticResource AlarmNotice}" VerticalAlignment="Top"/>
         <DockPanel HorizontalAlignment="Stretch">
             <StackPanel Margin="10,0,0,0" DockPanel.Dock="Left">
                 <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
-                    <Label Content="{Globalizer:GlobalizedResource TimeStamp, FallbackValue='Time Stamp'}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="90"/>
-                    <Label Style="{StaticResource STYLE_POS_CONTENT}" Width="161" Content="{Binding CurrentAlarm.sTimeStamp}"/>
-                    <Label Content="{Globalizer:GlobalizedResource Class, FallbackValue='Class'}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="90" />
-                    <Label Style="{StaticResource STYLE_POS_CONTENT}" Width="161" Content="{Binding CurrentAlarm.sEClass}"/>
+                    <Label Content="{Globalizer:GlobalizedResource TimeStamp, FallbackValue='Time Stamp'}" Style="{StaticResource LB_ItemContent_Right}" Width="90"/>
+                    <Label Style="{StaticResource LB_ItemData_Left}" Width="161" Content="{Binding CurrentAlarm.sTimeStamp}"/>
+                    <Label Content="{Globalizer:GlobalizedResource Class, FallbackValue='Class'}" Style="{StaticResource LB_ItemContent_Right}" Width="90" />
+                    <Label Style="{StaticResource LB_ItemData_Left}" Width="161" Content="{Binding CurrentAlarm.sEClass}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="{Globalizer:GlobalizedResource Grade, FallbackValue='Grade'}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="90"/>
-                    <Label Style="{StaticResource STYLE_POS_CONTENT}" Width="161" Content="{Binding CurrentAlarm.sGrade}"/>
-                    <Label Content="{Globalizer:GlobalizedResource Type, FallbackValue='Type'}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="90"/>
-                    <Label Style="{StaticResource STYLE_POS_CONTENT}" Width="161" Content="{Binding CurrentAlarm.Type}"/>
+                    <Label Content="{Globalizer:GlobalizedResource Grade, FallbackValue='Grade'}" Style="{StaticResource LB_ItemContent_Right}" Width="90"/>
+                    <Label Style="{StaticResource LB_ItemData_Left}" Width="161" Content="{Binding CurrentAlarm.sGrade}"/>
+                    <Label Content="{Globalizer:GlobalizedResource Type, FallbackValue='Type'}" Style="{StaticResource LB_ItemContent_Right}" Width="90"/>
+                    <Label Style="{StaticResource LB_ItemData_Left}" Width="161" Content="{Binding CurrentAlarm.Type}"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
-                    <Label Content="{Globalizer:GlobalizedResource Msg, FallbackValue='Message'}" Style="{StaticResource STYL_GENERAL_LBL_Right}" Width="89" VerticalAlignment="Top"/>
+                    <Label Content="{Globalizer:GlobalizedResource Msg, FallbackValue='Message'}" Style="{StaticResource LB_ItemContent_Right}" Width="89" VerticalAlignment="Top"/>
                 </StackPanel>
             </StackPanel>
             <Button x:Name="Btn_Clear" Content="{Globalizer:GlobalizedResource Clear, FallbackValue='Clear'}" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" Width="110" Height="25" Margin="0,30,10,0" Click="Btn_Clear_Click"/>
