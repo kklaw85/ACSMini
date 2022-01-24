@@ -7,18 +7,17 @@
         WindowStyle="None" Background="Transparent" Topmost="True"
         Loaded="MetroWindow_Loaded_1" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="105" Width="308" Visibility="Visible" ShowInTaskbar="False" ResizeMode="NoResize">
-	<Grid>
-		<Rectangle Style="{StaticResource Rectangle_SUB_PAGE}"/>
-		<StackPanel Orientation="Vertical">
-			<Label x:Name="TitleBar" Content="temporary" Style="{StaticResource STYL_WINDOW_TITLE_LBL}"/>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+			<Label x:Name="TitleBar" Content="temporary" Style="{StaticResource LB_WindowTitle}"/>
 			<StackPanel Margin="10">
 				<StackPanel Orientation="Horizontal">
 					<Label Content="{StaticResource Name}" Style="{StaticResource LB_ItemContent_Right}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50"/>
                     <TextBox x:Name="txtRecipeName" Style="{StaticResource STYLE_POS_TEXTBOX_Left}" Text="TextBox" Width="230"/>
 				</StackPanel>
 				<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="155,5,0,0">
-					<Button x:Name="Btn_Ok" Style="{StaticResource Button_LimeContent}" Content="{StaticResource Ok}" Width="60" Click="Btn_Ok_Click"/>
-					<Button x:Name="Btn_Cancel" Style="{StaticResource Button_RedContent}" Content="{StaticResource Cancel}" Margin="5,0,0,0" Width="60" Click="Btn_Cancel_Click"/>
+					<Button x:Name="Btn_Ok" Style="{StaticResource Button_FrameMenu_LimeContent}" Content="{StaticResource Ok}" Width="60" Click="Btn_Ok_Click"/>
+					<Button x:Name="Btn_Cancel" Style="{StaticResource Button_FrameMenu_RedContent}" Content="{StaticResource Cancel}" Height="25" Margin="5,0,0,0" Width="60" Click="Btn_Cancel_Click"/>
 				</StackPanel>
 			</StackPanel>
 		</StackPanel>

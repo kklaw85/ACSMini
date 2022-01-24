@@ -44,16 +44,16 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="5,0,0,0">
-                <Button x:Name="BtnCollectionPos" Style="{StaticResource Button_SubMenu}" Width="40" Height="40" Click="Btn_Click" ToolTip="Move to Collection Position">
+                <Button x:Name="BtnCollectionPos" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Click="Btn_Click" ToolTip="Move to Collection Position">
                     <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W35H35}" Source="/Icons/DPAD_Up.png"/>
                 </Button>
-                <Button x:Name="BtnLoadPos" Style="{StaticResource Button_SubMenu}" Width="40" Height="40" Margin="0,5,0,0" Click="Btn_Click" ToolTip="Move to Load Position">
+                <Button x:Name="BtnLoadPos" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Margin="0,5,0,0" Click="Btn_Click" ToolTip="Move to Load Position">
                     <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W35H35}" Source="/Icons/DPAD_Down.png"/>
                 </Button>
-                <Button x:Name="BtnAutomated" Style="{StaticResource Button_SubMenu}" Width="40" Height="40" Margin="0,5,0,0" Click="Btn_Click" ToolTip="Start Lift Automation">
+                <Button x:Name="BtnAutomated" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Margin="0,5,0,0" Click="Btn_Click" ToolTip="Start Lift Automation">
                     <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W35H35}" Source="/Icons/Automated.png"/>
                 </Button>
-                <Button x:Name="BtnStopAutomation" Style="{StaticResource Button_SubMenu}" Width="40" Height="40" Margin="0,5,0,0" Click="Btn_Click" ToolTip="Stop Lift Automation">
+                <Button x:Name="BtnStopAutomation" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Margin="0,5,0,0" Click="Btn_Click" ToolTip="Stop Lift Automation">
                     <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W35H35}" Source="/Icons/StopAutomation.png"/>
                 </Button>
             </StackPanel>

@@ -12,16 +12,16 @@
     <Grid Margin="0,0,0,0">
         <StackPanel Orientation="Vertical">
             <DockPanel>
-                <Button x:Name="Btn_CamSetting" Style="{StaticResource Button_CyanContent}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30" ToolTip="Camera Setting" Margin="0,0,0,0"  Click="Btn_Click">
+                <Button x:Name="Btn_CamSetting" Style="{StaticResource Button_FrameMenu}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30" ToolTip="Camera Setting" Margin="0,0,0,0"  Click="Btn_Click">
                     <Image Style="{StaticResource STYL_LBL_IMG_VIEWER_MINI_ICON}" Source="/Icons/Exposure_Gain.png"/>
                 </Button>
-                <Button x:Name="Btn_Live_Camera" Style="{StaticResource Button_CyanContent}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30" ToolTip="Continuous Grab" Margin="0,0,0,0" Click="Btn_Click">
+                <Button x:Name="Btn_Live_Camera" Style="{StaticResource Button_FrameMenu}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30" ToolTip="Continuous Grab" Margin="0,0,0,0" Click="Btn_Click">
                     <Image Style="{StaticResource STYL_LBL_IMG_VIEWER_MINI_ICON}" Source="/Icons/PR_Live.png"/>
                 </Button>
-                <Button x:Name="Btn_OneShot_Camera" Style="{StaticResource Button_CyanContent}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30" ToolTip="Single Grab" Margin="0,0,0,0" Click="Btn_Click">
+                <Button x:Name="Btn_OneShot_Camera" Style="{StaticResource Button_FrameMenu}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30" ToolTip="Single Grab" Margin="0,0,0,0" Click="Btn_Click">
                     <Image Style="{StaticResource STYL_LBL_IMG_VIEWER_MINI_ICON}" Source="/Icons/PR_Pause.png"/>
                 </Button>
-                <Button x:Name="Btn_Save_Camera" Style="{StaticResource Button_CyanContent}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30" ToolTip="Save Image" Margin="0,0,0,0" Click="Btn_Click">
+                <Button x:Name="Btn_Save_Camera" Style="{StaticResource Button_FrameMenu}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30" ToolTip="Save Image" Margin="0,0,0,0" Click="Btn_Click">
                     <Image Style="{StaticResource STYL_LBL_IMG_VIEWER_MINI_ICON}" Source="/Icons/PR_Save.png"/>
                 </Button>
                 <Label x:Name="Title" Style="{StaticResource STYL_BUTTON_LBL_COMPACT_LeftAligned}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Margin="10,0,0,0" DockPanel.Dock="Left" Width="180" FontSize="11"/>

@@ -108,7 +108,7 @@ namespace NeoWisePlatform
 				this.Visibility = System.Windows.Visibility.Collapsed;
 				Splash_Sreen_Window win = new Splash_Sreen_Window();
 				win.ShowDialog();
-				C_UI_Manager.Init_UI_Mngr( ( Style )this.FindResource( "Button_MainMenuSelected" ), ( Style )this.FindResource( "Button_MainMenu" ), this.Stack_Main_Btn, this.SubMenu );
+				C_UI_Manager.Init_UI_Mngr( ( Style )this.FindResource( "Button_MenuSelected" ), ( Style )this.FindResource( "Button_Menu" ), this.Stack_Main_Btn, this.SubMenu );
 				this.Register_UI_Windows();
 				this.LoadAllPages();
 				Equipment.UserMgt.InitUserAutModule( C_UI_Manager.Lst_Page );

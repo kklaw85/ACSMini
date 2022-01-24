@@ -263,7 +263,7 @@ namespace NeoWisePlatform.Recipe
 			{
 				if ( value < 0 ) return;
 				this.SetValue( () => this.LstSelIdx, value );
-				this.CanCopy = this.RecipeDir.Count >= this.LstSelIdx + 1;
+				this.CanCopy = this.RecipeDir.Count >= this.LstSelIdx + 1 && this.LstSelIdx >= 0;
 				this.CanRemove = this.RecipeDir[ this.LstSelIdx ]?.Name != this.RecipeName;
 			}
 		}
@@ -290,9 +290,10 @@ namespace NeoWisePlatform.Recipe
 					{
 						this.RecipeDir.Add( new RecipeSelection() { Name = recipe, Applied = recipe == this.RecipeName } );
 					}
+					if ( this.RecipeDir.Count < this.LstSelIdx + 1 ) this.LstSelIdx = 0;
+					else this.LstSelIdx = this.LstSelIdx;
 				} );
-				if ( this.RecipeDir.Count > 0 ) this.LstSelIdx = 0;
-				else this.LstSelIdx = -1;
+
 			}
 			catch ( Exception ex )
 			{

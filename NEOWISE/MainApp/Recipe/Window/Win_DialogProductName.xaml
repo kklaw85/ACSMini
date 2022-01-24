@@ -7,24 +7,21 @@
         WindowStyle="None" Background="Transparent" Topmost="True"
         Loaded="MetroWindow_Loaded_1" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         Height="135" Width="307.522" Visibility="Visible" ShowInTaskbar="False" ResizeMode="NoResize">
-	<Grid>
-		<Rectangle Style="{StaticResource Rectangle_SUB_PAGE}"/>
-		<StackPanel>
-			<Label x:Name="TitleBar" Style="{StaticResource STYL_WINDOW_TITLE_LBL}" Content="Temporary"/>
-			<StackPanel Orientation="Vertical" Margin="10">
-				<StackPanel Orientation="Horizontal">
-					<Label Content="{StaticResource Name}" Style="{StaticResource LB_ItemContent_Right}" Width="90"/>
-					<TextBox x:Name="txtRecipeName" Style="{StaticResource STYLE_POS_TEXTBOX_Left}" Text="TextBox" Width="190"/>
-				</StackPanel>
-				<StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-					<Label Content="{StaticResource ProductType}" Style="{StaticResource LB_ItemContent_Right}" Width="90"/>
-					<ComboBox x:Name="Cb_ProductType" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190"/>
-				</StackPanel>
-				<StackPanel Orientation="Horizontal" Margin="90,5,0,0">
-					<Button x:Name="Btn_Ok" Style="{StaticResource Button_LimeContent}" Content="{StaticResource Ok}" VerticalAlignment="Top" Width="90" Height="25" Click="Btn_Ok_Click"/>
-					<Button x:Name="Btn_Cancel" Style="{StaticResource Button_RedContent}" Content="{StaticResource Cancel}" Width="90" Height="25" Click="Btn_Cancel_Click" Margin="10,0,0,0"/>
-				</StackPanel>
-			</StackPanel>
-		</StackPanel>
-	</Grid>
+    <StackPanel>
+        <Label x:Name="TitleBar" Style="{StaticResource LB_WindowTitle}" Content="Temporary"/>
+        <StackPanel Orientation="Vertical" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="{StaticResource Name}" Style="{StaticResource LB_ItemContent_Right}" Width="90"/>
+                <TextBox x:Name="txtRecipeName" Style="{StaticResource STYLE_POS_TEXTBOX_Left}" Text="TextBox" Width="190"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <Label Content="{StaticResource ProductType}" Style="{StaticResource LB_ItemContent_Right}" Width="90"/>
+                <ComboBox x:Name="Cb_ProductType" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="90,5,0,0">
+                <Button x:Name="Btn_Ok" Style="{StaticResource Button_FrameMenu_LimeContent}" Content="{StaticResource Ok}" VerticalAlignment="Top" Width="90" Height="25" Click="Btn_Ok_Click"/>
+                <Button x:Name="Btn_Cancel" Style="{StaticResource Button_FrameMenu_RedContent}" Content="{StaticResource Cancel}" Width="90" Height="25" Click="Btn_Cancel_Click" Margin="10,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
 </Controls:MetroWindow>

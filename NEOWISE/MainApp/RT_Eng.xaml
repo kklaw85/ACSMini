@@ -43,7 +43,7 @@
     <System:String x:Key="LiftCfg">Lift Cfg.</System:String>
 
     <!--PreInitialization-->
-    <System:String x:Key="SystemInitialzationStatus">System Initialization Status</System:String>
+    <System:String x:Key="SystemInitialzationStatus">System Initialization</System:String>
     <System:String x:Key="MotionController">AMP204C Motion/IO Controller</System:String>
     <System:String x:Key="IOCard">PCI-7432 IO Controller </System:String>
     <System:String x:Key="StageSys">Stage System</System:String>

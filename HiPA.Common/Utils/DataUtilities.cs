@@ -773,7 +773,7 @@ namespace N_Data_Utilities
 			bool tempBool = false;
 			if ( bool.TryParse( value.ToString(), out tempBool ) )
 			{
-				return tempBool ? Application.Current.Resources[ "Button_LimeContent_Red_Highlight" ] : Application.Current.Resources[ "Button_MainMenu" ];
+				return tempBool ? Application.Current.Resources[ "Button_MenuRedFrame" ] : Application.Current.Resources[ "Button_Menu" ];
 			}
 			return Application.Current.Resources[ "Button_CyanContent" ];
 		}

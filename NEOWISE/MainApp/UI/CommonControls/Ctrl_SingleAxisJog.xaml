@@ -22,10 +22,10 @@
                 <StackPanel Orientation="Horizontal">
                     <Label Style="{StaticResource LB_ItemContent_Right}" Content="{StaticResource Step}" Width="70"/>
                     <ComboBox x:Name="Cb_StpMove" Margin="10,0,0,0" Width="80"/>
-                    <Button x:Name="Btn_Stp_Neg" Click="Btn_Step_Click" Height="35" Width="35" Style="{StaticResource Button_SubMenu}" Margin="5,0,0,0">
+                    <Button x:Name="Btn_Stp_Neg" Click="Btn_Step_Click" Height="35" Width="35" Style="{StaticResource Button_FrameMenu}" Margin="5,0,0,0">
                         <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W25H25}" Source="/Icons/DPAD_Left.png"/>
                     </Button>
-                    <Button x:Name="Btn_Stp_Pos" Click="Btn_Step_Click" Height="35" Width="35" Style="{StaticResource Button_SubMenu}" Margin="5,0,0,0">
+                    <Button x:Name="Btn_Stp_Pos" Click="Btn_Step_Click" Height="35" Width="35" Style="{StaticResource Button_FrameMenu}" Margin="5,0,0,0">
                         <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W25H25}" Source="/Icons/DPAD_Right.png"/>
                     </Button>
                 </StackPanel>

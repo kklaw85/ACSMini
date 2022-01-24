@@ -3,17 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="Splash_Sreen_Window" Height="317" Width="521"
-        WindowStartupLocation="CenterScreen" Background="Transparent" WindowStyle="None" 
+        WindowStartupLocation="CenterScreen" Background="Transparent" AllowsTransparency="True" WindowStyle="None" 
         Loaded="Window_Loaded" ResizeMode="NoResize" ShowInTaskbar="False">
-    <Grid Background="{StaticResource BR_GRAY_10}" >
+    <Border Style="{StaticResource PanelInnerThin}">
+        <Grid>
         <StackPanel Orientation="Vertical" Margin="0,0,0,0">
             <Image Source="/Icons/HipaLogo.png" Height="38" Margin="0,40,0,0"/>
-            <TextBlock x:Name="Lbl_AppTitle" Text="Laser Marking System" Margin="0,2,0,0" TextAlignment="Center" VerticalAlignment="Center" FontSize="14" Foreground="WhiteSmoke" FontStyle="Italic"/>
-            <TextBlock x:Name="lbl_AppName" Text="NeoWise" TextAlignment="Center" Margin="0,4,0,0" Foreground="White" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" />
+                <TextBlock x:Name="Lbl_AppTitle" Text="Inspection System" Margin="0,2,0,0" TextAlignment="Center" VerticalAlignment="Center" FontSize="14" Foreground="{StaticResource TextColor}" FontStyle="Italic"/>
+                <TextBlock x:Name="lbl_AppName" Text="NeoWise" TextAlignment="Center" Margin="0,4,0,0" Foreground="{StaticResource TextColor}" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" />
         </StackPanel>
         <StackPanel Background="Transparent" Height="51" VerticalAlignment="Bottom">
-            <TextBlock x:Name="Lbl_Software_Version" Text="{StaticResource Version}" Margin="0,4,0,0" TextAlignment="Center" VerticalAlignment="Center" FontSize="12" Foreground="#FFB4B4B4" />
-            <TextBlock x:Name="Lbl_Copyright" Text="Copyright JPT Electronics 2020" Margin="0,4,0,0" TextAlignment="Center" VerticalAlignment="Center" FontSize="12" Foreground="#FFB4B4B4" />
+            <TextBlock x:Name="Lbl_Software_Version" Text="{StaticResource Version}" Margin="0,4,0,0" TextAlignment="Center" VerticalAlignment="Center" FontSize="12" Foreground="{StaticResource TextColor}" />
+                <TextBlock x:Name="Lbl_Copyright" Text="Copyright Energeo Systems 2022" Margin="0,4,0,0" TextAlignment="Center" VerticalAlignment="Center" FontSize="12" Foreground="{StaticResource TextColor}" />
         </StackPanel>
     </Grid>
+    </Border>
 </Window>
