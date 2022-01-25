@@ -15,9 +15,9 @@
     <Grid Background="{StaticResource BR_WHITE}" >
         <StackPanel Orientation="Vertical" Margin="0,0,0,0">
             <Image Source="/Icons/HipaLogo.png" Height="38" Margin="0,50,0,0"/>
-            <TextBlock x:Name="Lbl_AppTitle" Text="Inspection System" Margin="0,2,0,0" TextAlignment="Center" VerticalAlignment="Center" FontSize="14" Foreground="WhiteSmoke" FontStyle="Italic"/>
+            <TextBlock x:Name="Lbl_AppTitle" Text="Inspection System" Margin="0,2,0,0" TextAlignment="Center" VerticalAlignment="Center" FontSize="14" Foreground="{StaticResource TextColor}" FontStyle="Italic"/>
             <TextBlock x:Name="lbl_AppName" Text="Caution" TextAlignment="Center" Margin="0,30,0,0" Foreground="Red" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" />
-            <TextBlock x:Name="Lbl_Current_Init_Status" Text="Machine is homing... Please wait and keep out of the machine." TextAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" Foreground="#FFC3C3C3"/>
+            <TextBlock x:Name="Lbl_Current_Init_Status" Text="Machine is homing... Please wait and keep out of the machine." TextAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" Foreground="{StaticResource TextColor}"/>
         </StackPanel>
 
     </Grid>

@@ -868,7 +868,6 @@
   <ItemGroup>
     <Resource Include="Icons\Add.png" />
     <Resource Include="Icons\Alignment.png" />
-    <Resource Include="Icons\Bell.png" />
     <Resource Include="Icons\Camera.png" />
     <Resource Include="Icons\Center_Pos.png" />
     <Resource Include="Icons\Clear.png" />
@@ -971,6 +970,9 @@
     <Resource Include="Icons\Cycle_Stop.png" />
     <Resource Include="Icons\Pause.png" />
     <Resource Include="Icons\Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Bell.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

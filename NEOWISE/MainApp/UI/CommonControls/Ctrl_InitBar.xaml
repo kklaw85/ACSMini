@@ -9,8 +9,8 @@
     <Grid Margin="0">
         <StackPanel Orientation="Horizontal">
             <Rectangle Style="{StaticResource Rec_Input}" x:Name="State" Margin="0,0,0,0" Fill="{Binding IsValid, Converter={StaticResource BoolToBrushIOGreenRedRec} }"/>
-            <Button x:Name="Btn_Initialize" Content="Initialize" HorizontalAlignment="Left" Margin="10,0,0,0"  VerticalAlignment="Top" Width="75" Click="Btn_Click"/>
-            <Button x:Name="Btn_Stop" Content="Stop" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Click"/>
+            <Button x:Name="Btn_Initialize" Content="Initialize" HorizontalAlignment="Left" Margin="10,0,0,0"  VerticalAlignment="Top" Width="75" Click="Btn_Click" Style="{StaticResource BtnCommon}"/>
+            <Button x:Name="Btn_Stop" Content="Stop" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Click" Style="{StaticResource BtnCommon}"/>
         </StackPanel>
     </Grid>
 </Panelbase:PanelBase>

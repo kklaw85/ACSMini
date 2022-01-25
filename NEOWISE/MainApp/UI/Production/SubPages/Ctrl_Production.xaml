@@ -29,16 +29,16 @@
                     <CommonControls1:Ctrl_DisplayPanels x:Name="FOV1" Height="Auto" Margin="0,0,5,0"/>
                     <CommonControls1:Ctrl_DisplayPanels x:Name="FOV2" Height="Auto"/>
                 </StackPanel>
-                <Border Style="{StaticResource Panel}" Background="{StaticResource Gradient_Panel}" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" >
+                <Border Style="{StaticResource PanelInnerThin}" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" >
                     <StackPanel Margin="5">
                         <StackPanel Orientation="Vertical" >
-                            <Border Style="{StaticResource Panel}">
+                            <Border Style="{StaticResource PanelInnerThin}">
                                 <StackPanel Orientation="Vertical">
                                     <Label Style="{StaticResource LB_PanelTitle}" Content="Inspection Data (Stage)"/>
                                     <Camera:Ctrl_CollectiveInspectionStatus x:Name="StageInsp" Margin="5"/>
                                 </StackPanel>
                             </Border>
-                            <Border Style="{StaticResource Panel}" Margin="0,5,0,0">
+                            <Border Style="{StaticResource PanelInnerThin}" Margin="0,5,0,0">
                                 <StackPanel Orientation="Vertical">
                                     <Label Style="{StaticResource LB_PanelTitle}" Content="Inspection Data (PNP)"/>
                                     <Camera:Ctrl_CollectiveInspectionStatus x:Name="PNPInsp" Margin="5"/>

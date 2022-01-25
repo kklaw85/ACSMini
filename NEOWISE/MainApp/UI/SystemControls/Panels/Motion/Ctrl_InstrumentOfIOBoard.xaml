@@ -15,7 +15,7 @@
                 <Label x:Name="lbl_TitleName" Content="{StaticResource IOBrdCfg}" Style="{StaticResource LB_PanelTitle}"/>
                 <StackPanel Margin="10">
                     <CommonControls:Ctrl_InitBar x:Name="InitBar" Margin="0,0,0,0"/>
-                    <ListView x:Name="lvwCardIDList" Visibility="Collapsed" HorizontalAlignment="Left" Height="59" VerticalAlignment="Top" Width="186" SelectionMode="Single" Style="{StaticResource MahApps.Styles.ListView}" Margin="550,10,0,0" Grid.RowSpan="2">
+                    <ListView x:Name="lvwCardIDList" Visibility="Collapsed" HorizontalAlignment="Left" Height="59" VerticalAlignment="Top" Width="186" Margin="550,10,0,0" Grid.RowSpan="2">
                         <ListView.View>
                             <GridView AllowsColumnReorder="False">
                                 <GridViewColumn Header="CardID"/>

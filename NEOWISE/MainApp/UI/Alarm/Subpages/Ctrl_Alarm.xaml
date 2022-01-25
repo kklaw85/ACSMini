@@ -34,12 +34,10 @@
                   HorizontalAlignment="Stretch" 
                   VerticalAlignment="Stretch"
                   AutoGenerateColumns="False"
-    			  CanUserAddRows="False"
-    			  SelectionUnit="FullRow"              
+    			  CanUserAddRows="False"           
                   ColumnHeaderHeight="50"
                   EnableRowVirtualization="True"
-    			  GridLinesVisibility="Horizontal" 
-                  SelectionMode="Single"
+    			  GridLinesVisibility="All" 
                   CanUserResizeColumns="True" Margin="100,10,10,10" >
             <DataGrid.Columns>
                 <DataGridTextColumn 

@@ -59,7 +59,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="190"/>
             </Grid.ColumnDefinitions>
-            <Grid x:Name="Grd_Main_Navi" HorizontalAlignment="Center" Grid.Column="0" Width="100" Background="{StaticResource Gradient_MainMenu}">
+            <Grid x:Name="Grd_Main_Navi" HorizontalAlignment="Center" Grid.Column="0" Width="100" Background="{StaticResource MahApps.Brushes.ThemeBackground}">
                 <DockPanel>
                     <Grid Height="142" DockPanel.Dock="Top">
                         <StackPanel x:Name="WP_User_Info" Orientation="Vertical" Margin="0,0,0,0" VerticalAlignment="Top">
@@ -70,27 +70,27 @@
                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                             <DockPanel>
                                 <StackPanel VerticalAlignment="Top" DockPanel.Dock="Top" x:Name="LockableSaveRecipeandHome">
-                                    <Button x:Name="Btn_Save_Recipe" Margin="5" ToolTip="Save Recipe" HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" Height="70" Style="{Binding Converter={StaticResource BoolToStyleRed} , Path=(RecipeManager:RecipeNoticeHandler.RecipeChanged)}" Click="Btn_Action_Click">
+                                    <Button x:Name="Btn_Save_Recipe" Margin="10" ToolTip="Save Recipe" HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" Height="70" Style="{Binding Converter={StaticResource BoolToStyleRed} , Path=(RecipeManager:RecipeNoticeHandler.RecipeChanged)}" Click="Btn_Action_Click">
                                         <Image Source="/Icons/Save_Icon.png" Style="{StaticResource STYL_LBL_IMG_MN_MENU_ICON}"/>
                                     </Button>
-                                    <Button x:Name="Btn_InitAll" Margin="5" ToolTip="Initialize and Home all axes" HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" Height="70" Style="{StaticResource Button_Menu}" Click="Btn_Action_Click">
+                                    <Button x:Name="Btn_InitAll" Margin="10" ToolTip="Initialize and Home all axes" HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" Height="70" Style="{StaticResource Button_Menu}" Click="Btn_Action_Click">
                                         <Image Source="/Icons/Motor_Home.png" Style="{StaticResource STYL_LBL_IMG_MN_MENU_ICON}"/>
                                     </Button>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" x:Name="Stack_Main_Btn" DockPanel.Dock="Bottom">
-                                    <Button x:Name="Ctrl_Alarm" ToolTip="Alarm" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" Height="70" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click">
+                                    <Button x:Name="Ctrl_Alarm" ToolTip="Alarm" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" Height="70" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click">
                                         <Image Source="/Icons/Bell.png" Style="{StaticResource STYL_LBL_IMG_MN_MENU_ICON}"/>
                                     </Button>
-                                    <Button x:Name="Ctrl_User_Access" ToolTip="Access" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" Height="70" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click">
+                                    <Button x:Name="Ctrl_User_Access" ToolTip="Access" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" Height="70" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click">
                                         <Image Source="/Icons/User_Acc.png" Style="{StaticResource STYL_LBL_IMG_MN_MENU_ICON}"/>
                                     </Button>
-                                    <Button x:Name="Ctrl_Diagnostics" ToolTip="Diagnostics" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" Height="70" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click">
+                                    <Button x:Name="Ctrl_Diagnostics" ToolTip="Diagnostics" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" Height="70" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click">
                                         <Image Source="/Icons/Diagnostics.png" Style="{StaticResource STYL_LBL_IMG_MN_MENU_ICON}"/>
                                     </Button>
-                                    <Button x:Name="Ctrl_ProcessSetup" ToolTip="Production Setup" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" Height="70" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click">
+                                    <Button x:Name="Ctrl_ProcessSetup" ToolTip="Production Setup" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" Height="70" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click">
                                         <Image Source="/Icons/Production_Setting.png" Style="{StaticResource STYL_LBL_IMG_MN_MENU_ICON}"/>
                                     </Button>
-                                    <Button x:Name="Ctrl_Production" ToolTip="Production" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Width="70" Height="70" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click">
+                                    <Button x:Name="Ctrl_Production" ToolTip="Production" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Width="70" Height="70" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click">
                                         <Image Source="/Icons/Production.png" Style="{StaticResource STYL_LBL_IMG_MN_MENU_ICON}"/>
                                     </Button>
                                 </StackPanel>
@@ -99,13 +99,13 @@
                     </Grid>
                 </DockPanel>
             </Grid>
-            <Grid x:Name="Grd_UI_View" Grid.Column="1" Grid.Row="0">
+            <Grid x:Name="Grd_UI_View" Grid.Column="1" Grid.Row="0" Background="{StaticResource WindowsBackground}">
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                     <StackPanel x:Name="Cvs_Wrapper"/>
                 </ScrollViewer>
                 <!--<SubPages:Ctrl_InstrumentOfMotion HorizontalAlignment="Left" Height="1040" Margin="0,0,0,0" VerticalAlignment="Top"/>-->
             </Grid>
-            <Grid x:Name="Grd_Sub_Navi"  Grid.Column="2" Width="190" Background="{StaticResource Gradient_SubMenu}">
+            <Grid x:Name="Grd_Sub_Navi"  Grid.Column="2" Width="190" Background="{StaticResource MahApps.Brushes.ThemeBackground}">
                 <StackPanel Orientation="Vertical">
                     <Grid Margin="0,0,0,0">
                         <StackPanel x:Name="WP_Recipe_Info" Orientation="Horizontal" VerticalAlignment="Top">
@@ -128,55 +128,55 @@
                             <Button x:Name="Ctrl_InstrumentOfMotion" Width="170" Height="56" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/MotionConfig.png"  Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource Motion}" Margin="10,0,0,0"/>
+                                    <Label Style="{StaticResource LB_PanelTitle}" Content="{StaticResource Motion}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_InstrumentOfIO" Width="170" Height="56" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/IO.png" Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource IO}" Margin="10,0,0,0"/>
+                                    <Label Style="{StaticResource LB_PanelTitle}" Content="{StaticResource IO}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_InstrumentOfCamera" Width="170" Height="56" Style="{StaticResource Button_Menu}"  Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/Camera.png" Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource Camera}" Margin="10,0,0,0"/>
+                                    <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource Camera}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_SetupLoadUnload" Width="170" Height="56" Style="{StaticResource Button_Menu}"  Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/LiftUpDown.png" Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource Step1LoadUnloadMat}" Margin="10,0,0,0" Width="110" />
+                                    <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource Step1LoadUnloadMat}" Margin="10,0,0,0" />
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_SetupWorkPosPage" Width="170" Height="56" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/WorkingPos.png" Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource Step2WorkPos}" Margin="10,0,0,0" Width="110" />
+                                    <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource Step2WorkPos}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_SetupVision" Width="170" Height="56" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/Camera.png" Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource Step3Vision}" Margin="10,0,0,0" Width="110" />
+                                    <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource Step3Vision}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_TestSequences" Width="170" Height="56" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/MotionConfig.png"  Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource TestSequences}" Margin="10,0,0,0"/>
+                                    <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource TestSequences}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_InstrumentOfIOMotion" Width="170" Height="56" Style="{StaticResource Button_Menu}"  Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/IO_Motors.png" Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource MotionIO}" Margin="10,0,0,0"/>
+                                    <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource MotionIO}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_ManufacturerBypassOption" Width="170" Height="56" Style="{StaticResource Button_Menu}"  Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/PadLock.png" Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}"/>
-                                    <TextBlock Style="{StaticResource Button_TextBlock}" Text="{StaticResource MfrByPass}" Margin="10,0,0,0"/>
+                                    <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource MfrByPass}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>

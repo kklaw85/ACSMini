@@ -573,10 +573,10 @@ namespace NeoWisePlatform
 			var selectedColor = e.AddedItems.OfType<KeyValuePair<string, Color>?>().FirstOrDefault();
 			if ( selectedColor != null )
 			{
-				var theme = ThemeManager.Current.DetectTheme( Application.Current );
-				ThemeManager.Current.ChangeTheme( Application.Current, ThemeManager.Current.AddTheme( RuntimeThemeGenerator.Current.GenerateRuntimeTheme( theme.BaseColorScheme, selectedColor.Value.Value ) ) );
-				Application.Current?.MainWindow?.Activate();
-				C_UI_Manager.ForegroundColor = new SolidColorBrush( selectedColor.Value.Value ); ;
+				//var theme = ThemeManager.Current.DetectTheme( Application.Current );
+				//ThemeManager.Current.ChangeTheme( Application.Current, ThemeManager.Current.AddTheme( RuntimeThemeGenerator.Current.GenerateRuntimeTheme( theme.BaseColorScheme, selectedColor.Value.Value ) ) );
+				//Application.Current?.MainWindow?.Activate();
+				//C_UI_Manager.ForegroundColor = new SolidColorBrush( selectedColor.Value.Value ); ;
 			}
 		}
 	}//Mainmanager 

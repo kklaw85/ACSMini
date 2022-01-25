@@ -45,7 +45,7 @@
                     <StackPanel Orientation="Vertical">
                         <DataGrid x:Name="InputGrid"            
                                   AutoGenerateColumns="False" CanUserAddRows="False" SelectionUnit="Cell" EnableRowVirtualization="True" GridLinesVisibility="All"   
-                                  ColumnHeaderHeight="30" Margin="10" Grid.Row="1" IsReadOnly="True" RowHeight="25" SelectionMode="Single" Height="700">
+                                  ColumnHeaderHeight="30" Margin="10" Grid.Row="1" IsReadOnly="True" RowHeight="25" Height="700">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="250" x:Name="Name_Col" TextBlock.TextAlignment="Left" CanUserSort="False" CanUserResize="False" CanUserReorder="False"/>
                                 <DataGridTextColumn Header="CardID" Binding="{Binding Configuration.CardID}" IsReadOnly="True" Width="60" x:Name="CardID_Col" TextBlock.TextAlignment="Left" CanUserSort="False" CanUserResize="False" CanUserReorder="False"/>
@@ -89,7 +89,7 @@
 	  EnableRowVirtualization="True"
 	  GridLinesVisibility="All"   
 	  ColumnHeaderHeight="30"
-	  Margin="10" IsReadOnly="True" SelectionMode="Single" RowHeight="25" Height="700">
+	  Margin="10" IsReadOnly="True" RowHeight="25" Height="700">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Name" 
 			  Binding="{Binding Name}" 
@@ -133,7 +133,7 @@
                                 <DataGridTemplateColumn Header="Toggle State" Width="100" IsReadOnly="True">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button x:Name="Btn_ToggleOutput" Content="Toggle" Click="Btn_ToggleOutput_Click"/>
+                                            <Button x:Name="Btn_ToggleOutput" Content="Toggle" Click="Btn_ToggleOutput_Click" Height="20" Style="{StaticResource BtnCommon}"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>

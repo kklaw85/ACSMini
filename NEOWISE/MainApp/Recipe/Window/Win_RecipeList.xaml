@@ -26,7 +26,7 @@
                             <Button x:Name="btnRefresh" Style="{StaticResource BtnCommon}" Click="BtnRecipe_Clicked" Tag="Refresh" Content="{StaticResource Refresh}" Margin="0,0,5,0" Width="80"/>
                         </StackPanel>
                         <StackPanel Margin="0,0,0,0" VerticalAlignment="Top">
-                            <ListView x:Name="lvwRecipeList" BorderThickness="1" BorderBrush="{StaticResource MasterTheme}" Height="200" VerticalAlignment="Top" MouseDoubleClick="lvwRecipeList_MouseDoubleClick" SelectedIndex="{Binding LstSelIdx}" SelectionMode="Single" Style="{StaticResource MahApps.Styles.ListView}">
+                            <ListView x:Name="lvwRecipeList" Height="200" VerticalAlignment="Top" MouseDoubleClick="lvwRecipeList_MouseDoubleClick" SelectedIndex="{Binding LstSelIdx}">
                                 <ListView.View>
                                     <GridView AllowsColumnReorder="False">
                                         <GridViewColumn Width="50"  x:Name="RecipeSelection">

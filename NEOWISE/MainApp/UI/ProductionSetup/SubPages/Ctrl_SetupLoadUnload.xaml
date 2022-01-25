@@ -12,7 +12,7 @@
     <Grid>
         <StackPanel HorizontalAlignment="Left">
             <Label Content="{StaticResource LoadUpload}" Style="{StaticResource LB_MainTitle}"/>
-            <Border Style="{StaticResource Panel}" Margin="10" Background="{StaticResource Gradient_Panel}">
+            <Border Style="{StaticResource PanelInnerThin}" Margin="10">
                 <Panels2:Ctrl_LiftsControl HorizontalAlignment="Left"/>
             </Border>
         </StackPanel>

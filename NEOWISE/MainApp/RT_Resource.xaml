@@ -90,31 +90,33 @@
     <SolidColorBrush x:Key="BR_ICON_SELECTED"  Color="{StaticResource C_ICON_SELECTED}" />
     <SolidColorBrush x:Key="BR_ICON_DEFAULT"  Color="{StaticResource C_ICON_DEFAULT}" />
     <SolidColorBrush x:Key="BR_ICON_PRESSED"  Color="{StaticResource C_ICON_PRESSED}" />
-
-
+    <Color x:Key="C_IconColor" A="255" R="77" G="77" B="77" />
+    <Color x:Key="C_WindowsBackground" A="255" R="240" G="240" B="240" />
     <SolidColorBrush x:Key="WindowsBackground"  Color="{StaticResource C_GRAY_240}" />
-    <SolidColorBrush x:Key="TextColor"  Color="{StaticResource C_GRAY_100}" />
-    <SolidColorBrush x:Key="ContentBoxColor"  Color="{StaticResource C_GRAY_80}" />
+    <SolidColorBrush x:Key="TextColor"  Color="{StaticResource C_GRAY_60}" />
+    <SolidColorBrush x:Key="IconColor"  Color="{StaticResource C_IconColor}" />
+    <SolidColorBrush x:Key="ContentBoxColor"  Color="LightGray" />
     <SolidColorBrush x:Key="IconicTextColor"  Color="{StaticResource C_GRAY_150}" />
-    <SolidColorBrush x:Key="MasterTheme"  Color="LightSlateGray" />
-    <SolidColorBrush x:Key="MinorTheme"  Color="DarkSlateGray" />
-
+    <SolidColorBrush x:Key="MasterTheme"  Color="SteelBlue" />
+    <SolidColorBrush x:Key="MinorTheme"  Color="LightSteelBlue" />
+    <SolidColorBrush x:Key="BorderColor"  Color="{StaticResource C_GRAY_190}" />
     <FlowDirection x:Key="FlowDirection_Default">LeftToRight</FlowDirection>
     <FlowDirection x:Key="FlowDirection_Reverse">RightToLeft</FlowDirection>
 
+    
     <!--Shape template-->
     <Style x:Key="Panel" TargetType="Border">
-        <Setter Property="BorderBrush" Value="{StaticResource MasterTheme}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="CornerRadius" Value="7"/>
     </Style>
     <Style x:Key="Frameless" TargetType="Border">
-        <Setter Property="BorderBrush" Value="{StaticResource MasterTheme}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="CornerRadius" Value="7"/>
     </Style>
     <Style x:Key="PanelThin" TargetType="Border">
-        <Setter Property="BorderBrush" Value="{StaticResource MasterTheme}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="3"/>
@@ -125,11 +127,9 @@
         </Setter>
     </Style>
     <Style x:Key="PanelInner" TargetType="Border" BasedOn="{StaticResource PanelThin}">
-        <Setter Property="BorderBrush" Value="{StaticResource MinorTheme}"/>
         <Setter Property="BorderThickness" Value="2"/>
     </Style>
     <Style x:Key="PanelInnerThin" TargetType="Border" BasedOn="{StaticResource PanelThin}">
-        <Setter Property="BorderBrush" Value="{StaticResource MinorTheme}"/>
     </Style>
     <Style x:Key="IOInd" TargetType="Border">
         <Setter Property="BorderBrush" Value="Lime"/>
@@ -138,12 +138,12 @@
     </Style>
 
     <LinearGradientBrush x:Key="Gradient_MainMenu" StartPoint="0,0" EndPoint="1,0">
-        <GradientStop Color="{StaticResource MahApps.Colors.Gray6}"  Offset="0.0" />
-        <GradientStop Color="{StaticResource C_WHITE}"  Offset="1.0" />
+        <GradientStop Color="{StaticResource C_WHITE}"  Offset="0" />
+        <GradientStop Color="{StaticResource C_WindowsBackground}"  Offset="1" />
     </LinearGradientBrush>
     <LinearGradientBrush x:Key="Gradient_SubMenu" StartPoint="0,0" EndPoint="1,0">
-        <GradientStop Color="{StaticResource C_WHITE}"  Offset="0" />
-        <GradientStop Color="{StaticResource MahApps.Colors.Gray6}"  Offset="1.0" />
+        <GradientStop Color="{StaticResource C_WindowsBackground}"  Offset="0" />
+        <GradientStop Color="{StaticResource C_WHITE}"  Offset="1.0" />
     </LinearGradientBrush>
     <LinearGradientBrush x:Key="Gradient_Panel" StartPoint="0,0" EndPoint="0,1">
         <GradientStop Color="{StaticResource C_BLACK}"  Offset="0.0" />
@@ -219,7 +219,7 @@
         <Setter Property="FontFamily" Value="Segoe"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="Padding" Value="5,0,0,0"/>
-        <Setter Property="FontWeight" Value="Light"/>
+        <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property ="HorizontalAlignment" Value="Left"/>
         <Setter Property ="VerticalAlignment" Value="Top"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -228,13 +228,13 @@
     <Style x:Key="LB_WindowTitle" TargetType="Label" BasedOn="{StaticResource LB_Default}">
         <Setter Property="FontSize" Value="22"/>
         <Setter Property="Height" Value="28"/>
-        <Setter Property="FontWeight" Value="Light" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Margin" Value="0,5,0,5" />
     </Style>
     <Style x:Key="LB_MainTitle" TargetType="Label" BasedOn="{StaticResource LB_Default}">
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="Height" Value="15"/>
-        <Setter Property="FontWeight" Value="Light" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Margin" Value="0,5,0,5" />
     </Style>
     <Style x:Key="LB_PanelTitle" TargetType="Label" BasedOn="{StaticResource LB_Default}">
@@ -339,7 +339,7 @@
         <Setter Property="Fill" Value="Gray"/>
         <Setter Property="RadiusX" Value="3"/>
         <Setter Property="RadiusY" Value="3"/>
-        <Setter Property="Stroke" Value="White"/>
+        <Setter Property="Stroke" Value="{StaticResource BR_GRAY_150}"/>
         <Setter Property="StrokeThickness" Value="1"/>
     </Style>
     <Style x:Key="Slot_Input" TargetType="Rectangle">
@@ -629,16 +629,33 @@
         </Setter>
     </Style>
     <Style x:Key="Button_MenuSelected" TargetType="Button">
-        <Setter Property="Background">
-            <Setter.Value>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="{StaticResource MahApps.Colors.Gray10}"  Offset="0.0" />
-                    <GradientStop Color="LightSlateGray"  Offset="1.0" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
         <Setter Property="Height" Value="56"/>
         <Setter Property="Width" Value="56"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>
+                        <Style TargetType="Image">
+                            <Setter Property="Height" Value="20"/>
+                            <Setter Property="Width" Value="20"/>
+                            <Setter Property="Margin" Value="38,9,0,0"/>
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <Grid x:Name="grid">
+                        <Border Name="border" CornerRadius="2" BorderBrush="{StaticResource MahApps.Brushes.ThemeForeground}"
+        				BorderThickness="1">
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label x:Name="Label" Content="{TemplateBinding Content}"/>
+                            </Grid>
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="5" BlurRadius="10" Opacity="0.5" />
+                            </Border.Effect>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
     <Style x:Key="Button_MenuRedFrame" TargetType="Button">
         <Setter Property="Height" Value="56"/>
@@ -987,6 +1004,21 @@
         </Setter>
     </Style>
 
+    <!--ListView style-->
+    <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource MahApps.Styles.ListView}">
+        <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="SelectionMode" Value="Single"/>
+    </Style>
+
+    <!--Datagrid style-->
+    <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource MahApps.Styles.DataGrid}">
+        <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="SelectionMode" Value="Single"/>
+        <Setter Property="SelectionUnit" Value="FullRow"/>
+    </Style>
+
     <!--RadioButton style-->
     <Style TargetType="{x:Type RadioButton}" x:Key="Radio_Button_Stripe">
         <Setter Property="Template">
@@ -1208,46 +1240,46 @@
         <Setter Property="Height" Value="Auto"/>
         <Setter Property="Margin" Value="2,2,2,2"/>
         <!--<Setter Property="Foreground" Value="{Binding Path=(C_UI_Manager:C_UI_Manager.ForegroundColor)}"/>-->
-        <Setter Property="Foreground" Value="WhiteSmoke"/>
+        <Setter Property="Foreground" Value="{StaticResource IconColor}"/>
     </Style>
     <Style TargetType="{x:Type iconPacks1:PackIconModern}" >
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Height" Value="Auto"/>
         <Setter Property="Margin" Value="2,2,2,2"/>
-        <Setter Property="Foreground" Value="WhiteSmoke"/>
+        <Setter Property="Foreground" Value="{StaticResource IconColor}"/>
         <!--<Setter Property="Foreground" Value="{Binding Path=(C_UI_Manager:C_UI_Manager.ForegroundColor)}"/>-->
     </Style>
     <Style TargetType="{x:Type iconPacks1:PackIconFontAwesome}" >
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Height" Value="Auto"/>
         <Setter Property="Margin" Value="2,2,2,2"/>
-        <Setter Property="Foreground" Value="WhiteSmoke"/>
+        <Setter Property="Foreground" Value="{StaticResource IconColor}"/>
         <!--<Setter Property="Foreground" Value="{Binding Path=(C_UI_Manager:C_UI_Manager.ForegroundColor)}"/>-->
     </Style>
     <Style TargetType="{x:Type iconPacks1:PackIconMaterial}" >
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Height" Value="Auto"/>
         <Setter Property="Margin" Value="2,2,2,2"/>
-        <Setter Property="Foreground" Value="WhiteSmoke"/>
+        <Setter Property="Foreground" Value="{StaticResource IconColor}"/>
     </Style>
     <Style TargetType="{x:Type iconPacks1:PackIconRemixIcon}" >
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Height" Value="Auto"/>
         <Setter Property="Margin" Value="2,2,2,2"/>
-        <Setter Property="Foreground" Value="WhiteSmoke"/>
+        <Setter Property="Foreground" Value="{StaticResource IconColor}"/>
     </Style>
     <Style TargetType="{x:Type iconPacks1:PackIconEntypo}" >
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Height" Value="Auto"/>
         <Setter Property="Margin" Value="2,2,2,2"/>
-        <Setter Property="Foreground" Value="WhiteSmoke"/>
+        <Setter Property="Foreground" Value="{StaticResource IconColor}"/>
     </Style>
 
     <Style TargetType="{x:Type iconPacks:PackIconIonicons}" >
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Height" Value="Auto"/>
         <Setter Property="Margin" Value="2,2,2,2"/>
-        <Setter Property="Foreground" Value="WhiteSmoke"/>
+        <Setter Property="Foreground" Value="{StaticResource IconColor}"/>
     </Style>
 
     <Style x:Key="STYL_LBL_IMG_MN_MENU_ICON" TargetType="Image">
