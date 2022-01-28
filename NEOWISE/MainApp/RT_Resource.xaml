@@ -102,6 +102,7 @@
     <SolidColorBrush x:Key="MasterTheme"  Color="SteelBlue" />
     <SolidColorBrush x:Key="MinorTheme"  Color="LightSteelBlue" />
     <SolidColorBrush x:Key="BorderColor"  Color="{StaticResource C_GRAY_190}" />
+    <SolidColorBrush x:Key="ButtonBG"  Color="WhiteSmoke" />
     <FlowDirection x:Key="FlowDirection_Default">LeftToRight</FlowDirection>
     <FlowDirection x:Key="FlowDirection_Reverse">RightToLeft</FlowDirection>
 
@@ -435,7 +436,7 @@
 
     <!--Button style-->
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
-        <Setter Property="Background" Value="WhiteSmoke"/>
+        <Setter Property="Background" Value="{StaticResource ButtonBG}"/>
         <Setter Property="Height" Value="25"/>
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Template">
@@ -453,7 +454,7 @@
                         <Border Name="border" 
         				BorderThickness="1"
         				CornerRadius="2"
-        				Background="WhiteSmoke" BorderBrush="{StaticResource MahApps.Brushes.ThemeForeground}">
+        				Background="{StaticResource ButtonBG}" BorderBrush="{StaticResource MahApps.Brushes.ThemeForeground}">
                             <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Label x:Name="Label" Content="{TemplateBinding Content}"/>
                             </Grid>
@@ -553,7 +554,7 @@
         </Setter>
     </Style>-->
     <Style TargetType="{x:Type Button}" x:Key="BtnCommonRedText">
-        <Setter Property="Background" Value="WhiteSmoke"/>
+        <Setter Property="Background" Value="{StaticResource ButtonBG}"/>
         <Setter Property="Height" Value="25"/>
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Template">
@@ -571,7 +572,7 @@
                         <Border Name="border" 
         				BorderThickness="1"
         				CornerRadius="2"
-        				Background="WhiteSmoke" BorderBrush="{StaticResource MahApps.Brushes.ThemeForeground}">
+        				Background="{StaticResource ButtonBG}" BorderBrush="{StaticResource MahApps.Brushes.ThemeForeground}">
                             <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Label x:Name="Label" Content="{TemplateBinding Content}"/>
                             </Grid>
@@ -612,7 +613,7 @@
         </Setter>
     </Style>
     <Style TargetType="{x:Type Button}" x:Key="BtnCommonLimeText">
-        <Setter Property="Background" Value="WhiteSmoke"/>
+        <Setter Property="Background" Value="{StaticResource ButtonBG}"/>
         <Setter Property="Height" Value="25"/>
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Template">
@@ -630,7 +631,7 @@
                         <Border Name="border" 
         				BorderThickness="1"
         				CornerRadius="2"
-        				Background="WhiteSmoke" BorderBrush="{StaticResource MahApps.Brushes.ThemeForeground}">
+        				Background="{StaticResource ButtonBG}" BorderBrush="{StaticResource MahApps.Brushes.ThemeForeground}">
                             <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Label x:Name="Label" Content="{TemplateBinding Content}"/>
                             </Grid>

@@ -293,7 +293,6 @@ namespace NeoWisePlatform.Recipe
 					if ( this.RecipeDir.Count < this.LstSelIdx + 1 ) this.LstSelIdx = 0;
 					else this.LstSelIdx = this.LstSelIdx;
 				} );
-
 			}
 			catch ( Exception ex )
 			{

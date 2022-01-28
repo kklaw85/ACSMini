@@ -14,7 +14,6 @@ namespace NeoWisePlatform.Windows
 	/// </summary>
 	public partial class Win_Pre_Init : WindowBase
 	{
-
 		public bool IsRestart = false;
 		private int InitLaserTypeIndex = -1;
 		private int InitMachineTypeIndex = -1;

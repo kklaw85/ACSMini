@@ -291,8 +291,6 @@ namespace HiPA.Common.Forms
 			}
 			//return false;
 		}
-
-
 		#endregion
 	}
 	public interface ILockableUI
