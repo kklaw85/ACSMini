@@ -45,6 +45,7 @@
 
     <Color x:Key="CHECKBOX_BORDER" A="255" R="164" G="164" B="164"/>
     <Color x:Key="CHECKBOX_BG" A="255" R="0" G="0" B="0"/>
+    <Color x:Key="C_ContentBoxBorderColor" A="255" R="80" G="80" B="80"/>
     <SolidColorBrush x:Key="BR_UC_BORDER" Color="#FFA4A4A4"/>
     <SolidColorBrush x:Key="BR_DIALOG" Color="#FF505050"/>
     <SolidColorBrush x:Key="BR_ORANGE"  Color="{StaticResource C_ORANGE}" />
@@ -1257,7 +1258,7 @@
         <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
         <Setter Property="Background" Value="{StaticResource ContentBoxColor}"/>
         <Setter Property="HideUpDownButtons" Value="True"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BR_GRAY_200}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ContentBoxBorderColor}"/>
         <Setter Property="HorizontalContentAlignment" Value="Right"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
@@ -1358,7 +1359,7 @@
 
 
     <!--Combobox style-->
-    <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="{StaticResource C_GRAY_140}" />
+    <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="{StaticResource C_ContentBoxBorderColor}" />
     <SolidColorBrush x:Key="ComboBoxDisabledForegroundBrush" Color="Transparent" />
     <SolidColorBrush x:Key="ComboBoxDisabledBackgroundBrush" Color="Transparent" />
     <SolidColorBrush x:Key="ComboBoxDisabledBorderBrush" Color="{StaticResource C_GRAY_120}" />
