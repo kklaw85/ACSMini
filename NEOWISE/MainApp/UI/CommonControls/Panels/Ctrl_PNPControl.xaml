@@ -8,7 +8,7 @@
 			 xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" 
              Loaded="UserControl_Loaded">
-    <Border Style="{StaticResource Panel}">
+    <Border Style="{StaticResource FrameWithShadow}">
         <StackPanel Orientation="Vertical">
             <Label Style="{StaticResource LB_PanelTitle}" Content="{StaticResource PNPArmControl}"/>
             <StackPanel Orientation="Horizontal" Margin="5">

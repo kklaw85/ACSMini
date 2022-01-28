@@ -1773,8 +1773,8 @@ namespace JptCamera
 			{
 				this.SetValue( () => this.roiX, value );
 				this.maxW = this.ImgWidth - this.roiX - 1;
-				this.BrushX = ( this.roiX < 0 || this.roiX > this.ImgWidth ) ? System.Windows.Media.Brushes.Red : System.Windows.Media.Brushes.Black;
-				this.BrushW = ( this.roiW <= 0 || this.roiW > this.ImgWidth - this.roiX ) ? System.Windows.Media.Brushes.Red : System.Windows.Media.Brushes.Black;
+				this.BrushX = ( this.roiX < 0 || this.roiX > this.ImgWidth ) ? System.Windows.Media.Brushes.Red : System.Windows.Media.Brushes.Transparent;
+				this.BrushW = ( this.roiW <= 0 || this.roiW > this.ImgWidth - this.roiX ) ? System.Windows.Media.Brushes.Red : System.Windows.Media.Brushes.Transparent;
 				try
 				{
 					if ( !this.SkipUpdate )
@@ -1795,8 +1795,8 @@ namespace JptCamera
 			{
 				this.SetValue( () => this.roiY, value );
 				this.maxH = this.ImgHeight - this.roiY - 1;
-				this.BrushY = ( this.roiY < 0 || this.roiY > this.ImgHeight ) ? System.Windows.Media.Brushes.Red : System.Windows.Media.Brushes.Black;
-				this.BrushH = ( this.roiH <= 0 || this.roiH > this.ImgHeight - this.roiY ) ? System.Windows.Media.Brushes.Red : System.Windows.Media.Brushes.Black;
+				this.BrushY = ( this.roiY < 0 || this.roiY > this.ImgHeight ) ? System.Windows.Media.Brushes.Red : System.Windows.Media.Brushes.Transparent;
+				this.BrushH = ( this.roiH <= 0 || this.roiH > this.ImgHeight - this.roiY ) ? System.Windows.Media.Brushes.Red : System.Windows.Media.Brushes.Transparent;
 				try
 				{
 					if ( !this.SkipUpdate )
@@ -1816,7 +1816,7 @@ namespace JptCamera
 			set
 			{
 				this.SetValue( () => this.roiW, value );
-				this.BrushW = ( this.roiW <= 0 || this.roiW > this.ImgWidth - this.roiX ) ? System.Windows.Media.Brushes.Red : System.Windows.Media.Brushes.Black;
+				this.BrushW = ( this.roiW <= 0 || this.roiW > this.ImgWidth - this.roiX ) ? System.Windows.Media.Brushes.Red : System.Windows.Media.Brushes.Transparent;
 				try
 				{
 					if ( !this.SkipUpdate )
@@ -1836,7 +1836,7 @@ namespace JptCamera
 			set
 			{
 				this.SetValue( () => this.roiH, value );
-				this.BrushH = ( this.roiH <= 0 || this.roiH > this.ImgHeight - this.roiY ) ? System.Windows.Media.Brushes.Red : System.Windows.Media.Brushes.Black;
+				this.BrushH = ( this.roiH <= 0 || this.roiH > this.ImgHeight - this.roiY ) ? System.Windows.Media.Brushes.Red : System.Windows.Media.Brushes.Transparent;
 				try
 				{
 					if ( !this.SkipUpdate )

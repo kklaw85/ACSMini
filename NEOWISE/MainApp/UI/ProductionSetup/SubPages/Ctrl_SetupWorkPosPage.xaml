@@ -15,7 +15,7 @@
             <Panels31:Ctrl_PNPWorkPos x:Name="PNPWorkPos" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
             <StackPanel Margin="10,0,10,10" Orientation="Horizontal">
                 <Panels:Ctrl_PNPControl x:Name="PNPControl" Margin="0,0,5,0"/>
-                <Border Style="{StaticResource Panel}" Background="{StaticResource Gradient_Panel}">
+                <Border Style="{StaticResource FrameWithShadow}">
                     <Panels:Ctrl_Stage x:Name="StageControl"/>
                 </Border>
             </StackPanel>

@@ -9,7 +9,7 @@
 			xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls"
 			 mc:Ignorable="d" 
              Loaded="UserControl_Loaded">
-    <Border Style="{StaticResource Panel}">
+    <Border Style="{StaticResource FrameWithoutShadow}">
         <Grid x:Name="MotionProfileGrid">
 		<StackPanel Orientation="Vertical">
             <Label x:Name="Lbl_MotionProfileTitle" Content="{StaticResource MotionProfileGen}" Style="{StaticResource LB_ItemTitle}"/>

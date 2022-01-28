@@ -15,7 +15,7 @@
         <StackPanel Orientation="Vertical" Margin="10">
             <!--<Label Content="{StaticResource AxisConfig}" Style="{StaticResource STYLE_SUB_TITLE_LABEL}" Margin="0,0,0,0" VerticalAlignment="Top"/>-->
             <CommonControls:Ctrl_InitBar x:Name="InitBar"/>
-            <Border Style="{StaticResource Panel}" Margin="0,10,0,0">
+            <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,10,0,0">
                 <Grid>
                     <StackPanel x:Name="AxisGenCfg" Orientation="Vertical">
                         <Label Content="{StaticResource Config}" Style="{StaticResource LB_PanelTitle}"/>
@@ -85,7 +85,7 @@
                     <local:Ctrl_HomingParamAdlinkPnl x:Name="HMProfileAD"/>
                 </StackPanel>
             </Grid>
-            <Border Style="{StaticResource Panel}" Margin="0,5,0,0">
+            <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,5,0,0">
                 <Grid x:Name="AxisStatus">
                     <StackPanel Orientation="Vertical">
                         <Label Content="{StaticResource AxisStatusIOPos}" Style="{StaticResource LB_PanelTitle}"/>
@@ -163,7 +163,7 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            <Border Style="{StaticResource Panel}" Margin="0,5,0,0">
+            <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,5,0,0">
                 <Grid>
                     <StackPanel x:Name="AxisMovementCtrl" Orientation="Horizontal">
                         <StackPanel Orientation="Vertical">

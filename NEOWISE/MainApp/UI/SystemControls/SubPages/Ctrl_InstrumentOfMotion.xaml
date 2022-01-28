@@ -14,7 +14,7 @@
         <StackPanel Orientation="Vertical">
             <Label Content="{StaticResource Motion}" Style="{StaticResource LB_MainTitle}"/>
             <StackPanel Orientation="Horizontal" Margin="10" Height="720">
-                <Expander ExpandDirection="Right" Background="{StaticResource Gradient_SubPage}">
+                <Expander ExpandDirection="Right" Background="{StaticResource MahApps.Brushes.ThemeBackground}">
                     <Expander.Header>
                         <Label Content="{StaticResource AxisBoardCfg}" Style="{StaticResource LB_PanelTitle}" RenderTransformOrigin="0.5,0.5" Margin="-63,60,0,0" Width="154">
                             <Label.RenderTransform>
@@ -29,7 +29,7 @@
                     </Expander.Header>
                     <Panels1:Ctrl_InstrumentOfAxisBoard x:Name="AxisBoard"/>
                 </Expander>
-                <Expander ExpandDirection="Right" Background="{StaticResource Gradient_SubPage}" IsExpanded="True" Margin="5,0,0,0">
+                <Expander ExpandDirection="Right" Background="{StaticResource MahApps.Brushes.ThemeBackground}" IsExpanded="True" Margin="5,0,0,0">
                     <Expander.Header>
                         <Label Content="{StaticResource ListOfAxis}" Style="{StaticResource LB_PanelTitle}" RenderTransformOrigin="0.5,0.5" Margin="-63,60,0,0" Width="154">
                             <Label.RenderTransform>
@@ -44,7 +44,7 @@
                     </Expander.Header>
                     <ListBox x:Name="lstAxesList" HorizontalAlignment="Left" Margin="10" Width="250" SelectionChanged="lstAxesList_SelectionChanged" Height="auto"/>
                 </Expander>
-                <Expander ExpandDirection="Right" IsExpanded="True" Background="{StaticResource Gradient_SubPage}" Margin="5,0,0,0">
+                <Expander ExpandDirection="Right" IsExpanded="True" Background="{StaticResource MahApps.Brushes.ThemeBackground}" Margin="5,0,0,0">
                     <Expander.Header>
                         <Label Content="{StaticResource AxisConfig}" Style="{StaticResource LB_PanelTitle}" RenderTransformOrigin="0.5,0.5" Margin="-186,183,0,0" Width="400">
                             <Label.RenderTransform>

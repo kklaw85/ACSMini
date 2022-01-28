@@ -8,7 +8,7 @@
 			 xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" 
              Loaded="UserControl_Loaded">
-    <Border Style="{StaticResource Panel}" Background="{StaticResource Gradient_Panel}">
+    <Border Style="{StaticResource FrameWithShadow}">
         <Grid>
             <StackPanel Orientation="Vertical" VerticalAlignment="Top" x:Name="Panel" Margin="0,0,10,5">
                 <Label Content="{StaticResource PNPPositions}" x:Name="Titlebar" Style="{StaticResource LB_PanelTitle}"/>

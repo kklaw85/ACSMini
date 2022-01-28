@@ -34,7 +34,7 @@ namespace HiPA.Common
 		private SolidColorBrush Br_State_Error = new SolidColorBrush( Color.FromArgb( 255, 255, 0, 0 ) );
 		private SolidColorBrush Br_State_Homing = new SolidColorBrush( Color.FromArgb( 255, 255, 120, 0 ) );
 		//Text Colours
-		private SolidColorBrush BR_Txt_Msg = new SolidColorBrush( Color.FromRgb( 43, 203, 156 ) );
+		private SolidColorBrush BR_Txt_Msg = new SolidColorBrush( Color.FromRgb( 60, 60, 60 ) );
 		private SolidColorBrush BR_Txt_ErrWarn = new SolidColorBrush( Color.FromRgb( 255, 255, 255 ) );
 
 		private Equipment _EM = null;
