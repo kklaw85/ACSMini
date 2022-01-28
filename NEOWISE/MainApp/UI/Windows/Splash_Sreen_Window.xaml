@@ -5,7 +5,7 @@
         Title="Splash_Sreen_Window" Height="317" Width="521"
         WindowStartupLocation="CenterScreen" Background="Transparent" AllowsTransparency="True" WindowStyle="None" 
         Loaded="Window_Loaded" ResizeMode="NoResize" ShowInTaskbar="False">
-    <Border Style="{StaticResource PanelInnerThin}">
+    <Border Style="{StaticResource FrameWithShadow}">
         <Grid>
         <StackPanel Orientation="Vertical" Margin="0,0,0,0">
             <Image Source="/Icons/HipaLogo.png" Height="38" Margin="0,40,0,0"/>

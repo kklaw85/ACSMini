@@ -26,13 +26,13 @@ namespace HiPA.Common
 		public delegate void MachineStateChangedEventHandler( object sender, MachineStateChangeEventArgs e );
 
 		//Background Colours
-		private SolidColorBrush Br_State_Ready = new SolidColorBrush( Color.FromRgb( 0, 0, 0 ) );
-		private SolidColorBrush Br_State_Busy = new SolidColorBrush( Color.FromRgb( 252, 80, 60 ) );
-		private SolidColorBrush Br_State_Running = new SolidColorBrush( Color.FromRgb( 0, 200, 34 ) );
-		private SolidColorBrush Br_State_Pause = new SolidColorBrush( Color.FromRgb( 7, 98, 69 ) );
-		private SolidColorBrush Br_State_Warning = new SolidColorBrush( Color.FromRgb( 255, 120, 0 ) );
-		private SolidColorBrush Br_State_Error = new SolidColorBrush( Color.FromRgb( 255, 0, 0 ) );
-		private SolidColorBrush Br_State_Homing = new SolidColorBrush( Color.FromRgb( 255, 120, 0 ) );
+		private SolidColorBrush Br_State_Ready = new SolidColorBrush( Color.FromArgb( 0, 0, 0, 0 ) );
+		private SolidColorBrush Br_State_Busy = new SolidColorBrush( Color.FromArgb( 255, 252, 80, 60 ) );
+		private SolidColorBrush Br_State_Running = new SolidColorBrush( Color.FromArgb( 255, 0, 200, 34 ) );
+		private SolidColorBrush Br_State_Pause = new SolidColorBrush( Color.FromArgb( 255, 7, 98, 69 ) );
+		private SolidColorBrush Br_State_Warning = new SolidColorBrush( Color.FromArgb( 255, 255, 120, 0 ) );
+		private SolidColorBrush Br_State_Error = new SolidColorBrush( Color.FromArgb( 255, 255, 0, 0 ) );
+		private SolidColorBrush Br_State_Homing = new SolidColorBrush( Color.FromArgb( 255, 255, 120, 0 ) );
 		//Text Colours
 		private SolidColorBrush BR_Txt_Msg = new SolidColorBrush( Color.FromRgb( 43, 203, 156 ) );
 		private SolidColorBrush BR_Txt_ErrWarn = new SolidColorBrush( Color.FromRgb( 255, 255, 255 ) );

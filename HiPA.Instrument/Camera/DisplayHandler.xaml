@@ -9,30 +9,30 @@
              mc:Ignorable="d" 
              Width="640" Height="auto"
              Loaded="UserControl_Loaded" IsVisibleChanged="UserControl_IsVisibleChanged">
-    <Border Margin="0,0,0,0" Style="{StaticResource PanelInnerThin}">
+    <Border Margin="0,0,0,0" Style="{StaticResource FrameWithShadow}">
         <StackPanel Orientation="Vertical" Margin="5">
             <DockPanel>
                 <Button x:Name="Btn_CamSetting" Style="{StaticResource Button_Menu}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30" ToolTip="Camera Setting" Margin="0,0,0,0"  Click="Btn_Click">
-                    <Image Style="{StaticResource STYL_LBL_IMG_VIEWER_MINI_ICON}" Source="/Icons/Exposure_Gain.png"/>
+                    <Image Style="{StaticResource ImgButtonFit}" Source="/Icons/Exposure_Gain.png"/>
                 </Button>
                 <Button x:Name="Btn_Live_Camera" Style="{StaticResource Button_Menu}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30" ToolTip="Continuous Grab" Margin="0,0,0,0" Click="Btn_Click">
-                    <Image Style="{StaticResource STYL_LBL_IMG_VIEWER_MINI_ICON}" Source="/Icons/PR_Live.png"/>
+                    <Image Style="{StaticResource ImgButtonFit}" Source="/Icons/PR_Live.png"/>
                 </Button>
                 <Button x:Name="Btn_OneShot_Camera" Style="{StaticResource Button_Menu}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30" ToolTip="Single Grab" Margin="0,0,0,0" Click="Btn_Click">
-                    <Image Style="{StaticResource STYL_LBL_IMG_VIEWER_MINI_ICON}" Source="/Icons/PR_Pause.png"/>
+                    <Image Style="{StaticResource ImgButtonFit}" Source="/Icons/PR_Pause.png"/>
                 </Button>
                 <Button x:Name="Btn_Save_Camera" Style="{StaticResource Button_Menu}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30" ToolTip="Save Image" Margin="0,0,0,0" Click="Btn_Click">
-                    <Image Style="{StaticResource STYL_LBL_IMG_VIEWER_MINI_ICON}" Source="/Icons/PR_Save.png"/>
+                    <Image Style="{StaticResource ImgButtonFit}" Source="/Icons/PR_Save.png"/>
                 </Button>
-                <Label x:Name="Title" Style="{StaticResource STYL_BUTTON_LBL_COMPACT_LeftAligned}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Margin="10,0,0,0" DockPanel.Dock="Left" Width="180" FontSize="11"/>
+                <Label x:Name="Title" Style="{StaticResource LB_PanelTitle}" Margin="10,0,0,0" DockPanel.Dock="Left" Width="180" FontSize="11"/>
                 <Slider x:Name="Sld_Zoom"  DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center" Width="82" Thumb.DragCompleted="Slider_DragCompleted" Minimum="1" Maximum="20" Value="1" Style="{StaticResource MahApps.Styles.Slider}" />
-                <Label DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="0,0,5,0" Content="✕" Style="{StaticResource STYL_BUTTON_LBL_COMPACT}" VerticalAlignment="Center" Width="10"/>
-                <Label x:Name="Lbl_Zoom_Level"  DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="0,0,0,0" Content="1.00" Style="{StaticResource STYL_BUTTON_LBL_COMPACT}" VerticalAlignment="Center" HorizontalContentAlignment="Right" Width="30"/>
-                <Rectangle Fill="Gray" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="2" Margin="0,5,5,5"/>
+                <Label DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="0,0,5,0" Content="✕" Style="{StaticResource LB_ItemContent}" Padding="0" VerticalAlignment="Center" Width="10"/>
+                <Label x:Name="Lbl_Zoom_Level"  DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="0,0,0,0" Content="1.00" Style="{StaticResource LB_ItemContent}" VerticalAlignment="Center" HorizontalContentAlignment="Right" Width="30"/>
+                <Rectangle DockPanel.Dock="Right" Style="{StaticResource Hor_Divider}" Margin="0,5,5,5"/>
                 <CheckBox x:Name="Chk_xHair"  DockPanel.Dock="Right" HorizontalAlignment="Right" Content="CrossHair" Width="75" VerticalAlignment="Center" Margin="0,0,5,0"/>
-                <Rectangle  DockPanel.Dock="Right" HorizontalAlignment="Right" Fill="Gray" Width="2" Margin="0,5,5,5"/>
+                <Rectangle  DockPanel.Dock="Right" HorizontalAlignment="Right" Style="{StaticResource Hor_Divider}" Margin="0,5,5,5"/>
                 <CheckBox x:Name="Chk_ROI"  DockPanel.Dock="Right" HorizontalAlignment="Right" Content="ROI" Width="40" VerticalAlignment="Center" Checked="Chk_ROI_Checked" Unchecked="Chk_ROI_Checked" Margin="0,0,5,0"/>
-                <Rectangle DockPanel.Dock="Right" HorizontalAlignment="Right" x:Name="Rec_ROI" Fill="Gray" Width="2" Margin="0,5,5,5"/>
+                <Rectangle DockPanel.Dock="Right" HorizontalAlignment="Right" x:Name="Rec_ROI" Style="{StaticResource Hor_Divider}" Margin="0,5,5,5"/>
             </DockPanel>
             <WindowsFormsHost x:Name="Display" HorizontalAlignment="Stretch"  Margin="0,5,0,0" Grid.Row="1" VerticalAlignment="Stretch" Height="480"/>
         </StackPanel>

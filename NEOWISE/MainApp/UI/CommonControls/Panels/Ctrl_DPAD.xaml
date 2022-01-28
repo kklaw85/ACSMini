@@ -13,64 +13,64 @@
             <Label x:Name="Lbl" Content="{StaticResource XHairPositioning}" Style="{StaticResource LB_ItemTitle}"/>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <StackPanel Margin="0,0,0,0">
-                    <Border Style="{StaticResource PanelInner}" Margin="0,0,0,0" Height="110" >
+                    <Border Style="{StaticResource MiniFrame}" Margin="0,0,0,0" Height="110" >
                         <StackPanel Orientation="Vertical" Margin="5,0,5,5">
                             <Label Content="{StaticResource PositionMM}" HorizontalContentAlignment="Center" Style="{StaticResource LB_ItemTitle}" ToolTip="X-hair Offset from Center of Image" Width="70"/>
                             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                                 <Label Content="{StaticResource Jog_X}" Style="{StaticResource LB_ItemContent_Right}" />
-                                <Label x:Name="Current_XPos" Style="{StaticResource STYLE_14SEG_POS}" Content="{Binding XOffsetmm, Converter={StaticResource DisplayThreeDecPlacesDouble} }" Width="60"/>
+                                <Label x:Name="Current_XPos" Style="{StaticResource LB_ItemData_Right}" Content="{Binding XOffsetmm, Converter={StaticResource DisplayThreeDecPlacesDouble} }" Width="60"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                                 <Label Content="{StaticResource Jog_Y}" Style="{StaticResource LB_ItemContent_Right}" />
-                                <Label x:Name="Current_YPos" Style="{StaticResource STYLE_14SEG_POS}" Content="{Binding YOffsetmm, Converter={StaticResource DisplayThreeDecPlacesDouble} }" Width="60"/>
+                                <Label x:Name="Current_YPos" Style="{StaticResource LB_ItemData_Right}" Content="{Binding YOffsetmm, Converter={StaticResource DisplayThreeDecPlacesDouble} }" Width="60"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>
-                    <Border Style="{StaticResource PanelInner}" Margin="0,5,0,0">
-                        <StackPanel Orientation="Vertical" Margin="5,0,5,10" Height="63">
+                    <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,5,0,0">
+                        <StackPanel Orientation="Vertical" Margin="5,0,5,10" Height="66">
                             <Label Content="{StaticResource AutoPositioning}" HorizontalContentAlignment="Center" Style="{StaticResource LB_ItemTitle}"/>
-                            <Button x:Name="Btn_AutoPositionXHair" Content="{StaticResource CalcPos}" Click="Btn_AutoPositionXHair_Click"  Margin="0,5,0,0" Width="70"/>
+                            <Button x:Name="Btn_AutoPositionXHair" Content="{StaticResource CalcPos}" Click="Btn_AutoPositionXHair_Click" Style="{StaticResource Button_FrameMenu}" Height="25"  Margin="0,5,0,0" Width="70"/>
                         </StackPanel>
                     </Border>
                 </StackPanel>
-                <Border Style="{StaticResource PanelInner}" Margin="5,0,0,0">
+                <Border Style="{StaticResource FrameWithoutShadow}" Margin="5,0,0,0">
                     <StackPanel Orientation="Vertical">
                         <Label Content="{StaticResource ManualPositioning}" HorizontalContentAlignment="Center" Style="{StaticResource LB_ItemTitle}"/>
-                        <Border Style="{StaticResource PanelInnerThin}" Margin="5">
+                        <Border Style="{StaticResource FrameWithoutShadow}" Margin="5">
                             <StackPanel Orientation="Horizontal" Margin="5">
-                                <Border Style="{StaticResource PanelInnerThin}">
+                                <Border Style="{StaticResource FrameWithoutShadow}">
                                     <StackPanel Orientation="Vertical" Margin="5">
                                         <StackPanel Orientation="Horizontal">
                                             <Button x:Name="Btn_JogXY_LeftUp" Tag="_Y,_X"  Style="{StaticResource Button_W40H40}" Click="Btn_Click">
-                                                <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}" Source="/Icons/DPAD_NW.png"/>
+                                                <Image Style="{StaticResource ImgBtn_W30H30}" Source="/Icons/DPAD_NW.png"/>
                                             </Button>
                                             <Button x:Name="Btn_JogXY_Up" Tag="_Y" Margin="5,0,0,0" Style="{StaticResource Button_W40H40}" Click="Btn_Click">
-                                                <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}" Source="/Icons/DPAD_Up.png"/>
+                                                <Image Style="{StaticResource ImgBtn_W30H30}" Source="/Icons/DPAD_Up.png"/>
                                             </Button>
                                             <Button x:Name="Btn_JogXY_RightUp" Tag="_Y,X" Margin="5,0,0,0" Style="{StaticResource Button_W40H40}" Click="Btn_Click">
-                                                <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}" Source="/Icons/DPAD_NE.png"/>
+                                                <Image Style="{StaticResource ImgBtn_W30H30}" Source="/Icons/DPAD_NE.png"/>
                                             </Button>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                                             <Button x:Name="Btn_JogXY_Left"  Tag="_X" Style="{StaticResource Button_W40H40}" Click="Btn_Click">
-                                                <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}" Source="/Icons/DPAD_Left.png"/>
+                                                <Image Style="{StaticResource ImgBtn_W30H30}" Source="/Icons/DPAD_Left.png"/>
                                             </Button>
                                             <Button  x:Name="Btn_Stop" Margin="5,0,0,0" Style="{StaticResource Button_W40H40}" Click="Btn_Stop_Click">
-                                                <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}" Source="/Icons/DPAD_Stop.png"/>
+                                                <Image Style="{StaticResource ImgBtn_W30H30}" Source="/Icons/DPAD_Stop.png"/>
                                             </Button>
                                             <Button x:Name="Btn_JogXY_Right"  Tag="X" Margin="5,0,0,0" Style="{StaticResource Button_W40H40}" Click="Btn_Click">
-                                                <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}" Source="/Icons/DPAD_Right.png"/>
+                                                <Image Style="{StaticResource ImgBtn_W30H30}" Source="/Icons/DPAD_Right.png"/>
                                             </Button>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                                             <Button  x:Name="Btn_JogXY_LeftDown" Tag="_X,Y" Style="{StaticResource Button_W40H40}" Click="Btn_Click">
-                                                <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}" Source="/Icons/DPAD_SW.png"/>
+                                                <Image Style="{StaticResource ImgBtn_W30H30}" Source="/Icons/DPAD_SW.png"/>
                                             </Button>
                                             <Button x:Name="Btn_JogXY_Down" Tag="Y" Margin="5,0,0,0" Style="{StaticResource Button_W40H40}" Click="Btn_Click">
-                                                <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}" Source="/Icons/DPAD_Down.png"/>
+                                                <Image Style="{StaticResource ImgBtn_W30H30}" Source="/Icons/DPAD_Down.png"/>
                                             </Button>
                                             <Button  x:Name="Btn_JogXY_RightDown" Tag="X,Y" Margin="5,0,0,0" Style="{StaticResource Button_W40H40}" Click="Btn_Click">
-                                                <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W30H30}" Source="/Icons/DPAD_SE.png"/>
+                                                <Image Style="{StaticResource ImgBtn_W30H30}" Source="/Icons/DPAD_SE.png"/>
                                             </Button>
                                         </StackPanel>
                                     </StackPanel>
@@ -90,7 +90,7 @@
                         </Border>
                     </StackPanel>
                 </Border>
-                <Border Style="{StaticResource PanelInner}" Margin="5,0,0,0">
+                <Border Style="{StaticResource FrameWithoutShadow}" Margin="5,0,0,0">
                     <StackPanel>
                         <Label Content="{StaticResource ROIPara}" HorizontalContentAlignment="Center" Style="{StaticResource LB_ItemTitle}" ToolTip="X-hair Offset from Center of Image"/>
                         <Panels:Ctrl_ROIParameter x:Name="InspectROI" Margin="5"/>

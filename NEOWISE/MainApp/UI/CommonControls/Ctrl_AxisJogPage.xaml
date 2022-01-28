@@ -15,13 +15,13 @@
                 <Label Style="{StaticResource LB_PanelTitle}" x:Name="LblAxisName" Content="Axis Name"
                 HorizontalAlignment="Left"
                 DockPanel.Dock="Left"/>
-                <Label x:Name="Txt_Curr_Pos" Style="{StaticResource STYLE_14SEG_POS}" Content="12.44" Width="120" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" DockPanel.Dock="Right"/>
+                <Label x:Name="Txt_Curr_Pos" Style="{StaticResource LB_ItemData_Center}" Content="12.44" Width="120" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" DockPanel.Dock="Right"/>
                 <Label Content="{StaticResource CurrentPos}" Style="{StaticResource LB_ItemContent_Right}" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
             </DockPanel>
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Vertical" Margin="10,10,0,0">
-                    <RadioButton Content="{StaticResource Step}" x:Name="Rdo_Step" Style="{StaticResource Radio_Bold}" IsChecked="True" Margin="0,3,0,0" Checked="Rdo_Step_Checked"/>
-                    <RadioButton Content="{StaticResource Vel}" x:Name="Rdo_Vel" Style="{StaticResource Radio_Bold}" Margin="0,30,0,0"  Checked="Rdo_Step_Checked"/>
+                    <RadioButton Content="{StaticResource Step}" x:Name="Rdo_Step" IsChecked="True" Margin="0,3,0,0" Checked="Rdo_Step_Checked"/>
+                    <RadioButton Content="{StaticResource Vel}" x:Name="Rdo_Vel" Margin="0,30,0,0"  Checked="Rdo_Step_Checked"/>
                 </StackPanel>
                 <StackPanel Margin="0,10,10,10">
                     <StackPanel Orientation="Horizontal">

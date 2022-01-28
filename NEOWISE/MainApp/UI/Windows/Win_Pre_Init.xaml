@@ -14,7 +14,7 @@
             <Label x:Name="Lbl_AppTitle" Content="Inspection System" Margin="0,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="8" Style="{StaticResource LB_PanelTitle}" FontStyle="Italic"/>
             <Label x:Name="lbl_AppName" Content="NeoWise" HorizontalAlignment="Right" Style="{StaticResource LB_ItemContent_Right}" Margin="10" FontSize="14" FontWeight="Bold" VerticalAlignment="Top" Width="160" />
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,40,0,0">
-                <Border Style="{StaticResource PanelThin}" Background="White">
+                <Border Style="{StaticResource FrameWithShadow}" Background="White">
                     <StackPanel Orientation="Vertical" Margin="10" >
                         <Label Content="{StaticResource SystemInitialzationStatus}" Style="{StaticResource LB_MainTitle}" Margin="0,0,0,5" HorizontalContentAlignment="Left" Height="Auto"/>
                         <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
@@ -43,17 +43,17 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <Border Margin="0,10,0,0" Style="{StaticResource PanelThin}">
+                <Border Margin="0,10,0,0" Style="{StaticResource FrameWithShadow}">
                     <StackPanel x:Name="LoginStk" Orientation="Horizontal" Margin="10" >
                         <StackPanel Orientation="Vertical" Margin="0,0,2,0">
                             <StackPanel Orientation="Horizontal">
                                 <Label Content="{StaticResource UserID}" HorizontalAlignment="Left" Style="{StaticResource LB_ItemContent_Right}" Width="70"/>
-                                <TextBox x:Name="Txt_UserID" HorizontalAlignment="Left" BorderBrush="{StaticResource MahApps.Brushes.ThemeForeground}" Background="Transparent" VerticalAlignment="Top" Height="25" Width="100" KeyUp="Txt_UserID_KeyUp"/>
-                                <Button x:Name="Btn_Login" Content="{StaticResource Login}" Style="{StaticResource BtnCommon}" Margin="5,0,0,0" Width="50" Height="25" Click="Button_Click"/>
+                                <TextBox x:Name="Txt_UserID" Width="100" KeyUp="Txt_UserID_KeyUp"/>
+                                <Button x:Name="Btn_Login" Content="{StaticResource Login}" Margin="5,0,0,0" Width="50" Height="25" Click="Button_Click"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                                 <Label Content="{StaticResource Password}" HorizontalAlignment="Left" Style="{StaticResource LB_ItemContent_Right}" Width="70"/>
-                                <PasswordBox x:Name="PB_Password" HorizontalAlignment="Left" BorderBrush="{StaticResource MahApps.Brushes.ThemeForeground}" Background="Transparent" Width="100" Height="25" KeyUp="PB_Password_KeyUp"/>
+                                <PasswordBox x:Name="PB_Password" HorizontalAlignment="Left" Width="100" KeyUp="PB_Password_KeyUp"/>
                                 <Button x:Name="Btn_Exit" Style="{StaticResource BtnCommonRedText}" Content="{StaticResource Exit}" Margin="5,0,0,0" VerticalAlignment="Top" Width="50" Height="25" Click="Btn_Exit_Click"/>
                             </StackPanel>
                         </StackPanel>
@@ -63,8 +63,8 @@
                     </StackPanel>
                 </Border>
                 <StackPanel Background="Transparent" Margin="10">
-                    <TextBlock x:Name="Lbl_Software_Version" Text="{StaticResource Version}" Margin="0,4,0,0" TextAlignment="Center" VerticalAlignment="Center" FontSize="12" Foreground="#FFB4B4B4" />
-                    <TextBlock x:Name="Lbl_Copyright" Text="Copyright Energeo Systems 2022" Margin="0,4,0,0" TextAlignment="Center" VerticalAlignment="Center" FontSize="12" Foreground="#FFB4B4B4" />
+                    <TextBlock x:Name="Lbl_Software_Version" Text="{StaticResource Version}" Margin="0,4,0,0" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Foreground="{StaticResource TextColor}" />
+                    <TextBlock x:Name="Lbl_Copyright" Text="Copyright Energeo Systems 2022" Margin="0,4,0,0" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Foreground="{StaticResource TextColor}"  />
                 </StackPanel>
             </StackPanel>
         </Grid>

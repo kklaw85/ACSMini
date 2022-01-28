@@ -44,36 +44,36 @@
                 </StackPanel>
             </Expander>
         </StackPanel>
-        <Border Style="{StaticResource PanelInner}" Margin="5">
+        <Border Style="{StaticResource FrameWithoutShadow}" Margin="5">
             <StackPanel Margin="0,0,0,0">
                 <Label Content="IO State" Style="{StaticResource LB_ItemTitle}"/>
-                <Border Style="{StaticResource PanelInnerThin}" Margin="5">
+                <Border Style="{StaticResource MiniFrame}" Margin="5">
                     <StackPanel Orientation="Horizontal" Margin="5">
-                        <Label Content="Arm" Style="{StaticResource STYL_BUTTON_LBL_COMPACT_RightAligned}" Width="50"/>
+                        <Label Content="Arm" Style="{StaticResource LB_ItemContent_MiniRight}" VerticalAlignment="Center" Width="50"/>
                         <StackPanel Orientation="Vertical" Margin="5,0,0,0">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="I." Style="{StaticResource STYL_BUTTON_LBL_COMPACT_RightAligned}" Width="20"/>
+                                <Label Content="I." Style="{StaticResource LB_ItemContent_MiniRight}" VerticalAlignment="Center" Width="20"/>
                                 <Rectangle Style="{StaticResource Slot_Input}" Height="10" Width="15" x:Name="InResetPos" Fill="{Binding _ResetPos.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
                                 <Rectangle Style="{StaticResource Slot_Input}" Height="10" Width="15" x:Name="InInPos" Fill="{Binding _InPos.Value, Converter={StaticResource DioValueToBrushIORec}}" Margin="2,0,0,0"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                                <Label Content="O." Style="{StaticResource STYL_BUTTON_LBL_COMPACT_RightAligned}" Width="20"/>
+                                <Label Content="O." Style="{StaticResource LB_ItemContent_MiniRight}" VerticalAlignment="Center" Width="20"/>
                                 <Rectangle Style="{StaticResource Slot_Input}" Height="10" Width="15" x:Name="OutResetPos" Fill="{Binding _ToResetCylinder.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
                                 <Rectangle Style="{StaticResource Slot_Input}" Height="10" Width="15" x:Name="OutInPos" Fill="{Binding _ToPosCylinder.Value, Converter={StaticResource DioValueToBrushIORec}}" Margin="2,0,0,0"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <Border Style="{StaticResource PanelInnerThin}" Margin="5,0,5,5">
+                <Border Style="{StaticResource MiniFrame}" Margin="5,0,5,5">
                     <StackPanel Orientation="Horizontal" Margin="5">
-                        <Label Content="Suction" Style="{StaticResource STYL_BUTTON_LBL_COMPACT_RightAligned}" Width="50"/>
+                        <Label Content="Suction" Style="{StaticResource LB_ItemContent_MiniRight}" VerticalAlignment="Center" Width="50"/>
                         <StackPanel Orientation="Vertical"  Margin="5,0,0,0">
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                                <Label Content="I." Style="{StaticResource STYL_BUTTON_LBL_COMPACT_RightAligned}" Width="20"/>
+                                <Label Content="I." Style="{StaticResource LB_ItemContent_MiniRight}" VerticalAlignment="Center"  Width="20"/>
                                 <Rectangle Style="{StaticResource Slot_Input}" Height="10" Width="15" x:Name="SucI" Fill="{Binding _VacuumSuctionSense.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                                <Label Content="O." Style="{StaticResource STYL_BUTTON_LBL_COMPACT_RightAligned}" Width="20"/>
+                                <Label Content="O." Style="{StaticResource LB_ItemContent_MiniRight}" VerticalAlignment="Center"  Width="20"/>
                                 <Rectangle Style="{StaticResource Slot_Input}" Height="10" Width="15" x:Name="SucO" Fill="{Binding _VacuumSuction.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
                             </StackPanel>
                         </StackPanel>
@@ -81,46 +81,46 @@
                 </Border>
             </StackPanel>
         </Border>
-        <Border Style="{StaticResource PanelInner}" Margin="5">
+        <Border Style="{StaticResource FrameWithoutShadow}" Margin="5">
             <StackPanel Margin="0,0,0,0">
                 <Label Content="Manual Ctrl." Style="{StaticResource LB_ItemTitle}"/>
-                <Border Style="{StaticResource PanelInnerThin}" Margin="5">
+                <Border Style="{StaticResource MiniFrame}" Margin="5">
                     <StackPanel Orientation="Vertical">
                         <Label Content="Clamp" Style="{StaticResource LB_ItemContent_Left}"/>
                         <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
                             <Button x:Name="BtnArmUp" Style="{StaticResource Button_FrameMenu}" Width="50" Height="50" Click="Btn_Click" ToolTip="Arm Up">
-                                <Image Style="{StaticResource STYL_LBL_IMG_IO_MENU_ICON}" Source="/Icons/DPAD_Up.png"/>
+                                <Image Style="{StaticResource ImgBtn_W45H45}" Source="/Icons/DPAD_Up.png"/>
                             </Button>
                             <Button x:Name="BtnArmDown" Style="{StaticResource Button_FrameMenu}" Width="50" Height="50" Margin="5,0,0,0" Click="Btn_Click" ToolTip="Arm Down">
-                                <Image Style="{StaticResource STYL_LBL_IMG_IO_MENU_ICON}" Source="/Icons/DPAD_Down.png"/>
+                                <Image Style="{StaticResource ImgBtn_W45H45}" Source="/Icons/DPAD_Down.png"/>
                             </Button>
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <Border Style="{StaticResource PanelInnerThin}" Margin="5,0,5,5">
+                <Border Style="{StaticResource MiniFrame}" Margin="5,0,5,5">
                     <StackPanel Orientation="Vertical">
                         <Label Content="Suction" Style="{StaticResource LB_ItemContent_Left}"/>
                         <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
                             <Button x:Name="BtnSuctionOff" Style="{StaticResource Button_FrameMenu}" Width="50" Height="50" Click="Btn_Click" ToolTip="Suction off">
-                                <Image Style="{StaticResource STYL_LBL_IMG_IO_MENU_ICON}" Source="/Icons/StageSuctionOff.png"/>
+                                <Image Style="{StaticResource ImgBtn_W45H45}" Source="/Icons/StageSuctionOff.png"/>
                             </Button>
                             <Button x:Name="BtnSuctionOn" Style="{StaticResource Button_FrameMenu}" Width="50" Height="50" Margin="5,0,0,0" Click="Btn_Click" ToolTip="Suction on">
-                                <Image Style="{StaticResource STYL_LBL_IMG_IO_MENU_ICON}" Source="/Icons/StageSuctionOn.png"/>
+                                <Image Style="{StaticResource ImgBtn_W45H45}" Source="/Icons/StageSuctionOn.png"/>
                             </Button>
                         </StackPanel>
                     </StackPanel>
                 </Border>
             </StackPanel>
         </Border>
-        <Border Style="{StaticResource PanelInner}" Margin="5">
+        <Border Style="{StaticResource FrameWithoutShadow}" Margin="5">
             <StackPanel Margin="0,0,0,0">
                 <Label Content="Seq. Ctrl." Style="{StaticResource LB_ItemTitle}"/>
                 <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
                     <Button x:Name="BtnPlace" Style="{StaticResource Button_FrameMenu}" Width="50" Height="50" Click="Btn_Click" ToolTip="Place">
-                        <Image Style="{StaticResource STYL_LBL_IMG_IO_MENU_ICON}" Source="/Icons/Place.png"/>
+                        <Image Style="{StaticResource ImgBtn_W45H45}" Source="/Icons/Place.png"/>
                     </Button>
                     <Button x:Name="BtnPick" Style="{StaticResource Button_FrameMenu}" Width="50" Height="50" Click="Btn_Click" ToolTip="Pick" Margin="5,0,0,0">
-                        <Image Style="{StaticResource STYL_LBL_IMG_IO_MENU_ICON}" Source="/Icons/Pick.png"/>
+                        <Image Style="{StaticResource ImgBtn_W45H45}" Source="/Icons/Pick.png"/>
                     </Button>
                 </StackPanel>
             </StackPanel>

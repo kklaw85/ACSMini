@@ -27,9 +27,9 @@
                     <Label Content="{Globalizer:GlobalizedResource Msg, FallbackValue='Message'}" Style="{StaticResource LB_ItemContent_Right}" Width="89" VerticalAlignment="Top"/>
                 </StackPanel>
             </StackPanel>
-            <Button x:Name="Btn_Clear" Content="{Globalizer:GlobalizedResource Clear, FallbackValue='Clear'}" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" Width="110" Height="25" Margin="0,30,10,0" Click="Btn_Clear_Click"/>
+            <Button x:Name="Btn_Clear" Content="{Globalizer:GlobalizedResource Clear, FallbackValue='Clear'}" DockPanel.Dock="Right" HorizontalAlignment="Right" Style="{StaticResource Button_FrameMenu}" VerticalAlignment="Top" Width="110" Height="25" Margin="0,30,10,0" Click="Btn_Clear_Click"/>
         </DockPanel>
-        <TextBlock Style="{StaticResource STYLE_POS_LABEL_TEXT_WRAPPING_Top_Left}" Margin="100,-16,10,0" HorizontalAlignment="Stretch" Height="120" Text="{Binding CurrentAlarm.Message}"/>
+        <TextBlock Style="{StaticResource TB_ItemContent_Wrapped}" Margin="100,-16,10,0" HorizontalAlignment="Stretch" Height="120" Text="{Binding CurrentAlarm.Message}"/>
         <DataGrid x:Name="Grd_AlarmHistory" SelectedCellsChanged="Grd_AlarmHistory_SelectedCellsChanged"
                   HorizontalAlignment="Stretch" 
                   VerticalAlignment="Stretch"

@@ -23,10 +23,10 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                             <Label Content="{Globalizer:GlobalizedResource Password, FallbackValue='Password'}" HorizontalAlignment="Left" Style="{StaticResource LB_ItemContent_Right}" Width="70"/>
-                            <PasswordBox x:Name="PB_Password" BorderBrush="Transparent" HorizontalAlignment="Left" Width="230" Height="25" KeyUp="PB_Password_KeyUp"/>
+                            <PasswordBox x:Name="PB_Password" Width="230" KeyUp="PB_Password_KeyUp"/>
                         </StackPanel>
                     </StackPanel>
-                    <Button x:Name="Btn_Login" Content="{Globalizer:GlobalizedResource Login, FallbackValue='Login'}" Style="{StaticResource BtnCommon}" Margin="5,0,0,0" Width="67" Height="54" Click="Button_Click"/>
+                    <Button x:Name="Btn_Login" Content="{Globalizer:GlobalizedResource Login, FallbackValue='Login'}" Margin="5,0,0,0" Width="67" Height="54" Click="Button_Click"/>
                     <Label x:Name="Lbl_Log_In_Status" Content="{Globalizer:GlobalizedResource LoginTryAgain, FallbackValue='Incorrect ID or Password. Please try again!'}" FontSize="11" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Style="{StaticResource LB_ItemContent_Left}" Foreground="Red" Margin="5,30,0,2" Width="237" Height="23" />
                 </StackPanel>
             </StackPanel>
@@ -42,19 +42,19 @@
                     <StackPanel x:Name="Exp_Create_User" Margin="10" Orientation="Vertical">
                         <StackPanel Orientation="Horizontal">
                             <Label Content="{Globalizer:GlobalizedResource UserID, FallbackValue='ID'}"  Width="145" Style="{StaticResource LB_ItemContent_Right}"/>
-                            <TextBox x:Name="PB_Create_New_User" Style="{StaticResource STYLE_POS_TEXTBOX_Frameless}" Width="350"/>
+                            <TextBox x:Name="PB_Create_New_User" Style="{StaticResource TBx_Left}" Width="350"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                             <Label Content="{Globalizer:GlobalizedResource Password, FallbackValue='Password'}" Width="145" Style="{StaticResource LB_ItemContent_Right}"/>
-                            <PasswordBox x:Name="PB_Create_New_UserPW" BorderBrush="Transparent" Height="25" Background="Black" BorderThickness="0" Width="350"/>
+                            <PasswordBox x:Name="PB_Create_New_UserPW" Width="350"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                             <Label Content="{Globalizer:GlobalizedResource UserLevel, FallbackValue='User Level'}" Width="145" Style="{StaticResource LB_ItemContent_Right}"/>
                             <ComboBox x:Name="Cb_Create_New_GroupID" BorderBrush="Transparent" Width="350"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                            <Button Content="{Globalizer:GlobalizedResource CreateUser, FallbackValue='Create User'}" x:Name="Btn_CreateUser" Style="{StaticResource BtnCommon}" Width="200" Height="30" Click="Button_Click" Margin="146,0,0,0"/>
-                            <Button Content="{Globalizer:GlobalizedResource Cancel, FallbackValue='Cancel'}" x:Name="Btn_CreateCancel" Style="{StaticResource BtnCommon}" Width="145" Height="30" Click="Button_Click" Margin="5,0,0,0"/>
+                            <Button Content="{Globalizer:GlobalizedResource CreateUser, FallbackValue='Create User'}" x:Name="Btn_CreateUser" Width="200" Height="30" Click="Button_Click" Margin="146,0,0,0"/>
+                            <Button Content="{Globalizer:GlobalizedResource Cancel, FallbackValue='Cancel'}" x:Name="Btn_CreateCancel" Width="145" Height="30" Click="Button_Click" Margin="5,0,0,0"/>
                         </StackPanel>
                         <Label x:Name="Lbl_CreateUser_Change_Status" Visibility="Collapsed" Content="Try Again" HorizontalContentAlignment="Left" Margin="147,0,0,10" VerticalAlignment="Top" Height="28" Width="362" Style="{StaticResource LB_ItemContent_Left}" Foreground="Red" HorizontalAlignment="Left" />
                     </StackPanel>
@@ -99,8 +99,8 @@
                             </DataGrid>
                         </StackPanel>
                         <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
-                            <Button x:Name="Btn_ApplyPrivilege" Content="{Globalizer:GlobalizedResource ApplyPrivilege, FallbackValue='Apply Privilege'}" Style="{StaticResource BtnCommon}" Margin="145,0,0,0" VerticalAlignment="Top" Width="175" Height="34" HorizontalAlignment="Left" Click="Button_Click"/>
-                            <Button x:Name="Btn_Delete" Content="{Globalizer:GlobalizedResource DelUser, FallbackValue='Delete User'}" Style="{StaticResource BtnCommon}" Margin="5,0,0,0" VerticalAlignment="Top" Width="170" Height="34" HorizontalAlignment="Left" Click="Button_Click"/>
+                            <Button x:Name="Btn_ApplyPrivilege" Content="{Globalizer:GlobalizedResource ApplyPrivilege, FallbackValue='Apply Privilege'}" Margin="145,0,0,0" VerticalAlignment="Top" Width="175" Height="34" HorizontalAlignment="Left" Click="Button_Click"/>
+                            <Button x:Name="Btn_Delete" Content="{Globalizer:GlobalizedResource DelUser, FallbackValue='Delete User'}" Margin="5,0,0,0" VerticalAlignment="Top" Width="170" Height="34" HorizontalAlignment="Left" Click="Button_Click"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -117,19 +117,19 @@
                     <StackPanel Margin="10">
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                             <Label Content="{Globalizer:GlobalizedResource OldPassword, FallbackValue='Old Password'}" Width="145" Style="{StaticResource LB_ItemContent_Right}" />
-                            <PasswordBox x:Name="PB_Old_Password" BorderBrush="Transparent" Height="25" Background="Black" BorderThickness="0" Width="350"/>
+                            <PasswordBox x:Name="PB_Old_Password" Width="350"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                             <Label Content="{Globalizer:GlobalizedResource NewPassword, FallbackValue='New Password'}" Width="145" Style="{StaticResource LB_ItemContent_Right}"/>
-                            <PasswordBox x:Name="PB_New_Password" BorderBrush="Transparent" Height="25" Background="Black" BorderThickness="0" Width="350"/>
+                            <PasswordBox x:Name="PB_New_Password" Width="350"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                             <Label Content="{Globalizer:GlobalizedResource RetypeNewPassword, FallbackValue='Retype New Password'}" Width="145" Style="{StaticResource LB_ItemContent_Right}"/>
-                            <PasswordBox x:Name="PB_Comfirm_Password" BorderBrush="Transparent" Height="25" Background="Black" BorderThickness="0" Width="350"/>
+                            <PasswordBox x:Name="PB_Comfirm_Password" Width="350"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="145,5,0,0">
-                            <Button Content="{Globalizer:GlobalizedResource ChangePassword, FallbackValue='Change Password'}" x:Name="Btn_ChangePassword" Style="{StaticResource BtnCommon}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="175" Height="34" Click="Button_Click" Margin="0,0,0,0"/>
-                            <Button Content="{Globalizer:GlobalizedResource Cancel, FallbackValue='Cancel'}" x:Name="Btn_CancelChangePassword" Style="{StaticResource BtnCommon}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="170" Height="34" Click="Button_Click" Margin="5,0,0,0"/>
+                            <Button Content="{Globalizer:GlobalizedResource ChangePassword, FallbackValue='Change Password'}" x:Name="Btn_ChangePassword" HorizontalAlignment="Left" VerticalAlignment="Top" Width="175" Height="34" Click="Button_Click" Margin="0,0,0,0"/>
+                            <Button Content="{Globalizer:GlobalizedResource Cancel, FallbackValue='Cancel'}" x:Name="Btn_CancelChangePassword" HorizontalAlignment="Left" VerticalAlignment="Top" Width="170" Height="34" Click="Button_Click" Margin="5,0,0,0"/>
                         </StackPanel>
                         <Label x:Name="Lbl_Change_Status" Visibility="Collapsed" Content="{Globalizer:GlobalizedResource ChangePasswordTryAgain, FallbackValue='Password mismatch. Please try again!' }" Height="28" Width="Auto" HorizontalContentAlignment="Left" Style="{StaticResource LB_ItemContent_Left}" Foreground="Red" Margin="148,5,0,5"/>
                     </StackPanel>

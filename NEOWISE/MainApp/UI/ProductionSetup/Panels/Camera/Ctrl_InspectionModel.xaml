@@ -13,7 +13,7 @@
         <StackPanel Orientation="Vertical">
             <Label Style="{StaticResource LB_ItemTitle}" x:Name="LabelName"/>
             <StackPanel Margin="5">
-                <Border Style="{StaticResource PanelInner}">
+                <Border Style="{StaticResource FrameWithoutShadow}">
                     <Grid x:Name="Grid_Model1">
                         <Label Content="{StaticResource MmfViewer}" Style="{StaticResource LB_PanelTitle}" Margin="0" VerticalAlignment="Top"/>
                         <StackPanel Orientation="Vertical" Margin="5,30,5,5">
@@ -27,11 +27,11 @@
                         </StackPanel>
                     </Grid>
                 </Border>
-                <Border Style="{StaticResource PanelInner}" Margin="0,5,0,0">
+                <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,5,0,0">
                     <Grid>
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal" Margin="5">
-                                <Border Style="{StaticResource PanelInnerThin}">
+                                <Border Style="{StaticResource MiniFrame}">
                                     <Grid Margin="0,0,5,5">
                                         <StackPanel Orientation="Vertical">
                                             <Label Content="{StaticResource Offset}" Style="{StaticResource LB_ItemContent_Left}"/>

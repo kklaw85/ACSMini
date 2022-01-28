@@ -30,7 +30,7 @@
 				</TransformGroup>
 			</Slider.RenderTransform>
 		</Slider>
-		<Button x:Name="Btn_Close_Cam_Sett" Content="✖" Style="{StaticResource Button_RedContent}"
+		<Button x:Name="Btn_Close_Cam_Sett" Content="✖" Style="{StaticResource Button_FrameMenu_RedContent}"
         	HorizontalAlignment="Left" 
         	VerticalAlignment="Top"
         	ToolTip="Camera Setting"

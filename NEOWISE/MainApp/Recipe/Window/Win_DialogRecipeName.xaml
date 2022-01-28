@@ -13,7 +13,7 @@
 			<StackPanel Margin="10">
 				<StackPanel Orientation="Horizontal">
 					<Label Content="{StaticResource Name}" Style="{StaticResource LB_ItemContent_Right}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50"/>
-                    <TextBox x:Name="txtRecipeName" Style="{StaticResource STYLE_POS_TEXTBOX_Left}" Text="TextBox" Width="230"/>
+                    <TextBox x:Name="txtRecipeName" Style="{StaticResource TBx_Left}" Text="TextBox" Width="230"/>
 				</StackPanel>
 				<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="155,5,0,0">
 					<Button x:Name="Btn_Ok" Style="{StaticResource Button_FrameMenu_LimeContent}" Content="{StaticResource Ok}" Width="60" Click="Btn_Ok_Click"/>

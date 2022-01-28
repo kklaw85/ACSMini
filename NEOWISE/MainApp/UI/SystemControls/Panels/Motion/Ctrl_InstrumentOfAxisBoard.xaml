@@ -43,7 +43,7 @@
                         </StackPanel>
                         <StackPanel x:Name="StkPnl_CfgFilePath" Margin="0,5,0,0" Orientation="Horizontal" VerticalAlignment="Top">
                             <Label Content="{StaticResource AxisBoardCfgFilePath}" Style="{StaticResource LB_ItemContent_Right}" Width="145"/>
-                            <TextBox Width="320" x:Name="txt_AxisCfgFilePath" Style="{StaticResource STYLE_POS_TEXTBOX}"/>
+                            <TextBox Width="320" x:Name="txt_AxisCfgFilePath"/>
                             <Button HorizontalAlignment="Right" Margin="5,0,0,0" Content="..." x:Name="btn_AxisBoardCfgFilePath" Width="30" Click="Btn_AxisBoardCfgFilePath_Click" Height="25" VerticalAlignment="Top"/>
                         </StackPanel>
                     </StackPanel>

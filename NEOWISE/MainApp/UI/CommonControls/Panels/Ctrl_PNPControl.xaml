@@ -8,7 +8,7 @@
 			 xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" 
              Loaded="UserControl_Loaded">
-    <Border Style="{StaticResource Panel}" Background="{StaticResource Gradient_Panel}">
+    <Border Style="{StaticResource Panel}">
         <StackPanel Orientation="Vertical">
             <Label Style="{StaticResource LB_PanelTitle}" Content="{StaticResource PNPArmControl}"/>
             <StackPanel Orientation="Horizontal" Margin="5">
@@ -16,13 +16,13 @@
                 <ComboBox x:Name="UnInspResult" Width="70" HorizontalAlignment="Left" Margin="5,0,0,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5,0,5,5">
-                <Border Style="{StaticResource PanelInner}">
+                <Border Style="{StaticResource FrameWithShadow}">
                     <CommonControls:Ctrl_SingleAxisJog x:Name="PnpAxis" Margin="0,0,5,0"/>
                 </Border>
-                <Border Margin="5,0,0,0" Style="{StaticResource PanelInner}">
+                <Border Margin="5,0,0,0" Style="{StaticResource FrameWithShadow}">
                     <Panels:Ctrl_PNPArm x:Name="LoadArm"/>
                 </Border>
-                <Border Margin="5,0,0,0" Style="{StaticResource PanelInner}">
+                <Border Margin="5,0,0,0" Style="{StaticResource FrameWithShadow}">
                     <Panels:Ctrl_PNPArm x:Name="UnloadArm"/>
                 </Border>
 

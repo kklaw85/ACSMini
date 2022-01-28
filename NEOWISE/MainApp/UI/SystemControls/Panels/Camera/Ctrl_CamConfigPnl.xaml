@@ -10,7 +10,7 @@
 			 mc:Ignorable="d">
     <Grid>
         <StackPanel Orientation="Vertical">
-            <Border Style="{StaticResource PanelInnerThin}">
+            <Border Style="{StaticResource FrameWithShadow}">
                 <StackPanel Margin="0,0,0,5">
                     <Label Content="{StaticResource General}" Style="{StaticResource LB_ItemTitle}"/>
                     <StackPanel Orientation="Horizontal">
@@ -23,7 +23,7 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
-            <Border Style="{StaticResource PanelInnerThin}" Margin="0,5,0,0">
+            <Border Style="{StaticResource FrameWithShadow}" Margin="0,5,0,0">
                 <StackPanel Margin="0,0,5,5">
                     <Label Content="{StaticResource SaveImg}" Style="{StaticResource LB_ItemTitle}" />
                     <CheckBox Content="Save Processing Image" x:Name="SaveAllImage" IsChecked="{Binding Configuration.ImageSave.SaveAllImage}" VerticalAlignment="Center" Margin="75,0,0,0"/>
@@ -34,7 +34,7 @@
                     <StackPanel Margin="10,5,0,0" Orientation="Horizontal">
                         <Label Content="Save Path" Style="{StaticResource LB_ItemContent_Right}" Width="80" VerticalAlignment="Top"/>
                         <Border BorderThickness="1" BorderBrush="{StaticResource MahApps.Brushes.Gray6}">
-                            <TextBlock Width="148" Height="70" x:Name="txt_ImageSavePath"  Style="{StaticResource STYLE_POS_LABEL_TEXT_WRAPPING_Border}" Text="{Binding Configuration.ImageSave.SavePath}"/>
+                            <TextBlock Width="148" Height="70" x:Name="txt_ImageSavePath"  Style="{StaticResource TB_ItemContent_Wrapped}" Text="{Binding Configuration.ImageSave.SavePath}"/>
                         </Border>
                         <Button HorizontalAlignment="Right" Margin="5,0,0,0" Content="..." Width="30" Click="Btn_FilePath_Click" Height="25" VerticalAlignment="Top"/>
                     </StackPanel>

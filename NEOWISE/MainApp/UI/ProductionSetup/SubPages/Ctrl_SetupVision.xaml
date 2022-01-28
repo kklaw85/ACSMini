@@ -23,7 +23,7 @@
                     <MahApp:MetroTabControl x:Name="VisionTeachingTab" DockPanel.Dock="Left" Style="{StaticResource MahApps.Styles.TabControl.ColorPicker}" Width="680" Height="550">
                         <TabItem Header="CrossHair Positioning">
                             <Grid Background="Transparent">
-                                <Border Style="{StaticResource PanelInnerThin}">
+                                <Border Style="{StaticResource FrameWithShadow}">
                                     <StackPanel Orientation="Vertical" Margin="5">
                                         <Panels3:Ctrl_DPAD x:Name="XHairFOV1" HorizontalAlignment="Left" />
                                         <Panels3:Ctrl_DPAD x:Name="XHairFOV2" HorizontalAlignment="Left" Margin="0,10,0,0"/>
@@ -33,7 +33,7 @@
                         </TabItem>
                         <TabItem Header="Model Inspection">
                             <Grid Background="Transparent">
-                                <Border Style="{StaticResource PanelInnerThin}">
+                                <Border Style="{StaticResource FrameWithShadow}">
                                     <StackPanel Orientation="Horizontal" Margin="5">
                                         <Camera:Ctrl_InspectionModel x:Name="InspectFOV1" />
                                         <Camera:Ctrl_InspectionModel x:Name="InspectFOV2" Margin="10,0,0,0"/>

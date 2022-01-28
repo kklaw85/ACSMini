@@ -20,41 +20,41 @@
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                     <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding ReadyForCollection, Converter={StaticResource BoolToBrushIORec}}"/>
-                    <Label Content="Rdy" Style="{StaticResource STYL_BUTTON_LBL_COMPACT_LeftAligned}" Width="27" ToolTip="Ready for collection."/>
+                    <Label Content="Rdy" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Ready for collection."/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                     <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding isContinuous, Converter={StaticResource BoolToBrushIORec}}"/>
-                    <Label Content="Auto" Style="{StaticResource STYL_BUTTON_LBL_COMPACT_LeftAligned}" Width="27" ToolTip="Continuous Automated Lift"/>
+                    <Label Content="Auto" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Continuous Automated Lift"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                     <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding Lift.Status.PEL, Converter={StaticResource BoolToBrushIORec}}"/>
-                    <Label Content="PEL" Style="{StaticResource STYL_BUTTON_LBL_COMPACT_LeftAligned}" Width="27" ToolTip="Positive End limit"/>
+                    <Label Content="PEL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Positive End limit"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                     <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding UpperLimit.IOPt.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
-                    <Label Content="MUL" Style="{StaticResource STYL_BUTTON_LBL_COMPACT_LeftAligned}" Width="27" ToolTip="Material Upper Limit"/>
+                    <Label Content="MUL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Material Upper Limit"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                     <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding LowerLimit.IOPt.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
-                    <Label Content="MLL" Style="{StaticResource STYL_BUTTON_LBL_COMPACT_LeftAligned}" Width="27" ToolTip="Material Lower Limit"/>
+                    <Label Content="MLL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Material Lower Limit"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                     <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding Lift.Status.NEL, Converter={StaticResource BoolToBrushIORec}}"/>
-                    <Label Content="NEL" Style="{StaticResource STYL_BUTTON_LBL_COMPACT_LeftAligned}" Width="27" ToolTip="Negative End Limit"/>
+                    <Label Content="NEL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Negative End Limit"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="5,0,0,0">
                 <Button x:Name="BtnCollectionPos" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Click="Btn_Click" ToolTip="Move to Collection Position">
-                    <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W35H35}" Source="/Icons/DPAD_Up.png"/>
+                    <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/DPAD_Up.png"/>
                 </Button>
                 <Button x:Name="BtnLoadPos" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Margin="0,5,0,0" Click="Btn_Click" ToolTip="Move to Load Position">
-                    <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W35H35}" Source="/Icons/DPAD_Down.png"/>
+                    <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/DPAD_Down.png"/>
                 </Button>
                 <Button x:Name="BtnAutomated" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Margin="0,5,0,0" Click="Btn_Click" ToolTip="Start Lift Automation">
-                    <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W35H35}" Source="/Icons/Automated.png"/>
+                    <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/Automated.png"/>
                 </Button>
                 <Button x:Name="BtnStopAutomation" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Margin="0,5,0,0" Click="Btn_Click" ToolTip="Stop Lift Automation">
-                    <Image Style="{StaticResource STYL_LBL_IMG_SUB_MENU_ICON_W35H35}" Source="/Icons/StopAutomation.png"/>
+                    <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/StopAutomation.png"/>
                 </Button>
             </StackPanel>
         </StackPanel>

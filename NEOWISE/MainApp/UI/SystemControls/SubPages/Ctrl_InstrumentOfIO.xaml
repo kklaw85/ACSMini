@@ -133,7 +133,7 @@
                                 <DataGridTemplateColumn Header="Toggle State" Width="100" IsReadOnly="True">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button x:Name="Btn_ToggleOutput" Content="Toggle" Click="Btn_ToggleOutput_Click" Height="20" Style="{StaticResource BtnCommon}"/>
+                                            <Button x:Name="Btn_ToggleOutput" Content="Toggle" Click="Btn_ToggleOutput_Click" Height="20"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>

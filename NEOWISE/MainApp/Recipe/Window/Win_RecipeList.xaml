@@ -10,20 +10,20 @@
              mc:Ignorable="d" 
              Width="552" Height="365"
     BorderThickness="0" Loaded="UserControl_Loaded" Topmost="True" Title="Recipe List" ShowTitleBar="False" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ShowCloseButton="False" ShowMinButton="False" ShowMaxRestoreButton="False" WindowStyle="None" Background="Transparent" Closing="WindowBase_Closing">
-    <Border Style="{StaticResource PanelInnerThin}" Background="{StaticResource WindowsBackground}">
+    <Border Style="{StaticResource FrameWithShadow}" Background="{StaticResource WindowsBackground}">
         <Grid Margin="0,0,0,0">
             <StackPanel Orientation="Vertical" Margin="10,10">
                 <StackPanel Height="56" VerticalAlignment="Top">
                     <Label Content="{StaticResource ChooseRecipe}" Style="{StaticResource LB_PanelTitle}"/>
                     <Label Content="{StaticResource DoubleClickRecipe}" Style="{StaticResource LB_ItemContent_Left}"/>
                 </StackPanel>
-                <Border Style="{StaticResource PanelInnerThin}">
+                <Border Style="{StaticResource FrameWithShadow}">
                     <StackPanel Orientation="Vertical" Margin="5">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,10">
-                            <Button x:Name="btnNew" Style="{StaticResource BtnCommon}" Click="BtnRecipe_Clicked" Tag="New" Content="{StaticResource New}" Margin="0,0,5,0" Width="80"/>
-                            <Button x:Name="btnCopy" Style="{StaticResource BtnCommon}" Click="BtnRecipe_Clicked" IsEnabled="{Binding CanCopy}" Tag="Copy" Content="{StaticResource Copy}"  Margin="0,0,5,0" Width="80"/>
-                            <Button x:Name="btnRemove" Style="{StaticResource BtnCommon}" Click="BtnRecipe_Clicked" IsEnabled="{Binding CanRemove}" Tag="Remove" Content="{StaticResource Remove}" Margin="0,0,5,0" Width="80"/>
-                            <Button x:Name="btnRefresh" Style="{StaticResource BtnCommon}" Click="BtnRecipe_Clicked" Tag="Refresh" Content="{StaticResource Refresh}" Margin="0,0,5,0" Width="80"/>
+                            <Button x:Name="btnNew" Click="BtnRecipe_Clicked" Tag="New" Content="{StaticResource New}" Margin="0,0,5,0" Width="80"/>
+                            <Button x:Name="btnCopy" Click="BtnRecipe_Clicked" IsEnabled="{Binding CanCopy}" Tag="Copy" Content="{StaticResource Copy}"  Margin="0,0,5,0" Width="80"/>
+                            <Button x:Name="btnRemove" Click="BtnRecipe_Clicked" IsEnabled="{Binding CanRemove}" Tag="Remove" Content="{StaticResource Remove}" Margin="0,0,5,0" Width="80"/>
+                            <Button x:Name="btnRefresh" Click="BtnRecipe_Clicked" Tag="Refresh" Content="{StaticResource Refresh}" Margin="0,0,5,0" Width="80"/>
                         </StackPanel>
                         <StackPanel Margin="0,0,0,0" VerticalAlignment="Top">
                             <ListView x:Name="lvwRecipeList" Height="200" VerticalAlignment="Top" MouseDoubleClick="lvwRecipeList_MouseDoubleClick" SelectedIndex="{Binding LstSelIdx}">
@@ -51,8 +51,8 @@
                 </Border>
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="10">
-                <Button x:Name="btnExit" Style="{StaticResource BtnCommon}" Content="{StaticResource Exit}" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Bottom" Width="116" Click="BtnExit_Click"/>
-                <Button x:Name="btnSubmit" Style="{StaticResource BtnCommon}" Content="{StaticResource ConfirmWindow}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="116" Click="BtnSubmit_Click"/>
+                <Button x:Name="btnExit" Content="{StaticResource Exit}" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Bottom" Width="116" Click="BtnExit_Click"/>
+                <Button x:Name="btnSubmit" Content="{StaticResource ConfirmWindow}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="116" Click="BtnSubmit_Click"/>
 
             </StackPanel>
         </Grid>
