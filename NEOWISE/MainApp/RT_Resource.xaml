@@ -123,7 +123,7 @@
     <!--Taskbar FG-->
     <Color x:Key="C_Msg" A="255" R="60" G="60" B="60" />
     <Color x:Key="C_ErrWarn" A="255" R="255" G="255" B="255" />
-    <SolidColorBrush x:Key="Msg"  Color="{StaticResource C_Msg}" />
+    <SolidColorBrush x:Key="MsgTextFG"  Color="{StaticResource C_Msg}" />
     <SolidColorBrush x:Key="ErrWarn"  Color="{StaticResource C_ErrWarn}" />
     <!--Shape template-->
     <Style x:Key="Panel" TargetType="Border">
@@ -143,7 +143,7 @@
         <Setter Property="CornerRadius" Value="3"/>
         <Setter Property="Effect">
             <Setter.Value>
-                <DropShadowEffect ShadowDepth="5" BlurRadius="10" Opacity="0.4" />
+                <DropShadowEffect Color="{StaticResource MahApps.Colors.ThemeForeground}" ShadowDepth="5" BlurRadius="10" Opacity="0.4" />
             </Setter.Value>
         </Setter>
     </Style>
@@ -766,7 +766,7 @@
                                 <Label x:Name="Label" Content="{TemplateBinding Content}"/>
                             </Grid>
                             <Border.Effect>
-                                <DropShadowEffect ShadowDepth="5" BlurRadius="10" Opacity="0.5" />
+                                <DropShadowEffect Color="{StaticResource MahApps.Colors.ThemeForeground}" ShadowDepth="5" BlurRadius="10" Opacity="0.5" />
                             </Border.Effect>
                         </Border>
                     </Grid>
@@ -1025,6 +1025,65 @@
                             <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Label x:Name="Label" Content="{TemplateBinding Content}"/>
                             </Grid>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"></Setter>
+                            <Setter TargetName="border" Property="Border.Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Cursor" Value="Wait"></Setter>
+                            <Setter TargetName="border" Property="Border.Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_SELECTED}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                            <Setter TargetName="border" Property="Border.Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="0" Opacity="1" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Button_RedFrameMenu" TargetType="Button">
+        <Setter Property="Height" Value="56"/>
+        <Setter Property="Width" Value="56"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>
+                        <Style TargetType="Image">
+                            <Setter Property="Height" Value="20"/>
+                            <Setter Property="Width" Value="20"/>
+                            <Setter Property="Margin" Value="38,9,0,0"/>
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <Grid x:Name="grid">
+                        <Border Name="border" 
+        				BorderThickness="1" CornerRadius="2" BorderBrush="{StaticResource BR_RED_BG}">
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label x:Name="Label" Content="{TemplateBinding Content}"/>
+                            </Grid>
+                            <Border.Effect>
+                                <DropShadowEffect Color="{StaticResource C_RED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
+                            </Border.Effect>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>

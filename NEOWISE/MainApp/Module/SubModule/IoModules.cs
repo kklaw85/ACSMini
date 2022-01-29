@@ -228,8 +228,6 @@ namespace NeoWisePlatform.Module
 				Equipment.ErrManager.RaiseError( this.FormatErrMsg( "TowerLight", ex ), ErrorTitle.TowerLightBlinking, ErrorClass.E4 );
 			}
 		}
-
-
 	}
 	#endregion
 	#region Door Locker

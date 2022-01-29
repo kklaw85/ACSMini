@@ -773,7 +773,7 @@ namespace N_Data_Utilities
 			bool tempBool = false;
 			if ( bool.TryParse( value.ToString(), out tempBool ) )
 			{
-				return tempBool ? Application.Current.Resources[ "Button_MenuRedFrame" ] : Application.Current.Resources[ "Button_Menu" ];
+				return tempBool ? Application.Current.Resources[ "Button_RedFrameMenu" ] : Application.Current.Resources[ "Button_Menu" ];
 			}
 			return Application.Current.Resources[ "Button_Menu" ];
 		}
@@ -821,11 +821,11 @@ namespace N_Data_Utilities
 			switch ( ( StateFGColor )value )
 			{
 				case StateFGColor.Message:
-					return Application.Current.Resources[ "Msg" ];
+					return Application.Current.Resources[ "MsgTextFG" ];
 				case StateFGColor.Warning:
 					return Application.Current.Resources[ "ErrWarn" ];
 			}
-			return Application.Current.Resources[ "Msg" ];
+			return Application.Current.Resources[ "MsgTextFG" ];
 		}
 		public object ConvertBack( object value, Type targetType,
 		object parameter, System.Globalization.CultureInfo culture )
