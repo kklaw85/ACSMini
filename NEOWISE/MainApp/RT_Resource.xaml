@@ -106,8 +106,6 @@
     <FlowDirection x:Key="FlowDirection_Default">LeftToRight</FlowDirection>
     <FlowDirection x:Key="FlowDirection_Reverse">RightToLeft</FlowDirection>
 
-
-
     <!--Taskbar BG-->
     <Color x:Key="C_Ready" A="0" R="0" G="0" B="0" />
     <Color x:Key="C_Running" A="255" R="0" G="200" B="34" />
@@ -127,7 +125,6 @@
     <Color x:Key="C_ErrWarn" A="255" R="255" G="255" B="255" />
     <SolidColorBrush x:Key="Msg"  Color="{StaticResource C_Msg}" />
     <SolidColorBrush x:Key="ErrWarn"  Color="{StaticResource C_ErrWarn}" />
-
     <!--Shape template-->
     <Style x:Key="Panel" TargetType="Border">
         <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
