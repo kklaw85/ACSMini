@@ -3,39 +3,39 @@ using N_Data_Utilities;
 using System;
 using System.Windows;
 using System.Windows.Data;
-using System.Windows.Media;
-
 namespace HiPA.Common
 {
+	public enum StateBGColor
+	{
+		Ready,
+		Running,
+		Pause,
+		Warning,
+		Error,
+		Homing,
+	}
+	public enum StateFGColor
+	{
+		Message,
+		Warning,
+	}
 	public class MachineStateMgr
 		: BaseUtility
 	{
 		public class MachineStateChangeEventArgs : EventArgs
 		{
 			public MachineStateType MachineState { get; }
-			public SolidColorBrush BrColor { get; }
+			public StateBGColor BGColor { get; }
 			public bool LockUI { get; }
-			public MachineStateChangeEventArgs( MachineStateType MachineState, SolidColorBrush BrColor, bool LockUI )
+			public MachineStateChangeEventArgs( MachineStateType MachineState, StateBGColor BGColor, bool LockUI )
 			{
 				this.MachineState = MachineState;
-				this.BrColor = BrColor;
+				this.BGColor = BGColor;
 				this.LockUI = LockUI;
 			}
 		}
 		public event MachineStateChangedEventHandler MachineStateChanged;
 		public delegate void MachineStateChangedEventHandler( object sender, MachineStateChangeEventArgs e );
-
-		//Background Colours
-		private SolidColorBrush Br_State_Ready = new SolidColorBrush( Color.FromArgb( 0, 0, 0, 0 ) );
-		private SolidColorBrush Br_State_Busy = new SolidColorBrush( Color.FromArgb( 255, 252, 80, 60 ) );
-		private SolidColorBrush Br_State_Running = new SolidColorBrush( Color.FromArgb( 255, 0, 200, 34 ) );
-		private SolidColorBrush Br_State_Pause = new SolidColorBrush( Color.FromArgb( 255, 7, 98, 69 ) );
-		private SolidColorBrush Br_State_Warning = new SolidColorBrush( Color.FromArgb( 255, 255, 120, 0 ) );
-		private SolidColorBrush Br_State_Error = new SolidColorBrush( Color.FromArgb( 255, 255, 0, 0 ) );
-		private SolidColorBrush Br_State_Homing = new SolidColorBrush( Color.FromArgb( 255, 255, 120, 0 ) );
-		//Text Colours
-		private SolidColorBrush BR_Txt_Msg = new SolidColorBrush( Color.FromRgb( 60, 60, 60 ) );
-		private SolidColorBrush BR_Txt_ErrWarn = new SolidColorBrush( Color.FromRgb( 255, 255, 255 ) );
 
 		private Equipment _EM = null;
 		public Equipment EM
@@ -184,30 +184,24 @@ namespace HiPA.Common
 						case MachineStateType.NONE:
 						case MachineStateType.UNINITIALIZE:
 						case MachineStateType.READY:
-							this.Br_Running_Status = this.Br_State_Ready;
-							this.TxtColour_Msg = this.BR_Txt_Msg;
+							this.StateBG = StateBGColor.Ready;
 							break;
 						case MachineStateType.AUTO_CYCLESTOP:
 						case MachineStateType.AUTO_RUNNING:
 						case MachineStateType.BUSY:
-							this.Br_Running_Status = this.Br_State_Running;
-							this.TxtColour_Msg = this.BR_Txt_ErrWarn;
+							this.StateBG = StateBGColor.Running;
 							break;
 						case MachineStateType.WARNING:
-							this.Br_Running_Status = this.Br_State_Warning;
-							this.TxtColour_Msg = this.BR_Txt_ErrWarn;
+							this.StateBG = StateBGColor.Warning;
 							break;
 						case MachineStateType.ERROR:
-							this.Br_Running_Status = this.Br_State_Error;
-							this.TxtColour_Msg = this.BR_Txt_ErrWarn;
+							this.StateBG = StateBGColor.Error;
 							break;
 						case MachineStateType.AUTO_PAUSE:
-							this.Br_Running_Status = this.Br_State_Pause;
-							this.TxtColour_Msg = this.BR_Txt_ErrWarn;
+							this.StateBG = StateBGColor.Pause;
 							break;
 						case MachineStateType.HOMING:
-							this.Br_Running_Status = this.Br_State_Homing;
-							this.TxtColour_Msg = this.BR_Txt_ErrWarn;
+							this.StateBG = StateBGColor.Homing;
 							break;
 						default:
 							break;
@@ -241,7 +235,7 @@ namespace HiPA.Common
 					else if ( this.e_MachineStatus == MachineStateType.AUTO_CYCLESTOP )
 						this.AutorunCtrlCycleStopped();
 
-					this.MachineStateChanged?.Invoke( this, new MachineStateChangeEventArgs( this.e_MachineStatus, this.Br_Running_Status, LockUI ) );
+					this.MachineStateChanged?.Invoke( this, new MachineStateChangeEventArgs( this.e_MachineStatus, this.StateBG, LockUI ) );
 				}
 				catch
 				{
@@ -258,18 +252,39 @@ namespace HiPA.Common
 				this.MachineStatus = this.e_PreviousStatus;
 			}
 		}
-		private SolidColorBrush _Br_Running_Status = new SolidColorBrush();
-		public SolidColorBrush Br_Running_Status
+		public StateBGColor StateBG
 		{
-			get => this._Br_Running_Status;
-			set => this.Set( ref this._Br_Running_Status, value, "Br_Running_Status" );
+			get => this.GetValue( () => this.StateBG );
+			set
+			{
+				this.SetValue( () => this.StateBG, value );
+				switch ( this.StateBG )
+				{
+					case StateBGColor.Ready:
+						this.StateFG = StateFGColor.Message;
+						break;
+					case StateBGColor.Running:
+						this.StateFG = StateFGColor.Warning;
+						break;
+					case StateBGColor.Pause:
+						this.StateFG = StateFGColor.Warning;
+						break;
+					case StateBGColor.Warning:
+						this.StateFG = StateFGColor.Warning;
+						break;
+					case StateBGColor.Error:
+						this.StateFG = StateFGColor.Warning;
+						break;
+					case StateBGColor.Homing:
+						this.StateFG = StateFGColor.Warning;
+						break;
+				}
+			}
 		}
-
-		private SolidColorBrush _TxtColour_Msg = new SolidColorBrush();
-		public SolidColorBrush TxtColour_Msg
+		public StateFGColor StateFG
 		{
-			get => this._TxtColour_Msg;
-			set => this.Set( ref this._TxtColour_Msg, value, "TxtColour_Msg" );
+			get => this.GetValue( () => this.StateFG );
+			set => this.SetValue( () => this.StateFG, value );
 		}
 	}
 }

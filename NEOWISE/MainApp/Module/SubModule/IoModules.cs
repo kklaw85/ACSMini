@@ -47,27 +47,12 @@ namespace NeoWisePlatform.Module
 		LightStatus[] Warning_Mode = new LightStatus[] { LightStatus.Off, LightStatus.Static, LightStatus.Blink, LightStatus.Blink }; // Blinking Amber, Static Green;
 		LightStatus[] HitLimit_Mode = new LightStatus[] { LightStatus.Off, LightStatus.Off, LightStatus.Blink, LightStatus.Blink }; // Blinking Amber  "BAZ";
 
-		// { Red, Green, Amber, Buzzer}//single segment light
-		LightStatus[] Single_Light_default_Auto = new LightStatus[] { LightStatus.Off, LightStatus.Static, LightStatus.Off, LightStatus.Off };   // Static Green
-		LightStatus[] Single_Light_default_Manual = new LightStatus[] { LightStatus.Off, LightStatus.Off, LightStatus.Static, LightStatus.Off }; // Static Amber
-		LightStatus[] Single_Light_default_Homing = new LightStatus[] { LightStatus.Off, LightStatus.Off, LightStatus.Blink, LightStatus.Off }; // Blinking Amber
-		LightStatus[] Single_Light_default_Error = new LightStatus[] { LightStatus.Blink, LightStatus.Off, LightStatus.Off, LightStatus.Off };  //Blinking Red
-
-		LightStatus[] Single_Light_Auto_Mode = new LightStatus[] { LightStatus.Off, LightStatus.Static, LightStatus.Off, LightStatus.Off }; // Static Green
-		LightStatus[] Single_Light_Auto_Pause_Mode = new LightStatus[] { LightStatus.Off, LightStatus.Blink, LightStatus.Off, LightStatus.Off }; //Blinking Green
-		LightStatus[] Single_Light_Manual_Mode = new LightStatus[] { LightStatus.Off, LightStatus.Off, LightStatus.Static, LightStatus.Off }; // Static Amber
-		LightStatus[] Single_Light_Homing_Mode = new LightStatus[] { LightStatus.Off, LightStatus.Off, LightStatus.Blink, LightStatus.Off }; // Blinking Amber
-		LightStatus[] Single_Light_Error_Mode = new LightStatus[] { LightStatus.Blink, LightStatus.Off, LightStatus.Off, LightStatus.Blink }; // Blinking Red  "BRZ";
-		LightStatus[] Single_Light_Warning_Mode = new LightStatus[] { LightStatus.Off, LightStatus.Off, LightStatus.Blink, LightStatus.Blink }; // Blinking Amber, Static Green;
-		LightStatus[] Single_Light_HitLimit_Mode = new LightStatus[] { LightStatus.Off, LightStatus.Off, LightStatus.Blink, LightStatus.Blink }; // Blinking Amber  "BAZ";
-
-
 		const bool b_ON = true;
 		const bool b_OFF = false;
 
 		private LightStatus[] BLINK_LightStatus = new LightStatus[ 4 ];
 
-		public SolidColorBrush Original_Bru = new SolidColorBrush();
+		private StateBGColor Original_Bru;
 		private Dictionary<TowerLights, AdLinkIoPoint> Towerlight = new Dictionary<TowerLights, AdLinkIoPoint>();
 		private bool b_SilentBuzzer = false;
 		public bool SilentBuzzer
@@ -96,7 +81,7 @@ namespace NeoWisePlatform.Module
 
 		private void MachStateMgr_MachineStateChanged( object sender, MachineStateMgr.MachineStateChangeEventArgs e )
 		{
-			this.Original_Bru = e.BrColor;
+			this.Original_Bru = e.BGColor;
 			this.Get_State_And_Update( e.MachineState );
 		}
 
@@ -170,7 +155,8 @@ namespace NeoWisePlatform.Module
 				if ( ResultBlink.Count() > 0 )
 					this.Start();
 				else
-					Equipment.ErrManager.Br_Status_Msg = this.Original_Bru;
+					Equipment.ErrManager.StateBG = this.Original_Bru;
+
 			}
 			catch
 			{
@@ -223,7 +209,7 @@ namespace NeoWisePlatform.Module
 					if ( this.BLINK_LightStatus[ ( int )num ] == LightStatus.Blink )
 						this.UpdateStatus( num, this.BlinkState );
 				}
-				Equipment.ErrManager.Br_Status_Msg = this.BlinkState ? this.Original_Bru : null;
+				Equipment.ErrManager.StateBG = this.BlinkState ? this.Original_Bru : StateBGColor.Ready;
 				Task.Delay( 350 ).Wait();
 			}
 		}
@@ -235,13 +221,15 @@ namespace NeoWisePlatform.Module
 				{
 					this.UpdateStatus( num, false );
 				}
-				Equipment.ErrManager.Br_Status_Msg = null;
+				Equipment.ErrManager.StateBG = StateBGColor.Ready;
 			}
 			catch ( Exception ex )
 			{
 				Equipment.ErrManager.RaiseError( this.FormatErrMsg( "TowerLight", ex ), ErrorTitle.TowerLightBlinking, ErrorClass.E4 );
 			}
 		}
+
+
 	}
 	#endregion
 	#region Door Locker

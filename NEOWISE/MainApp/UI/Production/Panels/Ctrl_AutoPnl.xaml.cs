@@ -61,8 +61,8 @@ namespace NeoWisePlatform.Production.Panels
 			{
 				MTEquipment.MachStateMgr.BindToEnableStart( this.Btn_Start );
 				MTEquipment.MachStateMgr.BindToEnablePause( this.Btn_Pause );
-				MTEquipment.MachStateMgr.BindToEnableStart( this.Btn_Cycle_Stop );
-				MTEquipment.MachStateMgr.BindToEnablePause( this.Btn_Stop );
+				MTEquipment.MachStateMgr.BindToEnableCycleStop( this.Btn_Cycle_Stop );
+				MTEquipment.MachStateMgr.BindToEnableStop( this.Btn_Stop );
 				MTEquipment.MachStateMgr.BindToStylePause( this.Btn_Pause );
 				MTEquipment.MachStateMgr.BindToStyleCycleStop( this.Btn_Cycle_Stop );
 				this.BindLockPrivilege( this.Btn_Start );

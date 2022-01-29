@@ -47,6 +47,8 @@ namespace NeoWisePlatform.Sequence
 		{
 			try
 			{
+				if ( this.Station.PNPSeq.Idx == 0 )
+					this.StopAuto();
 				var bOn = this._Equipment.GetIOPointByEnum( InputIO.I_AutoSwitch ).Check( DioValue.On );
 				this._cycleTime.Restart();
 				if ( bOn || MachineStateMng.isSimulation )
@@ -66,6 +68,8 @@ namespace NeoWisePlatform.Sequence
 		{
 			try
 			{
+				if ( this.Station.PNPSeq.Idx == 0 )
+					this.StopAuto();
 				if ( this.Station.PNPSeq.State == SequenceState.IsWaitWork ) this.Station.PNPSeq.SetStepThread( Run_PNP_Seq.IsAction );
 			}
 			catch ( Exception ex )

@@ -7,7 +7,6 @@ using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Media;
 
 namespace HiPA.Common
 {
@@ -258,8 +257,6 @@ namespace HiPA.Common
 	{
 		public ErrorManager()
 		{
-			this.TxtColour_Msg = new SolidColorBrush();
-			this.Br_Status_Msg = new SolidColorBrush();
 		}
 		public ObservableCollection<Alarm> AlarmList = new ObservableCollection<Alarm>();
 		public int AlarmIdx
@@ -298,7 +295,7 @@ namespace HiPA.Common
 			else Task.Run( () => this.AlarmReceiver?.Invoke( alarm ) );
 			if ( message != "Ready" )
 			{
-				this.TrigWindowInfo( DecodedMsg[ 0 ], AlarmGrade.Error, BR_Txt_ErrWarn );
+				this.TrigWindowInfo( DecodedMsg[ 0 ], AlarmGrade.Error );
 				this.ENGAlarmErrLog.WriteLog( $"[RaiseError]: {DecodedMsg[ 1 ]}" );
 				this.AlarmErrLog.WriteLog( DecodedMsg[ 0 ] );
 				Application.Current.Dispatcher.Invoke( ( Action )delegate // <--- HERE
@@ -316,7 +313,7 @@ namespace HiPA.Common
 			Task.Run( () => this.AlarmReceiver?.Invoke( alarm ) );
 			if ( message != "Ready" )
 			{
-				this.TrigWindowInfo( DecodedMsg[ 0 ], AlarmGrade.Error, BR_Txt_ErrWarn );
+				this.TrigWindowInfo( DecodedMsg[ 0 ], AlarmGrade.Error );
 				this.ENGAlarmErrLog.WriteLog( $"[RaiseError]: {DecodedMsg[ 1 ]}" );
 				this.AlarmErrLog.WriteLog( DecodedMsg[ 0 ] );
 				Application.Current.Dispatcher.Invoke( ( Action )delegate // <--- HERE
@@ -334,7 +331,7 @@ namespace HiPA.Common
 			Task.Run( () => this.AlarmReceiver?.Invoke( alarm ) );
 			if ( message != "Ready" )
 			{
-				this.TrigWindowInfo( DecodedMsg[ 0 ], AlarmGrade.Warning, BR_Txt_ErrWarn );
+				this.TrigWindowInfo( DecodedMsg[ 0 ], AlarmGrade.Warning );
 				this.ENGAlarmErrLog.WriteLog( $"[RaiseWarning]: {DecodedMsg[ 1 ]}" );
 				this.AlarmWarnLog.WriteLog( DecodedMsg[ 0 ] );
 				Application.Current.Dispatcher.Invoke( ( Action )delegate // <--- HERE
@@ -352,7 +349,7 @@ namespace HiPA.Common
 			Task.Run( () => this.AlarmReceiver?.Invoke( alarm ) );
 			if ( message != "Ready" )
 			{
-				this.TrigWindowInfo( DecodedMsg[ 0 ], AlarmGrade.Warning, BR_Txt_ErrWarn );
+				this.TrigWindowInfo( DecodedMsg[ 0 ], AlarmGrade.Warning );
 				this.ENGAlarmErrLog.WriteLog( $"[RaiseWarning]: {DecodedMsg[ 1 ]}" );
 				this.AlarmWarnLog.WriteLog( DecodedMsg[ 0 ] );
 				Application.Current.Dispatcher.Invoke( ( Action )delegate // <--- HERE
@@ -369,16 +366,15 @@ namespace HiPA.Common
 			Task.Run( () => this.AlarmReceiver?.Invoke( new Alarm( null, title, DecodedMsg[ 0 ], AlarmGrade.Message, ErrorClass.OK ) ) );
 			if ( message != "Ready" )
 			{
-				this.TrigWindowInfo( DecodedMsg[ 0 ], AlarmGrade.Message, BR_Txt_Msg );
+				this.TrigWindowInfo( DecodedMsg[ 0 ], AlarmGrade.Message );
 				this.ENGAlarmErrLog.WriteLog( $"[ShowMessage]: {DecodedMsg[ 1 ]}" );
 				this.AlarmShowLog.WriteLog( DecodedMsg[ 0 ] );
 			}
 		}
-		private void TrigWindowInfo( string msg, AlarmGrade alrmgrade, SolidColorBrush BR_Txt_Color )
+		private void TrigWindowInfo( string msg, AlarmGrade alrmgrade )
 		{
 			this.AlrmGrade = alrmgrade;
 			this.Event_Err_Msg = msg;
-			this.TxtColour_Msg = BR_Txt_Color;
 		}
 		private string[] DecodeMsg( string message )
 		{
@@ -442,7 +438,7 @@ namespace HiPA.Common
 				this.AlarmList.Clear();
 				this.CurrentAlarm.Clear();
 				this.AlarmIdx = 0;
-				this.TrigWindowInfo( "", AlarmGrade.Message, BR_Txt_Msg );
+				this.TrigWindowInfo( "", AlarmGrade.Message );
 				#endregion
 			}
 			catch ( Exception ex )
@@ -464,22 +460,13 @@ namespace HiPA.Common
 			}
 		}
 
-		#region Static Binding
-		private static SolidColorBrush BR_Txt_Msg = new SolidColorBrush( Color.FromRgb( 43, 203, 156 ) );
-		private static SolidColorBrush BR_Txt_ErrWarn = new SolidColorBrush( Color.FromRgb( 255, 255, 255 ) );
-
 		#region Window info bar
 		public AlarmGrade AlrmGrade
 		{
 			get => this.GetValue( () => this.AlrmGrade );
-			set => this.SetValue( () => this.AlrmGrade, value );
-		}
-		public string Event_Err_Msg
-		{
-			get => this.GetValue( () => this.Event_Err_Msg );
 			set
 			{
-				this.SetValue( () => this.Event_Err_Msg, value );
+				this.SetValue( () => this.AlrmGrade, value );
 				switch ( this.AlrmGrade )
 				{
 					case AlarmGrade.Error:
@@ -494,17 +481,45 @@ namespace HiPA.Common
 				}
 			}
 		}
-		public SolidColorBrush TxtColour_Msg
+		public string Event_Err_Msg
 		{
-			get => this.GetValue( () => this.TxtColour_Msg );
-			set => this.SetValue( () => this.TxtColour_Msg, value );
+			get => this.GetValue( () => this.Event_Err_Msg );
+			set => this.SetValue( () => this.Event_Err_Msg, value );
 		}
-		public SolidColorBrush Br_Status_Msg
+		public StateBGColor StateBG
 		{
-			get => this.GetValue( () => this.Br_Status_Msg );
-			set => this.SetValue( () => this.Br_Status_Msg, value );
+			get => this.GetValue( () => this.StateBG );
+			set
+			{
+				this.SetValue( () => this.StateBG, value );
+				switch ( this.StateBG )
+				{
+					case StateBGColor.Ready:
+						this.StateFG = StateFGColor.Message;
+						break;
+					case StateBGColor.Running:
+						this.StateFG = StateFGColor.Warning;
+						break;
+					case StateBGColor.Pause:
+						this.StateFG = StateFGColor.Warning;
+						break;
+					case StateBGColor.Warning:
+						this.StateFG = StateFGColor.Warning;
+						break;
+					case StateBGColor.Error:
+						this.StateFG = StateFGColor.Warning;
+						break;
+					case StateBGColor.Homing:
+						this.StateFG = StateFGColor.Warning;
+						break;
+				}
+			}
 		}
-		#endregion
+		public StateFGColor StateFG
+		{
+			get => this.GetValue( () => this.StateFG );
+			set => this.SetValue( () => this.StateFG, value );
+		}
 		#endregion
 	}
 

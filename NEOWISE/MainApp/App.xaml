@@ -22,6 +22,8 @@
             <Converter:IntegerToString x:Key="Int2Str"/>
             <Converter:UIntegerToString x:Key="UInt2Str"/>
             <DataUtility1:BoolToStyleRed x:Key="BoolToStyleRed"/>
+            <DataUtility1:StateBGColorConv x:Key="StateBGColorConv"/>
+            <DataUtility1:StateFGColorConv x:Key="StateFGColorConv"/>
             <Converter:LimeWhiteBoolToStateColor x:Key="LimeBoolToStateColor"/>
             <Converter:BoolToTextBoxBg x:Key="BoolToTextBoxBg"/>
             <Converter:DioValueToBool x:Key="DioValueToBool"/>

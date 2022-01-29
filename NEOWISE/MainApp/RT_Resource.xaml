@@ -106,7 +106,28 @@
     <FlowDirection x:Key="FlowDirection_Default">LeftToRight</FlowDirection>
     <FlowDirection x:Key="FlowDirection_Reverse">RightToLeft</FlowDirection>
 
-    
+
+
+    <!--Taskbar BG-->
+    <Color x:Key="C_Ready" A="0" R="0" G="0" B="0" />
+    <Color x:Key="C_Running" A="255" R="0" G="200" B="34" />
+    <Color x:Key="C_Pause" A="255" R="7" G="98" B="69" />
+    <Color x:Key="C_Warning" A="255" R="255" G="120" B="0" />
+    <Color x:Key="C_Error" A="255" R="255" G="0" B="0" />
+    <Color x:Key="C_Homing" A="255" R="255" G="120" B="0" />
+    <SolidColorBrush x:Key="Ready"  Color="{StaticResource C_Ready}" />
+    <SolidColorBrush x:Key="Running"  Color="{StaticResource C_Running}" />
+    <SolidColorBrush x:Key="Pause"  Color="{StaticResource C_Pause}" />
+    <SolidColorBrush x:Key="Warning"  Color="{StaticResource C_Warning}" />
+    <SolidColorBrush x:Key="Error"  Color="{StaticResource C_Error}" />
+    <SolidColorBrush x:Key="Homing"  Color="{StaticResource C_Homing}" />
+
+    <!--Taskbar FG-->
+    <Color x:Key="C_Msg" A="255" R="60" G="60" B="60" />
+    <Color x:Key="C_ErrWarn" A="255" R="255" G="255" B="255" />
+    <SolidColorBrush x:Key="Msg"  Color="{StaticResource C_Msg}" />
+    <SolidColorBrush x:Key="ErrWarn"  Color="{StaticResource C_ErrWarn}" />
+
     <!--Shape template-->
     <Style x:Key="Panel" TargetType="Border">
         <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
@@ -815,6 +836,65 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="Button_MenuGreenFrame" TargetType="Button">
+        <Setter Property="Height" Value="56"/>
+        <Setter Property="Width" Value="56"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>
+                        <Style TargetType="Image">
+                            <Setter Property="Height" Value="20"/>
+                            <Setter Property="Width" Value="20"/>
+                            <Setter Property="Margin" Value="38,9,0,0"/>
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <Grid x:Name="grid">
+                        <Border Name="border" 
+        				BorderThickness="0">
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label x:Name="Label" Content="{TemplateBinding Content}"/>
+                            </Grid>
+                            <Border.Effect>
+                                <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
+                            </Border.Effect>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"></Setter>
+                            <Setter TargetName="border" Property="Border.Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Cursor" Value="Wait"></Setter>
+                            <Setter TargetName="border" Property="Border.Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_SELECTED}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                            <Setter TargetName="border" Property="Border.Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="0" Opacity="1" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <Style x:Key="Button_FrameMenu_LimeContent" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Height" Value="25"/>
@@ -948,6 +1028,65 @@
                             <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Label x:Name="Label" Content="{TemplateBinding Content}"/>
                             </Grid>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"></Setter>
+                            <Setter TargetName="border" Property="Border.Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="{StaticResource C_ICON_MOUSE_OVER}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Cursor" Value="Wait"></Setter>
+                            <Setter TargetName="border" Property="Border.Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BR_ICON_SELECTED}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                            <Setter TargetName="border" Property="Border.Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="Transparent" ShadowDepth="0" BlurRadius="0" Opacity="1" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="Label" Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Button_GreenFrameMenu" TargetType="Button">
+        <Setter Property="Height" Value="56"/>
+        <Setter Property="Width" Value="56"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="Label" BasedOn="{StaticResource Label_Setter_Button}"/>
+                        <Style TargetType="Image">
+                            <Setter Property="Height" Value="20"/>
+                            <Setter Property="Width" Value="20"/>
+                            <Setter Property="Margin" Value="38,9,0,0"/>
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <Grid x:Name="grid">
+                        <Border Name="border" 
+        				BorderThickness="1" CornerRadius="2" BorderBrush="{StaticResource BR_ICON_SELECTED}">
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label x:Name="Label" Content="{TemplateBinding Content}"/>
+                            </Grid>
+                            <Border.Effect>
+                                <DropShadowEffect Color="{StaticResource C_ICON_SELECTED}" ShadowDepth="0" BlurRadius="10" Opacity="1" />
+                            </Border.Effect>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -1146,7 +1285,7 @@
                             <Setter Property="VerticalContentAlignment" Value="Top"/>
                             <Setter Property="FontFamily" Value="Segoe"/>
                             <Setter Property="FontSize" Value="13"/>
-                            <Setter Property="FontWeight" Value="Light"/>
+                            <Setter Property="FontWeight" Value="Normal"/>
                         </Style>
                     </ControlTemplate.Resources>
                     <!--If item is checked, trigger the visibility of the mark-->
@@ -1168,7 +1307,6 @@
                             </Setter>
                             <Setter TargetName="RadioOuter" Property="BorderBrush" Value="{StaticResource BR_ICON_MOUSE_OVER}"/>
                         </Trigger>
-
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

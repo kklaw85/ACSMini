@@ -775,7 +775,7 @@ namespace N_Data_Utilities
 			{
 				return tempBool ? Application.Current.Resources[ "Button_MenuRedFrame" ] : Application.Current.Resources[ "Button_Menu" ];
 			}
-			return Application.Current.Resources[ "Button_CyanContent" ];
+			return Application.Current.Resources[ "Button_Menu" ];
 		}
 		public object ConvertBack( object value, Type targetType,
 		object parameter, System.Globalization.CultureInfo culture )
@@ -783,17 +783,66 @@ namespace N_Data_Utilities
 			return null;
 		}
 	}
-
-	[ValueConversion( typeof( MachineStateType ), typeof( Style ) )]
+	[ValueConversion( typeof( StateBGColor ), typeof( SolidColorBrush ) )]
+	public class StateBGColorConv : IValueConverter
+	{
+		public object Convert( object value, Type targetType,
+		object parameter, System.Globalization.CultureInfo culture )
+		{
+			switch( ( StateBGColor )value )
+			{
+				case StateBGColor.Ready:
+					return Application.Current.Resources[ "Ready" ];
+				case StateBGColor.Running:
+					return Application.Current.Resources[ "Running" ];
+				case StateBGColor.Pause:
+					return Application.Current.Resources[ "Pause" ];
+				case StateBGColor.Warning:
+					return Application.Current.Resources[ "Warning" ];
+				case StateBGColor.Error:
+					return Application.Current.Resources[ "Error" ];
+				case StateBGColor.Homing:
+					return Application.Current.Resources[ "Homing" ];
+			}
+			return Application.Current.Resources[ "Ready" ];
+		}
+		public object ConvertBack( object value, Type targetType,
+		object parameter, System.Globalization.CultureInfo culture )
+		{
+			return null;
+		}
+	}
+	[ValueConversion( typeof( StateFGColor ), typeof( SolidColorBrush ) )]
+	public class StateFGColorConv : IValueConverter
+	{
+		public object Convert( object value, Type targetType,
+		object parameter, System.Globalization.CultureInfo culture )
+		{
+			switch ( ( StateFGColor )value )
+			{
+				case StateFGColor.Message:
+					return Application.Current.Resources[ "Msg" ];
+				case StateFGColor.Warning:
+					return Application.Current.Resources[ "ErrWarn" ];
+			}
+			return Application.Current.Resources[ "Msg" ];
+		}
+		public object ConvertBack( object value, Type targetType,
+		object parameter, System.Globalization.CultureInfo culture )
+		{
+			return null;
+		}
+	}
+	[ ValueConversion( typeof( MachineStateType ), typeof( Style ) )]
 	public class AutorunPausetoStyle : IValueConverter
 	{
 		public object Convert( object value, Type targetType,
 		object parameter, System.Globalization.CultureInfo culture )
 		{
 			if ( ( ( MachineStateType )value ) == MachineStateType.AUTO_PAUSE )
-				return Application.Current.Resources[ "Button_CyanContent_Lime_Highlight" ];
+				return Application.Current.Resources[ "Button_GreenFrameMenu" ];
 			else
-				return Application.Current.Resources[ "Button_CyanContent" ];
+				return Application.Current.Resources[ "Button_FrameMenu" ];
 		}
 		public object ConvertBack( object value, Type targetType,
 		object parameter, System.Globalization.CultureInfo culture )
@@ -808,29 +857,9 @@ namespace N_Data_Utilities
 		object parameter, System.Globalization.CultureInfo culture )
 		{
 			if ( ( ( MachineStateType )value ) == MachineStateType.AUTO_CYCLESTOP )
-				return Application.Current.Resources[ "Button_CyanContent_Lime_Highlight" ];
+				return Application.Current.Resources[ "Button_GreenFrameMenu" ];
 			else
-				return Application.Current.Resources[ "Button_CyanContent" ];
-		}
-		public object ConvertBack( object value, Type targetType,
-		object parameter, System.Globalization.CultureInfo culture )
-		{
-			return null;
-		}
-	}
-	[ValueConversion( typeof( bool ), typeof( SolidColorBrush ) )]
-	public class SaveFile_ToColor : IValueConverter
-	{
-		public object Convert( object value, Type targetType,
-		object parameter, System.Globalization.CultureInfo culture )
-		{
-			bool b = ( bool )( value );
-			if ( b )
-				return Application.Current.Resources[ "BR_NEED_TO_SAVE" ];
-			else
-				return Application.Current.Resources[ "BackgroundNormal" ];
-
-			//return Brushes.Gray;
+				return Application.Current.Resources[ "Button_FrameMenu" ];
 		}
 		public object ConvertBack( object value, Type targetType,
 		object parameter, System.Globalization.CultureInfo culture )

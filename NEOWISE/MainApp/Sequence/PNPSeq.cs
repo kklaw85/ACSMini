@@ -95,7 +95,7 @@ namespace NeoWisePlatform.Sequence
 			try
 			{
 				if ( this.CompareThreadIndex( Run_PNP_Seq.WaitLiftHomingComplete ) ) return ( int )RunErrors.ERR_Inconformity;
-				if ( this.bCycleStop )
+				if ( this.bCycleStop || this.NewLiftSeq.Idx == 0 || this.QICLiftSeq.Idx == 0 )
 				{
 					this.StopAuto();
 					return this.JumpFunctionEnum( Run_PNP_Seq.Init );

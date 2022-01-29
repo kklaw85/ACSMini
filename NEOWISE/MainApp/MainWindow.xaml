@@ -39,11 +39,11 @@
                     </Grid>
                 </ItemsPanelTemplate>
             </StatusBar.ItemsPanel>
-            <StatusBarItem x:Name="Status_Item_Err_Msg" Margin="0,0,79,0" Background="{Binding Br_Status_Msg}" >
-                <TextBlock x:Name="Txt_Err_Event" Margin="2,0,0,0" Text="{Binding Event_Err_Msg}" Foreground="{Binding TxtColour_Msg}" TextWrapping="Wrap"/>
+            <StatusBarItem x:Name="Status_Item_Err_Msg" Margin="0,0,79,0" Background="{Binding StateBG, Converter={StaticResource StateBGColorConv}}" >
+                <TextBlock x:Name="Txt_Err_Event" Margin="2,0,0,0" Text="{Binding Event_Err_Msg}" Foreground="{Binding StateFG, Converter={StaticResource StateFGColorConv}}" TextWrapping="Wrap"/>
             </StatusBarItem>
-            <StatusBarItem Grid.Column="6" x:Name="Status_Machine_State" Margin="0,0,0,0" HorizontalContentAlignment="Right" HorizontalAlignment="Stretch" Background="{Binding Br_Running_Status}">
-                <TextBlock x:Name="Txt_Machine_State" TextAlignment="Right" Height="24" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="18" Foreground="{Binding TxtColour_Msg}" Text="{Binding MachineStatus}"/>
+            <StatusBarItem Grid.Column="6" x:Name="Status_Machine_State" Margin="0,0,0,0" HorizontalContentAlignment="Right" HorizontalAlignment="Stretch" Background="{Binding StateBG, Converter={StaticResource StateBGColorConv}}">
+                <TextBlock x:Name="Txt_Machine_State" TextAlignment="Right" Height="24" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="18" Foreground="{Binding StateFG, Converter={StaticResource StateFGColorConv}}" Text="{Binding MachineStatus}"/>
             </StatusBarItem>
             <StatusBarItem Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Right">
                 <StackPanel Orientation="Horizontal">
