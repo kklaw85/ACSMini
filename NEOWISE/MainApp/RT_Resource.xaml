@@ -121,7 +121,7 @@
     <SolidColorBrush x:Key="Homing"  Color="{StaticResource C_Homing}" />
 
     <!--Taskbar FG-->
-    <Color x:Key="C_Msg" A="255" R="60" G="60" B="60" />
+    <Color x:Key="C_Msg" A="255" R="255" G="255" B="255" />
     <Color x:Key="C_ErrWarn" A="255" R="255" G="255" B="255" />
     <SolidColorBrush x:Key="MsgTextFG"  Color="{StaticResource C_Msg}" />
     <SolidColorBrush x:Key="ErrWarn"  Color="{StaticResource C_ErrWarn}" />
