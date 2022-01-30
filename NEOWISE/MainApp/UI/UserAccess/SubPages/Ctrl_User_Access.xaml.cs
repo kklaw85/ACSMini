@@ -32,15 +32,7 @@ namespace NeoWisePlatform.UserAccess.SubPages
 			this.PrivilegeLockability = UILockability.Nonlockable;
 			this.MachineStateLockable = false;
 			#endregion
-			Equipment.UserMgt.AccessLevelChanged += this.UserMgt_AccessLevelChanged;
 			this.InitializeComponent();
-		}
-
-		private void UserMgt_AccessLevelChanged( object sender, LoginUserMgt.AccessLevelChangeEventArgs e )
-		{
-			if ( !this.IsLoaded ) return;
-			this.Cb_Create_New_GroupID.ItemsSource = Enum.GetValues( typeof( AccessLevel ) ).Cast<AccessLevel>().ToList().Where( x => x <= MTEquipment.UserMgt.LoginUserLevel );
-			this.Cb_Create_New_GroupID.SelectedItem = AccessLevel.Operator;
 		}
 
 		protected override void RecipeChanged( object sender, TextChangedEventArgs e )
@@ -57,7 +49,9 @@ namespace NeoWisePlatform.UserAccess.SubPages
 		{
 			try
 			{
-
+				this.UserPrivilege = new ObservableCollection<UserAccessConfig>();
+				this.AccessRightList = new ObservableCollection<PrivilegeType>();
+				this.PrivilegeDG.DataContext = this;
 				this.OnSetupBinding();
 			}
 			catch ( Exception ex )
@@ -70,10 +64,6 @@ namespace NeoWisePlatform.UserAccess.SubPages
 		{
 			try
 			{
-				this.UserPrivilege = new ObservableCollection<UserAccessConfig>();
-				this.AccessRightList = new ObservableCollection<PrivilegeType>();
-				this.DataContext = this;
-
 
 				foreach ( PrivilegeType pvType in Enum.GetValues( typeof( PrivilegeType ) ) )
 				{
@@ -108,19 +98,11 @@ namespace NeoWisePlatform.UserAccess.SubPages
 				this.Sp_EditDelUser.SetBinding( StackPanel.VisibilityProperty, b );
 				#endregion
 
-				#region LOGIN USER INFO
-				//b = new Binding() { Source = this, UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged, Path = new PropertyPath( "CurrentLoginUserID" ) };
-				//this.Lbl_UserID.SetBinding( Label.ContentProperty, b );
-
-				//b = new Binding() { Source = this, UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged, Path = new PropertyPath( "CurrentLoginUserLevel" ) };
-				//this.Lbl_UserLevel.SetBinding( Label.ContentProperty, b );
-				#endregion
-
-				//this.BindLockMachineState( this.Stk );
-
-				this.CB_UserList.ItemsSource = MTEquipment.UserMgt.GetEditableUserList(); //Refresh Userlist
+				this.CB_UserList.ItemsSource = MTEquipment.UserMgt.EditableUserList; //Refresh Userlist
 				this.CB_UserList.SelectedIndex = 0;
-				this.Btn_Delete.IsEnabled = MTEquipment.UserMgt.GetEditableUserList().Count() == 0 ? false : true;
+				this.Cb_Create_New_GroupID.ItemsSource = MTEquipment.UserMgt.CreatableUserLevel;
+				this.Cb_Create_New_GroupID.SelectedItem = AccessLevel.Operator;
+				this.Btn_Delete.IsEnabled = MTEquipment.UserMgt.EditableUserList.Count() == 0 ? false : true;
 			}
 			catch ( Exception ex )
 			{
@@ -146,9 +128,6 @@ namespace NeoWisePlatform.UserAccess.SubPages
 						{
 							this.CB_UserList.SelectedItem = MTEquipment.UserMgt.CurrentLoginUser.UserID;
 							this.Txt_UserID.Text = this.PB_Password.Password = "";
-							this.CB_UserList.ItemsSource = MTEquipment.UserMgt.GetEditableUserList();
-							this.Cb_Create_New_GroupID.ItemsSource = null;
-							this.Cb_Create_New_GroupID.ItemsSource = Enum.GetValues( typeof( AccessLevel ) ).Cast<AccessLevel>().ToList().Where( x => x <= MTEquipment.UserMgt.LoginUserLevel );
 							this.Cb_Create_New_GroupID.SelectedItem = AccessLevel.Operator;
 						}
 					}
@@ -203,7 +182,6 @@ namespace NeoWisePlatform.UserAccess.SubPages
 						{
 							MessageBox.Show( "Add User Successful!", "SUCCESS", MessageBoxButton.OK, MessageBoxImage.Information );
 							this.ResetCreateUserField();
-							this.CB_UserList.ItemsSource = MTEquipment.UserMgt.GetEditableUserList();   //Refresh CB_UserList
 						}
 					}
 					break;
@@ -223,7 +201,6 @@ namespace NeoWisePlatform.UserAccess.SubPages
 					case "Btn_Delete":
 					{
 						result = MTEquipment.UserMgt.DeleteUser( this.SelectedUser );
-						this.CB_UserList.ItemsSource = MTEquipment.UserMgt.GetEditableUserList();
 						this.CB_UserList.SelectedIndex = 0;
 					}
 					break;
@@ -258,8 +235,6 @@ namespace NeoWisePlatform.UserAccess.SubPages
 								Recipes.HandlerRecipes()?.Save( recipe );
 							}
 							MTEquipment.UserMgt.Logout();
-							//MessageBox.Show( "Logout Successful!", "SUCCESS", MessageBoxButton.OK, MessageBoxImage.Information );
-
 						}
 						break;
 

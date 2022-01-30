@@ -19,7 +19,7 @@
                     <StackPanel Orientation="Vertical" Margin="10,0,2,0">
                         <StackPanel Orientation="Horizontal">
                             <Label Content="{Globalizer:GlobalizedResource UserID, FallbackValue='ID'}" HorizontalAlignment="Left" Style="{StaticResource LB_ItemContent_Right}" Width="70"/>
-                            <TextBox x:Name="Txt_UserID" BorderBrush="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="230" KeyUp="Txt_UserID_KeyUp"/>
+                            <TextBox x:Name="Txt_UserID" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="230" KeyUp="Txt_UserID_KeyUp"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                             <Label Content="{Globalizer:GlobalizedResource Password, FallbackValue='Password'}" HorizontalAlignment="Left" Style="{StaticResource LB_ItemContent_Right}" Width="70"/>
@@ -32,7 +32,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel x:Name="Sp_AddUser" Orientation="Vertical" Margin="25,2,20,5">
-            <StackPanel Background="DimGray" Width="auto" Height="1"></StackPanel>
+            <Separator/>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
                 <Image Source="/Icons/Add.png" Stretch="Fill" Width="15" Margin="5,0,0,0" Height="15" ToolTip="{Globalizer:GlobalizedResource AddUser, FallbackValue='Add User'}"/>
                 <Label x:Name="Lbl_AddUser" Content="{Globalizer:GlobalizedResource AddUser, FallbackValue='Add User'}" Margin="10,0,0,0" FontWeight="Bold" HorizontalContentAlignment="Left" Style="{StaticResource LB_ItemContent_Left}" Width="200" Height="22" Cursor="Hand" MouseUp="Lbl_MouseUp"/>
@@ -62,7 +62,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel x:Name="Sp_EditDelUser" Orientation="Vertical" Margin="25,2,20,5">
-            <StackPanel Background="DimGray" Width="auto" Height="1"></StackPanel>
+            <Separator/>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
                 <Image Source="/Icons/PageAccessConfig.png" Stretch="Fill" Width="15" Margin="5,0,0,0" Height="15" ToolTip="{StaticResource ApplyPrivilege}"/>
                 <Label x:Name="Lbl_EditDelete" Content="{Globalizer:GlobalizedResource EditDelUser, FallbackValue='Edit/Delete User'}" Margin="10,0,0,0" FontWeight="Bold" HorizontalContentAlignment="Left" Style="{StaticResource LB_ItemContent_Left}" Width="200" Height="22" Cursor="Hand" MouseUp="Lbl_MouseUp"/>
@@ -76,7 +76,7 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                             <Label Content="{Globalizer:GlobalizedResource Privilege, FallbackValue='Privilege'}" Width="145" Style="{StaticResource LB_ItemContent_Right}" />
-                            <DataGrid x:Name="PrivilegeDG" BorderBrush="DimGray" FontSize="14" ItemsSource="{Binding UserPrivilege, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HeadersVisibility="All" GridLinesVisibility="All" SelectionMode="Single" SelectionUnit="FullRow" IsReadOnly="true" AutoGenerateColumns="False" Margin="0,0,0,0" HorizontalAlignment="Left" Width="350" HorizontalGridLinesBrush="DimGray" VerticalGridLinesBrush="DimGray" CanUserAddRows="False" Height="314" VerticalAlignment="Top">
+                            <DataGrid x:Name="PrivilegeDG" BorderBrush="DimGray" FontSize="14" ItemsSource="{Binding UserPrivilege}" HeadersVisibility="All" GridLinesVisibility="All" SelectionMode="Single" SelectionUnit="FullRow" IsReadOnly="true" AutoGenerateColumns="False" Margin="0,0,0,0" HorizontalAlignment="Left" Width="350" HorizontalGridLinesBrush="DimGray" VerticalGridLinesBrush="DimGray" CanUserAddRows="False" Height="314" VerticalAlignment="Top">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Width="200" Binding="{Binding Page}" >
                                         <DataGridTextColumn.Header>
@@ -89,7 +89,7 @@
                                         </DataGridTemplateColumn.Header>
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <ComboBox ItemsSource="{Binding Path=DataContext.AccessRightList, Mode=TwoWay, 
+                                                <ComboBox ItemsSource="{Binding Path=AccessRightList, Mode=TwoWay, 
                                                         RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, UpdateSourceTrigger=PropertyChanged}" 
                                                          SelectedItem="{Binding Privilege, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                             </DataTemplate>
@@ -107,7 +107,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel x:Name="Sp_ChangePassword" Orientation="Vertical" Margin="25,2,20,5">
-            <StackPanel Background="DimGray" Width="auto" Height="1"></StackPanel>
+            <Separator/>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
                 <Image Source="/Icons/PadLock.png" Stretch="Fill" Width="15" Margin="5,0,0,0" Height="15" ToolTip="{StaticResource ChangePassword}"/>
                 <Label x:Name="Lbl_ChangePassword" Content="{Globalizer:GlobalizedResource ChangePassword, FallbackValue='Change Password'}" Margin="10,0,0,0" FontWeight="Bold" HorizontalContentAlignment="Left" Style="{StaticResource LB_ItemContent_Left}" Width="200" Height="22" Cursor="Hand" MouseUp="Lbl_MouseUp"/>
@@ -137,7 +137,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel x:Name="Sp_Logout" Orientation="Vertical" Margin="25,2,20,0">
-            <StackPanel Background="DimGray" Width="auto" Height="1"></StackPanel>
+            <Separator/>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
                 <Image Source="/Icons/Power.png" Stretch="Fill" Width="15" Margin="5,0,0,0" Height="15" ToolTip="{Globalizer:GlobalizedResource Logout, FallbackValue='Logout'}"/>
                 <Label x:Name="Lbl_Logout" Content="{Globalizer:GlobalizedResource Logout, FallbackValue='Logout'}" Margin="10,0,0,0" FontWeight="Bold" HorizontalContentAlignment="Left" Style="{StaticResource LB_ItemContent_Left}" Width="200" Height="22"  Cursor="Hand" MouseUp="Lbl_MouseUp"/>

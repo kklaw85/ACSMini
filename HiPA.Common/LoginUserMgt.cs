@@ -2,6 +2,7 @@
 using HiPA.Common.UControl;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -226,6 +227,9 @@ namespace HiPA.Common
 					};
 				}
 				this.Lst_UserMgtDB[ NewUser.UserID ] = NewUser;
+				this.RefreshUserList();
+				this.RefreshEditableUserList();
+				this.RefreshCreatableUserLevel();
 				this.SaveUserData();
 			}
 			catch ( Exception ex )
@@ -306,6 +310,9 @@ namespace HiPA.Common
 				return $"Incorrect Password.";
 			this.IsLoginFail = false;
 			this.CurrentLoginUser = this.Lst_UserMgtDB[ UserID ];
+			this.RefreshCreatableUserLevel();
+			this.RefreshEditableUserList();
+			this.RefreshUserList();
 			return "";
 		}
 		#endregion
@@ -380,26 +387,47 @@ namespace HiPA.Common
 		}
 		#endregion
 		#region Get Username List
-		public List<string> GetUserList()
+		public ObservableCollection<string> UserList { get; private set; } = new ObservableCollection<string>();
+		private void RefreshUserList()
 		{
-			List<string> userList = new List<string>();
-
-			foreach ( var user in this.Lst_UserMgtDB )
+			System.Windows.Application.Current.Dispatcher.Invoke( delegate
 			{
-				userList.Add( user.Key );
-			}
-			return userList;
+				this.UserList.Clear();
+				foreach ( var user in this.Lst_UserMgtDB )
+					this.UserList.Add( user.Key );
+			} );
+
 		}
-		public List<string> GetEditableUserList()
+		public ObservableCollection<string> EditableUserList { get; private set; } = new ObservableCollection<string>();
+		private void RefreshEditableUserList()
 		{
-			List<string> userList = new List<string>();
-
-			foreach ( var user in this.Lst_UserMgtDB )
+			System.Windows.Application.Current.Dispatcher.Invoke( delegate
 			{
-				if ( user.Value.GroupID >= this.LoginUserLevel ) continue;
-				userList.Add( user.Key );
-			}
-			return userList;
+				this.EditableUserList.Clear();
+				foreach ( var user in this.Lst_UserMgtDB )
+				{
+					if ( user.Value.GroupID >= this.LoginUserLevel ) continue;
+					this.EditableUserList.Add( user.Key );
+				}
+			} );
+		}
+		#endregion
+		#region Creatable user level
+		public ObservableCollection<AccessLevel> CreatableUserLevel { get; private set; } = new ObservableCollection<AccessLevel>();
+		private void RefreshCreatableUserLevel()
+		{
+			var Creatable = Enum.GetValues( typeof( AccessLevel ) ).Cast<AccessLevel>().ToList().Where( x => x <= this.LoginUserLevel && x > AccessLevel.Guest );
+			System.Windows.Application.Current.Dispatcher.Invoke( delegate
+			{
+				this.CreatableUserLevel.Clear();
+				foreach ( var lvl in Creatable )
+				{
+					this.CreatableUserLevel.Add( lvl );
+				}
+			} );
+
+
+
 		}
 		#endregion
 		#region Get User Informations
@@ -436,7 +464,9 @@ namespace HiPA.Common
 			}
 			else
 				result = $"Invalid User";
-
+			this.RefreshEditableUserList();
+			this.RefreshUserList();
+			this.RefreshCreatableUserLevel();
 			return result;
 		}
 		public string DeleteUser( string user )
@@ -575,19 +605,16 @@ namespace HiPA.Common
 	}
 	public class UserAccessConfig : BaseUtility
 	{
-		private string s_Page = string.Empty;
 		public string Page
 		{
-			get => this.s_Page;
-			set => this.Set( ref this.s_Page, value, "Page" );
+			get => this.GetValue( () => this.Page );
+			set => this.SetValue( () => this.Page, value );
 		}
-		private PrivilegeType _Privilege = PrivilegeType.ReadOnly;
 		public PrivilegeType Privilege
 		{
-			get => this._Privilege;
-			set => this.Set( ref this._Privilege, value, "Privilege" );
+			get => this.GetValue( () => this.Privilege );
+			set => this.SetValue( () => this.Privilege, value );
 		}
-
 		public UserAccessConfig( string Page, UserControl Control, PrivilegeType Privilege )
 		{
 			this.Page = Page;
