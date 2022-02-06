@@ -5,8 +5,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:NeoWisePlatform.CommonControls" 
-			 xmlns:mahapp="http://metro.mahapps.com/winfx/xaml/controls"
 			 mc:Ignorable="d" 
 			 Loaded="UserControl_Loaded">
     <StackPanel>
@@ -14,7 +12,7 @@
             <Label Style="{StaticResource LB_ItemTitle}" x:Name="LblAxisName" Content="Axis Name"
                 HorizontalAlignment="Left"
                 DockPanel.Dock="Left"/>
-            <Label x:Name="Txt_Curr_Pos" Style="{StaticResource LB_ItemData_Center}" Content="888.888" Width="80" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" DockPanel.Dock="Right"/>
+            <Label x:Name="Txt_Curr_Pos" Style="{StaticResource LB_PositioncornerTopRight}" Content="888.888" Width="80" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Right"/>
             <Label Content="{StaticResource PositionMM}" Style="{StaticResource LB_ItemContent_Right}" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
         </DockPanel>
         <StackPanel Orientation="Horizontal">

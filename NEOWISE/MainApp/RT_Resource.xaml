@@ -317,6 +317,28 @@
         <Setter Property="Padding" Value="0,0,2,0"/>
         <Setter Property="Height" Value="14"/>
     </Style>
+    <Style  x:Key="LB_PositioncornerTopRight" TargetType="Label" BasedOn="{StaticResource LB_ItemData_Center}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Label}">
+                    <Border
+            BorderThickness="0" 
+            Background="{StaticResource BR_BLACK_BG}" 
+            Padding="0" 
+            Margin="0"
+            SnapsToDevicePixels="true" 
+            CornerRadius="0,2,0,0">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!--Textbox style-->
     <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
         <Setter Property="Foreground" Value="{StaticResource TextColor}"/>

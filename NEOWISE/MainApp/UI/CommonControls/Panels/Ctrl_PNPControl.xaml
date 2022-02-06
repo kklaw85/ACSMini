@@ -10,22 +10,23 @@
              Loaded="UserControl_Loaded">
     <Border Style="{StaticResource FrameWithShadow}">
         <StackPanel Orientation="Vertical">
-            <Label Style="{StaticResource LB_PanelTitle}" Content="{StaticResource PNPArmControl}"/>
+            <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource PNPArmControl}"/>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Style="{StaticResource LB_ItemContent_Left}" Content="{StaticResource UnInspectRes}"/>
                 <ComboBox x:Name="UnInspResult" Width="70" HorizontalAlignment="Left" Margin="5,0,0,0"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5,0,5,5">
+            <StackPanel Orientation="Vertical" Margin="5,0,5,5">
                 <Border Style="{StaticResource FrameWithShadow}">
-                    <CommonControls:Ctrl_SingleAxisJog x:Name="PnpAxis" Margin="0,0,5,0"/>
+                    <CommonControls:Ctrl_SingleAxisJog x:Name="PnpAxis" Margin="0,0,0,5"/>
                 </Border>
-                <Border Margin="5,0,0,0" Style="{StaticResource FrameWithShadow}">
-                    <Panels:Ctrl_PNPArm x:Name="LoadArm"/>
-                </Border>
-                <Border Margin="5,0,0,0" Style="{StaticResource FrameWithShadow}">
-                    <Panels:Ctrl_PNPArm x:Name="UnloadArm"/>
-                </Border>
-
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <Border Style="{StaticResource FrameWithShadow}">
+                        <Panels:Ctrl_PNPArm x:Name="LoadArm"/>
+                    </Border>
+                    <Border Margin="5,0,0,0" Style="{StaticResource FrameWithShadow}">
+                        <Panels:Ctrl_PNPArm x:Name="UnloadArm"/>
+                    </Border>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Border>

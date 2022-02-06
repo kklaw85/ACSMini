@@ -18,23 +18,23 @@
             <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,10,0,0">
                 <Grid>
                     <StackPanel x:Name="AxisGenCfg" Orientation="Vertical">
-                        <Label Content="{StaticResource Config}" Style="{StaticResource LB_PanelTitle}"/>
+                        <Label Content="{StaticResource Config}" Style="{StaticResource LB_ItemTitle}"/>
                         <StackPanel Orientation="Horizontal" Margin="10">
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,0,0,0" Width="355">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5">
-                                    <Label Content="{StaticResource AxisID}" Style="{StaticResource LB_ItemContent_Right}" Width="200" Margin="0,2"/>
+                                    <Label Content="{StaticResource AxisID}" Style="{StaticResource LB_ItemContent_Right}" Width="200"/>
                                     <mahapp:NumericUpDown  x:Name="AxisID" Width="120" StringFormat="F0"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5">
-                                    <Label Content="{StaticResource ModuleNo}" Style="{StaticResource LB_ItemContent_Right}" Width="200" Margin="0,2"/>
+                                    <Label Content="{StaticResource ModuleNo}" Style="{StaticResource LB_ItemContent_Right}" Width="200"/>
                                     <mahapp:NumericUpDown  x:Name="Txt_ModuleNo" Width="120" StringFormat="F0"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5">
-                                    <Label Content="{StaticResource AxisNegDir}" Style="{StaticResource LB_ItemContent_Right}" Width="200" Margin="0,2"/>
+                                    <Label Content="{StaticResource AxisNegDir}" Style="{StaticResource LB_ItemContent_Right}" Width="200"/>
                                     <ComboBox HorizontalAlignment="Left" Width="120"  x:Name="Cb_AxisNegDir"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5">
-                                    <Label Content="{StaticResource MotionScale}" Style="{StaticResource LB_ItemContent_Right}" Width="200" Margin="0,2"/>
+                                    <Label Content="{StaticResource MotionScale}" Style="{StaticResource LB_ItemContent_Right}" Width="200"/>
                                     <mahapp:NumericUpDown  x:Name="Txt_MotionScale" Width="120" StringFormat="F0"/>
                                 </StackPanel>
                                 <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5">
@@ -88,10 +88,10 @@
             <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,5,0,0">
                 <Grid x:Name="AxisStatus">
                     <StackPanel Orientation="Vertical">
-                        <Label Content="{StaticResource AxisStatusIOPos}" Style="{StaticResource LB_PanelTitle}"/>
+                        <Label Content="{StaticResource AxisStatusIOPos}" Style="{StaticResource LB_ItemTitle}"/>
                         <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,0,0,0">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
                                     <Label Content="{StaticResource CMDPos}" Style="{StaticResource LB_ItemContent_Right}" Width="170" Margin="0,2"/>
                                     <Label x:Name="Txt_Cmd_Pos" Style="{StaticResource LB_ItemData_Center}" Width="120"/>
                                 </StackPanel>
@@ -100,61 +100,61 @@
                                     <Label x:Name="Txt_FeedBack_Pos" Style="{StaticResource LB_ItemData_Center}" Width="120"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
-                                    <Label Content="{StaticResource ErrorPos}" Style="{StaticResource LB_ItemContent_Right}" Width="170"/>
+                                    <Label Content="{StaticResource ErrorPos}" Style="{StaticResource LB_ItemContent_Right}" Width="170" Margin="0,2"/>
                                     <Label x:Name="Txt_Err_Pos" Style="{StaticResource LB_ItemData_Center}" Width="120"/>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="15,0,0,0">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_PEL" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,0,0,0">
+                                    <Rectangle x:Name="Rec_PEL" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="PEL" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_HM" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
+                                    <Rectangle x:Name="Rec_HM" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="HM" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_MEL" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
+                                    <Rectangle x:Name="Rec_MEL" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="MEL" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_INP" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
+                                    <Rectangle x:Name="Rec_INP" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="INP" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10,0,0,0">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_NST" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,0,0,0">
+                                    <Rectangle x:Name="Rec_NST" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="NSTP" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_CSTP" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
+                                    <Rectangle x:Name="Rec_CSTP" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="CSTP" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_ASTP" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
+                                    <Rectangle x:Name="Rec_ASTP" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="ASTP" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_ACC" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
+                                    <Rectangle x:Name="Rec_ACC" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="ACC" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10,0,0,0">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_DEC" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,0,0,0">
+                                    <Rectangle x:Name="Rec_DEC" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="DEC" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_VM" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
+                                    <Rectangle x:Name="Rec_VM" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="VM" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_SVRALM" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
+                                    <Rectangle x:Name="Rec_SVRALM" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="Servo Alm" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </StackPanel>
-                            <StackPanel x:Name="AxisStatusCtrl" Orientation="Vertical" HorizontalAlignment="Left" Margin="10,0,0,0">
+                            <StackPanel x:Name="AxisStatusCtrl" Orientation="Vertical" HorizontalAlignment="Left" Margin="10,2,0,0">
                                 <Rectangle x:Name="Rec_SVRSW" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                 <Button x:Name="Btn_SvrSW" Content="Servo On/Off" Margin="30,-22,0,0" Width="105" Height="25" Click="Btn_SvrSW_Click"/>
                                 <Button x:Name="Btn_SvrHM" Content="Home" Margin="30,30,0,0" Height="25" Width="105" Click="Btn_SvrHM_Click" VerticalAlignment="Top"/>
@@ -167,7 +167,7 @@
                 <Grid>
                     <StackPanel x:Name="AxisMovementCtrl" Orientation="Horizontal">
                         <StackPanel Orientation="Vertical">
-                            <Label Content="{StaticResource MoveTest}" Style="{StaticResource LB_PanelTitle}"/>
+                            <Label Content="{StaticResource MoveTest}" Style="{StaticResource LB_ItemTitle}"/>
                             <RadioButton Content="{StaticResource UseCom}" x:Name="Rdo_UseCom" Margin="10,10,0,0" IsChecked="True" Height="24"/>
                             <RadioButton Content="{StaticResource UseGen}" x:Name="Rdo_UseGen" Margin="10,5,0,0" Height="24"/>
                         </StackPanel>
