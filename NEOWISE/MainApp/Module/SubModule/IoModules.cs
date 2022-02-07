@@ -718,7 +718,11 @@ namespace NeoWisePlatform.Module
 			get => this.GetValue( () => this.Timeout );
 			set => this.SetValue( () => this.Timeout, value );
 		}
-
+		public bool ReverseLogic
+		{
+			get => this.GetValue( () => this.ReverseLogic );
+			set => this.SetValue( () => this.ReverseLogic, value );
+		}
 		public override MachineVariant MachineVar { get; set; } = new MachineVar();
 	}
 
@@ -797,15 +801,33 @@ namespace NeoWisePlatform.Module
 		{
 			get
 			{
-				if ( this._ToResetCylinder == null )
-					return this._ToPosCylinder?.Check( DioValue.On );
+				if ( !this.Configuration.ReverseLogic )
+				{
+					if ( this._ToResetCylinder == null )
+						return this._ToPosCylinder?.Check( DioValue.On );
+					else
+						return this._ToPosCylinder?.Check( DioValue.On ) == true && this._ToResetCylinder?.Check( DioValue.Off ) == true;
+				}
 				else
-					return this._ToPosCylinder?.Check( DioValue.On ) == true && this._ToResetCylinder?.Check( DioValue.Off ) == true;
+				{
+					if ( this._ToResetCylinder == null )
+						return this._ToPosCylinder?.Check( DioValue.Off );
+					else
+						return this._ToPosCylinder?.Check( DioValue.Off ) == true && this._ToResetCylinder?.Check( DioValue.On ) == true;
+				}
 			}
 			set
 			{
-				this._ToPosCylinder?.SetOut( value == true ? DioValue.On : DioValue.Off );
-				this._ToResetCylinder?.SetOut( value == true ? DioValue.Off : DioValue.On );
+				if ( !this.Configuration.ReverseLogic )
+				{
+					this._ToPosCylinder?.SetOut( value == true ? DioValue.On : DioValue.Off );
+					this._ToResetCylinder?.SetOut( value == true ? DioValue.Off : DioValue.On );
+				}
+				else
+				{
+					this._ToPosCylinder?.SetOut( value == true ? DioValue.Off : DioValue.On );
+					this._ToResetCylinder?.SetOut( value == true ? DioValue.On : DioValue.Off );
+				}
 			}
 		}
 		public bool Suction

@@ -45,6 +45,7 @@
             </Expander>
         </StackPanel>
         <CheckBox x:Name="ByPassSense" Content="{StaticResource ByPassSensors}" Margin="5" ToolTip="Only for Manual Control. Will be disabled in Sequence Control."/>
+        <CheckBox x:Name="ReverseLogic" Content="{StaticResource ReverseLogic}" Margin="5" ToolTip="Check this if clamper Open/Close action is reversed."/>
         <Border Style="{StaticResource FrameWithoutShadow}" Margin="5">
             <StackPanel Margin="0,0,0,0">
                 <Label Content="IO State" Style="{StaticResource LB_ItemTitle}"/>

@@ -323,7 +323,7 @@
                 <ControlTemplate TargetType="{x:Type Label}">
                     <Border
             BorderThickness="0" 
-            Background="{StaticResource BR_BLACK_BG}" 
+            Background="{StaticResource ContentBoxColor}" 
             Padding="0" 
             Margin="0"
             SnapsToDevicePixels="true" 

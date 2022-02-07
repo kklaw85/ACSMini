@@ -789,7 +789,7 @@ namespace N_Data_Utilities
 		public object Convert( object value, Type targetType,
 		object parameter, System.Globalization.CultureInfo culture )
 		{
-			switch( ( StateBGColor )value )
+			switch ( ( StateBGColor )value )
 			{
 				case StateBGColor.Ready:
 					return Application.Current.Resources[ "Ready" ];
@@ -833,7 +833,7 @@ namespace N_Data_Utilities
 			return null;
 		}
 	}
-	[ ValueConversion( typeof( MachineStateType ), typeof( Style ) )]
+	[ValueConversion( typeof( MachineStateType ), typeof( Style ) )]
 	public class AutorunPausetoStyle : IValueConverter
 	{
 		public object Convert( object value, Type targetType,

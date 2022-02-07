@@ -200,8 +200,6 @@ namespace NeoWisePlatform.Module
 		}
 
 		#endregion
-
-
 		#region Motion
 		#region Clamper movement
 		#endregion
@@ -282,10 +280,6 @@ namespace NeoWisePlatform.Module
 		}
 		#endregion
 
-		#endregion
-		#region Laser Current Jog Settings
-		public JogAxis StepCurrSettings { get; set; } = new JogAxis();
-		public JogAxis VelCurrSettings { get; set; } = new JogAxis();
 		#endregion
 		#region StartAutoRun initialization
 		public Task<ErrorResult> MoveToStandbyStatus()

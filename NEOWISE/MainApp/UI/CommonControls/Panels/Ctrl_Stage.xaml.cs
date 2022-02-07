@@ -135,6 +135,12 @@ namespace NeoWisePlatform.UI.CommonControls.Panels
 				b.Path = new PropertyPath( "ByPassSense" );
 				this.ByPassSense.SetBinding( CheckBox.IsCheckedProperty, b );
 
+				b = new Binding();
+				b.Source = this._Source?.Configuration;
+				b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+				b.Path = new PropertyPath( "ReverseLogic" );
+				this.ReverseLogic.SetBinding( CheckBox.IsCheckedProperty, b );
+
 				this.BindLockAccessLevelManufacturer( this.ReleaseCfg );
 				this.BindLockAccessLevelManufacturer( this.HoldCfg );
 				this.BindLockAccessLevelManufacturer( this.ClampCfg );

@@ -954,6 +954,7 @@
     <System:String x:Key="SuctionHoldCfg">Suction Hold Cfg.</System:String>
     <System:String x:Key="SuctionReleaseCfg">Suction Release Cfg.</System:String>
     <System:String x:Key="ByPassSensors">Byp. Sens.</System:String>
+    <System:String x:Key="ReverseLogic">Reverse Logic</System:String>
 </ResourceDictionary>
 
 
