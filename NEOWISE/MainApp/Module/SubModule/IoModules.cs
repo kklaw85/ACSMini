@@ -547,8 +547,8 @@ namespace NeoWisePlatform.Module
 					if ( !this.ValidVariant() ) return this.Result;
 					if ( this._VacuumSuction == null ) this.ThrowError( ErrorClass.E6, "Null Vacuum object" );
 					if ( this._VacuumSuctionSense == null ) this.ThrowError( ErrorClass.E6, "Null Vacuum sense object" );
-					if ( BypassVac != true )
-						if ( this.ObjHeld == true ) return this.Result;
+					if ( !this.SuctionSense ) this.ObjHeld = false;
+					if ( BypassVac != true ) if ( this.ObjHeld == true ) return this.Result;
 					this.CheckAndThrowIfError( this.MoveToPos().Result );
 					if ( BypassVac != true )
 					{

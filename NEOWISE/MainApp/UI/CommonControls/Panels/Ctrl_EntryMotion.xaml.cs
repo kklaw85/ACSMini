@@ -41,15 +41,31 @@ namespace NeoWisePlatform.UI.CommonControls.Panels
 		{
 			try
 			{
+				Equipment.MachStateMgr.MachineStatus = MachineStateType.BUSY;
 				var res = this._PnpModule.PNPMoveAbsolute( ( double )this.Entry.Value );
 				await res;
 				if ( res.Result.EClass != ErrorClass.OK )
 					throw new Exception( res.Result.ErrorMessage );
+				Equipment.MachStateMgr.RevertStateManualOp();
+			}
+			catch ( Exception ex )
+			{
+				Equipment.MachStateMgr.RevertStateManualOp();
+				Equipment.ErrManager.RaiseWarning( this.FormatErrMsg( this.Name, ex ), ErrorTitle.InvalidOperation );
+			}
+		}
+
+		private void PanelBase_Loaded( object sender, RoutedEventArgs e )
+		{
+			try
+			{
+				this.BindLockMachineState( this.Ctrl );
 			}
 			catch ( Exception ex )
 			{
 				Equipment.ErrManager.RaiseWarning( null, this.FormatErrMsg( this.Name, ex ), ErrorTitle.InvalidOperation );
 			}
+
 		}
 	}
 }

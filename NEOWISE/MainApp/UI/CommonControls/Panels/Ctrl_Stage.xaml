@@ -94,7 +94,7 @@
                 </Border>
             </StackPanel>
         </Border>
-        <Border Style="{StaticResource FrameWithoutShadow}" Margin="5">
+        <Border x:Name="ManualCtrl" Style="{StaticResource FrameWithoutShadow}" Margin="5">
             <StackPanel Margin="0,0,0,0">
                 <Label Content="Manual Ctrl." Style="{StaticResource LB_ItemTitle}"/>
                 <Border Style="{StaticResource MiniFrame}" Margin="5">
@@ -125,7 +125,7 @@
                 </Border>
             </StackPanel>
         </Border>
-        <Border Style="{StaticResource FrameWithoutShadow}" Margin="5">
+        <Border x:Name="AutoCtrl" Style="{StaticResource FrameWithoutShadow}" Margin="5">
             <StackPanel Margin="0,0,0,0">
                 <Label Content="Seq. Ctrl." Style="{StaticResource LB_ItemTitle}"/>
                 <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">

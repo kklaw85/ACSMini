@@ -49,6 +49,8 @@ namespace NeoWisePlatform.UI.CommonControls.Panels
 				this.BindLockAccessLevelManufacturer( this.PickCfg );
 				this.BindLockAccessLevelManufacturer( this.PlaceCfg );
 				this.BindLockAccessLevelManufacturer( this.ArmCfg );
+				this.BindLockMachineState( this.ManualCtrl );
+				this.BindLockMachineState( this.AutoCtrl );
 			}
 			catch ( Exception ex )
 			{

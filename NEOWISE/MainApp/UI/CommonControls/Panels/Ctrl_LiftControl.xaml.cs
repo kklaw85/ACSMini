@@ -47,6 +47,7 @@ namespace NeoWisePlatform.UI.CommonControls.Panels
 			try
 			{
 				this.BindLockAccessLevelManufacturer( this.Configs );
+				this.BindLockMachineState( this.Ctrls );
 			}
 			catch ( Exception ex )
 			{
@@ -58,6 +59,7 @@ namespace NeoWisePlatform.UI.CommonControls.Panels
 		{
 			try
 			{
+				Equipment.MachStateMgr.MachineStatus = MachineStateType.BUSY;
 				var btn = sender as Button;
 				if ( btn == this.BtnLoadPos )
 				{
@@ -83,10 +85,15 @@ namespace NeoWisePlatform.UI.CommonControls.Panels
 					await task;
 					if ( task.Result.EClass != ErrorClass.OK ) throw new Exception( task.Result.ErrorMessage );
 				}
+				Equipment.MachStateMgr.RevertStateManualOp();
 			}
 			catch ( Exception ex )
 			{
+				Equipment.MachStateMgr.RevertStateManualOp();
 				Equipment.ErrManager.RaiseWarning( this.FormatErrMsg( this.Name, ex ), ErrorTitle.InvalidOperation );
+			}
+			finally
+			{
 			}
 		}
 	}

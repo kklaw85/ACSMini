@@ -12,7 +12,7 @@ namespace SystemInfo
 		//System Start-Up Driectory 
 		public string sRoot_Dir = AppDomain.CurrentDomain.BaseDirectory + "\\";
 		public const string ApplicationName = "Neowise";
-		public static string DebugVersion = "_A";
+		public static string DebugVersion = "_C";
 		public static string Software_Version = Assembly.GetExecutingAssembly().GetName().Version + DebugVersion;
 
 		public static string GetApplicationName()

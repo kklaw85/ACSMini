@@ -145,6 +145,8 @@ namespace NeoWisePlatform.UI.CommonControls.Panels
 				this.BindLockAccessLevelManufacturer( this.HoldCfg );
 				this.BindLockAccessLevelManufacturer( this.ClampCfg );
 				this.BindLockAccessLevelManufacturer( this.ByPassSense );
+				this.BindLockMachineState( this.AutoCtrl );
+				this.BindLockMachineState( this.ManualCtrl );
 			}
 			catch ( Exception ex )
 			{

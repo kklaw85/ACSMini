@@ -43,7 +43,7 @@
                     <Label Content="NEL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Negative End Limit"/>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Vertical" Margin="5,0,0,0">
+            <StackPanel x:Name="Ctrls" Orientation="Vertical" Margin="5,0,0,0">
                 <Button x:Name="BtnCollectionPos" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Click="Btn_Click" ToolTip="Move to Collection Position">
                     <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/DPAD_Up.png"/>
                 </Button>
