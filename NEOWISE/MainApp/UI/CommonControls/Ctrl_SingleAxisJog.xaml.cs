@@ -87,7 +87,7 @@ namespace NeoWisePlatform.UI.CommonControls
 			{
 				var btn = sender as Button;
 				var dir = btn.Name.Contains( "Neg" ) ? -1.0 : 1.0;
-				var TaskRelMove = this._axis.RelativeMove( new Trajectory( this._axis.Configuration.GeneralMove ) { Distance = this._axis.StepMove } );
+				var TaskRelMove = this._axis.RelativeMove( new Trajectory( this._axis.Configuration.GeneralMove ) { Distance = dir * this._axis.StepMove } );
 				await TaskRelMove;
 				if ( TaskRelMove.Result != string.Empty )
 					throw new Exception( TaskRelMove.Result );

@@ -53,7 +53,7 @@ namespace NeoWisePlatform.SystemControls.Panels
 				b.Path = new PropertyPath( "Velocity" );
 				Valid_Rule_Double d_RU = new Valid_Rule_Double();
 				d_RU.Min = 0;
-				d_RU.Max = 1000;
+				d_RU.Max = 10000;
 				b.ValidationRules.Clear();
 				b.ValidationRules.Add( d_RU );
 				this.Txt_GenVel.SetBinding( NumericUpDown.ValueProperty, b );

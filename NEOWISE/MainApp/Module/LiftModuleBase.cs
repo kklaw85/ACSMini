@@ -211,7 +211,7 @@ namespace NeoWisePlatform.Module
 						Distance = Pos,
 					};
 					this.CheckAndThrowIfError( ErrorClass.E5, this.Lift.RelativeMove( trajectory ).Result );
-					this.CheckAndThrowIfError( ErrorClass.E5, this.CheckLiftPosition( Pos ) );
+					//this.CheckAndThrowIfError( ErrorClass.E5, this.CheckLiftPosition( Pos ) );
 				}
 				catch ( Exception ex )
 				{
@@ -231,6 +231,7 @@ namespace NeoWisePlatform.Module
 				this.ClearErrorFlags();
 				try
 				{
+					this.ReadyForCollection = false;
 					this.CheckAndThrowIfError( ErrorClass.E5, this.Lift.Homing().Result );
 				}
 				catch ( Exception ex )
@@ -312,11 +313,10 @@ namespace NeoWisePlatform.Module
 				{
 					if ( MachineStateMng.isSimulation ) return this.Result;
 					if ( this.LowerLimit.State && !this.UpperLimit.State ) return this.Result;
-					while ( !this.LowerLimit.State )
+					while ( !this.LowerLimit.State && !this.UpperLimit.State )
 					{
-						this.CheckAndThrowIfError( this.LiftMoveRel( 2 ).Result );
+						this.CheckAndThrowIfError( this.LiftMoveRel( 0.5 ).Result );
 						if ( this.Lift.Status.PEL ) break;
-						Thread.Sleep( 5 );
 					}
 				}
 				catch ( Exception ex )
@@ -335,11 +335,10 @@ namespace NeoWisePlatform.Module
 				{
 					if ( MachineStateMng.isSimulation ) return this.Result;
 					if ( this.LowerLimit.State && !this.UpperLimit.State ) return this.Result;
-					while ( this.UpperLimit.State )
+					while ( this.UpperLimit.State && this.LowerLimit.State )
 					{
-						this.CheckAndThrowIfError( this.LiftMoveRel( -2 ).Result );
+						this.CheckAndThrowIfError( this.LiftMoveRel( -0.5 ).Result );
 						if ( this.Lift.Status.NEL ) break;
-						Thread.Sleep( 5 );
 					}
 				}
 				catch ( Exception ex )
@@ -415,7 +414,6 @@ namespace NeoWisePlatform.Module
 							}
 							else
 							{
-								HysteresisCount = 0;
 								Thread.Sleep( 10 );
 								continue;
 							}
@@ -427,6 +425,7 @@ namespace NeoWisePlatform.Module
 							this.LiftWatchDogTimer.Restart();
 							Thread.Sleep( 5 );
 						}
+						Movement = LiftMovement.Stop;
 					}
 				}
 				catch ( Exception ex )
@@ -477,7 +476,7 @@ namespace NeoWisePlatform.Module
 				this.ClearErrorFlags();
 				try
 				{
-					Monitor.Enter( this.SyncRoot );
+					//Monitor.Enter( this.SyncRoot );
 					this.isContinuous = false;
 					this.LiftTask?.Wait();
 					this.LiftTask?.Dispose();
@@ -489,7 +488,7 @@ namespace NeoWisePlatform.Module
 				}
 				finally
 				{
-					Monitor.Exit( this.SyncRoot );
+					//Monitor.Exit( this.SyncRoot );
 				}
 				return this.Result;
 			} );
@@ -501,6 +500,7 @@ namespace NeoWisePlatform.Module
 				this.ClearErrorFlags();
 				try
 				{
+
 					this.CheckAndThrowIfError( this.StopAuto().Result );
 					this.CheckAndThrowIfError( this.HomeLift().Result );
 				}

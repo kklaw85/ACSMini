@@ -341,7 +341,7 @@ namespace HiPA.Instrument.Motion.APS
 					}
 					else if ( this.Configuration.CardType == AdlinkModel.AMP204208C )
 					{
-						value2 = ( ( uint )value ) >> 8;
+						value2 = ( ( uint )value );
 						this._inputBuffer[ key ] = value2;
 					}
 					if ( moduleNo == key ) result = value2;
@@ -385,7 +385,7 @@ namespace HiPA.Instrument.Motion.APS
 					if ( this.Configuration.CardType == AdlinkModel.PCI7856 )
 						this._outputBuffer[ key ] = ( uint )value;
 					else if ( this.Configuration.CardType == AdlinkModel.AMP204208C )
-						this._outputBuffer[ key ] = ( ( uint )value ) >> 8;
+						this._outputBuffer[ key ] = ( ( uint )value );
 					if ( moduleNo == key ) result = ( uint )value;
 				}
 				return result;
@@ -422,7 +422,7 @@ namespace HiPA.Instrument.Motion.APS
 				}
 				else if ( this.Configuration.CardType == AdlinkModel.AMP204208C )
 				{
-					resultint = APS168.APS_write_d_channel_output( boardHandle, 0, addr + 8, ( value == DioValue.On ? 1 : 0 ) );
+					resultint = APS168.APS_write_d_channel_output( boardHandle, 0, addr, ( value == DioValue.On ? 1 : 0 ) );
 				}
 				if ( resultint != 0 ) throw new Exception( PCI7856.GetErrorDesc( resultint ) );
 				return buff;

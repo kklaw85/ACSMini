@@ -571,6 +571,7 @@ namespace NeoWisePlatform.Module
 				}
 				catch ( Exception ex )
 				{
+					this.SuctionOff().Wait();
 					this.CatchException( ex );
 				}
 				return this.Result;

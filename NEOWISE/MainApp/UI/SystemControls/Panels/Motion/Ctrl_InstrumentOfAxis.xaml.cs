@@ -90,7 +90,7 @@ namespace NeoWisePlatform.UI.SystemControls.Panels.Motion
 				b.Path = new PropertyPath( "MotionScale" );
 				var RD = new Valid_Rule_Double();
 				RD.Min = 0;
-				RD.Max = 10000;
+				RD.Max = 50000;
 				b.ValidationRules.Clear();
 				b.ValidationRules.Add( RD );
 				this.Txt_MotionScale.SetBinding( NumericUpDown.ValueProperty, b );
@@ -123,7 +123,7 @@ namespace NeoWisePlatform.UI.SystemControls.Panels.Motion
 				b.Path = new PropertyPath( "MaxVelocity" );
 				d_RU = new Valid_Rule_Double();
 				d_RU.Min = 0;
-				d_RU.Max = 1000;
+				d_RU.Max = 10000;
 				b.ValidationRules.Clear();
 				b.ValidationRules.Add( d_RU );
 				this.Txt_MaxVel.SetBinding( NumericUpDown.ValueProperty, b );

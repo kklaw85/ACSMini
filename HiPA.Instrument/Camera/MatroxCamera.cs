@@ -343,7 +343,7 @@ namespace HiPA.Instrument.Camera
 		{
 			if ( MachineStateMng.isSimulation ) return;
 			this.UpdateImageRotation();
-			this.Camera.GammaEnable = true;
+			//this.Camera.GammaEnable = true;
 			this.SetExposureTime( this.Configuration.Exposure.Value );
 			this.SetGain( this.Configuration.Gain.Value );
 			//this.SetGain( 1 );

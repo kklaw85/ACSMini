@@ -710,13 +710,12 @@ namespace HiPA.Common
 		}
 		public bool IsSafeToOperate()
 		{
-			bool IsSafe = false;
 			if ( this.SubscribedInterlock.Count == 0 ) return true;
 			foreach ( var interlock in this.SubscribedInterlock )
 			{
 				if ( !interlock.IsSafeToOperate ) return false;
 			}
-			return IsSafe;
+			return true;
 		}
 	}
 }
