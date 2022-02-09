@@ -17,7 +17,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <Label Content="Result" Style="{StaticResource LB_ItemContent_Right}" Width="45" />
-                        <Label x:Name="Res" Style="{StaticResource LB_ItemData_Left}" Content="{Binding Result}" Width="95" />
+                        <Label x:Name="Res" Style="{StaticResource LB_ItemData_Left}" Content="{Binding InspResult}" Width="95" />
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

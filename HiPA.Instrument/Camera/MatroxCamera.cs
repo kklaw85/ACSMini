@@ -134,7 +134,7 @@ namespace HiPA.Instrument.Camera
 	public class MatroxCamera
 		: InstrumentBase
 	{
-
+		public VisionBypass Bypass { get; set; }
 		public override MachineVariant MachineVar { get; set; }
 		#region Instrument Members 
 		public MatroxCameraConfiguration Configuration { get; protected set; }
@@ -634,11 +634,20 @@ namespace HiPA.Instrument.Camera
 				{
 					this.CheckAndThrowIfError( ErrorClass.E5, this.SingleGrab().Result );
 					this.CheckAndThrowIfError( ErrorClass.E5, this.GrabSuccessful ? string.Empty : "Grab unsuccessful" );
-					var Res = this.Vision.CheckModelPosition( this.Configuration.MMFs.Calibration, new CameraObj( this.Camera.MilImage, this.Camera.XHairPos.XOffsetPix, this.Camera.XHairPos.YOffsetPix ), ROI ).Result;
-					this.CheckAndThrowIfError( Res.EClass, Res.ErrorMessage );
-					RawPos = Res.RawPos;
-					OffPos = Res.OffPos;
-					RawOffsetCenter = Res.RawOffsetCenter;
+					if ( !this.Bypass.BypassVisionCapture && !this.Bypass.BypassVisionProcessing )
+					{
+						var Res = this.Vision.CheckModelPosition( this.Configuration.MMFs.Calibration, new CameraObj( this.Camera.MilImage, this.Camera.XHairPos.XOffsetPix, this.Camera.XHairPos.YOffsetPix ), ROI ).Result;
+						this.CheckAndThrowIfError( Res.EClass, Res.ErrorMessage );
+						RawPos = Res.RawPos;
+						OffPos = Res.OffPos;
+						RawOffsetCenter = Res.RawOffsetCenter;
+					}
+					else
+					{
+						RawPos = new C_PointD( MathExt.GetRandomNumber( -2, 2 ), MathExt.GetRandomNumber( -2, 2 ), MathExt.GetRandomNumber( -2, 2 ) );
+						OffPos = new C_PointD( MathExt.GetRandomNumber( -2, 2 ), MathExt.GetRandomNumber( -2, 2 ), MathExt.GetRandomNumber( -2, 2 ) );
+						RawOffsetCenter = new C_PointD( MathExt.GetRandomNumber( -2, 2 ), MathExt.GetRandomNumber( -2, 2 ), MathExt.GetRandomNumber( -2, 2 ) );
+					}
 				}
 				catch ( Exception ex )
 				{
@@ -738,6 +747,11 @@ namespace HiPA.Instrument.Camera
 			{
 				var Result = string.Empty;
 				var RetryCounter = 0;
+				if ( this.Bypass.BypassVisionCapture )
+				{
+					this.GrabSuccessful = true;
+					return Result;
+				}
 				while ( --retryCount >= 0 )
 				{
 					try
@@ -949,7 +963,7 @@ namespace HiPA.Instrument.Camera
 		public C_PointD RawPosition { get; set; } = new C_PointD();//pixels
 		public C_PointD RawOffset { get; set; } = new C_PointD();//pixels
 		public C_PointD PositionOffset { get; set; } = new C_PointD();//pixels
-		public C_PointD PixPerMM { get; set; }
+		public C_PointD PixPerMM { get; set; } = new C_PointD();
 		public C_PointD PositionOffsetMM { get; set; } = new C_PointD();//mm
 		public eInspStatusSingle Status
 		{
@@ -982,6 +996,7 @@ namespace HiPA.Instrument.Camera
 			this.PositionOffset.Copy( Source.PositionOffset );
 			this.PixPerMM.Copy( Source.PixPerMM );
 			this.PositionOffsetMM.Copy( Source.PositionOffsetMM );
+			this.Status = Source.Status;
 		}
 	}
 	public enum eInspStatusSingle
@@ -990,5 +1005,18 @@ namespace HiPA.Instrument.Camera
 		Done,
 		Fail,
 	}
-
+	[Serializable]
+	public class VisionBypass : RecipeBaseUtility
+	{
+		public bool BypassVisionCapture
+		{
+			get => this.GetValue( () => this.BypassVisionCapture );
+			set => this.SetValue( () => this.BypassVisionCapture, value );
+		}
+		public bool BypassVisionProcessing
+		{
+			get => this.GetValue( () => this.BypassVisionProcessing );
+			set => this.SetValue( () => this.BypassVisionProcessing, value );
+		}
+	}
 }

@@ -10,7 +10,7 @@ namespace NeoWisePlatform.Sequence
 	public class PNPSeq : StationSeqBase
 	{
 		private PNPModule PnpModule => this._Equipment.PNP;
-		private eInspResult PNPInsResult => this.PnpModule.AutorunInfo.InspectionRes.Result;
+		private eInspResult PNPInsResult => this.PnpModule.AutorunInfo.InspectionRes.InspResult;
 		private StageModule StageModule => this._Equipment.Stage;
 		private StageAutorunInfo StageInfo => this.StageModule.AutorunInfo;
 		private bool NewLiftStarted = false;
@@ -329,22 +329,22 @@ namespace NeoWisePlatform.Sequence
 			try
 			{
 				if ( this.CompareThreadIndex( Run_PNP_Seq.MoveToInspectedPos ) ) return ( int )RunErrors.ERR_Inconformity;
-				if ( this.PnpModule.AutorunInfo.InspectionRes.Result == eInspResult.KIV )
+				if ( this.PnpModule.AutorunInfo.InspectionRes.InspResult == eInspResult.KIV )
 				{
 					if ( this.isError( this.PnpModule.PNPToPlaceKIV().Result ) )
 						return ( int )RunErrors.ERR_PNPMoveToKIVErr;
 				}
-				else if ( this.PnpModule.AutorunInfo.InspectionRes.Result == eInspResult.NG )
+				else if ( this.PnpModule.AutorunInfo.InspectionRes.InspResult == eInspResult.NG )
 				{
 					if ( this.isError( this.PnpModule.PNPToPlaceNG().Result ) )
 						return ( int )RunErrors.ERR_PNPMoveToNGErr;
 				}
-				else if ( this.PnpModule.AutorunInfo.InspectionRes.Result == eInspResult.QIC )
+				else if ( this.PnpModule.AutorunInfo.InspectionRes.InspResult == eInspResult.QIC )
 				{
 					if ( this.isError( this.PnpModule.PNPToPickPos().Result ) )
 						return ( int )RunErrors.ERR_PNPMoveToPickErr;
 				}
-				else if ( this.PnpModule.AutorunInfo.InspectionRes.Result == eInspResult.Uninspected )
+				else if ( this.PnpModule.AutorunInfo.InspectionRes.InspResult == eInspResult.Uninspected )
 				{
 					if ( this.PnpModule.Configuration.UnInspResult == UninspResult.KIV )
 					{
@@ -374,7 +374,7 @@ namespace NeoWisePlatform.Sequence
 				var tasks = new List<Task<ErrorResult>>();
 				var ToPlaceNew = this.PnpModule.LoadArm.ObjHeld && this.PnpModule.AutorunInfo.UnloadStage == false;
 				var ToPlaceInspected = this.PnpModule.UnLoadArm.ObjHeld;
-				if ( this.PnpModule.AutorunInfo.InspectionRes.Result == eInspResult.QIC && !this.FailToPickNew && ToPlaceNew )
+				if ( this.PnpModule.AutorunInfo.InspectionRes.InspResult == eInspResult.QIC && !this.FailToPickNew && ToPlaceNew )
 					tasks.Add( this.PnpModule.LoadArm.PlaceDown() );
 				if ( ToPlaceInspected )
 					tasks.Add( this.PnpModule.UnLoadArm.PlaceDown() );

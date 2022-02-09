@@ -15,7 +15,8 @@
         <StackPanel Orientation="Vertical">
             <Label Content="{StaticResource ManufacturerOverride}" Style="{StaticResource LB_MainTitle}"/>
             <StackPanel Margin="10" x:Name="StkPnlCtrlLst">
-                <!--<CheckBox x:Name="Chk_EnForceUnlock" IsChecked="False" Content="Force Unlock" Margin="0,10,0,0"/>-->
+                <CheckBox IsChecked="{Binding Vision.BypassVisionCapture}" Content="Vision Capture" Margin="0,0,0,5"/>
+                <CheckBox IsChecked="{Binding Vision.BypassVisionProcessing}" Content="Vision Processing" Margin="0,0,0,5"/>
             </StackPanel>
 		</StackPanel>
 

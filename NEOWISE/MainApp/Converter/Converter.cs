@@ -85,13 +85,7 @@ namespace Converter
 		public object Convert( object value, Type targetType,
 		object parameter, System.Globalization.CultureInfo culture )
 		{
-			double tempfloat = 0;
-			if ( double.TryParse( value.ToString(), out tempfloat ) )
-			{
-				double fValue = ( double )value;
-				return fValue.ToString( "F3" );
-			}
-			return value.ToString();
+			return (( double )value).ToString( "N3" );
 		}
 		public object ConvertBack( object value, Type targetType,
 		object parameter, System.Globalization.CultureInfo culture )

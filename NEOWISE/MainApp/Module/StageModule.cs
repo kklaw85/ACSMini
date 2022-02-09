@@ -332,16 +332,16 @@ namespace NeoWisePlatform.Module
 		public InspectionResult Fov1 { get; private set; } = new InspectionResult();
 		public InspectionResult Fov2 { get; private set; } = new InspectionResult();
 		public InspectionCriteria InspectionCriteria { get; set; } = new InspectionCriteria();
-		public eInspResult Result
+		public eInspResult InspResult
 		{
-			get => this.GetValue( () => this.Result );
-			set => this.SetValue( () => this.Result, value );
+			get => this.GetValue( () => this.InspResult );
+			set => this.SetValue( () => this.InspResult, value );
 		}
 		public void Clear()
 		{
 			this.Fov1.Clear();
 			this.Fov2.Clear();
-			this.Result = eInspResult.Uninspected;
+			this.InspResult = eInspResult.Uninspected;
 			this.VisionOp = eVisionOperation.Init;
 		}
 		public void CalculateResult( InspectionResult Fov1, InspectionResult Fov2 )
@@ -354,29 +354,29 @@ namespace NeoWisePlatform.Module
 				{
 					if ( !this.Fov1.PositionOffsetMM.InRange( -this.InspectionCriteria.NGThres, this.InspectionCriteria.NGThres ) ||
 						!this.Fov2.PositionOffsetMM.InRange( -this.InspectionCriteria.NGThres, this.InspectionCriteria.NGThres ) )
-						this.Result = eInspResult.NG;
+						this.InspResult = eInspResult.NG;
 					else if ( !this.Fov1.PositionOffsetMM.InRange( -this.InspectionCriteria.KIVThres, this.InspectionCriteria.KIVThres ) ||
 						!this.Fov2.PositionOffsetMM.InRange( -this.InspectionCriteria.KIVThres, this.InspectionCriteria.KIVThres ) )
-						this.Result = eInspResult.KIV;
+						this.InspResult = eInspResult.KIV;
 					else
-						this.Result = eInspResult.QIC;
+						this.InspResult = eInspResult.QIC;
 				}
 				else if ( this.InspectionCriteria.Criteria == CompCriteria.RelativeOffsetBetween2FOVs )
 				{
 					if ( ( this.Fov1.PositionOffsetMM.X - this.Fov2.PositionOffsetMM.X ).InRange( -this.InspectionCriteria.NGThres, this.InspectionCriteria.NGThres ) ||
 						( this.Fov1.PositionOffsetMM.Y - this.Fov2.PositionOffsetMM.Y ).InRange( -this.InspectionCriteria.NGThres, this.InspectionCriteria.NGThres ) )
-						this.Result = eInspResult.NG;
+						this.InspResult = eInspResult.NG;
 					else if ( ( this.Fov1.PositionOffsetMM.X - this.Fov2.PositionOffsetMM.X ).InRange( -this.InspectionCriteria.KIVThres, this.InspectionCriteria.KIVThres ) ||
 						( this.Fov1.PositionOffsetMM.Y - this.Fov2.PositionOffsetMM.Y ).InRange( -this.InspectionCriteria.KIVThres, this.InspectionCriteria.KIVThres ) )
-						this.Result = eInspResult.KIV;
+						this.InspResult = eInspResult.KIV;
 					else
-						this.Result = eInspResult.QIC;
+						this.InspResult = eInspResult.QIC;
 				}
 				this.VisionOp = eVisionOperation.ResultCalculated;
 			}
 			catch ( Exception ex )
 			{
-				this.Result = eInspResult.CalcError;
+				this.InspResult = eInspResult.CalcError;
 			}
 		}
 		public void Copy( InspectionRes Source )

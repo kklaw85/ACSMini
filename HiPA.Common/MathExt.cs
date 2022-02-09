@@ -44,6 +44,12 @@ namespace HiPA.Common
 
 			return peaks;
 		}
+		public static Random random = new Random();
+		public static double GetRandomNumber( double minimum, double maximum )
+		{
+
+			return MathExt.random.NextDouble() * ( maximum - minimum ) + minimum;
+		}
 
 		public static IEnumerable<(int Index, double Intensity)> LocalMaxima( IEnumerable<double> source, int windowSize )
 		{

@@ -1,6 +1,7 @@
 ﻿using HiPA.Common;
 using HiPA.Common.Forms;
 using HiPA.Common.Report;
+using HiPA.Instrument.Camera;
 using HiPA.Instrument.Motion;
 using HiPA.Instrument.Motion.APS;
 using HiPA.Instrument.Motion.Dask;
@@ -198,8 +199,8 @@ namespace NeoWisePlatform.Module
 
 				this.PNP.Seq.PNPSeq = new PNPSeq( this.Stage.Seq, this.NewLift.Seq, this.QICLift.Seq );
 				this.AutoSeq = new AutoSeq( this.PNP.Seq );
-
-
+				this.Stage.Fov1.Bypass = this.MachineMisc.Configuration.ByPassConfig.Vision;
+				this.Stage.Fov2.Bypass = this.MachineMisc.Configuration.ByPassConfig.Vision;
 				this.MultiLangErr = new MultilingualErrModule();
 				if ( ( result = this.MultiLangErr.InitLoadErrorList().Result ) != string.Empty )
 					throw new Exception( result );
@@ -520,7 +521,7 @@ namespace NeoWisePlatform.Module
 						this.CheckAndThrowIfError( this.Stage.VisionCheck().Result );
 						this.GRRLogger.WriteLog( $"{this.Stage.AutorunInfo.InspectionRes.Fov1.RawPosition},{this.Stage.AutorunInfo.InspectionRes.Fov1.RawOffset},{this.Stage.AutorunInfo.InspectionRes.Fov1.PositionOffset},{this.Stage.AutorunInfo.InspectionRes.Fov1.PixPerMM},{this.Stage.AutorunInfo.InspectionRes.Fov1.PositionOffsetMM},{this.Stage.AutorunInfo.InspectionRes.Fov1.Status}," +
 							$"{this.Stage.AutorunInfo.InspectionRes.Fov2.RawPosition},{this.Stage.AutorunInfo.InspectionRes.Fov2.RawOffset},{this.Stage.AutorunInfo.InspectionRes.Fov2.PositionOffset},{this.Stage.AutorunInfo.InspectionRes.Fov2.PixPerMM},{this.Stage.AutorunInfo.InspectionRes.Fov2.PositionOffsetMM},{this.Stage.AutorunInfo.InspectionRes.Fov2.Status}," +
-							$"{this.Stage.AutorunInfo.InspectionRes.Result}" );
+							$"{this.Stage.AutorunInfo.InspectionRes.InspResult}" );
 						var tasks2 = new Task<ErrorResult>[]
 						{
 							this.Stage.Stage.Release(),
@@ -653,48 +654,42 @@ namespace NeoWisePlatform.Module
 			this.PNPSeq.bCycleStop = true;
 		}
 	}
-	public class CavityWorkPosLink : BaseUtility
-	{
-		private string s_CavityNo = string.Empty;
-		public string CavityNo
-		{
-			get => this.s_CavityNo;
-			set => this.Set( ref this.s_CavityNo, value, "CavityNo" );
-		}
-		private int i_WorkPosIndex = 0;
-		public int WorkPosIndex
-		{
-			get => this.i_WorkPosIndex;
-			set => this.Set( ref this.i_WorkPosIndex, value, "WorkPosIndex" );
-		}
-	}
+
 	[Serializable]
-	public class EquipmentBypass : BaseUtility
+	public class EquipmentBypass : RecipeBaseUtility
 	{
+		public VisionBypass Vision { get; set; } = new VisionBypass();
 
 	}
+
 	[Serializable]
 	public class EOLHelper : BaseUtility
 	{
 		public event EventHandler<double> EOLReached;
 		private bool EventTriggered = false;
-		private double dEOLHour = 0;
-		private double dLifeTimeHour = 0;
 		public double EOLHour
 		{
-			get => this.dEOLHour;
-			set => this.Set( ref this.dEOLHour, value, "EOLHour" );
+			get => this.GetValue( () => this.EOLHour );
+			set
+			{
+				this.SetValue( () => this.EOLHour, value );
+				if ( this.EOLHour != 0 && this.EOLHour < this.LifeTimeHour && !this.EventTriggered )
+				{
+					this.EventTriggered = true;
+					this.EOLReached.Invoke( this, this.LifeTimeHour );
+				}
+			}
 		}
 		public double LifeTimeHour
 		{
-			get => this.dLifeTimeHour;
+			get => this.GetValue( () => this.LifeTimeHour );
 			set
 			{
-				this.Set( ref this.dLifeTimeHour, value, "LifeTimeHour" );
-				if ( this.dEOLHour != 0 && this.dEOLHour < this.dLifeTimeHour && !this.EventTriggered )
+				this.SetValue( () => this.LifeTimeHour, value );
+				if ( this.EOLHour != 0 && this.EOLHour < this.LifeTimeHour && !this.EventTriggered )
 				{
 					this.EventTriggered = true;
-					this.EOLReached.Invoke( this, this.dLifeTimeHour );
+					this.EOLReached.Invoke( this, this.LifeTimeHour );
 				}
 			}
 		}
@@ -702,8 +697,8 @@ namespace NeoWisePlatform.Module
 		{
 			get
 			{
-				if ( this.dEOLHour == 0 ) return false;
-				return this.dEOLHour >= this.dLifeTimeHour;
+				if ( this.EOLHour == 0 ) return false;
+				return this.EOLHour >= this.LifeTimeHour;
 			}
 		}
 		public void ResetTimer()
