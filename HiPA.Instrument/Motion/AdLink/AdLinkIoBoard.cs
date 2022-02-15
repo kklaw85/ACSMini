@@ -620,12 +620,12 @@ namespace HiPA.Instrument.Motion.APS
 		O_DO4,
 		O_DO5,
 		O_DO6,
-		O_DO7,
+
 		O_Green,
 		O_Yellow,
 		O_Red,
 		O_Buzzer,
-		O_NewLiftBlower,
+		O_NewLiftBlower, 
 		O_LoadArmUp,
 		O_LoadArmDown,
 		O_LoadArmVac,
@@ -635,6 +635,7 @@ namespace HiPA.Instrument.Motion.APS
 		O_Clamp,
 		O_StageVac,
 		O_Lighting,
+		O_NewLiftPusher,
 	}
 	#endregion
 }

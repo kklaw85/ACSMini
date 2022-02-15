@@ -754,7 +754,8 @@
     <System:String x:Key="InPos">In Pos</System:String>
     <System:String x:Key="CylinderDO">CylinderDO</System:String>
     <System:String x:Key="Timeout">T/O (ms)</System:String>
-
+    <System:String x:Key="Duration">Duration(ms)</System:String>
+    
     <!-- Conveyor jog -->
     <System:String x:Key="Protract">Protract</System:String>
     <System:String x:Key="Retract">Retract</System:String>

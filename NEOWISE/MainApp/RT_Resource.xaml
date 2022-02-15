@@ -42,7 +42,7 @@
     <Color x:Key="C_GRAY_230" A="255" R="230" G="230" B="230" />
     <Color x:Key="C_GRAY_240" A="255" R="240" G="240" B="240" />
     <Color x:Key="C_GRAY_250" A="255" R="250" G="250" B="250" />
-
+    <Color x:Key="C_ButtonBG" A="0" R="255" G="255" B="255" />
     <Color x:Key="CHECKBOX_BORDER" A="255" R="164" G="164" B="164"/>
     <Color x:Key="CHECKBOX_BG" A="255" R="0" G="0" B="0"/>
     <Color x:Key="C_ContentBoxBorderColor" A="255" R="80" G="80" B="80"/>
@@ -85,6 +85,7 @@
 
     <SolidColorBrush x:Key="BR_WHITE"  Color="{StaticResource C_WHITE}" />
 
+    <SolidColorBrush x:Key="BR_ButtonBG"  Color="{StaticResource C_ButtonBG}" />
     <SolidColorBrush x:Key="BR_MIDDLE_BG"  Color="#FF323232" />
     <SolidColorBrush x:Key="BR_SELECTED_BTN"  Color="{StaticResource C_BLACK}" />
     <SolidColorBrush x:Key="BR_ICON_MOUSE_OVER"  Color="{StaticResource C_ICON_MOUSE_OVER}" />
@@ -1111,7 +1112,7 @@
                         </Style>
                     </ControlTemplate.Resources>
                     <Grid x:Name="grid">
-                        <Border Name="border" 
+                        <Border Name="border" Background="{StaticResource BR_ButtonBG}"
         				BorderThickness="1" CornerRadius="2" BorderBrush="{StaticResource MahApps.Brushes.ThemeForeground}">
                             <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Label x:Name="Label" Content="{TemplateBinding Content}"/>

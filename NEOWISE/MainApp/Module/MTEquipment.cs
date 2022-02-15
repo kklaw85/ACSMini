@@ -97,6 +97,8 @@ namespace NeoWisePlatform.Module
 			{
 				this.NewLift.UpperLimit.IOPt = this.GetIOPointByEnum( InputIO.I_NewLiftULimit );
 				this.NewLift.LowerLimit.IOPt = this.GetIOPointByEnum( InputIO.I_NewLiftLLimit );
+				this.NewLift.Blower.IOPt = this.GetIOPointByEnum( OutputIO.O_NewLiftBlower );
+				this.NewLift.Pusher.IOPt = this.GetIOPointByEnum( OutputIO.O_NewLiftPusher );
 
 				this.QICLift.UpperLimit.IOPt = this.GetIOPointByEnum( InputIO.I_QICLiftULimit );
 				this.QICLift.LowerLimit.IOPt = this.GetIOPointByEnum( InputIO.I_QICLiftLLimit );
@@ -489,7 +491,7 @@ namespace NeoWisePlatform.Module
 			get => this.GetValue( () => this.RunTestSeq );
 			set => this.SetValue( () => this.RunTestSeq, value );
 		}
-		LoggerHelper GRRLogger = new LoggerHelper( "GRRLogger", "Logger", "FOV1 RawPos,FOV1 RawOffset,FOV1 PosOffset,FOV1 PixPerMM,FOV1 PosOffsetMM,FOV1 Status,FOV2 RawPos,FOV2 RawOffset,FOV2 PosOffset,FOV2 PixPerMM,FOV2 PosOffsetMM,FOV2 Status,Result" );
+		LoggerHelper GRRLogger = new LoggerHelper( "GRRLogger", "Logger", "FOV1 RawPos,FOV1 RawOffset,FOV1 PosOffset,FOV1 PosOffsetMM,FOV1 Status,FOV2 RawPos,FOV2 RawOffset,FOV2 PosOffset,FOV2 PosOffsetMM,FOV2 Status,Result" );
 		public Task<ErrorResult> GRR()
 		{
 			return Task.Run( () =>
@@ -503,7 +505,7 @@ namespace NeoWisePlatform.Module
 					this.RunTestSeq = true;
 					var Cont = Repeats == 0;
 					if ( this.Stage.Stage.MatDet != false ) this.CheckAndThrowIfError( ErrorClass.E5, "Stage is not empty. Please clear the stage before starting GRR" );
-					this.CheckAndThrowIfError( this.NewLift.MoveToCollectPos( false ).Result );
+					this.CheckAndThrowIfError( this.NewLift.StartSingleAction(true).Result );
 					while ( Cont || Repeats >= 0 )
 					{
 						this.CheckAndThrowIfError( this.PNP.PNPToPickPos().Result );
@@ -519,8 +521,8 @@ namespace NeoWisePlatform.Module
 						this.Stage.AutorunInfo.InspectionRes.Clear();
 						this.CheckAndThrowIfError( this.Stage.SnapShot().Result );
 						this.CheckAndThrowIfError( this.Stage.VisionCheck().Result );
-						this.GRRLogger.WriteLog( $"{this.Stage.AutorunInfo.InspectionRes.Fov1.RawPosition},{this.Stage.AutorunInfo.InspectionRes.Fov1.RawOffset},{this.Stage.AutorunInfo.InspectionRes.Fov1.PositionOffset},{this.Stage.AutorunInfo.InspectionRes.Fov1.PixPerMM},{this.Stage.AutorunInfo.InspectionRes.Fov1.PositionOffsetMM},{this.Stage.AutorunInfo.InspectionRes.Fov1.Status}," +
-							$"{this.Stage.AutorunInfo.InspectionRes.Fov2.RawPosition},{this.Stage.AutorunInfo.InspectionRes.Fov2.RawOffset},{this.Stage.AutorunInfo.InspectionRes.Fov2.PositionOffset},{this.Stage.AutorunInfo.InspectionRes.Fov2.PixPerMM},{this.Stage.AutorunInfo.InspectionRes.Fov2.PositionOffsetMM},{this.Stage.AutorunInfo.InspectionRes.Fov2.Status}," +
+						this.GRRLogger.WriteLog( $"{this.Stage.AutorunInfo.InspectionRes.Fov1.RawPosition},{this.Stage.AutorunInfo.InspectionRes.Fov1.RawOffset},{this.Stage.AutorunInfo.InspectionRes.Fov1.PositionOffset},{this.Stage.AutorunInfo.InspectionRes.Fov1.PositionOffsetMM},{this.Stage.AutorunInfo.InspectionRes.Fov1.Status}," +
+							$"{this.Stage.AutorunInfo.InspectionRes.Fov2.RawPosition},{this.Stage.AutorunInfo.InspectionRes.Fov2.RawOffset},{this.Stage.AutorunInfo.InspectionRes.Fov2.PositionOffset},{this.Stage.AutorunInfo.InspectionRes.Fov2.PositionOffsetMM},{this.Stage.AutorunInfo.InspectionRes.Fov2.Status}," +
 							$"{this.Stage.AutorunInfo.InspectionRes.InspResult}" );
 						var tasks2 = new Task<ErrorResult>[]
 						{
@@ -559,8 +561,13 @@ namespace NeoWisePlatform.Module
 					this.RunTestSeq = true;
 					var Cont = Repeats == 0;
 
-					this.CheckAndThrowIfError( this.QICLift.MoveToCollectPos( false ).Result );
-					this.CheckAndThrowIfError( this.NewLift.MoveToCollectPos( false ).Result );
+					var lifttasks = new Task<ErrorResult>[]
+					{
+							this.QICLift.StartSingleAction( true ),
+							this.NewLift.StartSingleAction( true ),
+					};
+					this.CheckAndThrowIfError( lifttasks );
+
 					while ( Cont || Repeats >= 0 )
 					{
 						this.CheckAndThrowIfError( this.PNP.PNPToPickPos().Result );

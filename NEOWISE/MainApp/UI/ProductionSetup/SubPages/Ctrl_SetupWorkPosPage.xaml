@@ -15,8 +15,11 @@
             <StackPanel Margin="10,0,10,10" Orientation="Horizontal">
                 <Panels31:Ctrl_PNPWorkPos x:Name="PNPWorkPos" Margin="0,0,5,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                 <Panels:Ctrl_PNPControl x:Name="PNPControl" Margin="0,0,5,0"/>
-                <Border Style="{StaticResource FrameWithShadow}">
+                <Border Style="{StaticResource FrameWithShadow}" Margin="0,0,5,0">
                     <Panels:Ctrl_Stage x:Name="StageControl"/>
+                </Border>
+                <Border Style="{StaticResource FrameWithShadow}" Margin="0,0,0,0">
+                    <Panels2:Ctrl_LiftsControl HorizontalAlignment="Left"/>
                 </Border>
             </StackPanel>
         </StackPanel>

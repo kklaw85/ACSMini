@@ -32,6 +32,7 @@
             <DataUtility1:BoolToBrushIORec x:Key="BoolToBrushIORec"/>
             <DataUtility1:BoolToBrushIOGreenRedRec x:Key="BoolToBrushIOGreenRedRec"/>
             <DataUtility1:BoolToVisibleHidden x:Key="BoolToVisibleHidden"/>
+            <DataUtility1:InvertBool x:Key="InvertBool"/>
             <DataUtility1:DisplayThreeDecPlacesDouble x:Key="DisplayThreeDecPlacesDouble"/>
         </ResourceDictionary>
     </Application.Resources>

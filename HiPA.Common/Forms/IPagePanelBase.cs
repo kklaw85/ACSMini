@@ -42,11 +42,13 @@ namespace HiPA.Common.Forms
 		}
 		protected void ThrowError( string ErrorMessage )
 		{
+			if ( ErrorMessage == null ) this.ThrowError( "Object is null." );
 			this.Result = ErrorMessage;
 			throw new Exception( this.Result );
 		}
 		protected void CheckAndThrowIfError( string ErrorMessage )
 		{
+			if ( ErrorMessage == null ) this.ThrowError( "Object is null." );
 			this.Result = ErrorMessage;
 			if ( this.Result != string.Empty ) this.ThrowError( this.Result );
 			else this.ClearErrorFlags();

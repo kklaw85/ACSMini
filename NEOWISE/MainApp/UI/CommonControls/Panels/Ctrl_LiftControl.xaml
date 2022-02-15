@@ -16,47 +16,113 @@
                 <MahApp:NumericUpDown x:Name="Timeout" Width="60" StringFormat="f0" Value="{Binding Configuration.MovementTimeout}"/>
             </StackPanel>
         </Expander>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-            <StackPanel Orientation="Vertical">
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding ReadyForCollection, Converter={StaticResource BoolToBrushIORec}}"/>
-                    <Label Content="Rdy" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Ready for collection."/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding isContinuous, Converter={StaticResource BoolToBrushIORec}}"/>
-                    <Label Content="Auto" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Continuous Automated Lift"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding Lift.Status.PEL, Converter={StaticResource BoolToBrushIORec}}"/>
-                    <Label Content="PEL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Positive End limit"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding UpperLimit.IOPt.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
-                    <Label Content="MUL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Material Upper Limit"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding LowerLimit.IOPt.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
-                    <Label Content="MLL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Material Lower Limit"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding Lift.Status.NEL, Converter={StaticResource BoolToBrushIORec}}"/>
-                    <Label Content="NEL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Negative End Limit"/>
-                </StackPanel>
+        <Expander x:Name="PusherExp" Header="Pusher" Margin="5">
+            <StackPanel Orientation="Horizontal"  Margin="5" x:Name="PusherCfg">
+                <Label Content="{StaticResource Duration}" Style="{StaticResource LB_ItemContent_Right}"/>
+                <MahApp:NumericUpDown x:Name="PusherDuration" Width="60" StringFormat="f0" Value="{Binding Configuration.PusherDuration}"/>
             </StackPanel>
-            <StackPanel x:Name="Ctrls" Orientation="Vertical" Margin="5,0,0,0">
-                <Button x:Name="BtnCollectionPos" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Click="Btn_Click" ToolTip="Move to Collection Position">
-                    <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/DPAD_Up.png"/>
-                </Button>
-                <Button x:Name="BtnLoadPos" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Margin="0,5,0,0" Click="Btn_Click" ToolTip="Move to Load Position">
-                    <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/DPAD_Down.png"/>
-                </Button>
-                <Button x:Name="BtnAutomated" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Margin="0,5,0,0" Click="Btn_Click" ToolTip="Start Lift Automation">
-                    <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/Automated.png"/>
-                </Button>
-                <Button x:Name="BtnStopAutomation" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Margin="0,5,0,0" Click="Btn_Click" ToolTip="Stop Lift Automation">
-                    <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/StopAutomation.png"/>
-                </Button>
+        </Expander>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="5">
+            <StackPanel Orientation="Horizontal">
+                <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,0,5,0">
+                    <StackPanel>
+                        <Label Style="{StaticResource LB_ItemTitle}" Content="IO"/>
+                        <StackPanel Margin="5,0,5,5">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding UpperLimit.IOPt.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
+                                <Label Content="MUL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Material Upper Limit"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding LowerLimit.IOPt.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
+                                <Label Content="MLL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Material Lower Limit"/>
+                            </StackPanel>
+                            <StackPanel x:Name="BlowerIO" Orientation="Horizontal" Margin="0,0,0,8">
+                                <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding Blower.IOPt.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
+                                <Label Content="Blwr." Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Blower"/>
+                            </StackPanel>
+                            <StackPanel x:Name="PusherIO" Orientation="Horizontal" Margin="0,0,0,8">
+                                <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding Pusher.IOPt.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
+                                <Label Content="Push" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Pusher"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,0,5,0">
+                    <StackPanel>
+                        <Label Style="{StaticResource LB_ItemTitle}" Content="Motion"/>
+                        <StackPanel Margin="5,0,5,5">
+
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding Lift.Status.PEL, Converter={StaticResource BoolToBrushIORec}}"/>
+                                <Label Content="PEL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Positive End limit"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding Lift.Status.NEL, Converter={StaticResource BoolToBrushIORec}}"/>
+                                <Label Content="NEL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Negative End Limit"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,0,0,0">
+                    <StackPanel>
+                        <Label Style="{StaticResource LB_ItemTitle}" Content="Flags"/>
+                        <StackPanel  Margin="5,0,5,5">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding LiftPNPCom.InCollectionHeight, Converter={StaticResource BoolToBrushIORec}}"/>
+                                <Label Content="Rdy" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="In collection height."/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding isContinuous, Converter={StaticResource BoolToBrushIORec}}"/>
+                                <Label Content="Auto" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Automated Mode"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding SingleAction, Converter={StaticResource BoolToBrushIORec}}"/>
+                                <Label Content="S.A" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Single Action Mode"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding LiftPNPCom.PickPlaceIP, Converter={StaticResource BoolToBrushIORec}}"/>
+                                <Label Content="PPIP" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Pick Place in Progress"/>
+                            </StackPanel>
+                            
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
             </StackPanel>
+            <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,5,0,0">
+                <StackPanel x:Name="Ctrls" Orientation="Horizontal" Margin="5">
+                    <StackPanel x:Name="Manual" Orientation="Vertical" Margin="0,0,5,0" IsEnabled="{Binding SingleAction, Converter={StaticResource InvertBool}}">
+                        <Button x:Name="BtnCollectionPos" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Click="Btn_Click" IsEnabled="{Binding isContinuous, Converter={StaticResource InvertBool}}" ToolTip="Move to Collection Position">
+                            <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/DPAD_Up.png"/>
+                        </Button>
+                        <Button x:Name="BtnLoadPos" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Margin="0,5,0,0" Click="Btn_Click" IsEnabled="{Binding isContinuous, Converter={StaticResource InvertBool}}" ToolTip="Move to Load Position">
+                            <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/DPAD_Down.png"/>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,5,0">
+                        <Button x:Name="BtnAutomated" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Margin="0,0,0,0" Click="Btn_Click" ToolTip="Start Lift Automation">
+                            <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/Automated.png"/>
+                        </Button>
+                        <Button x:Name="BtnStopAutomation" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Margin="0,5,0,0" Click="Btn_Click" ToolTip="Stop Lift Automation">
+                            <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/StopAutomation.png"/>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel x:Name="Blower" Margin="0,0,5,0">
+                        <Button x:Name="BtnPickUpIP" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Margin="0,0,0,0" Click="Btn_Click" ToolTip="Blower On">
+                            <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/BlowerOn.png"/>
+                        </Button>
+                        <Button x:Name="BtnPickUpDone" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Margin="0,5,0,0" Click="Btn_Click" ToolTip="Blower Off">
+                            <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/BlowerOff.png"/>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel x:Name="PusherCtrl">
+                        <Button x:Name="BtnTriggerPusher" Style="{StaticResource Button_FrameMenu}" Width="40" Height="40" Margin="0,0,0,0" Click="Btn_Click" ToolTip="Trigger Pusher">
+                            <Image Style="{StaticResource ImgBtn_W35H35}" Source="/Icons/Pusher.png"/>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
         </StackPanel>
     </StackPanel>
 </Panelbase:PanelBase>

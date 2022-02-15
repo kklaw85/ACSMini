@@ -754,6 +754,8 @@ namespace HiPA.Common
 		ERR_LiftToCont = ( -1002 ),
 		[Description( "Lift To Pick/Place Pos. Error" )]
 		ERR_LiftToPickPlace = ( -1003 ),
+		[Description( "Lift Pusher Error" )]
+		ERR_LiftPusher = ( -1004 ),
 		#endregion
 		#region Barcode
 		[Description( "Barcode Reader Error" )]

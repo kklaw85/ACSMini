@@ -166,7 +166,6 @@ namespace HiPA.Instrument.Camera
 				this.Camera = new CameraManager();
 				this.Camera.XHairPos = this.Configuration.XHairPos;
 				this.Configuration.XHairPos.ScalePixperMM = this.Configuration.ScalePixperMM.ScalePixperMM;
-				this.InspectionResult.PixPerMM = this.Configuration.ScalePixperMM.ScalePixperMM;
 				this.Vision = Constructor.GetInstance().GetInstrument( this.Name + MatroxProcessingConfiguration.NAME, typeof( MatroxProcessingConfiguration ), new MachineVar( true ) ) as MatroxProcessing;
 				if ( this.Vision == null ) Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, $"Failed to get instance:,{this.Name + MatroxProcessingConfiguration.NAME}" ), ErrorTitle.OperationFailure, ErrorClass.E4 );
 				else this.Vision.Owner = this;
@@ -622,7 +621,7 @@ namespace HiPA.Instrument.Camera
 		}
 
 		#region processing
-		private Task<(ErrorClass EClass, string ErrorMessage, C_PointD RawPos, C_PointD RawOffsetCenter, C_PointD OffPos)> CheckModelPosition( ROIRectangle ROI )
+		private Task<(ErrorClass EClass, string ErrorMessage, C_PointD RawPos, C_PointD RawOffsetCenter, C_PointD OffPos, C_PointD PosOffsetMM)> CheckModelPosition( ROIRectangle ROI )
 		{
 			return Task.Run( () =>
 			{
@@ -630,30 +629,24 @@ namespace HiPA.Instrument.Camera
 				var RawPos = new C_PointD();
 				var OffPos = new C_PointD();
 				var RawOffsetCenter = new C_PointD();
+				var PosOffsetMM = new C_PointD();
 				try
 				{
 					this.CheckAndThrowIfError( ErrorClass.E5, this.SingleGrab().Result );
 					this.CheckAndThrowIfError( ErrorClass.E5, this.GrabSuccessful ? string.Empty : "Grab unsuccessful" );
-					if ( !this.Bypass.BypassVisionCapture && !this.Bypass.BypassVisionProcessing )
-					{
-						var Res = this.Vision.CheckModelPosition( this.Configuration.MMFs.Calibration, new CameraObj( this.Camera.MilImage, this.Camera.XHairPos.XOffsetPix, this.Camera.XHairPos.YOffsetPix ), ROI ).Result;
-						this.CheckAndThrowIfError( Res.EClass, Res.ErrorMessage );
-						RawPos = Res.RawPos;
-						OffPos = Res.OffPos;
-						RawOffsetCenter = Res.RawOffsetCenter;
-					}
-					else
-					{
-						RawPos = new C_PointD( MathExt.GetRandomNumber( -2, 2 ), MathExt.GetRandomNumber( -2, 2 ), MathExt.GetRandomNumber( -2, 2 ) );
-						OffPos = new C_PointD( MathExt.GetRandomNumber( -2, 2 ), MathExt.GetRandomNumber( -2, 2 ), MathExt.GetRandomNumber( -2, 2 ) );
-						RawOffsetCenter = new C_PointD( MathExt.GetRandomNumber( -2, 2 ), MathExt.GetRandomNumber( -2, 2 ), MathExt.GetRandomNumber( -2, 2 ) );
-					}
+					var Res = this.Vision.CheckModelPosition( this.Configuration.MMFs.Calibration, new CameraObj( this.Camera.MilImage, this.Camera.XHairPos.XOffsetPix, this.Camera.XHairPos.YOffsetPix ), ROI ).Result;
+					this.CheckAndThrowIfError( Res.EClass, Res.ErrorMessage );
+					RawPos = Res.RawPos;
+					OffPos = Res.OffPos;
+					RawOffsetCenter = Res.RawOffsetCenter;
+					PosOffsetMM.X = OffPos.X / this.Configuration.ScalePixperMM.ScalePixperMM.X;
+					PosOffsetMM.Y = OffPos.Y / this.Configuration.ScalePixperMM.ScalePixperMM.Y;
 				}
 				catch ( Exception ex )
 				{
 					this.CatchAndPromptErr( ex );
 				}
-				return (this.Result.EClass, this.Result.ErrorMessage, RawPos, RawOffsetCenter, OffPos);
+				return (this.Result.EClass, this.Result.ErrorMessage, RawPos, RawOffsetCenter, OffPos, PosOffsetMM);
 			} );
 		}
 		public Task<(ErrorClass EClass, string ErrorMessage, C_PointD PointRes)> CheckCalPosition()
@@ -685,7 +678,7 @@ namespace HiPA.Instrument.Camera
 					this.InspectionResult.Clear();
 					var Res = this.CheckModelPosition( this.Configuration.InspectROI ).Result;
 					this.CheckAndThrowIfError( Res.EClass, Res.ErrorMessage );
-					this.InspectionResult.SetResult( Res.RawPos, Res.RawOffsetCenter, Res.OffPos );
+					this.InspectionResult.SetResult( Res.RawPos, Res.RawOffsetCenter, Res.OffPos, Res.PosOffsetMM );
 				}
 				catch ( Exception ex )
 				{
@@ -963,7 +956,6 @@ namespace HiPA.Instrument.Camera
 		public C_PointD RawPosition { get; set; } = new C_PointD();//pixels
 		public C_PointD RawOffset { get; set; } = new C_PointD();//pixels
 		public C_PointD PositionOffset { get; set; } = new C_PointD();//pixels
-		public C_PointD PixPerMM { get; set; } = new C_PointD();
 		public C_PointD PositionOffsetMM { get; set; } = new C_PointD();//mm
 		public eInspStatusSingle Status
 		{
@@ -972,13 +964,12 @@ namespace HiPA.Instrument.Camera
 
 		}
 
-		public void SetResult( C_PointD RawPosition, C_PointD RawOffset, C_PointD PositionOffset )
+		public void SetResult( C_PointD RawPosition, C_PointD RawOffset, C_PointD PositionOffset, C_PointD PositionOffsetMM )
 		{
 			this.RawPosition.Copy( RawPosition );
 			this.RawOffset.Copy( RawOffset );
 			this.PositionOffset.Copy( PositionOffset );
-			this.PositionOffsetMM.X = this.PositionOffset.X / this.PixPerMM.X;
-			this.PositionOffsetMM.Y = this.PositionOffset.Y / this.PixPerMM.Y;
+			this.PositionOffsetMM.Copy( PositionOffsetMM );
 			this.Status = eInspStatusSingle.Done;
 		}
 		public void Clear()
@@ -994,7 +985,6 @@ namespace HiPA.Instrument.Camera
 			this.RawPosition.Copy( Source.RawPosition );
 			this.RawOffset.Copy( Source.RawOffset );
 			this.PositionOffset.Copy( Source.PositionOffset );
-			this.PixPerMM.Copy( Source.PixPerMM );
 			this.PositionOffsetMM.Copy( Source.PositionOffsetMM );
 			this.Status = Source.Status;
 		}

@@ -571,6 +571,20 @@ namespace N_Data_Utilities
 			return vs == Visibility.Collapsed ? true : false;
 		}
 	}
+	[ValueConversion( typeof( bool ), typeof( bool ) )]
+	public class InvertBool : IValueConverter
+	{
+		public object Convert( object value, Type targetType,
+		object parameter, System.Globalization.CultureInfo culture )
+		{
+			return !( ( bool )value );
+		}
+		public object ConvertBack( object value, Type targetType,
+		object parameter, System.Globalization.CultureInfo culture )
+		{
+			return !( ( bool )value );
+		}
+	}
 
 
 	[ValueConversion( typeof( bool ), typeof( Visibility ) )]

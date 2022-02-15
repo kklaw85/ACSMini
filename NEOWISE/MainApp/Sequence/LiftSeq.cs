@@ -100,7 +100,8 @@ namespace NeoWisePlatform.Sequence
 			try
 			{
 				if ( this.CompareThreadIndex( Run_State_Lift.StopToPickPlace ) ) return ( int )RunErrors.ERR_Inconformity;
-				if ( this.isError( this.Module.MoveToCollectPos( false ).Result ) ) return ( int )RunErrors.ERR_LiftToPickPlace;
+				this.AutorunInfo.Clear();
+				if ( this.isError( this.Module.StartSingleAction(true).Result ) ) return ( int )RunErrors.ERR_LiftToPickPlace;
 			}
 			catch ( Exception ex )
 			{
@@ -114,7 +115,7 @@ namespace NeoWisePlatform.Sequence
 			try
 			{
 				if ( this.CompareThreadIndex( Run_State_Lift.WaitPickPlaceDone ) ) return ( int )RunErrors.ERR_Inconformity;
-				if ( this.Module.AutorunInfo.LiftPNPCom.PickPlaceDone ) return ( int )RunErrors.ERR_NoError;
+				if ( !this.Module.LiftPNPCom.PickPlaceIP ) return ( int )RunErrors.ERR_NoError;
 			}
 			catch ( Exception ex )
 			{

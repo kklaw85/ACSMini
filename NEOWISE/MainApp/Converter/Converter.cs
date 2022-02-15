@@ -85,7 +85,7 @@ namespace Converter
 		public object Convert( object value, Type targetType,
 		object parameter, System.Globalization.CultureInfo culture )
 		{
-			return (( double )value).ToString( "N3" );
+			return ( ( double )value ).ToString( "N3" );
 		}
 		public object ConvertBack( object value, Type targetType,
 		object parameter, System.Globalization.CultureInfo culture )

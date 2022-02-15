@@ -687,7 +687,7 @@ namespace NeoWisePlatform.Module
 
 	#endregion
 	#region SimpleIO
-	public class IO
+	public class IO:BaseUtility
 	{
 		public AdLinkIoPoint IOPt { get; set; }
 
@@ -695,6 +695,34 @@ namespace NeoWisePlatform.Module
 		{
 			get => this.IOPt.Check( DioValue.On ) ? true : false;
 			set => this.IOPt.SetOut( value ? DioValue.On : DioValue.Off );
+		}
+		public string On()
+		{
+			this.ClearErrorFlags();
+			try
+			{
+				if ( MachineStateMng.isSimulation ) return this.Result;
+				this.State = true;
+			}
+			catch ( Exception ex )
+			{
+				this.CatchException( ex );
+			}
+			return this.Result;
+		}
+		public string Off()
+		{
+			this.ClearErrorFlags();
+			try
+			{
+				if ( MachineStateMng.isSimulation ) return this.Result;
+				this.State = false;
+			}
+			catch ( Exception ex )
+			{
+				this.CatchException( ex );
+			}
+			return this.Result;
 		}
 	}
 	#endregion

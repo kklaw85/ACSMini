@@ -10,6 +10,8 @@ namespace NeoWisePlatform.Sequence
 	public class PNPSeq : StationSeqBase
 	{
 		private PNPModule PnpModule => this._Equipment.PNP;
+		private LiftPNPComFlags NewLiftCom;
+		private LiftPNPComFlags QICLiftCom;
 		private eInspResult PNPInsResult => this.PnpModule.AutorunInfo.InspectionRes.InspResult;
 		private StageModule StageModule => this._Equipment.Stage;
 		private StageAutorunInfo StageInfo => this.StageModule.AutorunInfo;
@@ -25,7 +27,9 @@ namespace NeoWisePlatform.Sequence
 		{
 			this.StageSeq = Stage;
 			this.NewLiftSeq = New;
+			this.NewLiftCom = this.NewLiftSeq.Module.LiftPNPCom;
 			this.QICLiftSeq = QIC;
+			this.QICLiftCom = this.QICLiftSeq.Module.LiftPNPCom;
 			this.WorkerSeq = new WorkerThread( "PNP Seq", this );
 			this.WorkerSeq.OnThreadStoppedOnError += this.OnThreadStoppedError;
 			this.InitSeqFunction();
@@ -245,9 +249,24 @@ namespace NeoWisePlatform.Sequence
 				if ( this.CompareThreadIndex( Run_PNP_Seq.WaitLiftReady ) ) return ( int )RunErrors.ERR_Inconformity;
 				var ToPickNew = !this.PnpModule.LoadArm.ObjHeld;
 				var ToUnloadInspected = this.PnpModule.AutorunInfo.UnloadStage;
-				if ( ToPickNew && ToUnloadInspected ) { if ( this.NewLiftSeq.AutorunInfo.LiftPNPCom.Ready && this.QICLiftSeq.AutorunInfo.LiftPNPCom.Ready ) return ( int )RunErrors.ERR_NoError; }
-				else if ( ToPickNew ) { if ( this.NewLiftSeq.AutorunInfo.LiftPNPCom.Ready ) return ( int )RunErrors.ERR_NoError; }
-				else if ( ToUnloadInspected ) { if ( this.QICLiftSeq.AutorunInfo.LiftPNPCom.Ready ) return ( int )RunErrors.ERR_NoError; }
+				if ( ToPickNew && ToUnloadInspected )
+				{
+					if ( this.NewLiftCom.InCollectionHeight && this.QICLiftCom.InCollectionHeight )
+					{
+						if ( this.isError( this.NewLiftSeq.Module.TrigPusher().Result ) ) return ( int )RunErrors.ERR_LiftPusher;
+						if(this.isError( this.NewLiftSeq.Module.StartPickup() ) )
+						return ( int )RunErrors.ERR_NoError;
+					}
+				}
+				else if ( ToPickNew )
+				{
+					if ( this.NewLiftCom.InCollectionHeight )
+					{
+						if ( this.isError( this.NewLiftSeq.Module.TrigPusher().Result ) ) return ( int )RunErrors.ERR_LiftPusher;
+						return ( int )RunErrors.ERR_NoError;
+					}
+				}
+				else if ( ToUnloadInspected ) if ( this.QICLiftCom.InCollectionHeight ) return ( int )RunErrors.ERR_NoError;
 			}
 			catch ( Exception ex )
 			{
@@ -283,9 +302,16 @@ namespace NeoWisePlatform.Sequence
 								this.ReportWarning( RunErrors.ERR_PNPFailToPickUp, this.Result.ErrorMessage, true );
 								continue;
 							}
-							else return ( int )RunErrors.ERR_PNPFailToPickUp;
+							else
+							{
+
+								return ( int )RunErrors.ERR_PNPFailToPickUp;
+							}
 						}
-						else return ( int )RunErrors.ERR_PNPFailToPickUp;
+						else
+						{
+							return ( int )RunErrors.ERR_PNPFailToPickUp;
+						}
 					}
 					ErrIdx++;
 				}
@@ -388,8 +414,8 @@ namespace NeoWisePlatform.Sequence
 				{
 					this.StageInfo.StageFlag = PNPToStageFlag.CanClamp;
 				}
-				this.NewLiftSeq.Module.AutorunInfo.LiftPNPCom.SetPickPlaceDone();
-				this.QICLiftSeq.Module.AutorunInfo.LiftPNPCom.SetPickPlaceDone();
+				//this.NewLiftSeq.Module.LiftPNPCom.SetPickPlaceDone();
+				//this.QICLiftSeq.Module.LiftPNPCom.SetPickPlaceDone();
 				return ( int )RunErrors.ERR_NoError;
 			}
 			catch ( Exception ex )

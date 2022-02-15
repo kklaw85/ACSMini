@@ -974,6 +974,13 @@
   <ItemGroup>
     <Resource Include="Icons\Bell.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\BlowerOff.png" />
+    <Resource Include="Icons\BlowerOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Pusher.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>RD /S /Q "$(TargetDir)cs\"

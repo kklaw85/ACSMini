@@ -30,6 +30,11 @@ namespace NeoWisePlatform.Module
 			get => this.GetValue( () => this.MovementTimeout );
 			set => this.SetValue( () => this.MovementTimeout, value );
 		}
+		public int PusherDuration
+		{
+			get => this.GetValue( () => this.PusherDuration );
+			set => this.SetValue( () => this.PusherDuration, value );
+		}
 	}
 
 	public class LiftModuleBase
@@ -57,6 +62,8 @@ namespace NeoWisePlatform.Module
 		public AxisBase Lift { get; set; } = null;
 		public IO UpperLimit { get; set; } = new IO();
 		public IO LowerLimit { get; set; } = new IO();
+		public IO Pusher { get; set; } = new IO();
+		public IO Blower { get; set; } = new IO();
 		#endregion
 		#region General.Functions
 		protected override string OnCreate()
@@ -231,7 +238,8 @@ namespace NeoWisePlatform.Module
 				this.ClearErrorFlags();
 				try
 				{
-					this.ReadyForCollection = false;
+					this.SingleAction = true;
+					this.LiftPNPCom.ClearInColHeight();
 					this.CheckAndThrowIfError( ErrorClass.E5, this.Lift.Homing().Result );
 				}
 				catch ( Exception ex )
@@ -239,6 +247,10 @@ namespace NeoWisePlatform.Module
 					if ( this.Result.EClass == ErrorClass.OK )
 						this.Result.EClass = ErrorClass.E6;
 					this.Result.ErrorMessage = this.FormatErrMsg( this.Name, ex );
+				}
+				finally
+				{
+					this.SingleAction = false;
 				}
 				return this.Result;
 			} );
@@ -304,54 +316,15 @@ namespace NeoWisePlatform.Module
 		}
 		#endregion
 		#region Lift action
-		private Task<ErrorResult> MoveUp()
-		{
-			return Task.Run( () =>
-			{
-				this.ClearErrorFlags();
-				try
-				{
-					if ( MachineStateMng.isSimulation ) return this.Result;
-					if ( this.LowerLimit.State && !this.UpperLimit.State ) return this.Result;
-					while ( !this.LowerLimit.State && !this.UpperLimit.State )
-					{
-						this.CheckAndThrowIfError( this.LiftMoveRel( 0.5 ).Result );
-						if ( this.Lift.Status.PEL ) break;
-					}
-				}
-				catch ( Exception ex )
-				{
-					this.CatchException( ex );
-				}
-				return this.Result;
-			} );
-		}
-		private Task<ErrorResult> MoveDown()
-		{
-			return Task.Run( () =>
-			{
-				this.ClearErrorFlags();
-				try
-				{
-					if ( MachineStateMng.isSimulation ) return this.Result;
-					if ( this.LowerLimit.State && !this.UpperLimit.State ) return this.Result;
-					while ( this.UpperLimit.State && this.LowerLimit.State )
-					{
-						this.CheckAndThrowIfError( this.LiftMoveRel( -0.5 ).Result );
-						if ( this.Lift.Status.NEL ) break;
-					}
-				}
-				catch ( Exception ex )
-				{
-					this.CatchException( ex );
-				}
-				return this.Result;
-			} );
-		}
 		public bool isContinuous
 		{
 			get => this.GetValue( () => this.isContinuous );
 			set => this.SetValue( () => this.isContinuous, value );
+		}
+		public bool SingleAction
+		{
+			get => this.GetValue( () => this.SingleAction );
+			set => this.SetValue( () => this.SingleAction, value );
 		}
 		enum LiftMovement
 		{
@@ -360,15 +333,9 @@ namespace NeoWisePlatform.Module
 			Stop
 		}
 		public Task<ErrorResult> LiftTask { get; private set; } = null;
-		public bool ReadyForCollection
-		{
-			get => this.GetValue( () => this.ReadyForCollection );
-			private set => this.SetValue( () => this.ReadyForCollection, value );
-		}
-
 		private Stopwatch LiftWatchDogTimer = new Stopwatch();
-
-		public Task<ErrorResult> MoveToCollectPos( bool isContinuous )
+		public LiftPNPComFlags LiftPNPCom { get; private set; } = new LiftPNPComFlags();
+		private Task<ErrorResult> MoveToCollectPos( bool isContinuous )
 		{
 			return Task.Run( () =>
 			{
@@ -376,14 +343,15 @@ namespace NeoWisePlatform.Module
 				try
 				{
 					Monitor.Enter( this.SyncRoot );
-					this.ReadyForCollection = false;
+					this.LiftPNPCom.ClearInColHeight();
 					var Movement = LiftMovement.Stop;
 					var Retry = 0;
 					var HysteresisCount = 0;
 					this.LiftWatchDogTimer.Restart();
 					this.isContinuous = isContinuous;
+					this.SingleAction = !isContinuous;
 					while ( this.isContinuous || //for continuous auto mode
-					( !this.ReadyForCollection && !this.isContinuous ) )//for one time move to collection mode, but still need to loop through for stability check.
+					( !this.LiftPNPCom.InCollectionHeight && this.SingleAction ) )//for one time move to collection mode, but still need to loop through for stability check.
 					{
 						if ( this.LiftWatchDogTimer.ElapsedMilliseconds > this.Configuration.MovementTimeout ) this.CheckAndThrowIfError( ErrorClass.E5, "Movement exceeded time out." );//100second
 						if ( !this.LowerLimit.State && !this.UpperLimit.State )
@@ -410,7 +378,8 @@ namespace NeoWisePlatform.Module
 							{
 								Retry = 0;
 								Movement = LiftMovement.Stop;
-								this.ReadyForCollection = true;
+								this.LiftPNPCom.SetInColHeight();
+								break;
 							}
 							else
 							{
@@ -418,8 +387,16 @@ namespace NeoWisePlatform.Module
 								continue;
 							}
 						}
-						if ( Movement == LiftMovement.Upward ) this.CheckAndThrowIfError( this.MoveUp().Result );
-						else if ( Movement == LiftMovement.Downward ) this.CheckAndThrowIfError( this.MoveDown().Result );
+						if ( Movement == LiftMovement.Upward )
+						{
+							if ( this.Lift.Status.PEL ) throw new Exception( "Lift has reached Positive limit. Please check on sensors alignment." );
+							this.CheckAndThrowIfError( this.LiftMoveRel( 0.5 ).Result );
+						}
+						else if ( Movement == LiftMovement.Downward )
+						{
+							if ( this.Lift.Status.NEL ) throw new Exception( "Lift has reached Negative limit. Please check on sensors alignment." );
+							this.CheckAndThrowIfError( this.LiftMoveRel( -0.5 ).Result );
+						}
 						else
 						{
 							this.LiftWatchDogTimer.Restart();
@@ -432,16 +409,41 @@ namespace NeoWisePlatform.Module
 				{
 					this.CatchAndPromptErr( ex );
 					this.isContinuous = false;
-					this.ReadyForCollection = false;
+					this.SingleAction = false;
+					this.LiftPNPCom.ClearInColHeight();
 				}
 				finally
 				{
+					this.isContinuous = false;
+					this.SingleAction = false;
 					Monitor.Exit( this.SyncRoot );
 				}
 				return this.Result;
 			} );
 		}
-
+		public Task<ErrorResult> StartSingleAction( bool WaitDone = false )
+		{
+			return Task.Run( () =>
+			{
+				this.ClearErrorFlags();
+				try
+				{
+					if ( this.LiftTask != null ) if ( this.isContinuous ) this.CheckAndThrowIfError( this.StopAuto().Result );
+					this.LiftTask = this.MoveToCollectPos( false );
+					if ( WaitDone == true ) this.CheckAndThrowIfError( this.LiftTask.Result );
+				}
+				catch ( Exception ex )
+				{
+					this.CatchAndPromptErr( ex );
+					this.isContinuous = false;
+					this.SingleAction = false;
+				}
+				finally
+				{
+				}
+				return this.Result;
+			} );
+		}
 		public Task<ErrorResult> StartAuto()
 		{
 			return Task.Run( () =>
@@ -449,7 +451,6 @@ namespace NeoWisePlatform.Module
 				this.ClearErrorFlags();
 				try
 				{
-					Monitor.Enter( this.SyncRoot );
 					if ( this.LiftTask != null )
 					{
 						if ( !this.isContinuous ) this.LiftTask.Wait();
@@ -461,10 +462,10 @@ namespace NeoWisePlatform.Module
 				{
 					this.CatchAndPromptErr( ex );
 					this.isContinuous = false;
+					this.SingleAction = false;
 				}
 				finally
 				{
-					Monitor.Exit( this.SyncRoot );
 				}
 				return this.Result;
 			} );
@@ -478,6 +479,7 @@ namespace NeoWisePlatform.Module
 				{
 					//Monitor.Enter( this.SyncRoot );
 					this.isContinuous = false;
+					this.SingleAction = false;
 					this.LiftTask?.Wait();
 					this.LiftTask?.Dispose();
 					this.LiftTask = null;
@@ -500,7 +502,6 @@ namespace NeoWisePlatform.Module
 				this.ClearErrorFlags();
 				try
 				{
-
 					this.CheckAndThrowIfError( this.StopAuto().Result );
 					this.CheckAndThrowIfError( this.HomeLift().Result );
 				}
@@ -514,7 +515,96 @@ namespace NeoWisePlatform.Module
 				return this.Result;
 			} );
 		}
-
+		public Task<ErrorResult> TrigPusher()
+		{
+			return Task.Run( () =>
+			{
+				this.ClearErrorFlags();
+				try
+				{
+					this.CheckAndThrowIfError( this.Pusher?.On() );
+					Thread.Sleep( this.Configuration.PusherDuration );
+					this.CheckAndThrowIfError( this.Pusher?.Off() );
+				}
+				catch ( Exception ex )
+				{
+					this.Pusher?.Off();
+					this.CatchAndPromptErr( ex );
+				}
+				finally
+				{
+				}
+				return this.Result;
+			} );
+		}
+		private ErrorResult BlowerOn()
+		{
+			this.ClearErrorFlags();
+			try
+			{
+				this.CheckAndThrowIfError( this.Blower?.On() );
+			}
+			catch ( Exception ex )
+			{
+				this.Blower?.Off();
+				this.CatchAndPromptErr( ex );
+			}
+			finally
+			{
+			}
+			return this.Result;
+		}
+		private ErrorResult BlowerOff()
+		{
+			this.ClearErrorFlags();
+			try
+			{
+				this.CheckAndThrowIfError( this.Blower?.Off() );
+			}
+			catch ( Exception ex )
+			{
+				this.CatchAndPromptErr( ex );
+			}
+			finally
+			{
+			}
+			return this.Result;
+		}
+		public ErrorResult StartPickup()
+		{
+			this.ClearErrorFlags();
+			try
+			{
+				this.LiftPNPCom.SetPickPlaceIP();
+				this.CheckAndThrowIfError( this.BlowerOn() );
+			}
+			catch ( Exception ex )
+			{
+				this.BlowerOff();
+				this.CatchAndPromptErr( ex );
+			}
+			finally
+			{
+			}
+			return this.Result;
+		}
+		public ErrorResult EndPickup()
+		{
+			this.ClearErrorFlags();
+			try
+			{
+				this.CheckAndThrowIfError( this.BlowerOff() );
+				this.LiftPNPCom.PickPlaceDone();
+			}
+			catch ( Exception ex )
+			{
+				this.CatchAndPromptErr( ex );
+			}
+			finally
+			{
+			}
+			return this.Result;
+		}
 		#endregion
 
 		#region Template
@@ -542,11 +632,9 @@ namespace NeoWisePlatform.Module
 	}
 	public class LiftAutorunInfo : BaseUtility
 	{
-		public LiftPNPComFlags LiftPNPCom { get; private set; } = new LiftPNPComFlags();
+
 		public void Clear()
 		{
-			this.LiftPNPCom.ClearReady();
-			this.LiftPNPCom.ClearPickPlaceDone();
 		}
 		public LiftAutorunInfo()
 		{
@@ -555,20 +643,25 @@ namespace NeoWisePlatform.Module
 
 	public class LiftPNPComFlags : BaseUtility
 	{
-		public bool Ready
+		public bool PickPlaceIP
 		{
-			get => this.GetValue( () => this.Ready );
-			private set => this.SetValue( () => this.Ready, value );
+			get => this.GetValue( () => this.PickPlaceIP );
+			private set => this.SetValue( () => this.PickPlaceIP, value );
 		}
-		public bool PickPlaceDone
+		public bool InCollectionHeight
 		{
-			get => this.GetValue( () => this.PickPlaceDone );
-			private set => this.SetValue( () => this.PickPlaceDone, value );
+			get => this.GetValue( () => this.InCollectionHeight );
+			private set => this.SetValue( () => this.InCollectionHeight, value );
 		}
-		public void SetReady() => this.Ready = true;
-		public void ClearReady() => this.Ready = false;
-		public void SetPickPlaceDone() => this.PickPlaceDone = true;
-		public void ClearPickPlaceDone() => this.PickPlaceDone = false;
+		public void SetPickPlaceIP() => this.PickPlaceIP = true;
+		public void PickPlaceDone() => this.PickPlaceIP = false;
+		public void SetInColHeight() => this.InCollectionHeight = true;
+		public void ClearInColHeight() => this.InCollectionHeight = false;
+		public void ClearAll()
+		{
+			this.PickPlaceDone();
+			this.ClearInColHeight();
+		}
 
 	}
 }
