@@ -63,8 +63,8 @@
                                     </StackPanel>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"  Margin="5,5,5,5">
-                                    <Label Content="Pos" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="20" ToolTip="Single Action Mode"/>
-                                    <Label Content="{Binding Lift.Status.ActualPosition}" Style="{StaticResource LB_ItemData_Center}" Width="67" ToolTip="Single Action Mode"/>
+                                    <Label Content="Pos." Style="{StaticResource LB_ItemContent_MiniLeft}" Width="20" ToolTip="Single Action Mode"/>
+                                    <Label Content="{Binding Lift.Status.ActualPosition, Converter={StaticResource DTo3D}}" Style="{StaticResource LB_ItemData_Center}" Width="67" ToolTip="Single Action Mode"/>
                                 </StackPanel>
                             </StackPanel>
 
