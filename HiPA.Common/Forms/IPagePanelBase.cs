@@ -48,7 +48,7 @@ namespace HiPA.Common.Forms
 		}
 		protected void CheckAndThrowIfError( string ErrorMessage )
 		{
-			if ( ErrorMessage == null ) this.ThrowError( "Object is null." );
+			if ( ErrorMessage == null ) this.ClearErrorFlags();
 			this.Result = ErrorMessage;
 			if ( this.Result != string.Empty ) this.ThrowError( this.Result );
 			else this.ClearErrorFlags();

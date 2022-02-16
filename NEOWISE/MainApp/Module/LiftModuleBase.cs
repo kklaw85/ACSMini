@@ -239,7 +239,7 @@ namespace NeoWisePlatform.Module
 				try
 				{
 					this.SingleAction = true;
-					this.LiftPNPCom.ClearInColHeight();
+					this.LiftPNPCom.ResetState();
 					this.CheckAndThrowIfError( ErrorClass.E5, this.Lift.Homing().Result );
 				}
 				catch ( Exception ex )
@@ -301,11 +301,9 @@ namespace NeoWisePlatform.Module
 				 try
 				 {
 					 if ( MachineStateMng.isSimulation ) return this.Result;
-					 var tasks = new Task<ErrorResult>[]
-					 {
-						this.MoveToCollectPos(true),
-					 };
-					 this.CheckAndThrowIfError( tasks );
+					 this.CheckAndThrowIfError( this.StartAuto().Result );
+					 this.LiftPNPCom.ResetState();
+					 this.CheckAndThrowIfError( this.Pusher?.Off() );
 				 }
 				 catch ( Exception ex )
 				 {
@@ -343,7 +341,7 @@ namespace NeoWisePlatform.Module
 				try
 				{
 					Monitor.Enter( this.SyncRoot );
-					this.LiftPNPCom.ClearInColHeight();
+					this.LiftPNPCom.ResetState();
 					var Movement = LiftMovement.Stop;
 					var Retry = 0;
 					var HysteresisCount = 0;
@@ -351,7 +349,7 @@ namespace NeoWisePlatform.Module
 					this.isContinuous = isContinuous;
 					this.SingleAction = !isContinuous;
 					while ( this.isContinuous || //for continuous auto mode
-					( !this.LiftPNPCom.InCollectionHeight && this.SingleAction ) )//for one time move to collection mode, but still need to loop through for stability check.
+					( this.LiftPNPCom.LiftState!= LiftState.InPos && this.SingleAction ) )//for one time move to collection mode, but still need to loop through for stability check.
 					{
 						if ( this.LiftWatchDogTimer.ElapsedMilliseconds > this.Configuration.MovementTimeout ) this.CheckAndThrowIfError( ErrorClass.E5, "Movement exceeded time out." );//100second
 						if ( !this.LowerLimit.State && !this.UpperLimit.State )
@@ -378,7 +376,7 @@ namespace NeoWisePlatform.Module
 							{
 								Retry = 0;
 								Movement = LiftMovement.Stop;
-								this.LiftPNPCom.SetInColHeight();
+								this.LiftPNPCom.SetInPos();
 								break;
 							}
 							else
@@ -410,7 +408,7 @@ namespace NeoWisePlatform.Module
 					this.CatchAndPromptErr( ex );
 					this.isContinuous = false;
 					this.SingleAction = false;
-					this.LiftPNPCom.ClearInColHeight();
+					this.LiftPNPCom.ResetState();
 				}
 				finally
 				{
@@ -542,7 +540,7 @@ namespace NeoWisePlatform.Module
 			this.ClearErrorFlags();
 			try
 			{
-				this.CheckAndThrowIfError( this.Blower?.On() );
+				this.Blower?.On();
 			}
 			catch ( Exception ex )
 			{
@@ -559,7 +557,7 @@ namespace NeoWisePlatform.Module
 			this.ClearErrorFlags();
 			try
 			{
-				this.CheckAndThrowIfError( this.Blower?.Off() );
+				this.Blower?.Off();
 			}
 			catch ( Exception ex )
 			{
@@ -570,12 +568,12 @@ namespace NeoWisePlatform.Module
 			}
 			return this.Result;
 		}
-		public ErrorResult StartPickup()
+		public ErrorResult StartPickPlace()
 		{
 			this.ClearErrorFlags();
 			try
 			{
-				this.LiftPNPCom.SetPickPlaceIP();
+				this.LiftPNPCom.SetPickPlaceStart();
 				this.CheckAndThrowIfError( this.BlowerOn() );
 			}
 			catch ( Exception ex )
@@ -588,13 +586,13 @@ namespace NeoWisePlatform.Module
 			}
 			return this.Result;
 		}
-		public ErrorResult EndPickup()
+		public ErrorResult EndPickPlace()
 		{
 			this.ClearErrorFlags();
 			try
 			{
 				this.CheckAndThrowIfError( this.BlowerOff() );
-				this.LiftPNPCom.PickPlaceDone();
+				this.LiftPNPCom.SetPickPlaceDone();
 			}
 			catch ( Exception ex )
 			{
@@ -640,28 +638,37 @@ namespace NeoWisePlatform.Module
 		{
 		}
 	}
+	public enum LiftState
+	{
+		Reset,
+		InPos,
+		PickStart,
+		PickDone,
+	}
+
 
 	public class LiftPNPComFlags : BaseUtility
 	{
-		public bool PickPlaceIP
+		public LiftState LiftState
 		{
-			get => this.GetValue( () => this.PickPlaceIP );
-			private set => this.SetValue( () => this.PickPlaceIP, value );
-		}
-		public bool InCollectionHeight
-		{
-			get => this.GetValue( () => this.InCollectionHeight );
-			private set => this.SetValue( () => this.InCollectionHeight, value );
-		}
-		public void SetPickPlaceIP() => this.PickPlaceIP = true;
-		public void PickPlaceDone() => this.PickPlaceIP = false;
-		public void SetInColHeight() => this.InCollectionHeight = true;
-		public void ClearInColHeight() => this.InCollectionHeight = false;
-		public void ClearAll()
-		{
-			this.PickPlaceDone();
-			this.ClearInColHeight();
+			get => this.GetValue( () => this.LiftState );
+			private set => this.SetValue( () => this.LiftState, value );
 		}
 
+		public void ResetState() => this.LiftState = LiftState.Reset;// to be called by liftseq
+		public void SetInPos()// to be called by lift module
+		{
+			if ( this.LiftState == LiftState.Reset ) this.LiftState = LiftState.InPos;
+		}
+		public void SetPickPlaceStart()// to be called by PNP seq
+		{
+			if ( this.LiftState == LiftState.InPos ) this.LiftState = LiftState.PickStart;
+		}
+		public void SetPickPlaceDone()// to be called by PNP seq
+		{
+			if ( this.LiftState == LiftState.PickStart ) this.LiftState = LiftState.PickDone;
+		}
+		public bool IsPickPlaceDone => this.LiftState == LiftState.PickDone;
+		public bool IsInPos => this.LiftState == LiftState.InPos;
 	}
 }

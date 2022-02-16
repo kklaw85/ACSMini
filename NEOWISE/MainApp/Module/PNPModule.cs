@@ -345,7 +345,29 @@ namespace NeoWisePlatform.Module
 				return this.Result;
 			} );
 		}
-
+		public Task<ErrorResult> MovePNPByResult()
+		{
+			return Task.Run( () =>
+			{
+				this.ClearErrorFlags();
+				try
+				{
+					if ( this.AutorunInfo.InspectionRes.InspResult == eInspResult.KIV ) this.CheckAndThrowIfError( this.PNPToPlaceKIV().Result );
+					else if ( this.AutorunInfo.InspectionRes.InspResult == eInspResult.NG ) this.CheckAndThrowIfError( this.PNPToPlaceNG().Result );
+					else if ( this.AutorunInfo.InspectionRes.InspResult == eInspResult.QIC ) this.CheckAndThrowIfError( this.PNPToPickPos().Result );
+					else if ( this.AutorunInfo.InspectionRes.InspResult == eInspResult.Uninspected )
+					{
+						if ( this.Configuration.UnInspResult == UninspResult.KIV ) this.CheckAndThrowIfError( this.PNPToPlaceKIV().Result );
+						else if ( this.Configuration.UnInspResult == UninspResult.NG ) this.CheckAndThrowIfError( this.PNPToPlaceNG().Result );
+					}
+				}
+				catch ( Exception ex )
+				{
+					this.CatchAndPromptErr( ex );
+				}
+				return this.Result;
+			} );
+		}
 		#endregion
 		#region Home Axes
 		public Task<ErrorResult> HomeX()

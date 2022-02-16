@@ -724,16 +724,8 @@ namespace HiPA.Common
 		ERR_PNPFailToPickUp = ( -802 ),   // 
 		[Description( "PNP fail to place down." )]
 		ERR_PNPFailToPlaceDown = ( -803 ),   // 
-		[Description( "PNP move to KIV Pos Error." )]
-		ERR_PNPMoveToKIVErr = ( -804 ),   // 
-		[Description( "PNP move to NG Pos Error." )]
-		ERR_PNPMoveToNGErr = ( -805 ),   // 
-		[Description( "PNP move to Load Pos Error." )]
-		ERR_PNPMoveToLoadErr = ( -806 ),   // 
-		[Description( "PNP move to Pick Pos Error." )]
-		ERR_PNPMoveToPickErr = ( -807 ),   // 
-		[Description( "PNP move to Wait Pos Error." )]
-		ERR_PNPMoveToWaitErr = ( -808 ),   // 
+		[Description( "PNP move Error." )]
+		ERR_PNPMoveErr = ( -804 ),   // 
 		#endregion
 		#region Stage
 		[Description( "Stage To Standby State Error" )]
@@ -756,6 +748,10 @@ namespace HiPA.Common
 		ERR_LiftToPickPlace = ( -1003 ),
 		[Description( "Lift Pusher Error" )]
 		ERR_LiftPusher = ( -1004 ),
+		[Description( "Lift Start PickPlace Mode" )]
+		ERR_LiftStartPickPlace = ( -1005 ),
+		[Description( "Lift End PickPlace Mode" )]
+		ERR_LiftEndPickPlace = ( -1006 ),
 		#endregion
 		#region Barcode
 		[Description( "Barcode Reader Error" )]

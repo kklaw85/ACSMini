@@ -92,12 +92,12 @@ namespace NeoWisePlatform.UI.CommonControls.Panels
 				}
 				else if ( btn == this.BtnPickUpIP )
 				{
-					var res = this._Source.StartPickup();
+					var res = this._Source.StartPickPlace();
 					if ( res.EClass != ErrorClass.OK ) throw new Exception( res.ErrorMessage );
 				}
 				else if ( btn == this.BtnPickUpDone )
 				{
-					var res = this._Source.EndPickup();
+					var res = this._Source.EndPickPlace();
 					if ( res.EClass != ErrorClass.OK ) throw new Exception( res.ErrorMessage );
 				}
 				else if ( btn == this.BtnTriggerPusher )

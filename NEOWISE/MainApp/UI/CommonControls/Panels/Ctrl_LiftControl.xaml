@@ -23,40 +23,40 @@
             </StackPanel>
         </Expander>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="5">
-            <StackPanel Orientation="Horizontal">
-                <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,0,5,0">
+            <StackPanel Orientation="Vertical">
+                <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,0,0,0">
                     <StackPanel>
                         <Label Style="{StaticResource LB_ItemTitle}" Content="IO"/>
-                        <StackPanel Margin="5,0,5,5">
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <StackPanel Margin="5,0,5,5" Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                                 <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding UpperLimit.IOPt.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
                                 <Label Content="MUL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Material Upper Limit"/>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                                 <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding LowerLimit.IOPt.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
                                 <Label Content="MLL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Material Lower Limit"/>
                             </StackPanel>
-                            <StackPanel x:Name="BlowerIO" Orientation="Horizontal" Margin="0,0,0,8">
+                            <StackPanel x:Name="BlowerIO" Orientation="Horizontal" Margin="0,0,0,0">
                                 <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding Blower.IOPt.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
                                 <Label Content="Blwr." Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Blower"/>
                             </StackPanel>
-                            <StackPanel x:Name="PusherIO" Orientation="Horizontal" Margin="0,0,0,8">
+                            <StackPanel x:Name="PusherIO" Orientation="Horizontal" Margin="0,0,0,0">
                                 <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding Pusher.IOPt.Value, Converter={StaticResource DioValueToBrushIORec}}"/>
                                 <Label Content="Push" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Pusher"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </Border>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                 <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,0,5,0">
                     <StackPanel>
                         <Label Style="{StaticResource LB_ItemTitle}" Content="Motion"/>
-                        <StackPanel Margin="5,0,5,5">
-
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                                 <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding Lift.Status.PEL, Converter={StaticResource BoolToBrushIORec}}"/>
                                 <Label Content="PEL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Positive End limit"/>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                                 <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding Lift.Status.NEL, Converter={StaticResource BoolToBrushIORec}}"/>
                                 <Label Content="NEL" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Negative End Limit"/>
                             </StackPanel>
@@ -67,28 +67,19 @@
                 <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,0,0,0">
                     <StackPanel>
                         <Label Style="{StaticResource LB_ItemTitle}" Content="Flags"/>
-                        <StackPanel  Margin="5,0,5,5">
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding LiftPNPCom.InCollectionHeight, Converter={StaticResource BoolToBrushIORec}}"/>
-                                <Label Content="Rdy" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="In collection height."/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <StackPanel  Margin="5,0,5,5" Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                                 <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding isContinuous, Converter={StaticResource BoolToBrushIORec}}"/>
                                 <Label Content="Auto" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Automated Mode"/>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                                 <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding SingleAction, Converter={StaticResource BoolToBrushIORec}}"/>
-                                <Label Content="S.A" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Single Action Mode"/>
+                                <Label Content="S.A" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="20" ToolTip="Single Action Mode"/>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding LiftPNPCom.PickPlaceIP, Converter={StaticResource BoolToBrushIORec}}"/>
-                                <Label Content="PPIP" Style="{StaticResource LB_ItemContent_MiniLeft}" Width="27" ToolTip="Pick Place in Progress"/>
-                            </StackPanel>
-                            
                         </StackPanel>
                     </StackPanel>
                 </Border>
-
+                </StackPanel>
             </StackPanel>
             <Border Style="{StaticResource FrameWithoutShadow}" Margin="0,5,0,0">
                 <StackPanel x:Name="Ctrls" Orientation="Horizontal" Margin="5">
