@@ -349,7 +349,7 @@ namespace NeoWisePlatform.Module
 					this.isContinuous = isContinuous;
 					this.SingleAction = !isContinuous;
 					while ( this.isContinuous || //for continuous auto mode
-					( this.LiftPNPCom.LiftState!= LiftState.InPos && this.SingleAction ) )//for one time move to collection mode, but still need to loop through for stability check.
+					( !this.LiftPNPCom.IsInPos && this.SingleAction ) )//for one time move to collection mode, but still need to loop through for stability check.
 					{
 						if ( this.LiftWatchDogTimer.ElapsedMilliseconds > this.Configuration.MovementTimeout ) this.CheckAndThrowIfError( ErrorClass.E5, "Movement exceeded time out." );//100second
 						if ( !this.LowerLimit.State && !this.UpperLimit.State )
@@ -377,7 +377,6 @@ namespace NeoWisePlatform.Module
 								Retry = 0;
 								Movement = LiftMovement.Stop;
 								this.LiftPNPCom.SetInPos();
-								break;
 							}
 							else
 							{
@@ -412,7 +411,6 @@ namespace NeoWisePlatform.Module
 				}
 				finally
 				{
-					this.isContinuous = false;
 					this.SingleAction = false;
 					Monitor.Exit( this.SyncRoot );
 				}
@@ -426,7 +424,16 @@ namespace NeoWisePlatform.Module
 				this.ClearErrorFlags();
 				try
 				{
-					if ( this.LiftTask != null ) if ( this.isContinuous ) this.CheckAndThrowIfError( this.StopAuto().Result );
+					if ( this.LiftTask != null )
+					{
+						if ( this.isContinuous ) this.CheckAndThrowIfError( this.StopAuto().Result );
+						else
+						{
+							this.LiftTask?.Wait();
+							this.LiftTask?.Dispose();
+							this.LiftTask = null;
+						}
+					}
 					this.LiftTask = this.MoveToCollectPos( false );
 					if ( WaitDone == true ) this.CheckAndThrowIfError( this.LiftTask.Result );
 				}
@@ -477,7 +484,6 @@ namespace NeoWisePlatform.Module
 				{
 					//Monitor.Enter( this.SyncRoot );
 					this.isContinuous = false;
-					this.SingleAction = false;
 					this.LiftTask?.Wait();
 					this.LiftTask?.Dispose();
 					this.LiftTask = null;
@@ -488,12 +494,13 @@ namespace NeoWisePlatform.Module
 				}
 				finally
 				{
+					this.SingleAction = false;
 					//Monitor.Exit( this.SyncRoot );
 				}
 				return this.Result;
 			} );
 		}
-		public Task<ErrorResult> MoveToLoadPos()
+		public Task<ErrorResult> MoveToLoadPos( bool WaitDone = false )
 		{
 			return Task.Run( () =>
 			{
@@ -501,7 +508,8 @@ namespace NeoWisePlatform.Module
 				try
 				{
 					this.CheckAndThrowIfError( this.StopAuto().Result );
-					this.CheckAndThrowIfError( this.HomeLift().Result );
+					this.LiftTask = this.HomeLift();
+					if( WaitDone ) this.CheckAndThrowIfError( this.LiftTask.Result );
 				}
 				catch ( Exception ex )
 				{
