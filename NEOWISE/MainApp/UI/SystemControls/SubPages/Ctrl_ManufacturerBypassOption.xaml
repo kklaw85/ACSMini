@@ -17,6 +17,14 @@
             <StackPanel Margin="10" x:Name="StkPnlCtrlLst">
                 <CheckBox IsChecked="{Binding Vision.BypassVisionCapture}" Content="Vision Capture" Margin="0,0,0,5"/>
                 <CheckBox IsChecked="{Binding Vision.BypassVisionProcessing}" Content="Vision Processing" Margin="0,0,0,5"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <Label Content="Vision Sim. L.L." Style="{StaticResource LB_ItemContent_Right}" Width="110"/>
+                    <MahApp:NumericUpDown Value="{Binding Vision.VisionResMin}" Width="135" StringFormat="F3" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <Label Content="Vision Sim. U.L." Style="{StaticResource LB_ItemContent_Right}" Width="110"/>
+                    <MahApp:NumericUpDown Value="{Binding Vision.VisionResMax}" Width="135" StringFormat="F3" />
+                </StackPanel>
             </StackPanel>
 		</StackPanel>
 

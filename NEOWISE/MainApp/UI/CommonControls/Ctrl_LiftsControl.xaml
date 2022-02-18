@@ -12,13 +12,8 @@
     <StackPanel>
         <Label Style="{StaticResource LB_ItemTitle}" x:Name="LblAxisName" Content="{StaticResource LiftCtrl}"/>
         <StackPanel Orientation="Horizontal" Margin="5,0,5,5">
-            <Border Margin="0,0,5,0" Style="{StaticResource FrameWithoutShadow}">
-                <local:Ctrl_LiftControl x:Name="New"/>
-            </Border>
-            <Border Margin="0,0,5,0" Style="{StaticResource FrameWithoutShadow}">
-                <local:Ctrl_LiftControl x:Name="QIC"/>
-            </Border>
-
+            <local:Ctrl_LiftControl x:Name="New"/>
+            <local:Ctrl_LiftControl x:Name="QIC" Margin="5,0,0,0"/>
         </StackPanel>
     </StackPanel>
 </Panelbase:PanelBase>

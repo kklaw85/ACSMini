@@ -634,13 +634,24 @@ namespace HiPA.Instrument.Camera
 				{
 					this.CheckAndThrowIfError( ErrorClass.E5, this.SingleGrab().Result );
 					this.CheckAndThrowIfError( ErrorClass.E5, this.GrabSuccessful ? string.Empty : "Grab unsuccessful" );
-					var Res = this.Vision.CheckModelPosition( this.Configuration.MMFs.Calibration, new CameraObj( this.Camera.MilImage, this.Camera.XHairPos.XOffsetPix, this.Camera.XHairPos.YOffsetPix ), ROI ).Result;
-					this.CheckAndThrowIfError( Res.EClass, Res.ErrorMessage );
-					RawPos = Res.RawPos;
-					OffPos = Res.OffPos;
-					RawOffsetCenter = Res.RawOffsetCenter;
-					PosOffsetMM.X = OffPos.X / this.Configuration.ScalePixperMM.ScalePixperMM.X;
-					PosOffsetMM.Y = OffPos.Y / this.Configuration.ScalePixperMM.ScalePixperMM.Y;
+					if ( !this.Bypass.BypassVisionCapture && !this.Bypass.BypassVisionProcessing )
+					{
+						var Res = this.Vision.CheckModelPosition( this.Configuration.MMFs.Calibration, new CameraObj( this.Camera.MilImage, this.Camera.XHairPos.XOffsetPix, this.Camera.XHairPos.YOffsetPix ), ROI ).Result;
+						this.CheckAndThrowIfError( Res.EClass, Res.ErrorMessage );
+						RawPos = Res.RawPos;
+						OffPos = Res.OffPos;
+						RawOffsetCenter = Res.RawOffsetCenter;
+						PosOffsetMM.X = OffPos.X / this.Configuration.ScalePixperMM.ScalePixperMM.X;
+						PosOffsetMM.Y = OffPos.Y / this.Configuration.ScalePixperMM.ScalePixperMM.Y;
+					}
+					else
+					{
+						RawPos = new C_PointD( 1000*MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax ), 1000 * MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax ), 0 );
+						OffPos = new C_PointD( 1000 * MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax ), 1000 * MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax ), 0 );
+						RawOffsetCenter = new C_PointD( 1000 * MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax ), 1000 * MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax ), 0 );
+						PosOffsetMM.X = MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax );
+						PosOffsetMM.Y = MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax );
+					}
 				}
 				catch ( Exception ex )
 				{
@@ -995,6 +1006,12 @@ namespace HiPA.Instrument.Camera
 		Done,
 		Fail,
 	}
+	public enum eVisionSimulationResult
+	{
+		Pass,
+		Fail,
+		Random,
+	}
 	[Serializable]
 	public class VisionBypass : RecipeBaseUtility
 	{
@@ -1007,6 +1024,16 @@ namespace HiPA.Instrument.Camera
 		{
 			get => this.GetValue( () => this.BypassVisionProcessing );
 			set => this.SetValue( () => this.BypassVisionProcessing, value );
+		}
+		public double VisionResMin
+		{
+			get => this.GetValue( () => this.VisionResMin );
+			set => this.SetValue( () => this.VisionResMin, value );
+		}
+		public double VisionResMax
+		{
+			get => this.GetValue( () => this.VisionResMax );
+			set => this.SetValue( () => this.VisionResMax, value );
 		}
 	}
 }

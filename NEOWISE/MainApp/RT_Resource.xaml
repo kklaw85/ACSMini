@@ -462,7 +462,7 @@
     <!--Divider style-->
     <Style x:Key="Vert_Divider" TargetType="Rectangle">
         <Setter Property="Height" Value="2"/>
-        <Setter Property="Fill" Value="{StaticResource MasterTheme}"/>
+        <Setter Property="Fill" Value="{StaticResource MinorTheme}"/>
         <Setter Property="RadiusX" Value="2"/>
         <Setter Property="RadiusY" Value="2"/>
         <Setter Property="Stroke" Value="Transparent"/>
@@ -470,7 +470,7 @@
     </Style>
     <Style x:Key="Hor_Divider" TargetType="Rectangle">
         <Setter Property="Width" Value="2"/>
-        <Setter Property="Fill" Value="{StaticResource MasterTheme}"/>
+        <Setter Property="Fill" Value="{StaticResource MinorTheme}"/>
         <Setter Property="RadiusX" Value="2"/>
         <Setter Property="RadiusY" Value="2"/>
         <Setter Property="Stroke" Value="Transparent"/>
@@ -1546,6 +1546,7 @@
         <Setter Property="OverridesDefaultStyle" Value="true" />
         <Setter Property="FocusVisualStyle" Value="{DynamicResource CheckBoxFocusVisual}" />
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Height" Value="25"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type CheckBox}">
@@ -1555,9 +1556,9 @@
                             <Setter Property="Width" Value="Auto"/>
                             <Setter Property="Padding" Value="20,0,0,0"/>
                             <Setter Property="HorizontalContentAlignment" Value="Left"/>
-                            <Setter Property="VerticalContentAlignment" Value="Top"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
                             <Setter Property="HorizontalAlignment" Value="Left"/>
-                            <Setter Property="VerticalAlignment" Value="Top"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
                             <Setter Property="FontFamily" Value="Segoe"/>
                             <Setter Property="FontSize" Value="13"/>
                             <Setter Property="FontWeight" Value="Normal"/>
@@ -1565,7 +1566,7 @@
                     </ControlTemplate.Resources>
                     <Grid>
                         <Label Content="{TemplateBinding Content}"/>
-                        <BulletDecorator Background="Transparent">
+                        <BulletDecorator Background="Transparent" VerticalAlignment="Center">
                             <BulletDecorator.Bullet>
                                 <Border x:Name="Border" Width="13" Height="13" CornerRadius="2" BorderThickness="1">
                                     <Border.BorderBrush>
