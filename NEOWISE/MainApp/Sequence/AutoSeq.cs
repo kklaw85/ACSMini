@@ -40,15 +40,12 @@ namespace NeoWisePlatform.Sequence
 		private int Init()
 		{
 			this.ThreadInitState();
-			this._Equipment.MachineLights( false );
 			return ( int )RunErrors.ERR_NoError;
 		}
 		private int WaitStartButton()
 		{
 			try
 			{
-				if ( this.Station.PNPSeq.Idx == 0 )
-					this.StopAuto();
 				var bOn = this._Equipment.GetIOPointByEnum( InputIO.I_AutoSwitch ).Check( DioValue.On );
 				this._cycleTime.Restart();
 				if ( bOn || MachineStateMng.isSimulation )

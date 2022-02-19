@@ -323,7 +323,7 @@ namespace NeoWisePlatform
 				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_Diagnostics, this.Cvs_Wrapper, loc, new Ctrl_InstrumentOfCamera() );
 				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_Diagnostics, this.Cvs_Wrapper, loc, new Ctrl_ManufacturerBypassOption() );
 				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_Diagnostics, this.Cvs_Wrapper, loc, new Ctrl_TestSequences() );
-				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_ProcessSetup, this.Cvs_Wrapper, loc, new Ctrl_SetupLoadUnload() );
+				//C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_ProcessSetup, this.Cvs_Wrapper, loc, new Ctrl_SetupLoadUnload() );
 				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_ProcessSetup, this.Cvs_Wrapper, loc, new Ctrl_SetupWorkPosPage() );
 				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_ProcessSetup, this.Cvs_Wrapper, loc, new Ctrl_SetupVision() );
 				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_UserAccess, this.Cvs_Wrapper, loc, new Ctrl_User_Access() );

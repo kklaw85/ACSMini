@@ -100,7 +100,7 @@ namespace NeoWisePlatform.Sequence
 			try
 			{
 				if ( this.CompareThreadIndex( Run_State_Lift.StopToPickPlace ) ) return ( int )RunErrors.ERR_Inconformity;
-				if ( this.isError( this.Module.StartSingleAction(true).Result ) ) return ( int )RunErrors.ERR_LiftToPickPlace;
+				if ( this.isError( this.Module.StartSingleAction( true ).Result ) ) return ( int )RunErrors.ERR_LiftToPickPlace;
 			}
 			catch ( Exception ex )
 			{
@@ -132,7 +132,7 @@ namespace NeoWisePlatform.Sequence
 				this.ReportError();
 				this.InitFlags();
 				this.State = SequenceState.Init;
-				return this.JumpFunctionEnum( Run_State_Lift.SelectWork );
+				return this.JumpFunctionEnum( Run_State_Lift.IsAction );
 			}
 			catch ( Exception ex )
 			{
@@ -148,12 +148,13 @@ namespace NeoWisePlatform.Sequence
 				this.State = SequenceState.IsNotStarted;
 				this.WorkerSeq.Stop();
 				this.Module.StopAuto().Wait();
+				this.Module.OffBlowerandPusher().Wait();
 				this.ResetAll();
 			} );
 		}
 		private void InitFlags()
 		{
-			this.Module.MoveToStandbyStatus();
+			//this.Module.MoveToStandbyStatus();
 		}
 		protected override void CycleStop()
 		{

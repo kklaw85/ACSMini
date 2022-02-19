@@ -62,8 +62,8 @@ namespace NeoWisePlatform.Module
 		public AxisBase Lift { get; set; } = null;
 		public IO UpperLimit { get; set; } = new IO();
 		public IO LowerLimit { get; set; } = new IO();
-		public IO Pusher { get; set; } = new IO();
-		public IO Blower { get; set; } = new IO();
+		public IO Pusher { get; set; }
+		public IO Blower { get; set; }
 		#endregion
 		#region General.Functions
 		protected override string OnCreate()
@@ -301,9 +301,11 @@ namespace NeoWisePlatform.Module
 				 try
 				 {
 					 if ( MachineStateMng.isSimulation ) return this.Result;
+					 this.CheckAndThrowIfError( this.StartSingleAction( true ).Result );
 					 this.CheckAndThrowIfError( this.StartAuto().Result );
 					 this.LiftPNPCom.ResetState();
 					 this.CheckAndThrowIfError( this.Pusher?.Off() );
+					 this.CheckAndThrowIfError( this.BlowerOff() );
 				 }
 				 catch ( Exception ex )
 				 {
@@ -358,7 +360,7 @@ namespace NeoWisePlatform.Module
 							Retry = 0;
 							Movement = LiftMovement.Upward;
 						}
-						else if ( this.LowerLimit.State && this.UpperLimit.State )
+						else if ( this.UpperLimit.State ) //( this.LowerLimit.State && this.UpperLimit.State )
 						{
 							HysteresisCount = 0;
 							Retry = 0;
@@ -368,7 +370,7 @@ namespace NeoWisePlatform.Module
 						{
 							HysteresisCount = 0;
 							if ( Retry++ > 10 ) throw new Exception( "Faulty signalling. Please check if sensor is blocked" );
-							else Thread.Sleep( 100 );
+							else Thread.Sleep( 10 );
 						}
 						else
 						{
@@ -380,7 +382,7 @@ namespace NeoWisePlatform.Module
 							}
 							else
 							{
-								Thread.Sleep( 10 );
+								Thread.Sleep( 1 );
 								continue;
 							}
 						}
@@ -475,6 +477,28 @@ namespace NeoWisePlatform.Module
 				return this.Result;
 			} );
 		}
+		public Task<ErrorResult> OffBlowerandPusher()
+		{
+			return Task.Run( () =>
+			{
+				this.ClearErrorFlags();
+				try
+				{
+					this.CheckAndThrowIfError( this.BlowerOff() );
+					this.CheckAndThrowIfError( this.Pusher?.Off() );
+				}
+				catch ( Exception ex )
+				{
+					this.CatchAndPromptErr( ex );
+				}
+				finally
+				{
+					this.SingleAction = false;
+					//Monitor.Exit( this.SyncRoot );
+				}
+				return this.Result;
+			} );
+		}
 		public Task<ErrorResult> StopAuto()
 		{
 			return Task.Run( () =>
@@ -509,7 +533,7 @@ namespace NeoWisePlatform.Module
 				{
 					this.CheckAndThrowIfError( this.StopAuto().Result );
 					this.LiftTask = this.HomeLift();
-					if( WaitDone ) this.CheckAndThrowIfError( this.LiftTask.Result );
+					if ( WaitDone ) this.CheckAndThrowIfError( this.LiftTask.Result );
 				}
 				catch ( Exception ex )
 				{
@@ -583,6 +607,23 @@ namespace NeoWisePlatform.Module
 			{
 				this.LiftPNPCom.SetPickPlaceStart();
 				this.CheckAndThrowIfError( this.BlowerOn() );
+			}
+			catch ( Exception ex )
+			{
+				this.BlowerOff();
+				this.CatchAndPromptErr( ex );
+			}
+			finally
+			{
+			}
+			return this.Result;
+		}
+		public ErrorResult MoveDown()
+		{
+			this.ClearErrorFlags();
+			try
+			{
+				this.CheckAndThrowIfError( this.LiftMoveRel( -10 ).Result );
 			}
 			catch ( Exception ex )
 			{

@@ -26,12 +26,15 @@
                     DockPanel.Dock="Right" Click="Btn_Start_Click">
                 <Image Source="/Icons/Pause.png" Width="40" Height="40" Stretch="Fill" Margin="0"  />
             </Button>
-            <Button Style="{StaticResource Button_FrameMenu}" Margin="0,0,2,0" x:Name="Btn_Start" Tag="Start" ToolTip="Start"
+            <StackPanel x:Name="StkStart">
+                <Button Style="{StaticResource Button_FrameMenu}" Margin="0,0,2,0" x:Name="Btn_Start" Tag="Start" ToolTip="Start"
                     HorizontalAlignment="Right" VerticalAlignment="Center" 
                     Width="92" Height="76"
                     DockPanel.Dock="Right" Click="Btn_Start_Click">
-                <Image Source="/Icons/Play.png" Width="40" Height="40" Stretch="Fill" Margin="0"  />
-            </Button>
+                    <Image Source="/Icons/Play.png" Width="40" Height="40" Stretch="Fill" Margin="0"  />
+                </Button>
+            </StackPanel>
+
         </DockPanel>
     </Grid>
 </Panelbase:PanelBase>

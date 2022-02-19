@@ -97,7 +97,9 @@ namespace NeoWisePlatform.Module
 			{
 				this.NewLift.UpperLimit.IOPt = this.GetIOPointByEnum( InputIO.I_NewLiftULimit );
 				this.NewLift.LowerLimit.IOPt = this.GetIOPointByEnum( InputIO.I_NewLiftLLimit );
+				this.NewLift.Blower = new IO();
 				this.NewLift.Blower.IOPt = this.GetIOPointByEnum( OutputIO.O_NewLiftBlower );
+				this.NewLift.Pusher = new IO();
 				this.NewLift.Pusher.IOPt = this.GetIOPointByEnum( OutputIO.O_NewLiftPusher );
 
 				this.QICLift.UpperLimit.IOPt = this.GetIOPointByEnum( InputIO.I_QICLiftULimit );
@@ -385,51 +387,6 @@ namespace NeoWisePlatform.Module
 		#endregion
 		#region StartAutoRun initialization
 		#endregion
-		#region Lighting control
-		private bool bMachineLightOn = false;
-		public bool MachineLightOn
-		{
-			get => this.bMachineLightOn;
-			set => this.Set( ref this.bMachineLightOn, value, "MachineLightOn" );
-		}
-		public string MachineLights( bool On )
-		{
-			ErrorClass EClass = ErrorClass.OK;
-			string ErrorMessage = string.Empty;
-			try
-			{
-				if ( MachineStateMng.isSimulation )
-				{
-					this.MachineLightOn = On;
-					return ErrorMessage;
-				}
-				this.MachineLightOn = On;
-			}
-			catch ( Exception ex )
-			{
-				if ( EClass == ErrorClass.OK )
-					EClass = ErrorClass.E6;
-				ErrorMessage = Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, ex ), ErrorTitle.OperationFailure, EClass );
-			}
-			return ErrorMessage;
-		}
-		public string ToggleMachineLight()
-		{
-			ErrorClass EClass = ErrorClass.OK;
-			string ErrorMessage = string.Empty;
-			try
-			{
-				if ( ( ErrorMessage = this.MachineLights( !this.MachineLightOn ) ) != string.Empty ) throw new Exception( ErrorMessage );
-			}
-			catch ( Exception ex )
-			{
-				if ( EClass == ErrorClass.OK )
-					EClass = ErrorClass.E6;
-				ErrorMessage = Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, ex ), ErrorTitle.OperationFailure, EClass );
-			}
-			return ErrorMessage;
-		}
-		#endregion
 		#region Doorlock
 		private bool bDoorLockOn = false;
 		public bool DoorLockOn
@@ -505,7 +462,7 @@ namespace NeoWisePlatform.Module
 					this.RunTestSeq = true;
 					var Cont = Repeats == 0;
 					if ( this.Stage.Stage.MatDet != false ) this.CheckAndThrowIfError( ErrorClass.E5, "Stage is not empty. Please clear the stage before starting GRR" );
-					this.CheckAndThrowIfError( this.NewLift.StartSingleAction(true).Result );
+					this.CheckAndThrowIfError( this.NewLift.StartSingleAction( true ).Result );
 					while ( Cont || Repeats >= 0 )
 					{
 						this.CheckAndThrowIfError( this.PNP.PNPToPickPos().Result );

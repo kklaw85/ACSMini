@@ -95,6 +95,11 @@ namespace HiPA.Common
 		}
 		protected void CheckAndThrowIfError( ErrorResult Result )
 		{
+			if ( Result == null )
+			{
+				this.ClearErrorFlags();
+				return;
+			}
 			this.Result.Set( Result );
 			if ( this.Result.EClass != ErrorClass.OK ) this.ThrowError( this.Result );
 			else this.ClearErrorFlags();

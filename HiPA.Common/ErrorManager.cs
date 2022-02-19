@@ -726,6 +726,8 @@ namespace HiPA.Common
 		ERR_PNPFailToPlaceDown = ( -803 ),   // 
 		[Description( "PNP move Error." )]
 		ERR_PNPMoveErr = ( -804 ),   // 
+		[Description( "Material dropped." )]
+		ERR_PNPMatDrop = ( -805 ),   // 
 		#endregion
 		#region Stage
 		[Description( "Stage To Standby State Error" )]

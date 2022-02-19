@@ -625,7 +625,7 @@ namespace HiPA.Instrument.Motion.APS
 		O_Yellow,
 		O_Red,
 		O_Buzzer,
-		O_NewLiftBlower, 
+		O_NewLiftBlower,
 		O_LoadArmUp,
 		O_LoadArmDown,
 		O_LoadArmVac,

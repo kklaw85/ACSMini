@@ -192,6 +192,7 @@ namespace NeoWisePlatform.Sequence
 			{
 				if ( this.CompareThreadIndex( Run_Stage_Seq.Finish ) ) return ( int )RunErrors.ERR_Inconformity;
 				this.ReportError();
+				this.Module.AutorunInfo.StageFlag = PNPToStageFlag.Stop;
 				this.State = SequenceState.Init;
 				return this.JumpFunctionEnum( Run_Stage_Seq.SelectWork );
 			}

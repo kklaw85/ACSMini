@@ -339,6 +339,7 @@ namespace NeoWisePlatform.Module
 
 	public class IOMotion : InstrumentBase
 	{
+		public LiftModuleBase Lift { get; protected set; }
 		public override MachineVariant MachineVar { get; set; }
 		public double AxisPositionCheck { get; set; } = 0;
 		public IOMotionConfiguration Configuration { get; private set; }
@@ -426,11 +427,7 @@ namespace NeoWisePlatform.Module
 		public string ThrowEXIfMatDet()
 		{
 			if ( this.SuctionSense ) return $"Material detected in {this.Name}. Please remove material manually.";
-			else
-			{
-				this.ObjHeld = false;
-				return string.Empty;
-			}
+			else return string.Empty;
 		}
 		public Task<ErrorResult> MoveToPos()
 		{
@@ -547,9 +544,9 @@ namespace NeoWisePlatform.Module
 					if ( !this.ValidVariant() ) return this.Result;
 					if ( this._VacuumSuction == null ) this.ThrowError( ErrorClass.E6, "Null Vacuum object" );
 					if ( this._VacuumSuctionSense == null ) this.ThrowError( ErrorClass.E6, "Null Vacuum sense object" );
-					if ( !this.SuctionSense ) this.ObjHeld = false;
-					if ( BypassVac != true ) if ( this.ObjHeld == true ) return this.Result;
+					if ( BypassVac != true ) if ( this.SuctionSense ) return this.Result;
 					this.CheckAndThrowIfError( this.MoveToPos().Result );
+					this.CheckAndThrowIfError( this.Lift?.StartPickPlace() );
 					if ( BypassVac != true )
 					{
 						if ( ( this.Result = this.SuctionOn().Result ).EClass != ErrorClass.OK )
@@ -558,7 +555,11 @@ namespace NeoWisePlatform.Module
 							SuctionResult.EClass = this.Result.EClass;
 						}
 						if ( SuctionResult.EClass == ErrorClass.OK )
+						{
+							this.CheckAndThrowIfError( this.Lift?.MoveDown() );
 							Thread.Sleep( this.Configuration.Pick.Delay );
+							this.CheckAndThrowIfError( this.Lift?.EndPickPlace() );
+						}
 					}
 					this.CheckAndThrowIfError( this.Reset().Result );
 					if ( BypassVac != true )
@@ -566,13 +567,16 @@ namespace NeoWisePlatform.Module
 						this.CheckAndThrowIfError( SuctionResult );
 						if ( this.Suction != true ) this.ThrowError( ErrorClass.E5, "Output turned off." );
 						if ( this.SuctionSense != true ) this.ThrowError( ErrorClass.E5, "Suction pressure dropped." );
-						this.ObjHeld = true;
 					}
 				}
 				catch ( Exception ex )
 				{
 					this.SuctionOff().Wait();
 					this.CatchException( ex );
+				}
+				finally
+				{
+					this.ObjHeld = this.SuctionSense;
 				}
 				return this.Result;
 			} );
@@ -589,8 +593,7 @@ namespace NeoWisePlatform.Module
 					if ( MachineStateMng.isSimulation ) return this.Result;
 					if ( !this.ValidVariant() ) return this.Result;
 					if ( this._VacuumSuctionSense == null ) this.ThrowError( ErrorClass.E6, "Null Vacuum sense object" );
-					if ( BypassVac != true )
-						if ( !this.SuctionSense ) this.ThrowError( ErrorClass.E6, "Arm is empty or air leakage." );
+					if ( BypassVac != true ) if ( !this.SuctionSense ) this.ThrowError( ErrorClass.E6, "Arm is empty or air leakage." );
 					this.CheckAndThrowIfError( this.MoveToPos().Result );
 					if ( BypassVac != true )
 					{
@@ -608,12 +611,15 @@ namespace NeoWisePlatform.Module
 						this.CheckAndThrowIfError( SuctionResult );
 						if ( this.Suction != false ) this.ThrowError( ErrorClass.E5, "Output turned On." );
 						if ( this.SuctionSense != false ) this.ThrowError( ErrorClass.E5, "Suction pressure still high." );
-						this.ObjHeld = false;
 					}
 				}
 				catch ( Exception ex )
 				{
 					this.CatchException( ex );
+				}
+				finally
+				{
+					this.ObjHeld = this.SuctionSense;
 				}
 				return this.Result;
 			} );
@@ -683,11 +689,21 @@ namespace NeoWisePlatform.Module
 				return this.Result;
 			} );
 		}
+		public bool MatDropped => !this.SuctionSense && this.ObjHeld;
+
+		public void LinkLiftModule( LiftModuleBase source )
+		{
+			this.Lift = source;
+		}
+		public void ClearLiftModuleLink()
+		{
+			this.Lift = null;
+		}
 	}
 
 	#endregion
 	#region SimpleIO
-	public class IO:BaseUtility
+	public class IO : BaseUtility
 	{
 		public AdLinkIoPoint IOPt { get; set; }
 

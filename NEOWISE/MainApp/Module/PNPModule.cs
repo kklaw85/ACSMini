@@ -354,7 +354,7 @@ namespace NeoWisePlatform.Module
 				{
 					if ( this.AutorunInfo.InspectionRes.InspResult == eInspResult.KIV ) this.CheckAndThrowIfError( this.PNPToPlaceKIV().Result );
 					else if ( this.AutorunInfo.InspectionRes.InspResult == eInspResult.NG ) this.CheckAndThrowIfError( this.PNPToPlaceNG().Result );
-					else if ( this.AutorunInfo.InspectionRes.InspResult == eInspResult.QIC ) this.CheckAndThrowIfError( this.PNPToPickPos().Result );
+					else if ( this.AutorunInfo.InspectionRes.InspResult == eInspResult.QIC ) this.CheckAndThrowIfError( this.PNPToLoadPos().Result );
 					else if ( this.AutorunInfo.InspectionRes.InspResult == eInspResult.Uninspected )
 					{
 						if ( this.Configuration.UnInspResult == UninspResult.KIV ) this.CheckAndThrowIfError( this.PNPToPlaceKIV().Result );
@@ -386,7 +386,6 @@ namespace NeoWisePlatform.Module
 				return this.Result;
 			} );
 		}
-
 		public Task<ErrorResult> Home()
 		{
 			return Task.Run( () =>
@@ -428,6 +427,75 @@ namespace NeoWisePlatform.Module
 		}
 		#endregion
 		#region Getposition
+		private bool PositionOK( double Pos )
+		{
+			var Res = false;
+			try
+			{
+				Res = this.AxisX.CheckPosition( Pos ) == string.Empty;
+			}
+			catch ( Exception ex )
+			{
+				this.CatchAndPromptErr( ex );
+			}
+			return Res;
+		}
+		public bool PNPInLoadPos()
+		{
+			var Res = false;
+			try
+			{
+				var recipe = Recipes.HandlerRecipes()?.GetAppliedRecipe()?.PNPWorkPos;
+				Res = this.PositionOK( recipe.LoadPos );
+			}
+			catch ( Exception ex )
+			{
+				this.CatchAndPromptErr( ex );
+			}
+			return Res;
+		}
+		public bool PNPInPickPos()
+		{
+			var Res = false;
+			try
+			{
+				var recipe = Recipes.HandlerRecipes()?.GetAppliedRecipe()?.PNPWorkPos;
+				Res = this.PositionOK( recipe.PickPos );
+			}
+			catch ( Exception ex )
+			{
+				this.CatchAndPromptErr( ex );
+			}
+			return Res;
+		}
+		public bool PNPInKIVPos()
+		{
+			var Res = false;
+			try
+			{
+				var recipe = Recipes.HandlerRecipes()?.GetAppliedRecipe()?.PNPWorkPos;
+				Res = this.PositionOK( recipe.PlaceKIVPos );
+			}
+			catch ( Exception ex )
+			{
+				this.CatchAndPromptErr( ex );
+			}
+			return Res;
+		}
+		public bool PNPInNGPos()
+		{
+			var Res = false;
+			try
+			{
+				var recipe = Recipes.HandlerRecipes()?.GetAppliedRecipe()?.PNPWorkPos;
+				Res = this.PositionOK( recipe.PlaceNGPos );
+			}
+			catch ( Exception ex )
+			{
+				this.CatchAndPromptErr( ex );
+			}
+			return Res;
+		}
 		#endregion
 		#endregion
 		#endregion
@@ -442,6 +510,8 @@ namespace NeoWisePlatform.Module
 					 if ( MachineStateMng.isSimulation ) return this.Result;
 					 this.CheckAndThrowIfError( this.Home().Result );
 					 this.CheckAndThrowIfError( this.PNPToWaitPos().Result );
+					 this.LoadArm.ClearLiftModuleLink();
+					 this.UnLoadArm.ClearLiftModuleLink();
 				 }
 				 catch ( Exception ex )
 				 {

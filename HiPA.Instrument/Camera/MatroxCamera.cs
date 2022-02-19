@@ -646,7 +646,7 @@ namespace HiPA.Instrument.Camera
 					}
 					else
 					{
-						RawPos = new C_PointD( 1000*MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax ), 1000 * MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax ), 0 );
+						RawPos = new C_PointD( 1000 * MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax ), 1000 * MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax ), 0 );
 						OffPos = new C_PointD( 1000 * MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax ), 1000 * MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax ), 0 );
 						RawOffsetCenter = new C_PointD( 1000 * MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax ), 1000 * MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax ), 0 );
 						PosOffsetMM.X = MathExt.GetRandomNumber( this.Bypass.VisionResMin, this.Bypass.VisionResMax );

@@ -384,7 +384,8 @@ namespace NeoWisePlatform.Module
 			this.Fov1.Copy( Source.Fov1 );
 			this.Fov2.Copy( Source.Fov2 );
 			this.InspectionCriteria.Copy( Source.InspectionCriteria );
-			this.Result = Source.Result;
+			this.InspResult = Source.InspResult;
+			this.VisionOp = Source.VisionOp;
 		}
 	}
 
