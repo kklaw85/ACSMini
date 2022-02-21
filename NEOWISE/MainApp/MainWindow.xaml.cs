@@ -141,6 +141,7 @@ namespace NeoWisePlatform
 					{
 						this.Exit_Without_Confirm = true;
 						Application.Current.Shutdown();
+						return;
 					}
 					else
 						this.Visibility = System.Windows.Visibility.Visible;
