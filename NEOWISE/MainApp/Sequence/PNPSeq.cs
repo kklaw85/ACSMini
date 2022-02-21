@@ -278,7 +278,6 @@ namespace NeoWisePlatform.Sequence
 				var tasks = new List<Task<ErrorResult>>();
 				if ( ToPickNew )
 				{
-					if ( this.isError( this.NewLiftSeq.Module.TrigPusher().Result ) ) return ( int )RunErrors.ERR_LiftPusher;
 					this.Module.LoadArm.LinkLiftModule( this.NewLiftSeq.Module );
 					tasks.Add( this.Module.LoadArm.PickUp() );
 				}

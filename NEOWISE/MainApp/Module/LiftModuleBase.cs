@@ -623,7 +623,7 @@ namespace NeoWisePlatform.Module
 			this.ClearErrorFlags();
 			try
 			{
-				this.CheckAndThrowIfError( this.LiftMoveRel( -10 ).Result );
+				this.CheckAndThrowIfError( this.LiftMoveRel( -2.5 ).Result );
 			}
 			catch ( Exception ex )
 			{

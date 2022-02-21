@@ -101,6 +101,7 @@ namespace NeoWisePlatform.Sequence
 			{
 				if ( this.CompareThreadIndex( Run_State_Lift.StopToPickPlace ) ) return ( int )RunErrors.ERR_Inconformity;
 				if ( this.isError( this.Module.StartSingleAction( true ).Result ) ) return ( int )RunErrors.ERR_LiftToPickPlace;
+				if ( this.isError( this.Module.TrigPusher().Result ) ) return ( int )RunErrors.ERR_LiftPusher;
 			}
 			catch ( Exception ex )
 			{
