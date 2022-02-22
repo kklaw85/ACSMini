@@ -21,7 +21,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -151,7 +150,7 @@ namespace NeoWisePlatform
 					this.Visibility = System.Windows.Visibility.Visible;
 					this._MachStateMgr.EM = this._EM;
 					Win_Wait_Home winHome = new Win_Wait_Home();
-					winHome.InitTask= taskhoming;
+					winHome.InitTask = taskhoming;
 					winHome.ShowDialog();
 				}
 			}
@@ -196,7 +195,7 @@ namespace NeoWisePlatform
 			//if ( !C_Shared_Data.Info_Sys.IsMachineReady() )
 			//	return;
 			this.Cursor = C_UI_Manager.GetWaitCursor();
-			this.Do_Actions( Btn ) ;
+			this.Do_Actions( Btn );
 		}
 		private void Do_Actions( Button btn )
 		{

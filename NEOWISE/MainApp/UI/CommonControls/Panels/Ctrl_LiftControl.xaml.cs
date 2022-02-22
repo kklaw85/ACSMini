@@ -97,7 +97,7 @@ namespace NeoWisePlatform.UI.CommonControls.Panels
 				}
 				else if ( btn == this.BtnPickUpDone )
 				{
-					var res = this._Source.EndPickPlace( );
+					var res = this._Source.EndPickPlace();
 					if ( res.EClass != ErrorClass.OK ) throw new Exception( res.ErrorMessage );
 				}
 				else if ( btn == this.BtnTriggerPusher )

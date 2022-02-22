@@ -4,7 +4,6 @@ using HiPA.Common.Report;
 using HiPA.Instrument.Camera;
 using HiPA.Instrument.Motion;
 using HiPA.Instrument.Motion.APS;
-using HiPA.Instrument.Motion.Dask;
 using NeoWisePlatform.Sequence;
 using System;
 using System.Collections.Generic;
@@ -44,7 +43,7 @@ namespace NeoWisePlatform.Module
 		#region Motion/IO Boards
 		public MotionBoardBase MotionBoard { get; private set; }
 		public APSIoBoard IoBoard { get; private set; }
-		public DaskIoBoard IoBoard2 { get; private set; }
+		//public DaskIoBoard IoBoard2 { get; private set; }
 		#endregion
 		#region IO modules
 		public TowerLight TowerLight { get; private set; }
@@ -157,9 +156,9 @@ namespace NeoWisePlatform.Module
 				if ( this.IoBoard == null ) Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, $"{APSIoBoardConfiguration.NAME}" ), ErrorTitle.OperationFailure, ErrorClass.E4 );
 				else this.IoBoard.Owner = this;
 
-				this.IoBoard2 = Constructor.GetInstance().GetInstrument( IOCardList.PCI7432.ToString(), typeof( DaskIoBoardConfiguration ) ) as DaskIoBoard;
-				if ( this.IoBoard2 == null ) Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, $"{DaskIoBoardConfiguration.NAME}" ), ErrorTitle.OperationFailure, ErrorClass.E4 );
-				else this.IoBoard2.Owner = this;
+				//this.IoBoard2 = Constructor.GetInstance().GetInstrument( IOCardList.PCI7432.ToString(), typeof( DaskIoBoardConfiguration ) ) as DaskIoBoard;
+				//if ( this.IoBoard2 == null ) Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, $"{DaskIoBoardConfiguration.NAME}" ), ErrorTitle.OperationFailure, ErrorClass.E4 );
+				//else this.IoBoard2.Owner = this;
 
 				this.PNP = Constructor.GetInstance().GetInstrument( typeof( PNPModuleConfiguration ) ) as PNPModule;
 				if ( this.PNP == null ) Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, $"{PNPModuleConfiguration.NAME}" ), ErrorTitle.OperationFailure, ErrorClass.E4 );
@@ -183,7 +182,7 @@ namespace NeoWisePlatform.Module
 
 				if ( ( sErr = this.MotionBoard.Create().Result ) != string.Empty ) Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, sErr ), ErrorTitle.OperationFailure, ErrorClass.E4 );
 				if ( ( sErr = this.IoBoard.Create().Result ) != string.Empty ) Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, sErr ), ErrorTitle.OperationFailure, ErrorClass.E4 );
-				if ( ( sErr = this.IoBoard2.Create().Result ) != string.Empty ) Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, sErr ), ErrorTitle.OperationFailure, ErrorClass.E4 );
+				//if ( ( sErr = this.IoBoard2.Create().Result ) != string.Empty ) Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, sErr ), ErrorTitle.OperationFailure, ErrorClass.E4 );
 
 				this.AddIOsToDict();
 				this.InitIoModules();
@@ -209,7 +208,7 @@ namespace NeoWisePlatform.Module
 				this.MultiLangErr = new MultilingualErrModule();
 				if ( ( result = this.MultiLangErr.InitLoadErrorList().Result ) != string.Empty )
 					throw new Exception( result );
-
+				this.MachineMisc.Configuration.Stats.LinkPNPCfg( this.PNP.Configuration );
 			}
 			catch ( Exception ex )
 			{
@@ -228,7 +227,7 @@ namespace NeoWisePlatform.Module
 				this.TowerLight.BypassAlarm = true;
 				if ( ( sErr = this.MotionBoard.Initialize().Result ) != string.Empty ) Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, sErr ), ErrorTitle.InitializeFailure, ErrorClass.E5 );
 				if ( ( sErr = this.IoBoard.Initialize().Result ) != string.Empty ) Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, sErr ), ErrorTitle.InitializeFailure, ErrorClass.E5 );
-				if ( ( sErr = this.IoBoard2.Initialize().Result ) != string.Empty ) Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, sErr ), ErrorTitle.InitializeFailure, ErrorClass.E5 );
+				//if ( ( sErr = this.IoBoard2.Initialize().Result ) != string.Empty ) Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, sErr ), ErrorTitle.InitializeFailure, ErrorClass.E5 );
 
 				var tasks = new Task<string>[]
 				{
@@ -267,7 +266,7 @@ namespace NeoWisePlatform.Module
 
 				if ( this.MotionBoard is null ) return string.Empty;
 				if ( this.IoBoard is null ) return string.Empty;
-				if ( this.IoBoard2 is null ) return string.Empty;
+				//if ( this.IoBoard2 is null ) return string.Empty;
 				var tasks = new Task<string>[]
 				{
 					this.PNP.Stop(),

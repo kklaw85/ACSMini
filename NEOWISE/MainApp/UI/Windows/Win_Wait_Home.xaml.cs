@@ -1,5 +1,4 @@
 ﻿using HiPA.Common;
-using NeoWisePlatform.Module;
 using System;
 using System.Threading.Tasks;
 using System.Windows;

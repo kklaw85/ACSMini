@@ -15,6 +15,7 @@ namespace NeoWisePlatform.Sequence
 		private eInspResult PNPInsResult => this.Module.AutorunInfo.InspectionRes.InspResult;
 		private StageModule StageModule => this._Equipment.Stage;
 		private StageAutorunInfo StageInfo => this.StageModule.AutorunInfo;
+		private Statistic Stats => this._Equipment.MachineMisc.Configuration.Stats;
 		private bool NewLiftStarted = false;
 		private bool QICLiftStarted = false;
 		private bool StageStarted = false;
@@ -378,12 +379,14 @@ namespace NeoWisePlatform.Sequence
 				{
 					if ( this.Module.PNPInLoadPos() ) this.Module.UnLoadArm.LinkLiftModule( this.QICLiftSeq.Module );
 					tasks.Add( this.Module.UnLoadArm.PlaceDown() );
+					this.Stats.Update( this.Module.AutorunInfo.InspectionRes.InspResult );
 				}
 				Task.WaitAll( tasks.ToArray() );
 				foreach ( var task in tasks )
 				{
 					if ( this.isError( task.Result ) ) return ( int )RunErrors.ERR_PNPFailToPlaceDown;
 				}
+
 				this.Module.AutorunInfo.InspectionRes.Clear();
 				if ( ToPlaceNew )
 				{

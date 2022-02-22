@@ -355,7 +355,7 @@ namespace NeoWisePlatform.Module
 					if ( this.AutorunInfo.InspectionRes.InspResult == eInspResult.KIV ) this.CheckAndThrowIfError( this.PNPToPlaceKIV().Result );
 					else if ( this.AutorunInfo.InspectionRes.InspResult == eInspResult.NG ) this.CheckAndThrowIfError( this.PNPToPlaceNG().Result );
 					else if ( this.AutorunInfo.InspectionRes.InspResult == eInspResult.QIC ) this.CheckAndThrowIfError( this.PNPToLoadPos().Result );
-					else if ( this.AutorunInfo.InspectionRes.InspResult == eInspResult.Uninspected )
+					else
 					{
 						if ( this.Configuration.UnInspResult == UninspResult.KIV ) this.CheckAndThrowIfError( this.PNPToPlaceKIV().Result );
 						else if ( this.Configuration.UnInspResult == UninspResult.NG ) this.CheckAndThrowIfError( this.PNPToPlaceNG().Result );
