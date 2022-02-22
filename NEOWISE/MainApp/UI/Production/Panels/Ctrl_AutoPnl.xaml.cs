@@ -47,6 +47,7 @@ namespace NeoWisePlatform.Production.Panels
 			try
 			{
 				this.Eq = Constructor.GetInstance().Equipment as MTEquipment;
+				this.DataContext = Equipment.MachStateMgr;
 				this.OnSetupBinding();
 			}
 			catch ( Exception ex )

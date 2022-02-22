@@ -940,7 +940,8 @@
     <System:String x:Key="PlaceNGPos">Place NG Pos.</System:String>
     <System:String x:Key="PlaceKIVPos">Place KIV Pos.</System:String>
     <System:String x:Key="WaitPos">Wait Pos.</System:String>
-    
+    <System:String x:Key="ShortcutBtns">Shortcut Buttons</System:String>
+
     <!--Arm control-->
     <System:String x:Key="PNPArmControl">PNP Arm Ctrl.</System:String>
     <System:String x:Key="PNPPositions">PNP Positions</System:String>

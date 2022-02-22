@@ -307,6 +307,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Module\SubModule\Statistic.cs" />
     <Compile Include="Sequence\PNPSeq.cs" />
     <Compile Include="Sequence\LiftSeq.cs" />
     <Compile Include="Sequence\StageSeq.cs" />
@@ -369,6 +370,9 @@
     <Compile Include="UI\ProductionSetup\Panels\Camera\Ctrl_SingleInspectionStatus.xaml.cs">
       <DependentUpon>Ctrl_SingleInspectionStatus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\ProductionSetup\Panels\WorkPos\Ctrl_ShortCuts.xaml.cs">
+      <DependentUpon>Ctrl_ShortCuts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\ProductionSetup\SubPages\Ctrl_SetupVision.xaml.cs">
       <DependentUpon>Ctrl_SetupVision.xaml</DependentUpon>
     </Compile>
@@ -377,6 +381,9 @@
     </Compile>
     <Compile Include="UI\Production\Panels\Ctrl_AutoRunCommon.xaml.cs">
       <DependentUpon>Ctrl_AutoRunCommon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Production\Panels\Ctrl_AutoRunStats.xaml.cs">
+      <DependentUpon>Ctrl_AutoRunStats.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Production\Panels\Ctrl_AutoRunCommonSeq.xaml.cs">
       <DependentUpon>Ctrl_AutoRunCommonSeq.xaml</DependentUpon>
@@ -602,6 +609,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UI\ProductionSetup\Panels\WorkPos\Ctrl_ShortCuts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UI\ProductionSetup\SubPages\Ctrl_SetupVision.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -611,6 +622,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\Production\Panels\Ctrl_AutoRunCommon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Production\Panels\Ctrl_AutoRunStats.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -861,7 +876,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Recipe\SubPages\" />
-    <Folder Include="UI\ProductionSetup\Panels\Tray\" />
     <Folder Include="UI\SystemControls\Panels\Lift\" />
     <Folder Include="UI\UserAccess\Window\" />
   </ItemGroup>

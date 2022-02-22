@@ -17,6 +17,7 @@ namespace NeoWisePlatform.UI.CommonControls
 		public Ctrl_SingleAxisJog()
 		{
 			this.InitializeComponent();
+			this.BindLockMachineState( this.Ctrl );
 		}
 
 		AxisBase _axis = null;

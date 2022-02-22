@@ -101,9 +101,10 @@ namespace NeoWisePlatform.Module
 				this.NewLift.Blower.IOPt = this.GetIOPointByEnum( OutputIO.O_NewLiftBlower );
 				this.NewLift.Pusher = new IO();
 				this.NewLift.Pusher.IOPt = this.GetIOPointByEnum( OutputIO.O_NewLiftPusher );
-
 				this.QICLift.UpperLimit.IOPt = this.GetIOPointByEnum( InputIO.I_QICLiftULimit );
 				this.QICLift.LowerLimit.IOPt = this.GetIOPointByEnum( InputIO.I_QICLiftLLimit );
+				this.Stage.CamLight = new IO();
+				this.Stage.CamLight.IOPt = this.GetIOPointByEnum( OutputIO.O_CamLight );
 			}
 			catch ( Exception ex )
 			{
@@ -335,6 +336,38 @@ namespace NeoWisePlatform.Module
 			this.Configuration = configuration as EquipmentConfig;
 		}
 		#endregion
+		public Task<ErrorResult> InitAndHome()
+		{
+			return Task.Run( () =>
+			{
+				this.ClearErrorFlags();
+				try
+				{
+
+					MachStateMgr.MachineStatus = MachineStateType.HOMING;
+					this.CheckAndThrowIfError( this.OnInitialize() );
+					var Tasks = new Task<ErrorResult>[]
+					{
+						this.HomeAxes(),
+					};
+					this.CheckAndThrowIfError( Tasks );
+					this.CheckAndThrowIfError( this.InitIO().Result );
+					if ( MachineStateMng.isSimulation )
+						Thread.Sleep( 2000 );
+					MachStateMgr.RevertStateManualOp();
+				}
+				catch ( Exception ex )
+				{
+					MachStateMgr.RevertStateManualOp();
+					this.CatchAndPromptErr( ex );
+				}
+				finally
+				{
+
+				}
+				return this.Result;
+			} );
+		}
 		#region Motion
 		public Task<ErrorResult> HomeAxes()
 		{
@@ -568,8 +601,72 @@ namespace NeoWisePlatform.Module
 			{ }
 		}
 		#endregion
+		#region setting up
+		public Task<ErrorResult> MoveToLoadPos()
+		{
+			return Task.Run( () =>
+			{
+				this.ClearErrorFlags();
+				try
+				{
+					var Tasks = new Task<ErrorResult>[]
+					{
+						this.PNP.Home(),
+					};
+					this.CheckAndThrowIfError( Tasks );
+					var Taskslift = new Task<ErrorResult>[]
+					{
+						this.NewLift.MoveToLoadPos(true),
+						this.QICLift.MoveToLoadPos(true),
+					};
+					this.CheckAndThrowIfError( Taskslift );
+				}
+				catch ( Exception ex )
+				{
+					this.CatchAndPromptErr( ex );
+				}
+				finally
+				{
+
+				}
+				return this.Result;
+			} );
+		}
+		public Task<ErrorResult> MoveToWorkPos()
+		{
+			return Task.Run( () =>
+			{
+				this.ClearErrorFlags();
+				try
+				{
+					var Tasks = new Task<ErrorResult>[]
+					{
+						this.PNP.PNPToWaitPos(),
+					};
+					this.CheckAndThrowIfError( Tasks );
+					var Taskslift = new Task<ErrorResult>[]
+					{
+						this.NewLift.StartAuto(),
+						this.QICLift.StartAuto(),
+					};
+					this.CheckAndThrowIfError( Taskslift );
+				}
+				catch ( Exception ex )
+				{
+					this.CatchAndPromptErr( ex );
+				}
+				finally
+				{
+
+				}
+				return this.Result;
+			} );
+		}
+		#endregion
+
 		private void OnTimedEvent( object source, ElapsedEventArgs e )
 		{
+			//Constructor.GetInstance().Save();
 			GC.Collect();
 		}
 	}

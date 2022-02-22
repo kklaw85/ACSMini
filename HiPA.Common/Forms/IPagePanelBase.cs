@@ -77,7 +77,27 @@ namespace HiPA.Common.Forms
 		#endregion
 	}
 
-
+	public class TicToc
+	{
+		private Stopwatch SW = new Stopwatch();
+		public void Tic()
+		{
+			this.SW.Restart();
+		}
+		public Stopwatch Toc()
+		{
+			this.SW.Stop();
+			return this.SW;
+		}
+		public double LapseTime()
+		{
+			return this.SW.ElapsedMilliseconds;
+		}
+		public void Clear()
+		{
+			this.SW.Reset();
+		}
+	}
 
 
 	public class BaseUtility : B_Utility, INotifyPropertyChanged
@@ -188,6 +208,7 @@ namespace HiPA.Common.Forms
 			//return false;
 		}
 		#endregion
+
 	}
 	public class RecipeBaseUtility : B_Utility, INotifyPropertyChanged, System.ICloneable
 	{

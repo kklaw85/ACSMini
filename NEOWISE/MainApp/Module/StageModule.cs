@@ -41,6 +41,7 @@ namespace NeoWisePlatform.Module
 		public MatroxCamera Fov1 { get; private set; } = null;
 		public MatroxCamera Fov2 { get; private set; } = null;
 		public StageClamper Stage { get; private set; } = null;
+		public IO CamLight { get; set; } = null;
 		public static bool ToSkipPwrVfyChk { get; set; } = false;
 		#endregion
 		#region Sequence
@@ -112,6 +113,7 @@ namespace NeoWisePlatform.Module
 
 				if ( !InitOk )
 					throw new Exception( "Initialization Failed" );
+				this.CheckAndThrowIfError( this.CamLight.On() );
 			}
 			catch ( Exception ex )
 			{
@@ -138,6 +140,7 @@ namespace NeoWisePlatform.Module
 					if ( ( sErr = t.Result ) != string.Empty )
 						Equipment.ErrManager.RaiseError( this, this.FormatErrMsg( this.Name, sErr ), ErrorTitle.OperationFailure, ErrorClass.E5 );
 				}
+				this.CheckAndThrowIfError( this.CamLight.Off() );
 			}
 			catch ( Exception ex )
 			{

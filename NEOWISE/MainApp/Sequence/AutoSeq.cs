@@ -23,7 +23,6 @@ namespace NeoWisePlatform.Sequence
 			this.InitSeqFunction();
 			this._cycleTime = new Stopwatch();
 
-			//this._equipment.IoBoard.GetIoPoint( InputIOlist1.In_Start ).IoValueChangedEvent += this.AutoSeq_IoValueChangedEvent;
 		}
 
 		protected override void InitSeqFunction()
@@ -125,7 +124,6 @@ namespace NeoWisePlatform.Sequence
 		}
 		protected override void OnThreadStoppedError()
 		{
-			this.IsFail = true;
 			this.StopAuto();
 		}
 		protected override void CycleStop()

@@ -12,7 +12,8 @@
     <Grid>
         <StackPanel>
             <Label Content="{StaticResource WorkPosDef}" Style="{StaticResource LB_MainTitle}"/>
-            <StackPanel Margin="10,0,10,10" Orientation="Horizontal">
+            <Panels31:Ctrl_ShortCuts DockPanel.Dock="Bottom" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+            <StackPanel DockPanel.Dock="Top" Margin="10" Orientation="Horizontal">
                 <Panels31:Ctrl_PNPWorkPos x:Name="PNPWorkPos" Margin="0,0,5,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                 <Panels:Ctrl_PNPControl x:Name="PNPControl" Margin="0,0,5,0"/>
                 <Border Style="{StaticResource FrameWithShadow}" Margin="0,0,5,0">

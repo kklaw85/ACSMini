@@ -14,6 +14,7 @@
             <Grid>
                 <StackPanel Orientation="Vertical" Margin="10" >
                     <Panels1:Ctrl_AutoRunCommon x:Name="SeqStatus" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5"/>
+                    <Panels1:Ctrl_AutoRunStats x:Name="StatStatus" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5"/>
                 </StackPanel>
             </Grid>
             <StackPanel Orientation="Vertical" Margin="0,0,0,0">

@@ -20,14 +20,14 @@
                     DockPanel.Dock="Right" Click="Btn_Start_Click">
                 <Image Source="/Icons/Stop.png" Width="32" Height="32" Stretch="Fill" Margin="0"  />
             </Button>
-            <Button Style="{StaticResource Button_FrameMenu}" x:Name="Btn_Pause" Tag="Pause" ToolTip="Pause"
+            <Button Style="{StaticResource Button_FrameMenu}" x:Name="Btn_Pause" Tag="Pause" ToolTip="Pause" Visibility="{Binding EnablePause, Converter={StaticResource BoolToVisibility}}"
                     HorizontalAlignment="Right" VerticalAlignment="Center" 
                     Width="92" Height="76" Margin="0,0,2,0"
                     DockPanel.Dock="Right" Click="Btn_Start_Click">
                 <Image Source="/Icons/Pause.png" Width="40" Height="40" Stretch="Fill" Margin="0"  />
             </Button>
             <StackPanel x:Name="StkStart">
-                <Button Style="{StaticResource Button_FrameMenu}" Margin="0,0,2,0" x:Name="Btn_Start" Tag="Start" ToolTip="Start"
+                <Button Style="{StaticResource Button_FrameMenu}" Margin="0,0,2,0" x:Name="Btn_Start" Tag="Start" ToolTip="Start" Visibility="{Binding EnableStart, Converter={StaticResource BoolToVisibility}}"
                     HorizontalAlignment="Right" VerticalAlignment="Center" 
                     Width="92" Height="76"
                     DockPanel.Dock="Right" Click="Btn_Start_Click">

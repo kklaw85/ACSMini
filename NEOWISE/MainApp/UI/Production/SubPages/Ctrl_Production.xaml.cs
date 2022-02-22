@@ -49,6 +49,7 @@ namespace NeoWisePlatform.Production.SubPages
 				this.Eq = Constructor.GetInstance().Equipment as MTEquipment;
 				this.StageInsp.Source = this.Eq?.Stage?.AutorunInfo?.InspectionRes;
 				this.PNPInsp.Source = this.Eq?.PNP?.AutorunInfo?.InspectionRes;
+				this.StatStatus.Source = this.Eq?.MachineMisc?.Configuration.Stats;
 				this.FOV1.Instrument = this.Eq.Stage.Fov1;
 				this.FOV2.Instrument = this.Eq.Stage.Fov2;
 				this.FOV1.Controllable = false;

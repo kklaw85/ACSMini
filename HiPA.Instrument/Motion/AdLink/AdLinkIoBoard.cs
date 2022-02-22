@@ -634,7 +634,7 @@ namespace HiPA.Instrument.Motion.APS
 		O_UnLoadArmVac,
 		O_Clamp,
 		O_StageVac,
-		O_Lighting,
+		O_CamLight,
 		O_NewLiftPusher,
 	}
 	#endregion

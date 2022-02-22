@@ -30,20 +30,16 @@ namespace NeoWisePlatform.Sequence
 
 		private Stopwatch Stopwatch = new Stopwatch();
 
-		protected ErrorResult Result = new ErrorResult();
-		protected void CatchException( Exception ex )
+		protected new ErrorResult Result = new ErrorResult();
+		protected new void CatchException( Exception ex )
 		{
 			if ( this.Result.EClass == ErrorClass.OK )
 				this.Result.EClass = ErrorClass.E6;
 			this.Result.ErrorMessage = this.FormatErrMsg2( this.WorkerSeq.Name, ex );
 		}
-
-		//public bool IsCycleStop { get; set; } = false;
-		//public bool IsReady { get; set; } = false;//indicates thread is ready for instruction
 		public bool StartExecute { get; set; } = false;
 		public bool RestartSeq { get; set; } = false;
 		public bool IsFail { get; set; } = false;
-		//public bool IsDone { get; set; } = false;//indicates thread has completed all the steps
 		protected MTEquipment _Equipment => Constructor.GetInstance().Equipment as MTEquipment;
 		protected EquipmentBypass ByPass => this._Equipment.MachineMisc.Configuration.ByPassConfig;
 		protected Issuehandler IssueHandler { get; private set; } = new Issuehandler();
@@ -83,7 +79,6 @@ namespace NeoWisePlatform.Sequence
 		{
 			//if ( this.IsCycleStop == false )
 			//{
-			this.IsFail = true;
 			this.StopAuto();
 			//}
 			//else
@@ -97,7 +92,6 @@ namespace NeoWisePlatform.Sequence
 		public void ThreadInitState()
 		{
 			this.StartExecute = false;
-			this.IsFail = false;
 			this.State = SequenceState.Init;
 			this.Result.Reset();
 		}

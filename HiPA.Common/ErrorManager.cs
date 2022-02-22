@@ -285,7 +285,6 @@ namespace HiPA.Common
 		private LoggerHelper AlarmWarnLog = new LoggerHelper( "AlarmWarnLog", "Alarm" );
 		private LoggerHelper AlarmShowLog = new LoggerHelper( "AlarmShowLog", "Alarm" );
 
-
 		public string RaiseError( InstrumentBase source, string message, string title, ErrorClass errorClass, Exception exception = null )
 		{
 			var agent = source?.GetAlarmAgent();
@@ -298,7 +297,7 @@ namespace HiPA.Common
 				this.TrigWindowInfo( DecodedMsg[ 0 ], AlarmGrade.Error );
 				this.ENGAlarmErrLog.WriteLog( $"[RaiseError]: {DecodedMsg[ 1 ]}" );
 				this.AlarmErrLog.WriteLog( DecodedMsg[ 0 ] );
-				Application.Current.Dispatcher.Invoke( ( Action )delegate // <--- HERE
+				Application.Current.Dispatcher.BeginInvoke( ( Action )delegate // <--- HERE
 				{
 					this.AlarmList.Add( alarm );
 					this.AlarmIdx = this.AlarmList.Count;
@@ -316,7 +315,7 @@ namespace HiPA.Common
 				this.TrigWindowInfo( DecodedMsg[ 0 ], AlarmGrade.Error );
 				this.ENGAlarmErrLog.WriteLog( $"[RaiseError]: {DecodedMsg[ 1 ]}" );
 				this.AlarmErrLog.WriteLog( DecodedMsg[ 0 ] );
-				Application.Current.Dispatcher.Invoke( ( Action )delegate // <--- HERE
+				Application.Current.Dispatcher.BeginInvoke( ( Action )delegate // <--- HERE
 				{
 					this.AlarmList.Add( alarm );
 					this.AlarmIdx = this.AlarmList.Count;
@@ -334,7 +333,7 @@ namespace HiPA.Common
 				this.TrigWindowInfo( DecodedMsg[ 0 ], AlarmGrade.Warning );
 				this.ENGAlarmErrLog.WriteLog( $"[RaiseWarning]: {DecodedMsg[ 1 ]}" );
 				this.AlarmWarnLog.WriteLog( DecodedMsg[ 0 ] );
-				Application.Current.Dispatcher.Invoke( ( Action )delegate // <--- HERE
+				Application.Current.Dispatcher.BeginInvoke( ( Action )delegate // <--- HERE
 				{
 					this.AlarmList.Add( alarm );
 					this.AlarmIdx = this.AlarmList.Count;
@@ -352,7 +351,7 @@ namespace HiPA.Common
 				this.TrigWindowInfo( DecodedMsg[ 0 ], AlarmGrade.Warning );
 				this.ENGAlarmErrLog.WriteLog( $"[RaiseWarning]: {DecodedMsg[ 1 ]}" );
 				this.AlarmWarnLog.WriteLog( DecodedMsg[ 0 ] );
-				Application.Current.Dispatcher.Invoke( ( Action )delegate // <--- HERE
+				Application.Current.Dispatcher.BeginInvoke( ( Action )delegate // <--- HERE
 				{
 					this.AlarmList.Add( alarm );
 					this.AlarmIdx = this.AlarmList.Count;

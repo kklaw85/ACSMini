@@ -457,11 +457,19 @@ namespace NeoWisePlatform.Sequence
 			}
 		}
 
+		protected override void InitFlags()
+		{
+			this.FailToPickNew = false;
+			this.Module.LoadArm.ObjHeld = false;
+			this.Module.UnLoadArm.ObjHeld = false;
+			this.Module.AutorunInfo.Clear();
+		}
 		public new void StopAuto()
 		{
 			Task.Run( () =>
 			{
 				this.RestartSeq = false;
+				this._Equipment.MachineMisc.Configuration.Stats.Stop();
 				this.State = SequenceState.IsNotStarted;
 				this.MoveToPick?.Wait();
 				this.StageSeq?.StopAuto();
@@ -470,13 +478,6 @@ namespace NeoWisePlatform.Sequence
 				this.WorkerSeq.Stop();
 				//this.Module.MoveToStandbyStatus().Wait();
 			} );
-		}
-		protected override void InitFlags()
-		{
-			this.FailToPickNew = false;
-			this.Module.LoadArm.ObjHeld = false;
-			this.Module.UnLoadArm.ObjHeld = false;
-			this.Module.AutorunInfo.Clear();
 		}
 		protected override void CycleStop()
 		{
@@ -498,6 +499,7 @@ namespace NeoWisePlatform.Sequence
 			Task.Run( () =>
 			{
 				this.RestartSeq = false;
+				this._Equipment.MachineMisc.Configuration.Stats.Start();
 				this.WorkerSeq.Start();
 				this.StageSeq?.StartAuto();
 			} );
@@ -506,6 +508,7 @@ namespace NeoWisePlatform.Sequence
 		{
 			Task.Run( () =>
 			{
+				this._Equipment.MachineMisc.Configuration.Stats.Pause();
 				this.StageSeq?.PauseAuto();
 				this.NewLiftSeq?.PauseAuto();
 				this.QICLiftSeq?.PauseAuto();
@@ -516,7 +519,6 @@ namespace NeoWisePlatform.Sequence
 		{
 			//if ( this.IsCycleStop == false )
 			//{
-			this.IsFail = true;
 			this.StopAuto();
 			//}
 			//else

@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -150,7 +151,7 @@ namespace NeoWisePlatform
 					this.Visibility = System.Windows.Visibility.Visible;
 					this._MachStateMgr.EM = this._EM;
 					Win_Wait_Home winHome = new Win_Wait_Home();
-					winHome.HomingTask = taskhoming;
+					winHome.InitTask= taskhoming;
 					winHome.ShowDialog();
 				}
 			}
@@ -195,9 +196,9 @@ namespace NeoWisePlatform
 			//if ( !C_Shared_Data.Info_Sys.IsMachineReady() )
 			//	return;
 			this.Cursor = C_UI_Manager.GetWaitCursor();
-			this.Do_Actions( Btn );
+			this.Do_Actions( Btn ) ;
 		}
-		public void Do_Actions( Button btn )
+		private void Do_Actions( Button btn )
 		{
 			try
 			{
@@ -214,9 +215,8 @@ namespace NeoWisePlatform
 					MessageBoxResult msgBoxRslt = System.Windows.MessageBox.Show( "The machine is about to home, please make sure the condition is safe.", "Reset Motor and Home", MessageBoxButton.YesNo, MessageBoxImage.Asterisk );
 					if ( msgBoxRslt == MessageBoxResult.No )
 						return;
-
 					Win_Wait_Home win = new Win_Wait_Home();
-					win.DoInit = true;
+					win.InitTask = this._EM.InitAndHome();
 					win.ShowDialog();
 				}
 				else if ( btn == this.Btn_Alarm_Off )
@@ -232,18 +232,14 @@ namespace NeoWisePlatform
 					string msg = ex.Message + Environment.NewLine +
 					"Action Handler";
 				} );
-
 			}
 			finally
 			{
-				//C_Shared_Data.Info_Sys.Machine_State = Machine_State.MANUAL_MODE;
 				System.Windows.Application.Current.Dispatcher.Invoke( delegate
 				{
 					this.Cursor = Cursors.Arrow;
 				} );
-
 			}
-			//} );
 		}
 
 		#endregion
