@@ -22,10 +22,6 @@
                             <Label Content="{StaticResource MotionController}" Style="{StaticResource LB_ItemContent_Left}" Margin="10,0,0,0"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                            <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding IoBoard2.IsValid, Converter= {StaticResource BoolToBrushIOGreenRedRec}}"/>
-                            <Label Content="{StaticResource IOCard}" Style="{StaticResource LB_ItemContent_Left}" Margin="10,0,0,0"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                             <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding Stage.IsValid, Converter= {StaticResource BoolToBrushIOGreenRedRec}}"/>
                             <Label Content="{StaticResource StageSys}" Style="{StaticResource LB_ItemContent_Left}" Margin="10,0,0,0"/>
                         </StackPanel>

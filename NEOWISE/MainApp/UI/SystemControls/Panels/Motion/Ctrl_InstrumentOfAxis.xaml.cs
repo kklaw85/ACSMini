@@ -101,7 +101,7 @@ namespace NeoWisePlatform.UI.SystemControls.Panels.Motion
 				b.Path = new PropertyPath( "MaxAcceleration" );
 				Valid_Rule_Double d_RU = new Valid_Rule_Double();
 				d_RU.Min = 0;
-				d_RU.Max = 10000;
+				d_RU.Max = 20000;
 				b.ValidationRules.Clear();
 				b.ValidationRules.Add( d_RU );
 				this.Txt_MaxAcc.SetBinding( NumericUpDown.ValueProperty, b );
@@ -112,7 +112,7 @@ namespace NeoWisePlatform.UI.SystemControls.Panels.Motion
 				b.Path = new PropertyPath( "MaxDeceleration" );
 				d_RU = new Valid_Rule_Double();
 				d_RU.Min = 0;
-				d_RU.Max = 10000;
+				d_RU.Max = 20000;
 				b.ValidationRules.Clear();
 				b.ValidationRules.Add( d_RU );
 				this.Txt_MaxDec.SetBinding( NumericUpDown.ValueProperty, b );
@@ -123,7 +123,7 @@ namespace NeoWisePlatform.UI.SystemControls.Panels.Motion
 				b.Path = new PropertyPath( "MaxVelocity" );
 				d_RU = new Valid_Rule_Double();
 				d_RU.Min = 0;
-				d_RU.Max = 10000;
+				d_RU.Max = 20000;
 				b.ValidationRules.Clear();
 				b.ValidationRules.Add( d_RU );
 				this.Txt_MaxVel.SetBinding( NumericUpDown.ValueProperty, b );

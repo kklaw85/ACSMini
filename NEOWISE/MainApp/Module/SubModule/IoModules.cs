@@ -595,6 +595,7 @@ namespace NeoWisePlatform.Module
 					if ( this._VacuumSuctionSense == null ) this.ThrowError( ErrorClass.E6, "Null Vacuum sense object" );
 					if ( BypassVac != true ) if ( !this.SuctionSense ) this.ThrowError( ErrorClass.E6, "Arm is empty or air leakage." );
 					this.CheckAndThrowIfError( this.MoveToPos().Result );
+					this.CheckAndThrowIfError( this.Lift?.StartPickPlace() );
 					if ( BypassVac != true )
 					{
 						if ( ( this.Result = this.SuctionOff().Result ).EClass != ErrorClass.OK )
@@ -604,6 +605,7 @@ namespace NeoWisePlatform.Module
 						}
 						if ( SuctionResult.EClass == ErrorClass.OK )
 							Thread.Sleep( this.Configuration.Place.Delay );
+						this.CheckAndThrowIfError( this.Lift?.EndPickPlace() );
 					}
 					this.CheckAndThrowIfError( this.Reset().Result );
 					if ( BypassVac != true )

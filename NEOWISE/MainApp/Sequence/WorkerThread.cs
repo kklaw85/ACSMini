@@ -166,6 +166,7 @@ namespace NeoWisePlatform
 
 		public int Start()
 		{
+			this.PreviousIndex=-1;
 			if ( this.functionList.Count == 0 ) return -1;
 			if ( this.isBusy ) return -2;
 			if ( this.IsExit )
@@ -224,7 +225,7 @@ namespace NeoWisePlatform
 		}
 
 		bool _needJump = false;
-		private int PreviousIndex = 0;
+		private int PreviousIndex = -1;
 		public int JumpIndex( int Idx )
 		{
 			if ( this.PreviousIndex != Idx ) this.Owner.ResetTimeWatch();

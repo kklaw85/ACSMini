@@ -68,13 +68,13 @@ namespace NeoWisePlatform.Sequence
 				this.InitFlags();
 				this.NewLiftSeq.StartAuto();
 				this.QICLiftSeq.StartAuto();
-				return ( int )RunErrors.ERR_NoError;
 			}
 			catch ( Exception ex )
 			{
 				this.CatchException( ex );
 				return ( int )RunErrors.ERR_UnexpectedException;
 			}
+			return ( int )RunErrors.ERR_NoError;
 		}
 		private int CheckPNPStatus()
 		{
@@ -112,7 +112,7 @@ namespace NeoWisePlatform.Sequence
 				this.CatchException( ex );
 				return ( int )RunErrors.ERR_UnexpectedException;
 			}
-			Thread.Sleep( 200 );
+			Thread.Sleep( 50 );
 			return this.CycleFunction( 60000 );
 		}
 		private int MoveToStandbyPos()
