@@ -188,14 +188,14 @@ namespace JptCamera
 					MIL_ID selectedBufferId = ( MIL_ID )MIL.MdispInquire( this._mDisp, MIL.M_SELECTED, MIL.M_NULL );
 					if ( selectedBufferId != MIL.M_NULL )
 					{
-						if ( this.isWpfDisplay )
-						{
-							MIL.MdispSelectWPF( this._mDisp, MIL.M_NULL, null );
-						}
-						else
-						{
-							MIL.MdispSelectWindow( this._mDisp, MIL.M_NULL, IntPtr.Zero );
-						}
+						//if ( this.isWpfDisplay )
+						//{
+						//	MIL.MdispSelectWPF( this._mDisp, MIL.M_NULL, null );
+						//}
+						//else
+						//{
+						//	MIL.MdispSelectWindow( this._mDisp, MIL.M_NULL, IntPtr.Zero );
+						//}
 					}
 					MIL.MdispFree( this._mDisp );
 					this._mDisp = MIL.M_NULL;
@@ -253,7 +253,7 @@ namespace JptCamera
 				// prevent finalization code object from executing a second time.
 				GC.SuppressFinalize( this );
 			}
-			catch
+			catch ( Exception ex )
 			{
 
 			}

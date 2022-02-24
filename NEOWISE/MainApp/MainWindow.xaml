@@ -142,22 +142,16 @@
                                     <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource Camera}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
-                            <Button x:Name="Ctrl_SetupLoadUnload" Width="170" Height="56" Style="{StaticResource Button_Menu}"  Click="Btn_Navi_Click" Margin="0,0,0,5">
-                                <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
-                                    <Image Source="/Icons/LiftUpDown.png" Style="{StaticResource ImgBtn_W30H30}"/>
-                                    <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource Step1LoadUnloadMat}" Margin="10,0,0,0" />
-                                </StackPanel>
-                            </Button>
                             <Button x:Name="Ctrl_SetupWorkPosPage" Width="170" Height="56" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/WorkingPos.png" Style="{StaticResource ImgBtn_W30H30}"/>
-                                    <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource Step2WorkPos}" Margin="10,0,0,0"/>
+                                    <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource Step1WorkPos}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_SetupVision" Width="170" Height="56" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click" Margin="0,0,0,5">
                                 <StackPanel Style="{StaticResource Button_Stack_Menu_TextBlock}">
                                     <Image Source="/Icons/Camera.png" Style="{StaticResource ImgBtn_W30H30}"/>
-                                    <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource Step3Vision}" Margin="10,0,0,0"/>
+                                    <Label Style="{StaticResource LB_ItemTitle}" Content="{StaticResource Step2Vision}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ctrl_TestSequences" Width="170" Height="56" Style="{StaticResource Button_Menu}" Click="Btn_Navi_Click" Margin="0,0,0,5">

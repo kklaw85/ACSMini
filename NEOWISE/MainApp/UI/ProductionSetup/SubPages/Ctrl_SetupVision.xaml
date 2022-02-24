@@ -17,10 +17,14 @@
     <Grid>
         <StackPanel Orientation="Vertical">
             <Label Content="{StaticResource Vision}" Style="{StaticResource LB_MainTitle}"/>
-            <DockPanel  Margin="10">
-                <StackPanel HorizontalAlignment="Left" DockPanel.Dock="Left">
-                    <Camera:Ctrl_CollectiveInspection x:Name="CollectiveInsp" Margin="0,0,0,10" HorizontalAlignment="Left"/>
-                    <MahApp:MetroTabControl x:Name="VisionTeachingTab" DockPanel.Dock="Left" Style="{StaticResource MahApps.Styles.TabControl.ColorPicker}" Width="680" Height="550">
+            <DockPanel Margin="10">
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                    <Panels21:Ctrl_DisplayPanels x:Name="DisplayFOV1" EnableROI="True"/>
+                    <Panels21:Ctrl_DisplayPanels x:Name="DisplayFOV2" EnableROI="True" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Left" >
+                    <Camera:Ctrl_CollectiveInspection x:Name="CollectiveInsp" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <MahApp:MetroTabControl x:Name="VisionTeachingTab" Style="{StaticResource MahApps.Styles.TabControl.ColorPicker}" Width="629" Height="515" HorizontalAlignment="Left" Margin="0,5,0,0">
                         <TabItem Header="CrossHair Positioning">
                             <Grid Background="Transparent">
                                 <Border Style="{StaticResource FrameWithShadow}">
@@ -42,10 +46,6 @@
                             </Grid>
                         </TabItem>
                     </MahApp:MetroTabControl>
-                </StackPanel>
-                <StackPanel DockPanel.Dock="Right" HorizontalAlignment="Right">
-                    <Panels21:Ctrl_DisplayPanels x:Name="DisplayFOV1" EnableROI="True"/>
-                    <Panels21:Ctrl_DisplayPanels x:Name="DisplayFOV2" EnableROI="True" Margin="0,10,0,0"/>
                 </StackPanel>
 
             </DockPanel>

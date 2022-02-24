@@ -36,9 +36,8 @@
     <!--Main Window-->
     <System:String x:Key="MotionIO">Motion I/O</System:String>
     <System:String x:Key="Lift">Lift</System:String>
-    <System:String x:Key="Step1LoadUnloadMat">Step 1.Load Mat.</System:String>
-    <System:String x:Key="Step2WorkPos">Step 2.Work Pos.</System:String>
-    <System:String x:Key="Step3Vision">Step 3.Vision</System:String>
+    <System:String x:Key="Step1WorkPos">Step 1.Work Pos.</System:String>
+    <System:String x:Key="Step2Vision">Step 2.Vision</System:String>
     <System:String x:Key="LiftCtrl">Lift Ctrl.</System:String>
     <System:String x:Key="LiftCfg">Lift Cfg.</System:String>
 
@@ -302,6 +301,7 @@
 
     <!--LaserHead autorun Statistical-->
     <System:String x:Key="AutoStatistical">Statistical Status</System:String>
+    <System:String x:Key="ProcessStats">Process Stats.</System:String>
     <System:String x:Key="Counter">Marked Qty.</System:String>
     <System:String x:Key="MeasuredHeight">Meas. Height (mm)</System:String>
     <System:String x:Key="MeasuredProdWidth">Prod. Width (mm)</System:String>

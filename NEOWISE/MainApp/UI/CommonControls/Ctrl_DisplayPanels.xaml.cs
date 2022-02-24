@@ -56,6 +56,7 @@ namespace NeoWisePlatform.UI.CommonControls
 				var control = this.Displays[ CamName ];
 				if ( control == null ) return;
 				control.Instrument = this.Cameras[ CamName ];
+
 				var sErr = this.Cameras[ CamName ]?.SetDisplay( control );
 				if ( sErr != string.Empty )
 					throw new Exception( sErr );

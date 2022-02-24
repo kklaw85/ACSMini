@@ -7,7 +7,7 @@
              xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="HiPA.Instrument.Camera.DisplayHandler" 
 			 xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" 
-             Width="640" Height="auto"
+             Width="480" Height="auto"
              Loaded="UserControl_Loaded" IsVisibleChanged="UserControl_IsVisibleChanged">
     <Border Margin="0,0,0,0" Style="{StaticResource FrameWithShadow}">
         <StackPanel Orientation="Vertical" Margin="5">
@@ -24,7 +24,7 @@
                 <Button x:Name="Btn_Save_Camera" Style="{StaticResource Button_Menu}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30" ToolTip="Save Image" Margin="0,0,0,0" Click="Btn_Click">
                     <Image Style="{StaticResource ImgButtonFit}" Source="/Icons/PR_Save.png"/>
                 </Button>
-                <Label x:Name="Title" Style="{StaticResource LB_PanelTitle}" Margin="10,0,0,0" DockPanel.Dock="Left" Width="180" FontSize="11"/>
+                <Label x:Name="Title" Style="{StaticResource LB_PanelTitle}" Margin="10,0,0,0" DockPanel.Dock="Left" Width="60" FontSize="11"/>
                 <Slider x:Name="Sld_Zoom"  DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center" Width="82" Thumb.DragCompleted="Slider_DragCompleted" Minimum="1" Maximum="20" Value="1" Style="{StaticResource MahApps.Styles.Slider}" />
                 <Label DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="0,0,5,0" Content="✕" Style="{StaticResource LB_ItemContent}" Padding="0" VerticalAlignment="Center" Width="10"/>
                 <Label x:Name="Lbl_Zoom_Level"  DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="0,0,0,0" Content="1.00" Style="{StaticResource LB_ItemContent}" VerticalAlignment="Center" HorizontalContentAlignment="Right" Width="30"/>

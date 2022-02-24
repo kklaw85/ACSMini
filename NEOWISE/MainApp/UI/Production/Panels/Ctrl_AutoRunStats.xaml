@@ -9,48 +9,70 @@
              mc:Ignorable="d" Loaded="UserControl_Loaded">
     <Border Style="{StaticResource FrameWithShadow}">
         <StackPanel>
-            <Label Style="{StaticResource LB_PanelTitle}" Content="{StaticResource AutoStatistical}"/>
+            <Label Style="{StaticResource LB_PanelTitle}" Content="{StaticResource ProcessStats}"/>
             <StackPanel Orientation="Vertical" Margin="10,0,10,10">
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                    <Label Content="Bat. Dur.(s)" Width="100"  Style="{StaticResource LB_ItemContent_Left}" ToolTip="Batch Duration"/>
-                    <Label Content="{Binding TotalRunTime, Converter={StaticResource DTo3D}}" Width="160" Style="{StaticResource LB_ItemData_Left}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="Avg. Dur.(s)" Width="100"  Style="{StaticResource LB_ItemContent_Left}"/>
-                    <Label Content="{Binding TPU, Converter={StaticResource DTo3D}}" Width="160" Style="{StaticResource LB_ItemData_Left}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="UPH(pcs)" Width="100"  Style="{StaticResource LB_ItemContent_Left}"/>
-                    <Label Content="{Binding UPH, Converter={StaticResource DTo3D}}" Width="160" Style="{StaticResource LB_ItemData_Left}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="Total Qty.(pcs)" Width="100"  Style="{StaticResource LB_ItemContent_Left}"/>
-                    <Label Content="{Binding TotalProcessedQty}" Width="160" Style="{StaticResource LB_ItemData_Left}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="QIC(pcs.)" Width="100"  Style="{StaticResource LB_ItemContent_Left}"/>
-                    <Label Content="{Binding QICQty}" Width="160" Style="{StaticResource LB_ItemData_Left}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="KIV(pcs.)" Width="100"  Style="{StaticResource LB_ItemContent_Left}"/>
-                    <Label Content="{Binding KIVQty}" Width="160" Style="{StaticResource LB_ItemData_Left}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="NG(pcs.)" Width="100"  Style="{StaticResource LB_ItemContent_Left}"/>
-                    <Label Content="{Binding NGQty}" Width="160" Style="{StaticResource LB_ItemData_Left}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="QIC(%)" Width="100"  Style="{StaticResource LB_ItemContent_Left}"/>
-                    <Label Content="{Binding QICPerc, Converter={StaticResource DTo3D}}" Width="160" Style="{StaticResource LB_ItemData_Left}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="KIV(%)" Width="100"  Style="{StaticResource LB_ItemContent_Left}"/>
-                    <Label Content="{Binding KIVPerc, Converter={StaticResource DTo3D}}" Width="160" Style="{StaticResource LB_ItemData_Left}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label Content="NG(%)" Width="100"  Style="{StaticResource LB_ItemContent_Left}"/>
-                    <Label Content="{Binding NGPerc, Converter={StaticResource DTo3D}}" Width="160" Style="{StaticResource LB_ItemData_Left}"/>
-                </StackPanel>
+                <Border Style="{StaticResource MiniFrame}">
+                    <StackPanel Orientation="Vertical">
+                        <Label Style="{StaticResource LB_ItemTitle}" Content="Timing"/>
+                        <StackPanel Margin="5">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                                <Label Content="Bat. Dur.(s)" Width="120"  Style="{StaticResource LB_StatsContent_Left}" ToolTip="Batch Duration"/>
+                                <Label Content="{Binding TotalRunTime, Converter={StaticResource DTo3D}}" Width="80" Style="{StaticResource LB_StatsData_Left}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                <Label Content="Avg. Dur.(s)" Width="120"  Style="{StaticResource LB_StatsContent_Left}"/>
+                                <Label Content="{Binding TPU, Converter={StaticResource DTo3D}}" Width="80" Style="{StaticResource LB_StatsData_Left}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+
+                </Border>
+                <Border Style="{StaticResource MiniFrame}" Margin="0,5,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <Label Style="{StaticResource LB_ItemTitle}" Content="Qty"/>
+                        <StackPanel Margin="5">
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                <Label Content="UPH(pcs)" Width="120"  Style="{StaticResource LB_StatsContent_Left}"/>
+                                <Label Content="{Binding UPH, Converter={StaticResource DTo3D}}" Width="80" Style="{StaticResource LB_StatsData_Left}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                <Label Content="Total Qty.(pcs)" Width="120"  Style="{StaticResource LB_StatsContent_Left}"/>
+                                <Label Content="{Binding TotalProcessedQty}" Width="80" Style="{StaticResource LB_StatsData_Left}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                <Label Content="QIC(pcs.)" Width="120"  Style="{StaticResource LB_StatsContent_Left}"/>
+                                <Label Content="{Binding QICQty}" Width="80" Style="{StaticResource LB_StatsData_Left}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                <Label Content="KIV(pcs.)" Width="120"  Style="{StaticResource LB_StatsContent_Left}"/>
+                                <Label Content="{Binding KIVQty}" Width="80" Style="{StaticResource LB_StatsData_Left}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                <Label Content="NG(pcs.)" Width="120"  Style="{StaticResource LB_StatsContent_Left}"/>
+                                <Label Content="{Binding NGQty}" Width="80" Style="{StaticResource LB_StatsData_Left}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource MiniFrame}" Margin="0,5,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <Label Style="{StaticResource LB_ItemTitle}" Content="Statistic"/>
+                        <StackPanel Margin="5">
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                <Label Content="QIC(%)" Width="120"  Style="{StaticResource LB_StatsContent_Left}"/>
+                                <Label Content="{Binding QICPerc, Converter={StaticResource DTo3D}}" Width="80" Style="{StaticResource LB_StatsData_Left}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                <Label Content="KIV(%)" Width="120"  Style="{StaticResource LB_StatsContent_Left}"/>
+                                <Label Content="{Binding KIVPerc, Converter={StaticResource DTo3D}}" Width="80" Style="{StaticResource LB_StatsData_Left}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                <Label Content="NG(%)" Width="120"  Style="{StaticResource LB_StatsContent_Left}"/>
+                                <Label Content="{Binding NGPerc, Converter={StaticResource DTo3D}}" Width="80" Style="{StaticResource LB_StatsData_Left}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
                 <StackPanel Margin="0,5,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button x:Name="Reset" Width="85" Content="Reset Batch" Click="Button_Click"/>
                 </StackPanel>

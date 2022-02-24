@@ -21,7 +21,7 @@
                                 <Button x:Name="Btn_ExportMMF" Tag="Export,MMF" Content="{StaticResource Export}" HorizontalAlignment="Left" Margin="0,0,5,0" VerticalAlignment="Top" Width="75" Click="Btn_Click" />
                                 <Button x:Name="Btn_ImportMMF" Tag="Import,MMF" Content="{StaticResource Import}" HorizontalAlignment="Left" Margin="0,0,5,0" VerticalAlignment="Top" Width="75" Click="Btn_Click"/>
                             </StackPanel>
-                            <WindowsFormsHost x:Name="DisplayMMF" Tag="Display,MMF" Height="300" Width="300" Margin="0,5,0,0" VerticalAlignment="Top">
+                            <WindowsFormsHost x:Name="DisplayMMF" Tag="Display,MMF" Height="200" Width="200" Margin="0,5,0,0" VerticalAlignment="Top">
                                 <wf:Panel x:Name="wfHost_DispMMF" Tag="PanelDisp,MMF" Dock="Fill" BackgroundImageLayout="Zoom"/>
                             </WindowsFormsHost>
                         </StackPanel>
