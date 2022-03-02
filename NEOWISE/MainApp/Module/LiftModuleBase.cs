@@ -426,6 +426,7 @@ namespace NeoWisePlatform.Module
 				this.ClearErrorFlags();
 				try
 				{
+					if ( MachineStateMng.isSimulation ) return this.Result;
 					if ( this.LiftTask != null )
 					{
 						if ( this.isContinuous ) this.CheckAndThrowIfError( this.StopAuto().Result );

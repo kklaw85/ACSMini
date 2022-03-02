@@ -393,7 +393,11 @@ namespace NeoWisePlatform.Sequence
 					this.StageInfo.StageFlag = PNPToStageFlag.CanClamp;
 				}
 				this.Module.UnLoadArm.ClearLiftModuleLink();
-				if ( !this.Module.PNPInLoadPos() ) return this.JumpFunctionEnum( Run_PNP_Seq.MoveToInspectedPos );
+				if ( !this.Module.PNPInLoadPos() )
+				{
+					if ( this.Module.KIVNG_TrayFull.State ) return ( int )RunErrors.ERR_PNPTrayfull;
+					return this.JumpFunctionEnum( Run_PNP_Seq.MoveToInspectedPos );
+				}
 				return ( int )RunErrors.ERR_NoError;
 			}
 			catch ( Exception ex )

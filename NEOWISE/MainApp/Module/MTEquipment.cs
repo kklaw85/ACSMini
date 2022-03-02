@@ -537,6 +537,10 @@ namespace NeoWisePlatform.Module
 				return this.Result;
 			} );
 		}
+
+
+		public DryRunBypass DryrunBypass { get; set; } = new DryRunBypass();
+
 		public Task<ErrorResult> Dryrun()
 		{
 			return Task.Run( () =>
@@ -549,30 +553,34 @@ namespace NeoWisePlatform.Module
 					var Repeats = this.NoIte;
 					this.RunTestSeq = true;
 					var Cont = Repeats == 0;
-
-					var lifttasks = new Task<ErrorResult>[]
-					{
-							this.QICLift.StartSingleAction( true ),
-							this.NewLift.StartSingleAction( true ),
-					};
-					this.CheckAndThrowIfError( lifttasks );
+					var lifttasks = new List<Task<ErrorResult>>();
+					if ( !this.DryrunBypass.NewLift )
+						lifttasks.Add( this.NewLift.StartSingleAction( true ) );
+					if ( !this.DryrunBypass.QICLift )
+						lifttasks.Add( this.QICLift.StartSingleAction( true ) );
+					this.CheckAndThrowIfError( lifttasks.ToArray() );
 
 					while ( Cont || Repeats >= 0 )
 					{
+						var idx = this.CurrIte % Enum.GetNames( typeof( ePNPPos ) ).Length;
 						this.CheckAndThrowIfError( this.PNP.PNPToPickPos().Result );
-						var tasks = new Task<ErrorResult>[]
-						{
-							this.PNP.LoadArm.PickUp(true),
-							this.PNP.UnLoadArm.PickUp(true),
-						};
-						this.CheckAndThrowIfError( tasks );
-						this.CheckAndThrowIfError( this.PNP.PNPToLoadPos().Result );
-						var tasks2 = new Task<ErrorResult>[]
-						{
-							this.PNP.LoadArm.PlaceDown(true),
-							this.PNP.UnLoadArm.PlaceDown(true),
-						};
-						this.CheckAndThrowIfError( tasks2 );
+						var armtasks = new List<Task<ErrorResult>>();
+						if ( !this.DryrunBypass.DryRunOp.Find( x => x.TravelOption == ePNPPos.Pick ).LoadArm ) armtasks.Add( this.PNP.LoadArm.PickUp( true ) );
+						if ( !this.DryrunBypass.DryRunOp.Find( x => x.TravelOption == ePNPPos.Pick ).UnloadArm ) armtasks.Add( this.PNP.UnLoadArm.PickUp( true ) );
+						this.CheckAndThrowIfError( armtasks.ToArray() );
+
+
+						if ( this.DryrunBypass.DryRunOp[ idx ].TravelOption == ePNPPos.Load ) this.CheckAndThrowIfError( this.PNP.PNPToLoadPos().Result );
+						else if ( this.DryrunBypass.DryRunOp[ idx ].TravelOption == ePNPPos.Pick ) this.CheckAndThrowIfError( this.PNP.PNPToPickPos().Result );
+						else if ( this.DryrunBypass.DryRunOp[ idx ].TravelOption == ePNPPos.PlaceKIV ) this.CheckAndThrowIfError( this.PNP.PNPToPlaceKIV().Result );
+						else if ( this.DryrunBypass.DryRunOp[ idx ].TravelOption == ePNPPos.PlaceNG ) this.CheckAndThrowIfError( this.PNP.PNPToPlaceNG().Result );
+						else if ( this.DryrunBypass.DryRunOp[ idx ].TravelOption == ePNPPos.Wait ) this.CheckAndThrowIfError( this.PNP.PNPToWaitPos().Result );
+
+						armtasks.Clear();
+						if ( !this.DryrunBypass.DryRunOp[ idx ].LoadArm ) armtasks.Add( this.PNP.LoadArm.PickUp( true ) );
+						if ( !this.DryrunBypass.DryRunOp[ idx ].UnloadArm ) armtasks.Add( this.PNP.UnLoadArm.PickUp( true ) );
+						this.CheckAndThrowIfError( armtasks.ToArray() );
+
 						this.CurrIte++;
 						if ( Repeats-- == 0 || !this.RunTestSeq ) break;
 					}
@@ -686,6 +694,15 @@ namespace NeoWisePlatform.Module
 		LoadArm,
 		UnLoadArm
 	}
+	[Serializable]
+	public enum ePNPPos
+	{
+		Pick,
+		Wait,
+		Load,
+		PlaceKIV,
+		PlaceNG,
+	}
 
 	public class StationSequences : BaseUtility
 	{
@@ -713,6 +730,43 @@ namespace NeoWisePlatform.Module
 		{
 			this.PNPSeq.bCycleStop = true;
 		}
+	}
+	public class DryRunBypass : BaseUtility
+	{
+		public bool NewLift
+		{
+			get => this.GetValue( () => this.NewLift );
+			set => this.SetValue( () => this.NewLift, value );
+		}
+		public bool QICLift
+		{
+			get => this.GetValue( () => this.QICLift );
+			set => this.SetValue( () => this.QICLift, value );
+		}
+		public List<DryRunArmOpt> DryRunOp = new List<DryRunArmOpt>();
+		public DryRunBypass()
+		{
+			this.DryRunOp.Clear();
+			this.DryRunOp.Add( new DryRunArmOpt() { TravelOption = ePNPPos.Pick } );
+			this.DryRunOp.Add( new DryRunArmOpt() { TravelOption = ePNPPos.Wait } );
+			this.DryRunOp.Add( new DryRunArmOpt() { TravelOption = ePNPPos.Load } );
+			this.DryRunOp.Add( new DryRunArmOpt() { TravelOption = ePNPPos.PlaceNG } );
+			this.DryRunOp.Add( new DryRunArmOpt() { TravelOption = ePNPPos.PlaceKIV } );
+		}
+	}
+	public class DryRunArmOpt : BaseUtility
+	{
+		public bool LoadArm
+		{
+			get => this.GetValue( () => this.LoadArm );
+			set => this.SetValue( () => this.LoadArm, value );
+		}
+		public bool UnloadArm
+		{
+			get => this.GetValue( () => this.UnloadArm );
+			set => this.SetValue( () => this.UnloadArm, value );
+		}
+		public ePNPPos TravelOption { get; set; }
 	}
 
 	[Serializable]

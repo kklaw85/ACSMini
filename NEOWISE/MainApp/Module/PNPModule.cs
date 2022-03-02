@@ -51,6 +51,7 @@ namespace NeoWisePlatform.Module
 		public AxisBase AxisX { get; private set; } = null;
 		public IOMotion LoadArm { get; private set; } = null;
 		public IOMotion UnLoadArm { get; private set; } = null;
+		public IO KIVNG_TrayFull { get; set; } = new IO();
 		#endregion
 		#region General.Functions
 		protected override string OnCreate()
@@ -114,6 +115,8 @@ namespace NeoWisePlatform.Module
 				this.UnLoadArm._ToResetCylinder = Equipment.GetIOPointByEnum( OutputIO.O_UnLoadArmUp );
 				this.UnLoadArm._ToPosCylinder = Equipment.GetIOPointByEnum( OutputIO.O_UnLoadArmDown );
 				this.UnLoadArm._VacuumSuction = Equipment.GetIOPointByEnum( OutputIO.O_UnLoadArmVac );
+
+				this.KIVNG_TrayFull.IOPt = Equipment.GetIOPointByEnum( InputIO.I_TrayFull );
 
 			}
 			catch ( Exception ex )
@@ -508,7 +511,6 @@ namespace NeoWisePlatform.Module
 				 try
 				 {
 					 if ( MachineStateMng.isSimulation ) return this.Result;
-					 this.CheckAndThrowIfError( this.Home().Result );
 					 this.CheckAndThrowIfError( this.PNPToWaitPos().Result );
 					 this.LoadArm.ClearLiftModuleLink();
 					 this.UnLoadArm.ClearLiftModuleLink();

@@ -727,6 +727,8 @@ namespace HiPA.Common
 		ERR_PNPMoveErr = ( -804 ),   // 
 		[Description( "Material dropped." )]
 		ERR_PNPMatDrop = ( -805 ),   // 
+		[Description( "NG/KIV tray is full. Please clear the tray(s) before starting autorun." )]
+		ERR_PNPTrayfull = ( -806 ),   // 
 		#endregion
 		#region Stage
 		[Description( "Stage To Standby State Error" )]

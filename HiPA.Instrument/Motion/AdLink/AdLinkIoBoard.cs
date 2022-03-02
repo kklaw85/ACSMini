@@ -584,7 +584,7 @@ namespace HiPA.Instrument.Motion.APS
 	{
 		I_ManualSwitch,
 		I_AutoSwitch,
-		I_DI2,
+		I_TrayFull,
 		I_DI3,
 		I_DI4,
 		I_DI5,

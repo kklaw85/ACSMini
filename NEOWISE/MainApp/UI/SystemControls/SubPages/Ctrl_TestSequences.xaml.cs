@@ -1,11 +1,9 @@
 ﻿using HiPA.Common;
 using HiPA.Common.UControl;
-using MahApps.Metro.Controls;
 using NeoWisePlatform.Module;
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 
 namespace NeoWisePlatform.SystemControls.SubPages
 {
@@ -18,6 +16,7 @@ namespace NeoWisePlatform.SystemControls.SubPages
 		{
 			#region Panel Lockable declaration
 			this.MachineStateLockable = false;
+			this.PrivilegeLockability = HiPA.Common.Forms.UILockability.LockableNotConfigurable;
 			this.MinRead = AccessLevel.Manufacturer;
 			this.MinWrite = AccessLevel.Manufacturer;
 			#endregion
@@ -37,17 +36,6 @@ namespace NeoWisePlatform.SystemControls.SubPages
 		{
 			try
 			{
-				var b = new Binding();
-				b.Source = this.Eq;
-				b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-				b.Path = new PropertyPath( "NoIte" );
-				this.Txt_Seq.SetBinding( NumericUpDown.ValueProperty, b );
-
-				b = new Binding();
-				b.Source = this.Eq;
-				b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-				b.Path = new PropertyPath( "CurrIte" );
-				this.Txt_CurSeq.SetBinding( NumericUpDown.ValueProperty, b );
 			}
 			catch ( Exception ex )
 			{
@@ -64,6 +52,8 @@ namespace NeoWisePlatform.SystemControls.SubPages
 				this.BindLockUI( this.StkPnlCtrlLst );
 				#endregion
 				this.Eq = Constructor.GetInstance().Equipment as MTEquipment;
+				this.DataContext = this.Eq;
+				this.PNPOptions.ItemsSource = this.Eq.DryrunBypass.DryRunOp;
 				this.OnSetupBinding();
 			}
 			catch ( Exception ex )
