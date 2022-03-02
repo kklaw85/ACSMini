@@ -562,15 +562,15 @@ namespace NeoWisePlatform.Module
 						this.CheckAndThrowIfError( this.PNP.PNPToPickPos().Result );
 						var tasks = new Task<ErrorResult>[]
 						{
-							this.PNP.LoadArm.PickUp(),
-							this.PNP.UnLoadArm.PickUp(),
+							this.PNP.LoadArm.PickUp(true),
+							this.PNP.UnLoadArm.PickUp(true),
 						};
 						this.CheckAndThrowIfError( tasks );
 						this.CheckAndThrowIfError( this.PNP.PNPToLoadPos().Result );
 						var tasks2 = new Task<ErrorResult>[]
 						{
-							this.PNP.LoadArm.PlaceDown(),
-							this.PNP.UnLoadArm.PlaceDown(),
+							this.PNP.LoadArm.PlaceDown(true),
+							this.PNP.UnLoadArm.PlaceDown(true),
 						};
 						this.CheckAndThrowIfError( tasks2 );
 						this.CurrIte++;

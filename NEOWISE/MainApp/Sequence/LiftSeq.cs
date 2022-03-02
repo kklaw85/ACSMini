@@ -115,7 +115,11 @@ namespace NeoWisePlatform.Sequence
 			try
 			{
 				if ( this.CompareThreadIndex( Run_State_Lift.WaitPickPlaceDone ) ) return ( int )RunErrors.ERR_Inconformity;
-				if ( this.Module.LiftPNPCom.IsPickPlaceDone ) return ( int )RunErrors.ERR_NoError;
+				if ( this.Module.LiftPNPCom.IsPickPlaceDone )
+				{
+					Thread.Sleep( 200 );
+					return ( int )RunErrors.ERR_NoError;
+				}
 			}
 			catch ( Exception ex )
 			{
@@ -131,7 +135,7 @@ namespace NeoWisePlatform.Sequence
 			{
 				if ( this.CompareThreadIndex( Run_State_Lift.Finish ) ) return ( int )RunErrors.ERR_Inconformity;
 				this.ReportError();
-				this.InitFlags();
+				if ( this.isError( this.Module.StartAuto().Result ) ) return ( int )RunErrors.ERR_LiftMoveToStandby;
 				this.State = SequenceState.Init;
 				return this.JumpFunctionEnum( Run_State_Lift.IsAction );
 			}

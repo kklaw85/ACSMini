@@ -292,7 +292,7 @@ namespace HiPA.Instrument.Motion
 		public Task<string> Homing() => Task.Run( () => this.OnHoming() );
 		public Task<string> SetAxisProfile( MotionProfile profile ) => Task.Run( () => this.OnSetAxisProfile( profile ) );
 		public Task<string> AbsoluteMove( Trajectory trajectory ) => Task.Run( () => this.OnAbsoluteMove( trajectory ) );
-		public Task<string> RelativeMove( Trajectory trajectory ) => Task.Run( () => this.OnRelativeMove( trajectory ) );
+		public Task<string> RelativeMove( Trajectory trajectory, bool WaitDone = true ) => Task.Run( () => this.OnRelativeMove( trajectory, WaitDone ) );
 		public Task<string> VelocityMove( Trajectory trajectory ) => Task.Run( () => this.OnVelocityMove( trajectory ) );
 
 		protected override string OnStop() => this.StopMove();
@@ -301,7 +301,7 @@ namespace HiPA.Instrument.Motion
 		protected abstract string OnHoming();
 		protected abstract string OnSetAxisProfile( MotionProfile profile );
 		protected abstract string OnAbsoluteMove( Trajectory trajectory );
-		protected abstract string OnRelativeMove( Trajectory trajectory );
+		protected abstract string OnRelativeMove( Trajectory trajectory, bool WaitDone = true );
 		protected abstract string OnVelocityMove( Trajectory trajectory );
 		public abstract string StopMove();
 		public abstract string WaitHomingComplete();

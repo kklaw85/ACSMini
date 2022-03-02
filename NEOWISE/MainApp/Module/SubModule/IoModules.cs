@@ -558,12 +558,13 @@ namespace NeoWisePlatform.Module
 						{
 							this.CheckAndThrowIfError( this.Lift?.MoveDown() );
 							Thread.Sleep( this.Configuration.Pick.Delay );
-							this.CheckAndThrowIfError( this.Lift?.EndPickPlace() );
 						}
 					}
 					this.CheckAndThrowIfError( this.Reset().Result );
+
 					if ( BypassVac != true )
 					{
+						this.CheckAndThrowIfError( this.Lift?.EndPickPlace() );
 						this.CheckAndThrowIfError( SuctionResult );
 						if ( this.Suction != true ) this.ThrowError( ErrorClass.E5, "Output turned off." );
 						if ( this.SuctionSense != true ) this.ThrowError( ErrorClass.E5, "Suction pressure dropped." );
@@ -605,11 +606,11 @@ namespace NeoWisePlatform.Module
 						}
 						if ( SuctionResult.EClass == ErrorClass.OK )
 							Thread.Sleep( this.Configuration.Place.Delay );
-						this.CheckAndThrowIfError( this.Lift?.EndPickPlace() );
 					}
 					this.CheckAndThrowIfError( this.Reset().Result );
 					if ( BypassVac != true )
 					{
+						this.CheckAndThrowIfError( this.Lift?.EndPickPlace() );
 						this.CheckAndThrowIfError( SuctionResult );
 						if ( this.Suction != false ) this.ThrowError( ErrorClass.E5, "Output turned On." );
 						if ( this.SuctionSense != false ) this.ThrowError( ErrorClass.E5, "Suction pressure still high." );

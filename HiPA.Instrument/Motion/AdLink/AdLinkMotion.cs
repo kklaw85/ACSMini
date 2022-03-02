@@ -415,7 +415,7 @@ namespace HiPA.Instrument.Motion.APS
 			return result;
 		}
 
-		protected override string OnRelativeMove( Trajectory trajectory )
+		protected override string OnRelativeMove( Trajectory trajectory, bool WaitDone = true )
 		{
 			var result = string.Empty;
 			try
@@ -443,8 +443,7 @@ namespace HiPA.Instrument.Motion.APS
 				if ( ( result = this.OnSetAxisProfile( trajectory ) ) != string.Empty ) throw new Exception( result );
 				this.InternalProvider.SetUnsafe();
 				if ( ( resultint = APS168.APS_relative_move( this.AxisId, dist, speed ) ) != 0 ) throw new Exception( PCI7856.GetErrorDesc( resultint ) );
-				if ( ( result = this.WaitMoveComplete() ) != string.Empty ) throw new Exception( result );
-				this.InternalProvider.SetUnsafe();
+				if ( WaitDone ) if ( ( result = this.WaitMoveComplete() ) != string.Empty ) throw new Exception( result );
 			}
 			catch ( Exception ex )
 			{

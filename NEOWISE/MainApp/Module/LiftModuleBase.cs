@@ -206,7 +206,7 @@ namespace NeoWisePlatform.Module
 		}
 		#endregion
 		#region Relative move
-		private Task<ErrorResult> LiftMoveRel( double Pos )
+		private Task<ErrorResult> LiftMoveRel( double Pos, bool WaitDone )
 		{
 			return Task.Run( () =>
 			{
@@ -217,7 +217,7 @@ namespace NeoWisePlatform.Module
 					{
 						Distance = Pos,
 					};
-					this.CheckAndThrowIfError( ErrorClass.E5, this.Lift.RelativeMove( trajectory ).Result );
+					this.CheckAndThrowIfError( ErrorClass.E5, this.Lift.RelativeMove( trajectory, WaitDone ).Result );
 					//this.CheckAndThrowIfError( ErrorClass.E5, this.CheckLiftPosition( Pos ) );
 				}
 				catch ( Exception ex )
@@ -303,7 +303,6 @@ namespace NeoWisePlatform.Module
 					 if ( MachineStateMng.isSimulation ) return this.Result;
 					 this.CheckAndThrowIfError( this.StartSingleAction( true ).Result );
 					 this.CheckAndThrowIfError( this.StartAuto().Result );
-					 this.LiftPNPCom.ResetState();
 					 this.CheckAndThrowIfError( this.Pusher?.Off() );
 					 this.CheckAndThrowIfError( this.BlowerOff() );
 				 }
@@ -374,27 +373,28 @@ namespace NeoWisePlatform.Module
 						}
 						else
 						{
-							if ( HysteresisCount++ > 5 )
+							if ( HysteresisCount++ > 5 && !this.LiftPNPCom.IsInPos )
 							{
 								Retry = 0;
 								Movement = LiftMovement.Stop;
 								this.LiftPNPCom.SetInPos();
 							}
-							else
+							else if ( HysteresisCount <= 5 )
 							{
 								Thread.Sleep( 1 );
 								continue;
 							}
+							else continue;
 						}
 						if ( Movement == LiftMovement.Upward )
 						{
 							if ( this.Lift.Status.PEL ) throw new Exception( "Lift has reached Positive limit. Please check on sensors alignment." );
-							this.CheckAndThrowIfError( this.LiftMoveRel( 0.5 ).Result );
+							this.CheckAndThrowIfError( this.LiftMoveRel( 0.5, false ).Result );
 						}
 						else if ( Movement == LiftMovement.Downward )
 						{
 							if ( this.Lift.Status.NEL ) throw new Exception( "Lift has reached Negative limit. Please check on sensors alignment." );
-							this.CheckAndThrowIfError( this.LiftMoveRel( -0.5 ).Result );
+							this.CheckAndThrowIfError( this.LiftMoveRel( -0.5, false ).Result );
 						}
 						else
 						{
@@ -458,11 +458,13 @@ namespace NeoWisePlatform.Module
 				this.ClearErrorFlags();
 				try
 				{
+					this.SingleAction = false;
 					if ( this.LiftTask != null )
 					{
 						if ( !this.isContinuous ) this.LiftTask.Wait();
 						else return this.Result;
 					}
+
 					this.LiftTask = this.MoveToCollectPos( true );
 				}
 				catch ( Exception ex )
@@ -623,7 +625,7 @@ namespace NeoWisePlatform.Module
 			this.ClearErrorFlags();
 			try
 			{
-				this.CheckAndThrowIfError( this.LiftMoveRel( -2.5 ).Result );
+				this.CheckAndThrowIfError( this.LiftMoveRel( -2.5, true ).Result );
 			}
 			catch ( Exception ex )
 			{
