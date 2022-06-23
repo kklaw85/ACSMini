@@ -6,8 +6,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NeoWisePlatform.SystemControls.Panels"
-			 xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls" xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
-    mc:Ignorable="d" 
+			 xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls" xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" xmlns:camera="clr-namespace:HiPA.Instrument.Camera;assembly=HiPA.Instrument"
+                     mc:Ignorable="d" 
              Loaded="UserControl_Loaded">
     <StackPanel Orientation="Horizontal">
         <Border Style="{StaticResource FrameWithShadow}">
@@ -17,10 +17,11 @@
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                         <Button x:Name="Btn_ExportMMF" Tag="Export,MMF" Content="{StaticResource Export}" Style="{StaticResource Button_FrameMenu}" Margin="0,0,5,0" VerticalAlignment="Top" Width="75" Height="25" Click="Btn_Click" />
                         <Button x:Name="Btn_ImportMMF" Tag="Import,MMF" Content="{StaticResource Import}" Style="{StaticResource Button_FrameMenu}" Margin="0,0,5,0" VerticalAlignment="Top" Width="75" Height="25" Click="Btn_Click"/>
+                        <Button x:Name="Btn_CaptureMMF" Tag="Capture,MMF" Content="{StaticResource Capture}" Style="{StaticResource Button_FrameMenu}" Margin="0,0,5,0" VerticalAlignment="Top" Width="75" Height="25" Click="Btn_Click"/>
                     </StackPanel>
-                    <WindowsFormsHost x:Name="DisplayMMF" Tag="Display,MMF" Height="300" Width="300" Margin="0,5,0,0" VerticalAlignment="Top">
+                    <camera:MMOD_Display x:Name="DisplayMMF" Tag="Display,MMF" Height="300" Width="300" Margin="0,5,0,0" VerticalAlignment="Top">
                         <wf:Panel x:Name="wfHost_DispMMF" Tag="PanelDisp,MMF" Dock="Fill" BackgroundImageLayout="Zoom"/>
-                    </WindowsFormsHost>
+                    </camera:MMOD_Display>
                 </StackPanel>
 
             </StackPanel>

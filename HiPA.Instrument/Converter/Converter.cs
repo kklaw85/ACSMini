@@ -9,7 +9,6 @@ using System.Windows.Media;
 
 namespace Converter
 {
-
 	[ValueConversion( typeof( int ), typeof( string ) )]
 	public class IntegerToString : IValueConverter
 	{

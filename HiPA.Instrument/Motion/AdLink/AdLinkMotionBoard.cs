@@ -1,4 +1,5 @@
 ﻿using HiPA.Common;
+using HiPA.Common.Forms;
 using HiPA.Common.Utils;
 using System;
 using System.Collections.Generic;
@@ -345,6 +346,11 @@ namespace HiPA.Instrument.Motion.APS
 			{
 				Equipment.ErrManager.RaiseError( this, $"On Remove Child failure. Error : {ex.Message}", ErrorTitle.OperationFailure, ErrorClass.E6 );
 			}
+		}
+
+		public override void ApplyRecipe( RecipeBaseUtility recipeItem )
+		{
+			throw new NotImplementedException();
 		}
 		#endregion
 	}

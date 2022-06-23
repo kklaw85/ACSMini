@@ -1,5 +1,4 @@
 ﻿using HiPA.Common.Forms;
-using HiPA.Common.Recipe;
 using HiPA.Common.Report;
 using System;
 using System.Collections.Generic;
@@ -77,70 +76,6 @@ namespace HiPA.Common
 	public abstract class InstrumentBase
 		: Disposable, INotifyPropertyChanged
 	{
-		#region Shared error handling
-		protected ErrorResult Result = new ErrorResult();
-		protected void ClearErrorFlags()
-		{
-			this.Result.Reset();
-		}
-		protected void ThrowError( ErrorClass EClass, string ErrorMessage )
-		{
-			this.Result.Set( EClass, ErrorMessage );
-			throw new Exception( ErrorMessage );
-		}
-		private void ThrowError( ErrorResult Result )
-		{
-			this.Result.Set( Result );
-			throw new Exception( Result.ErrorMessage );
-		}
-		protected void CheckAndThrowIfError( ErrorResult Result )
-		{
-			if ( Result == null )
-			{
-				this.ClearErrorFlags();
-				return;
-			}
-			this.Result.Set( Result );
-			if ( this.Result.EClass != ErrorClass.OK ) this.ThrowError( this.Result );
-			else this.ClearErrorFlags();
-		}
-		protected void CheckAndThrowIfError( ErrorClass EClassIfFail, string ErrorMessage )
-		{
-			this.Result.Set( EClassIfFail, ErrorMessage );
-			if ( this.Result.ErrorMessage != string.Empty ) this.ThrowError( this.Result );
-			else this.ClearErrorFlags();
-		}
-		protected void CheckAndThrowIfError( Task<ErrorResult>[] tasks )
-		{
-			Task.WaitAll( tasks );
-			foreach ( var task in tasks )
-			{
-				this.CheckAndThrowIfError( task.Result );
-			}
-			this.ClearErrorFlags();
-		}
-		protected void CheckAndThrowIfError( ErrorClass EClass, Task<string>[] tasks )
-		{
-			Task.WaitAll( tasks );
-			foreach ( var task in tasks )
-			{
-				this.CheckAndThrowIfError( EClass, task.Result );
-			}
-			this.ClearErrorFlags();
-		}
-		protected void CatchAndPromptErr( Exception ex )
-		{
-			if ( this.Result.EClass == ErrorClass.OK )
-				this.Result.EClass = ErrorClass.E6;
-			this.Result.ErrorMessage = Equipment.ErrManager.RaiseError( this, this.FormatErrMsg2( this.Name, ex ), ErrorTitle.OperationFailure, this.Result.EClass );
-		}
-		protected void CatchException( Exception ex )
-		{
-			if ( this.Result.EClass == ErrorClass.OK )
-				this.Result.EClass = ErrorClass.E6;
-			this.Result.ErrorMessage = this.FormatErrMsg2( this.Name, ex );
-		}
-		#endregion
 		#region interlock
 		public InterLock InternalProvider { get; set; } = new InterLock();
 		public CollectiveInterlock Interlocks { get; set; } = new CollectiveInterlock();
@@ -385,9 +320,8 @@ namespace HiPA.Common
 		#endregion
 
 		public abstract void ApplyConfiguration( Configuration configuration );
-		public virtual void ApplyRecipe( IRecipeItem recipeItem )
-		{
-		}
+		public abstract void ApplyRecipe( RecipeBaseUtility recipeItem );
+
 		int _isRunning = 0;
 		public virtual bool IsRunning
 		{

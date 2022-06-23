@@ -203,6 +203,7 @@ namespace JptCamera
 		}
 		public ROIHandler Cal => this._mtxCamera.Cal;
 		public ROIHandler Inspect => this._mtxCamera.Inspect;
+		public ResultDisplay ResultCross => this._mtxCamera.ResultCross;
 		public string FreeResources()
 		{
 			JPTUtility.Logger.doLog( "FreeResources ..." );

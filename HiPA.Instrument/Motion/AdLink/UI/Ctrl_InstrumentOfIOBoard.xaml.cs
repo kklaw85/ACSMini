@@ -1,6 +1,5 @@
 ﻿using HiPA.Common;
 using HiPA.Common.UControl;
-using HiPA.Instrument.Motion;
 using HiPA.Instrument.Motion.APS;
 using HiPA.Instrument.Motion.Dask;
 using MahApps.Metro.Controls;
@@ -11,7 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using Validations;
 
-namespace NeoWisePlatform.SystemControls.Panels
+namespace HiPA.Instrument.Motion.Adlink.UI
 {
 	/// <summary>
 	/// Interaction logic for Ctrl_InstrumentOfAxisBoard.xaml
@@ -98,7 +97,7 @@ namespace NeoWisePlatform.SystemControls.Panels
 					b.ValidatesOnExceptions = true;
 					b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
 					b.Path = new PropertyPath( "PollingRate" );
-					Valid_Rule_INT RI = new Valid_Rule_INT();
+					var RI = new Valid_Rule_Base();
 					RI.Min = 10;
 					RI.Max = 1000;
 					b.ValidationRules.Clear();
@@ -110,7 +109,7 @@ namespace NeoWisePlatform.SystemControls.Panels
 					b.Source = source.Configuration;
 					b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
 					b.Path = new PropertyPath( "CardID" );
-					RI = new Valid_Rule_INT();
+					RI = new Valid_Rule_Base();
 					RI.Min = 0;
 					RI.Max = 16;
 					b.ValidationRules.Clear();
@@ -133,7 +132,7 @@ namespace NeoWisePlatform.SystemControls.Panels
 					b.ValidatesOnExceptions = true;
 					b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
 					b.Path = new PropertyPath( "PollingRate" );
-					Valid_Rule_INT RI = new Valid_Rule_INT();
+					var RI = new Valid_Rule_Base();
 					RI.Min = 10;
 					RI.Max = 1000;
 					b.ValidationRules.Clear();
@@ -145,7 +144,7 @@ namespace NeoWisePlatform.SystemControls.Panels
 					b.Source = source.Configuration;
 					b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
 					b.Path = new PropertyPath( "CardID" );
-					RI = new Valid_Rule_INT();
+					RI = new Valid_Rule_Base();
 					RI.Min = 0;
 					RI.Max = 16;
 					b.ValidationRules.Clear();

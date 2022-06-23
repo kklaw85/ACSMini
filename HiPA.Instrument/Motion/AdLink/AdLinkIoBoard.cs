@@ -1,4 +1,5 @@
 ﻿using HiPA.Common;
+using HiPA.Common.Forms;
 using HiPA.Common.Utils;
 using System;
 using System.Collections.Generic;
@@ -539,6 +540,10 @@ namespace HiPA.Instrument.Motion.APS
 				result = this.FormatErrMsg( this.Name, ex );
 			}
 			return result;
+		}
+
+		public override void ApplyRecipe( RecipeBaseUtility recipeItem )
+		{
 		}
 		#endregion
 	}

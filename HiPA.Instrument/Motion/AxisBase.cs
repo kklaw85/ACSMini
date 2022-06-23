@@ -305,7 +305,7 @@ namespace HiPA.Instrument.Motion
 		protected abstract string OnVelocityMove( Trajectory trajectory );
 		public abstract string StopMove();
 		public abstract string WaitHomingComplete();
-		public abstract string WaitMoveComplete();
+		public abstract string WaitMoveComplete( double? Pos = null );
 
 		public abstract string GetCommandPosition( ref double position );
 		public abstract string GetActualPosition( ref double position );
@@ -347,7 +347,6 @@ namespace HiPA.Instrument.Motion
 		{
 			while ( this.IsEnd == false )
 			{
-				var axisId = this.Axis.AxisId;
 				if ( this.Axis.BoardBase is MotionBoardBase board &&
 					board.IsOpen() == true )
 				{

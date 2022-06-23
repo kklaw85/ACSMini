@@ -1,4 +1,5 @@
 ﻿using HiPA.Common;
+using HiPA.Common.Forms;
 using HiPA.Communicator;
 using System;
 using System.Threading;
@@ -187,6 +188,11 @@ namespace HiPA.Instrument.HeightSensor
 			{
 				Monitor.Exit( this.SyncRoot );
 			}
+		}
+
+		public override void ApplyRecipe( RecipeBaseUtility recipeItem )
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

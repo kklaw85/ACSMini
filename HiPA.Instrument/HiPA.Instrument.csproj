@@ -53,6 +53,10 @@
     <Reference Include="ControlzEx, Version=5.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
       <HintPath>..\IntelNeowise\packages\ControlzEx.5.0.0\lib\net452\ControlzEx.dll</HintPath>
     </Reference>
+    <Reference Include="Interop.SPIIPLUSCOM660Lib">
+      <HintPath>DLL\Interop.SPIIPLUSCOM660Lib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="JPTCommon, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\JPTCommon.dll</HintPath>
@@ -124,12 +128,40 @@
     </Compile>
     <Compile Include="Camera\MatroxCamera.cs" />
     <Compile Include="Camera\MatroxProcessing.cs" />
+    <Compile Include="Camera\MMOD_Display.cs" />
     <Compile Include="Camera\MngrUtility.cs" />
     <Compile Include="Camera\Win_CamSetting.xaml.cs">
       <DependentUpon>Win_CamSetting.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converter\Converter.cs" />
+    <Compile Include="Common\Ctrl_InitBar.xaml.cs">
+      <DependentUpon>Ctrl_InitBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HeightSensor\Optex.cs" />
     <Compile Include="HeightSensor\KeyenceHighSensor.cs" />
+    <Compile Include="Motion\ACS\ACSMotion.cs" />
+    <Compile Include="Motion\ACS\ACSMotionBoard.cs" />
+    <Compile Include="Motion\AdLink\UI\Ctrl_HomingParamAdlinkPnl.xaml.cs">
+      <DependentUpon>Ctrl_HomingParamAdlinkPnl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Motion\AdLink\UI\Ctrl_InstrumentOfAxis.xaml.cs">
+      <DependentUpon>Ctrl_InstrumentOfAxis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Motion\AdLink\UI\Ctrl_InstrumentOfAxisBoard.xaml.cs">
+      <DependentUpon>Ctrl_InstrumentOfAxisBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Motion\AdLink\UI\Ctrl_InstrumentOfIOBoard.xaml.cs">
+      <DependentUpon>Ctrl_InstrumentOfIOBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Motion\AdLink\UI\SubPage\Ctrl_InstrumentOfIO.xaml.cs">
+      <DependentUpon>Ctrl_InstrumentOfIO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Motion\AdLink\UI\SubPage\Ctrl_InstrumentOfMotion.xaml.cs">
+      <DependentUpon>Ctrl_InstrumentOfMotion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Motion\AdLink\UI\Ctrl_MotionProfile.xaml.cs">
+      <DependentUpon>Ctrl_MotionProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Motion\Dask\DASKBoard.cs" />
     <Compile Include="Motion\Dask\Dask64.cs" />
     <Compile Include="Motion\Dask\DaskIoBoard.cs" />
@@ -178,6 +210,38 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Camera\Win_CamSetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Common\Ctrl_InitBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Motion\AdLink\UI\Ctrl_HomingParamAdlinkPnl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Motion\AdLink\UI\Ctrl_InstrumentOfAxis.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Motion\AdLink\UI\Ctrl_InstrumentOfAxisBoard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Motion\AdLink\UI\Ctrl_InstrumentOfIOBoard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Motion\AdLink\UI\SubPage\Ctrl_InstrumentOfIO.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Motion\AdLink\UI\SubPage\Ctrl_InstrumentOfMotion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Motion\AdLink\UI\Ctrl_MotionProfile.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

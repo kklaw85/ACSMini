@@ -1,11 +1,11 @@
-﻿<Pagebase:PageBase xmlns:Panels="clr-namespace:NeoWisePlatform.SystemControls.Panels" 
+﻿<Pagebase:PageBase
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 			 xmlns:Pagebase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
-             xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls"
-             x:Class="NeoWisePlatform.UI.SystemControls.SubPages.Ctrl_InstrumentOfIO"
+    xmlns:Panels="clr-namespace:HiPA.Instrument.Motion.Adlink.UI"
+    x:Class="HiPA.Instrument.Motion.Adlink.UI.SubPage.Ctrl_InstrumentOfIO"
              mc:Ignorable="d"
              Loaded="UserControl_Loaded">
     <Grid Margin="0,0,0,0">

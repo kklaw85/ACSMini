@@ -533,7 +533,7 @@
     <System:String x:Key="NoProductSelected">No Product Selected</System:String>
     <System:String x:Key="Import">Import</System:String>
     <System:String x:Key="Export">Export</System:String>
-
+    <System:String x:Key="Capture">Capture</System:String>
     <!-- Orientation Config -->
     <System:String x:Key="OrientationConfig">Orientation Configuration</System:String>
     <System:String x:Key="DefineIndexes">Define Indexes</System:String>

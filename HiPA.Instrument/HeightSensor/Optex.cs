@@ -834,6 +834,11 @@ namespace HiPA.Instrument.HeightSensor
 				return this.Result;
 			} );
 		}
+
+		public override void ApplyRecipe( RecipeBaseUtility recipeItem )
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	public class OptexStatus : BaseUtility

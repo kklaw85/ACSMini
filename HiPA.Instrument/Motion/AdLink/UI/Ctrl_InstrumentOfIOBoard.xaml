@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mahapp="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:Panelbase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
-			 xmlns:CommonControls="clr-namespace:NeoWisePlatform.CommonControls"
-			 x:Class="NeoWisePlatform.SystemControls.Panels.Ctrl_InstrumentOfIOBoard"
+    xmlns:CommonControls1="clr-namespace:HiPA.Instrument.Common"
+    x:Class="HiPA.Instrument.Motion.Adlink.UI.Ctrl_InstrumentOfIOBoard"
 			 mc:Ignorable="d" 
              Loaded="UserControl_Loaded">
     <Border Style="{StaticResource Panel}">
@@ -14,7 +14,7 @@
             <StackPanel Orientation="Vertical">
                 <Label x:Name="lbl_TitleName" Content="{StaticResource IOBrdCfg}" Style="{StaticResource LB_PanelTitle}"/>
                 <StackPanel Margin="10">
-                    <CommonControls:Ctrl_InitBar x:Name="InitBar" Margin="0,0,0,0"/>
+                    <CommonControls1:Ctrl_InitBar x:Name="InitBar" Margin="0,0,0,0"/>
                     <ListView x:Name="lvwCardIDList" Visibility="Collapsed" HorizontalAlignment="Left" Height="59" VerticalAlignment="Top" Width="186" Margin="550,10,0,0" Grid.RowSpan="2">
                         <ListView.View>
                             <GridView AllowsColumnReorder="False">

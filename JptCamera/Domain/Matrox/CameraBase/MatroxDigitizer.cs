@@ -12,14 +12,15 @@ using System.Windows.Media;
 
 namespace JptCamera
 {
-	public class MatroxDigitizer
+	public class MatroxDigitizer : BaseUtility
 	{
 
 		// Number of images in the buffering grab queue.
 		// Generally, increasing this number gives a better real-time grab.
 		private const int BUFFERING_SIZE_MAX = 5;
-		public ROIHandler Cal { get; set; } = new ROIHandler();
-		public ROIHandler Inspect { get; set; } = new ROIHandler();
+		public ROIHandler Cal { get; private set; } = new ROIHandler();
+		public ROIHandler Inspect { get; private set; } = new ROIHandler();
+		public ResultDisplay ResultCross { get; private set; } = new ResultDisplay();
 		const int MAX_CAM = 32;
 		const int MAX_ADAPTERS = 16;
 		/*
@@ -95,8 +96,8 @@ namespace JptCamera
 		private JptCamera.CameraSettings _settings;
 
 		// Default image dimensions.
-		private const int DEFAULT_IMAGE_SIZE_X = 640;
-		private const int DEFAULT_IMAGE_SIZE_Y = 480;
+		public const int DEFAULT_IMAGE_SIZE_X = 2448;
+		public const int DEFAULT_IMAGE_SIZE_Y = 2048;
 		private const int DEFAULT_IMAGE_SIZE_BAND = 1;
 		private const int DEFAULT_IMAGE_TYPE = 8 + MIL.M_UNSIGNED;
 
@@ -218,8 +219,6 @@ namespace JptCamera
 				MIL.MgraHookFunction( this._mgraphicList, MIL.M_GRAPHIC_MODIFIED + MIL.M_UNHOOK, this.graphicFunctionPtr, MIL.M_NULL );
 				if ( this._mgraphicList != MIL.M_NULL )
 					MIL.MgraFree( this._mgraphicList );
-				this.Cal.FreeResources();
-				this.Inspect.FreeResources();
 				if ( this._mBuffer != MIL.M_NULL )
 				{
 					MIL.MbufFree( this._mBuffer );
@@ -454,6 +453,7 @@ namespace JptCamera
 					}
 					if ( this._mCamera == MIL.M_NULL )
 						return string.Format( "Camera allocation failed" );
+					MIL.MdigControlFeature( this._mCamera, MIL.M_FEATURE_VALUE, "PixelFormat", MIL.M_TYPE_STRING, "Mono8" );
 				}
 				else
 				{
@@ -554,9 +554,11 @@ namespace JptCamera
 
 						this.InitialiseHookFunction();
 					}
-				this.Cal = new ROIHandler( this._mSys, this._mDisp, this._mBuffer, this._mgraphicList, ( int )BufSizeX, ( int )BufSizeY, MIL.M_COLOR_GREEN );
-				this.Inspect = new ROIHandler( this._mSys, this._mDisp, this._mBuffer, this._mgraphicList, ( int )BufSizeX, ( int )BufSizeY, MIL.M_COLOR_CYAN );
-
+				MIL.MdispControl( this._mDisp, MIL.M_ASSOCIATED_GRAPHIC_LIST_ID, this._mgraphicList );
+				MIL.MdispControl( this._mDisp, MIL.M_GRAPHIC_LIST_INTERACTIVE, MIL.M_ENABLE );
+				this.Cal = new ROIHandler( this._mSys, this._mBuffer, this._mgraphicList, ( int )BufSizeX, ( int )BufSizeY, MIL.M_COLOR_GREEN );
+				this.Inspect = new ROIHandler( this._mSys, this._mBuffer, this._mgraphicList, ( int )BufSizeX, ( int )BufSizeY, MIL.M_COLOR_CYAN );
+				this.ResultCross = new ResultDisplay( this._mSys, this._mgraphicList );
 				MIL.MgraAlloc( this._mSys, ref this._mGraphicLinesLaserspot );
 			}
 			catch ( Exception ex )
@@ -679,7 +681,6 @@ namespace JptCamera
 		int laserLabel = -1;
 		int laserCoorX = 0;
 		int laserCoorY = 0;
-		int laserColor = MIL.M_COLOR_RED;
 		public string XHairDraw( bool Enabled, int color, int? XPos = null, int? YPos = null )
 		{
 			string sErr = string.Empty;
@@ -1108,7 +1109,7 @@ namespace JptCamera
 				}
 				else
 				{
-					var IMAGE_FILE = "C:\\grid.bmp";
+					var IMAGE_FILE = "C:\\grid.png";
 					MIL.MbufImport( IMAGE_FILE, MIL.M_DEFAULT, MIL.M_RESTORE + MIL.M_NO_GRAB + MIL.M_NO_COMPRESS, this.MILSystem, ref this._mBuffer );
 				}
 
@@ -1859,13 +1860,12 @@ namespace JptCamera
 		{
 
 		}
-		public ROIHandler( MIL_ID _sys, MIL_ID _Disp, MIL_ID _Buffer, MIL_ID _graphicList, int Width, int Height, MIL_INT color )
+		public ROIHandler( MIL_ID _sys, MIL_ID _Buffer, MIL_ID _graphicList, int Width, int Height, MIL_INT color )
 		{
 			string sErr = string.Empty;
 			try
 			{
 				this._mSys = _sys;
-				this._mDisp = _Disp;
 				this._mBuffer = _Buffer;
 				this.m_graphicList = _graphicList;
 				this.ImgWidth = Width;
@@ -1879,8 +1879,6 @@ namespace JptCamera
 				// Alloc Graphics
 
 				MIL.MgraAlloc( this._mSys, ref this.m_graphic );
-				MIL.MdispControl( this._mDisp, MIL.M_ASSOCIATED_GRAPHIC_LIST_ID, this.m_graphicList );
-				MIL.MdispControl( this._mDisp, MIL.M_GRAPHIC_LIST_INTERACTIVE, MIL.M_ENABLE );
 				MIL.MgraRectAngle( this.m_graphic, this.m_graphicList, this.roiX, this.roiY, this.roiW, this.roiH, 0, MIL.M_CORNER_AND_DIMENSION );
 				MIL.MgraInquireList( this.m_graphicList, MIL.M_LIST, MIL.M_DEFAULT, MIL.M_LAST_LABEL + MIL.M_TYPE_MIL_INT32, ref this.roiLabel );
 				MIL.MgraControlList( this.m_graphicList, MIL.M_GRAPHIC_LABEL( this.roiLabel ), MIL.M_DEFAULT, MIL.M_ROTATABLE, MIL.M_DISABLE );
@@ -1897,7 +1895,7 @@ namespace JptCamera
 				sErr = string.Format( "Create error: " + ex.Message );
 			}
 		}
-		public string SetPosition( ROIRectangle source )
+		public ErrorResult SetPosition( ROIRectangle source )
 		{
 			var sErr = string.Empty;
 			try
@@ -1910,16 +1908,15 @@ namespace JptCamera
 			}
 			catch ( Exception ex )
 			{
-				sErr = string.Format( "SetPosition error: " + ex.Message );
-				JPTUtility.Logger.doLog( sErr );
+				this.CatchException( ex );
 			}
 			finally
 			{
 				this.UpdateInProgress = false;
 			}
-			return sErr;
+			return this.Result;
 		}
-		public string SetPosition( int X, int Y, int Width, int Height )
+		public ErrorResult SetPosition( int X, int Y, int Width, int Height )
 		{
 			this.ClearErrorFlags();
 			try
@@ -1939,7 +1936,6 @@ namespace JptCamera
 			catch ( Exception ex )
 			{
 				this.CatchException( ex );
-				JPTUtility.Logger.doLog( this.Result );
 			}
 			finally
 			{
@@ -1947,12 +1943,12 @@ namespace JptCamera
 			}
 			return this.Result;
 		}
-		public string GetPosition()
+		public ErrorResult GetPosition()
 		{
 			this.ClearErrorFlags();
 			try
 			{
-				if ( this.UpdateInProgress ) return string.Empty;
+				if ( this.UpdateInProgress ) return this.Result;
 				if ( this.roiLabel != -1 )
 				{
 					int roiX, roiY, roiW, roiH;
@@ -1971,7 +1967,6 @@ namespace JptCamera
 			catch ( Exception ex )
 			{
 				this.CatchException( ex );
-				JPTUtility.Logger.doLog( this.Result );
 			}
 			finally
 			{
@@ -2100,18 +2095,61 @@ namespace JptCamera
 			get => this.GetValue( () => this.maxH );
 			set => this.SetValue( () => this.maxH, value );
 		}
-		public void FreeResources()
+	}
+	public class ResultDisplay : BaseUtility
+	{
+
+		public ResultDisplay()
+		{ }
+		public ResultDisplay( MIL_ID sys, MIL_ID graphiclist )
 		{
+			this.m_graphicList = graphiclist;
+			this._mSys = sys;
+			MIL.MgraAlloc( this._mSys, ref this._mGraphicLines );
+		}
+		int Label = -1;
+		int LineLength = 100;
+		MIL_ID color = MIL.M_COLOR_RED;
+		MIL_ID _mSys = MIL.M_NULL;
+		MIL_ID m_graphicList = MIL.M_NULL;
+		MIL_ID _mGraphicLines = MIL.M_NULL;
+		double X = 0;
+		double Y = 0;
+		public string Clear() => this.XHairDraw( false, new C_PointD() );
+		public string XHairDraw( bool Enable, C_PointD Point )
+		{
+			string sErr = string.Empty;
 			try
 			{
-				if ( this.m_graphic != MIL.M_NULL )
-					MIL.MgraFree( this.m_graphic );
-			}
-			catch
-			{
+				if ( Point.X < 0 ) throw new Exception( "Invalid X" );
+				else if ( Point.Y < 0 ) throw new Exception( "Invalid Y" );
 
+				this.X = Point.X;
+				this.Y = Point.Y;
+
+				double[] x = { -this.LineLength + this.X, this.X };
+				double[] y = { this.Y, -( this.LineLength ) + this.Y };
+				double[] x2 = { this.LineLength + this.X, 0 + this.X };
+				double[] y2 = { 0 + this.Y, this.LineLength + this.Y };
+				if ( this.Label != -1 )
+				{
+					MIL.MgraControlList( this.m_graphicList, MIL.M_GRAPHIC_LABEL( this.Label ), MIL.M_DEFAULT, MIL.M_DELETE, MIL.M_DEFAULT );
+					this.Label = -1;
+				}
+				if ( Enable )
+				{
+					MIL.MgraColor( this._mGraphicLines, this.color );
+					MIL.MgraLines( this._mGraphicLines, this.m_graphicList, 2, x, y, x2, y2, MIL.M_LINE_LIST );
+					MIL.MgraInquireList( this.m_graphicList, MIL.M_LIST, MIL.M_DEFAULT, MIL.M_LAST_LABEL + MIL.M_TYPE_MIL_INT32, ref this.Label );
+					MIL.MgraControlList( this.m_graphicList, MIL.M_GRAPHIC_LABEL( this.Label ), MIL.M_DEFAULT, MIL.M_SELECTABLE, MIL.M_DISABLE );
+				}
 			}
+			catch ( Exception ex )
+			{
+				sErr = this.FormatErrMsg( "MatroxDigitizer", ex );
+				JPTUtility.Logger.doLog( sErr );
+			}
+			return sErr;
 		}
 	}
-
 }

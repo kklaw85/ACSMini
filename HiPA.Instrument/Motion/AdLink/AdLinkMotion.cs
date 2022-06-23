@@ -1,4 +1,5 @@
 ﻿using HiPA.Common;
+using HiPA.Common.Forms;
 using System;
 using System.Diagnostics;
 using System.Threading;
@@ -202,7 +203,6 @@ namespace HiPA.Instrument.Motion.APS
 		{
 			if ( this.Status == null )
 				this.Status = new AdLinkMotionStatus( this );
-
 			this.Status.Start();
 			return string.Empty;
 		}
@@ -213,8 +213,7 @@ namespace HiPA.Instrument.Motion.APS
 			var result = string.Empty;
 			try
 			{
-				var t = this.ServoOn( true );
-				if ( ( result = t.Result ) != string.Empty ) throw new Exception( result );
+				this.CheckAndThrowIfError( this.ServoOn( true ).Result );
 				if ( this.isFirstInit )
 				{
 					this.isFirstInit = false;
@@ -292,7 +291,7 @@ namespace HiPA.Instrument.Motion.APS
 				if ( !this.Board.IsOpen() )
 					throw new Exception( $"MotionBoard[{this.Board.Name}] has not open." );
 				if ( !this.Interlocks.IsSafeToOperate() ) throw new Exception( $"^{( int )RunErrors.ERR_InterlockInEffect}^" );
-				this.ServoOn( true );
+				this.OnServoOn( true );
 				this.Status.UpdateStatus();
 				if ( !this.Status.SVON )
 					throw new Exception( $"Axis[{this.AxisId}] is disabled" );
@@ -400,7 +399,7 @@ namespace HiPA.Instrument.Motion.APS
 				int speed = ( int )( trajectory.Velocity * scale );
 
 				if ( !this.isValid( trajectory.Position ) )
-					throw new Exception( $"Axis[{this.AxisId}] trajectory pos of {pos} over limit" );
+					throw new Exception( $"Axis[{this.AxisId}] trajectory pos of {trajectory.Position} over limit" );
 				int resultint;
 				if ( ( result = this.OnSetAxisProfile( trajectory ) ) != string.Empty ) throw new Exception( result );
 				this.InternalProvider.SetUnsafe();
@@ -436,9 +435,9 @@ namespace HiPA.Instrument.Motion.APS
 
 				int dist = ( int )( trajectory.Distance * scale );
 				int speed = ( int )( trajectory.Velocity * scale );
-
-				if ( !this.isValid( Command_Pos + trajectory.Distance ) )
-					throw new Exception( $"Axis[{this.AxisId}] trajectory pos of {( Command_Pos + trajectory.Distance )} over limit" );
+				var ScaledCommandPos = Command_Pos / scale;
+				if ( !this.isValid( ScaledCommandPos + trajectory.Distance ) )
+					throw new Exception( $"Axis[{this.AxisId}] trajectory pos of {( ScaledCommandPos + trajectory.Distance )} over limit" );
 				int resultint;
 				if ( ( result = this.OnSetAxisProfile( trajectory ) ) != string.Empty ) throw new Exception( result );
 				this.InternalProvider.SetUnsafe();
@@ -653,7 +652,7 @@ namespace HiPA.Instrument.Motion.APS
 			return result;
 		}
 
-		public override string WaitMoveComplete()
+		public override string WaitMoveComplete( double? Position = null )
 		{
 			var result = string.Empty;
 			try
@@ -802,6 +801,11 @@ namespace HiPA.Instrument.Motion.APS
 
 			return string.Empty;
 		}
+
+		public override void ApplyRecipe( RecipeBaseUtility recipeItem )
+		{
+			throw new NotImplementedException();
+		}
 		#endregion
 	}
 
@@ -851,12 +855,6 @@ namespace HiPA.Instrument.Motion.APS
 			this.NSTP = ( status & ( 0x01 << AdLinkAxisConfiguration.MTS_NSTP ) ) != 0;
 			this.HM = ( status & ( 0x01 << AdLinkAxisConfiguration.MTS_HMV ) ) != 0;
 			this.ASTP = ( status & ( 0x01 << AdLinkAxisConfiguration.MTS_ASTP ) ) != 0;
-
-
-			if ( axisId == 0 && this.INP )
-			{
-
-			}
 		}
 
 		protected override void UpdateProfile()

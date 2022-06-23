@@ -212,7 +212,8 @@ new ReadOnlyCollection<int>( new[]
 				// Set trigger off first before single grab
 				if ( !MachineStateMng.isSimulation )
 					this._camera.TriggerMode = JptCamera.CameraSettings.TriggerModeEnum.TRIGGER_OFF;
-
+				this._camera.ResultCross.Clear();
+				if ( sErr.Length > 0 ) throw new Exception( sErr );
 				sErr = this._camera.GrabSingle();
 				if ( sErr.Length > 0 ) throw new Exception( sErr );
 			}
@@ -230,6 +231,7 @@ new ReadOnlyCollection<int>( new[]
 			string sErr = string.Empty;
 			try
 			{
+				this._camera.ResultCross.Clear();
 				if ( this._camera.IsInContinuousGrabMode ) return string.Empty;
 
 				sErr = this._camera.StartGrab();
@@ -381,6 +383,7 @@ new ReadOnlyCollection<int>( new[]
 		}
 		public ROIHandler Cal => this._camera.Cal;
 		public ROIHandler Inspect => this._camera.Inspect;
+		public ResultDisplay ResultCross => this._camera.ResultCross;
 		public string LoadImageFromFileSdk( string Filename )
 		{
 			JPTUtility.Logger.doLog( "FXRAOI_LoadImageFromFileSdk(Filename) ... " + Filename );

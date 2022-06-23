@@ -11,7 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using Validations;
 
-namespace NeoWisePlatform.SystemControls.Panels
+namespace HiPA.Instrument.Motion.Adlink.UI
 {
 	/// <summary>
 	/// Interaction logic for Ctrl_InstrumentOfAxisBoard.xaml
@@ -88,7 +88,7 @@ namespace NeoWisePlatform.SystemControls.Panels
 				b.Source = this.o_Source.Configuration;
 				b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
 				b.Path = new PropertyPath( "StartAxisId" );
-				Valid_Rule_INT RU = new Valid_Rule_INT();
+				var RU = new Valid_Rule_Base();
 				RU.Min = 0;
 				RU.Max = 2000;
 				b.ValidationRules.Clear();
@@ -118,7 +118,7 @@ namespace NeoWisePlatform.SystemControls.Panels
 				b.Source = this.o_Source.Configuration;
 				b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
 				b.Path = new PropertyPath( "CardID" );
-				RU = new Valid_Rule_INT();
+				RU = new Valid_Rule_Base();
 				RU.Min = 0;
 				RU.Max = 100;
 				b.ValidationRules.Clear();

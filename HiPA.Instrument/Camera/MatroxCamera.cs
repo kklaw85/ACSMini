@@ -1,6 +1,7 @@
 ﻿using B262_Vision_Processing;
 using HiPA.Common;
 using HiPA.Common.Forms;
+using Matrox.MatroxImagingLibrary;
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -330,13 +331,13 @@ namespace HiPA.Instrument.Camera
 		protected void GetConfiguration()
 		{
 			this.Configuration.Exposure.Min = 1000;
-			this.Configuration.Exposure.Max = 100000;
-			this.Configuration.Gain.Min = MachineStateMng.isSimulation ? 1000 : this.Camera.MinGain;
-			this.Configuration.Gain.Max = 5;
+			this.Configuration.Exposure.Max = 50000;
+			this.Configuration.Gain.Min = MachineStateMng.isSimulation ? 0.1 : this.Camera.MinGain;
+			this.Configuration.Gain.Max = 2;
 			this.Configuration.Gamma.Min = MachineStateMng.isSimulation ? 0.5 : this.Camera.GammaMin;
 			this.Configuration.Gamma.Max = MachineStateMng.isSimulation ? 5 : this.Camera.GammaMax;
-			this.Resolution.MaxWidth = MachineStateMng.isSimulation ? 640 : this.Camera.WidthMaximum;
-			this.Resolution.MaxHeight = MachineStateMng.isSimulation ? 480 : this.Camera.HeightMaximum;
+			this.Resolution.MaxWidth = MachineStateMng.isSimulation ? DEFAULT_IMAGE_SIZE_X : this.Camera.WidthMaximum;
+			this.Resolution.MaxHeight = MachineStateMng.isSimulation ? DEFAULT_IMAGE_SIZE_Y : this.Camera.HeightMaximum;
 		}
 		protected void ApplyConfiguration()
 		{
@@ -435,13 +436,12 @@ namespace HiPA.Instrument.Camera
 			return sErr;
 		}
 
-		public string GetCalBMP( ref Bitmap Calmodel )
+		public string GetCalBMP( ref MIL_ID Calmodel )
 		{
 			var Result = "";
 			try
 			{
-				Calmodel = B262_Process.BlankBmp;
-				if ( ( Result = this.Vision.ArrayMMFToBMP( this.Configuration.MMFs.Calibration, ref Calmodel ) ) != string.Empty ) throw new Exception( Result );
+				if ( ( Result = this.Vision.ArrayMMFToMilIMG( this.Configuration.MMFs.Calibration, ref Calmodel ) ) != string.Empty ) throw new Exception( Result );
 			}
 			catch ( Exception ex )
 			{
@@ -467,13 +467,12 @@ namespace HiPA.Instrument.Camera
 			}
 			return Result;
 		}
-		public string GetProcessBMP( ref Bitmap Calmodel )
+		public string GetProcessBMP( ref MIL_ID Calmodel )
 		{
 			var Result = "";
 			try
 			{
-				Calmodel = B262_Process.BlankBmp;
-				if ( ( Result = this.Vision.ArrayMMFToBMP( this.Configuration.MMFs.Process, ref Calmodel ) ) != string.Empty ) throw new Exception( Result );
+				if ( ( Result = this.Vision.ArrayMMFToMilIMG( this.Configuration.MMFs.Process, ref Calmodel ) ) != string.Empty ) throw new Exception( Result );
 			}
 			catch ( Exception ex )
 			{
@@ -619,9 +618,76 @@ namespace HiPA.Instrument.Camera
 				return this.Result;
 			} );
 		}
+		private string SingleShottoMMFArr( ROIRectangle ROI, out byte[] mmf_Arr )
+		{
+			var Result = "";
+			MIL_ID m_ModContext = MIL.M_NULL;
+			MIL_ID m_roiImage = MIL.M_NULL;
+			mmf_Arr = null;
+			try
+			{
+				this.CheckAndThrowIfError( ErrorClass.E5, this.SingleGrab().Result );
+				this.CheckAndThrowIfError( ErrorClass.E5, this.GrabSuccessful ? string.Empty : "Grab unsuccessful" );
+				MIL.MbufChild2d( this.Camera.MilImage, ROI.X, ROI.Y, ROI.Width, ROI.Height, ref m_roiImage );
+				this.CheckAndThrowIfError( ErrorClass.E5, B262_Process.DefineMMF( m_roiImage, out m_ModContext ) );
+				this.CheckAndThrowIfError( ErrorClass.E5, this.Vision.MMFToByteArr( m_ModContext, out mmf_Arr ) );
+			}
+			catch ( Exception ex )
+			{
+				Result = this.FormatErrMsg( this.Name, ex );
+				m_ModContext = MIL.M_NULL;
+			}
+			finally
+			{
+				if ( m_roiImage != MIL.M_NULL ) MIL.MbufFree( m_roiImage );
+			}
+			return Result;
+		}
+
+		public string SingleShotToConfigCal()
+		{
+			var Result = "";
+			MIL_ID m_ModContext = MIL.M_NULL;
+			try
+			{
+				this.CheckAndThrowIfError( ErrorClass.E5, this.SingleShottoMMFArr( this.Configuration.CalROI, out byte[] mmfarr ) );
+				this.Configuration.MMFs.Calibration = mmfarr;
+			}
+			catch ( Exception ex )
+			{
+				Result = this.FormatErrMsg( this.Name, ex );
+				m_ModContext = MIL.M_NULL;
+			}
+			finally
+			{
+				if ( m_ModContext != MIL.M_NULL ) MIL.MmodFree( m_ModContext );
+			}
+			return Result;
+		}
+
+		public string SingleShotToConfigProcess()
+		{
+			var Result = "";
+			MIL_ID m_ModContext = MIL.M_NULL;
+			try
+			{
+				this.CheckAndThrowIfError( ErrorClass.E5, this.SingleShottoMMFArr( this.Configuration.InspectROI, out byte[] mmfarr ) );
+				this.Configuration.MMFs.Process = mmfarr;
+			}
+			catch ( Exception ex )
+			{
+				Result = this.FormatErrMsg( this.Name, ex );
+				m_ModContext = MIL.M_NULL;
+			}
+			finally
+			{
+				if ( m_ModContext != MIL.M_NULL ) MIL.MmodFree( m_ModContext );
+			}
+			return Result;
+		}
 
 		#region processing
-		private Task<(ErrorClass EClass, string ErrorMessage, C_PointD RawPos, C_PointD RawOffsetCenter, C_PointD OffPos, C_PointD PosOffsetMM)> CheckModelPosition( ROIRectangle ROI )
+		private Task<(ErrorClass EClass, string ErrorMessage, C_PointD RawPos, C_PointD RawOffsetCenter, C_PointD OffPos, C_PointD PosOffsetMM)> CheckModelPosition( ROIRectangle ROI, byte[] ModelArr )
 		{
 			return Task.Run( () =>
 			{
@@ -632,13 +698,15 @@ namespace HiPA.Instrument.Camera
 				var PosOffsetMM = new C_PointD();
 				try
 				{
+					this.Camera.ResultCross.Clear();
 					this.CheckAndThrowIfError( ErrorClass.E5, this.SingleGrab().Result );
 					this.CheckAndThrowIfError( ErrorClass.E5, this.GrabSuccessful ? string.Empty : "Grab unsuccessful" );
 					if ( !this.Bypass.BypassVisionCapture && !this.Bypass.BypassVisionProcessing )
 					{
-						var Res = this.Vision.CheckModelPosition( this.Configuration.MMFs.Calibration, new CameraObj( this.Camera.MilImage, this.Camera.XHairPos.XOffsetPix, this.Camera.XHairPos.YOffsetPix ), ROI ).Result;
-						this.CheckAndThrowIfError( Res.EClass, Res.ErrorMessage );
+						var Res = this.Vision.CheckModelPosition( ModelArr, new CameraObj( this.Camera.MilImage, this.Camera.XHairPos.XOffsetPix, this.Camera.XHairPos.YOffsetPix ), ROI ).Result;
+						this.CheckAndThrowIfError( Res.EResult );
 						RawPos = Res.RawPos;
+						this.Camera.ResultCross.XHairDraw( true, Res.RawPos );
 						OffPos = Res.OffPos;
 						RawOffsetCenter = Res.RawOffsetCenter;
 						PosOffsetMM.X = OffPos.X / this.Configuration.ScalePixperMM.ScalePixperMM.X;
@@ -655,7 +723,7 @@ namespace HiPA.Instrument.Camera
 				}
 				catch ( Exception ex )
 				{
-					this.CatchAndPromptErr( ex );
+					this.CatchException( ex );
 				}
 				return (this.Result.EClass, this.Result.ErrorMessage, RawPos, RawOffsetCenter, OffPos, PosOffsetMM);
 			} );
@@ -668,7 +736,7 @@ namespace HiPA.Instrument.Camera
 				var PointRes = new C_PointD();
 				try
 				{
-					var Res = this.CheckModelPosition( this.Configuration.CalROI ).Result;
+					var Res = this.CheckModelPosition( this.Configuration.CalROI, this.Configuration.MMFs.Calibration ).Result;
 					this.CheckAndThrowIfError( Res.EClass, Res.ErrorMessage );
 					PointRes = Res.RawPos;
 				}
@@ -687,14 +755,23 @@ namespace HiPA.Instrument.Camera
 				try
 				{
 					this.InspectionResult.Clear();
-					var Res = this.CheckModelPosition( this.Configuration.InspectROI ).Result;
+					var Res = this.CheckModelPosition( this.Configuration.InspectROI, this.Configuration.MMFs.Process ).Result;
 					this.CheckAndThrowIfError( Res.EClass, Res.ErrorMessage );
 					this.InspectionResult.SetResult( Res.RawPos, Res.RawOffsetCenter, Res.OffPos, Res.PosOffsetMM );
 				}
 				catch ( Exception ex )
 				{
 					this.InspectionResult.Status = eInspStatusSingle.Fail;
-					this.CatchAndPromptErr( ex );
+					this.CatchException( ex );
+				}
+				finally
+				{
+					if ( this.Result.EClass == ErrorClass.E3 )
+					{
+						var point = new C_PointD( 99999, 99999, 99999 );
+						this.InspectionResult.SetResult( point, point, point, point );
+						this.SaveIMG( true ).Wait();
+					}
 				}
 				return this.Result;
 			} );
@@ -707,7 +784,7 @@ namespace HiPA.Instrument.Camera
 				var PointRes = new C_PointD();
 				try
 				{
-					var Res = this.CheckModelPosition( this.Configuration.InspectROI ).Result;
+					var Res = this.CheckModelPosition( this.Configuration.InspectROI, this.Configuration.MMFs.Process ).Result;
 					this.CheckAndThrowIfError( Res.EClass, Res.ErrorMessage );
 					PointRes = Res.RawOffsetCenter;
 					this.Configuration.XHairPos.SetCrossHairPos( PointRes );
@@ -840,6 +917,11 @@ namespace HiPA.Instrument.Camera
 			catch
 			{ }
 			return null;
+		}
+
+		public override void ApplyRecipe( RecipeBaseUtility recipeItem )
+		{
+			throw new NotImplementedException();
 		}
 	}
 	[Serializable]

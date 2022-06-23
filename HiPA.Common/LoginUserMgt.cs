@@ -324,6 +324,13 @@ namespace HiPA.Common
 			UserPassword = "",
 			UserConfig = new XmlDictionary<string, UserAccessConfig>(),
 		};
+		private UserMgtConfig Manu = new UserMgtConfig()
+		{
+			GroupID = AccessLevel.Manufacturer,
+			UserID = "Manu",
+			UserPassword = "",
+			UserConfig = new XmlDictionary<string, UserAccessConfig>(),
+		};
 		public void Logout()
 		{
 			this.CurrentLoginUser = this.Guest;
@@ -557,8 +564,8 @@ namespace HiPA.Common
 				{
 					var UserMngCfg = new UserMgtConfig()
 					{
-						UserID = "JPT2020",
-						UserPassword = ComputeSha256Hash( "Zty112375." ),
+						UserID = "ENERGEO",
+						UserPassword = ComputeSha256Hash( "ENERGEO123" ),
 						GroupID = AccessLevel.Manufacturer,
 						UserConfig = new XmlDictionary<string, UserAccessConfig>(),
 					};

@@ -77,9 +77,58 @@ namespace B262_Vision_Processing
 			}
 			return sErr;
 		}
-		public static string FindModel( byte[] mmffile, CameraObj CamObj, ROIRectangle ROI, out C_PointD RawPosition, out C_PointD RawOffsetCenter, out C_PointD OffsetPosition )
+		public static string DefineMMF( MIL_ID MilImage, out MIL_ID m_ModContext )
 		{
 			string sErr = string.Empty;
+			m_ModContext = MIL.M_NULL;
+			try
+			{
+				if ( m_system == MIL.M_NULL )
+					throw new NullReferenceException( "MIL System is null. Please set it using SetMatroxSystemID(MIL_ID SystemId)" );
+
+				MIL.MmodAlloc( m_system, MIL.M_GEOMETRIC, MIL.M_DEFAULT, ref m_ModContext );
+
+				MIL.MmodDefine( m_ModContext, MIL.M_IMAGE, MilImage, MIL.M_DEFAULT, MIL.M_DEFAULT, MIL.M_DEFAULT, MIL.M_DEFAULT );
+
+				MIL.MmodControl( m_ModContext, MIL.M_CONTEXT, MIL.M_ACCURACY, MIL.M_HIGH );
+
+				MIL.MmodControl( m_ModContext, MIL.M_CONTEXT, MIL.M_SPEED, MIL.M_VERY_HIGH );
+
+				MIL.MmodControl( m_ModContext, MIL.M_CONTEXT, MIL.M_SEARCH_ANGLE_RANGE, MIL.M_DISABLE );
+
+				MIL.MmodControl( m_ModContext, MIL.M_CONTEXT, MIL.M_SEARCH_SCALE_RANGE, MIL.M_DISABLE ); //210804 disabled, it somehow messed up the score
+
+				MIL.MmodControl( m_ModContext, MIL.M_CONTEXT, MIL.M_SEARCH_POSITION_RANGE, MIL.M_ENABLE );
+
+				MIL.MmodControl( m_ModContext, MIL.M_CONTEXT, MIL.M_NUMBER, MIL.M_ALL );
+
+				MIL.MmodControl( m_ModContext, MIL.M_CONTEXT, MIL.M_SMOOTHNESS, 100 );
+				MIL.MmodControl( m_ModContext, MIL.M_CONTEXT, MIL.M_DETAIL_LEVEL, MIL.M_MEDIUM );
+				MIL.MmodControl( m_ModContext, MIL.M_ALL, MIL.M_ACCEPTANCE, 70 );
+				MIL.MmodControl( m_ModContext, MIL.M_ALL, MIL.M_CERTAINTY, 90 );
+
+				MIL.MmodControl( m_ModContext, MIL.M_ALL, MIL.M_ACCEPTANCE_TARGET, 10 );
+				MIL.MmodControl( m_ModContext, MIL.M_ALL, MIL.M_CERTAINTY_TARGET, 10 );
+
+				MIL.MmodControl( m_ModContext, MIL.M_ALL, MIL.M_ANGLE_DELTA_NEG, 0 );
+				MIL.MmodControl( m_ModContext, MIL.M_ALL, MIL.M_ANGLE_DELTA_POS, 0 );
+
+				MIL.MmodControl( m_ModContext, MIL.M_ALL, MIL.M_SCALE_MIN_FACTOR, 1 );
+				MIL.MmodControl( m_ModContext, MIL.M_ALL, MIL.M_SCALE_MAX_FACTOR, 1 );
+
+				MIL.MmodControl( m_ModContext, MIL.M_ALL, MIL.M_POLARITY, MIL.M_SAME );
+				MIL.MmodControl( m_ModContext, MIL.M_CONTEXT, MIL.M_TIMEOUT, 300 );
+				//  MIL.MmodSave(MIL.M_INTERACTIVE, m_ModContext, MIL.M_DEFAULT);
+			}
+			catch ( Exception ex )
+			{
+				sErr = "Define Image to MMF failed." + ex.Message;
+			}
+			return sErr;
+		}
+		public static ErrorResult FindModel( byte[] mmffile, CameraObj CamObj, ROIRectangle ROI, out C_PointD RawPosition, out C_PointD RawOffsetCenter, out C_PointD OffsetPosition )
+		{
+			var Result = new ErrorResult();
 			MIL_ID m_ModContextResult = MIL.M_NULL;
 			MIL_ID m_ModContext = MIL.M_NULL;
 			MIL_ID m_roiImage = MIL.M_NULL;
@@ -133,18 +182,22 @@ namespace B262_Vision_Processing
 						Y = modelPosY + ROI.Y - ImgCenterY,
 						Theta = modelAngle,
 					};
-
-
 				}
 				else if ( iNumberPoint > 1 )
+				{
+					Result.EClass = ErrorClass.E3;
 					throw new Exception( "More than 1 points detected" );
+				}
 				else
+				{
+					Result.EClass = ErrorClass.E3;
 					throw new Exception( "No point detected" );
-
+				}
 			}
 			catch ( Exception ex )
 			{
-				sErr = "Find model fail" + ex.Message;
+				if ( Result.EClass == ErrorClass.OK ) Result.EClass = ErrorClass.E6;
+				Result.ErrorMessage = "Find model fail" + ex.Message;
 			}
 			finally
 			{
@@ -157,7 +210,7 @@ namespace B262_Vision_Processing
 					MIL.MmodFree( m_ModContext );
 				}
 			}
-			return sErr;
+			return Result;
 		}
 		#endregion
 		/// <summary>

@@ -86,5 +86,20 @@
 			else
 				return false;
 		}
+		public static bool IsValidEx( string val, double MinVal, double MaxVal )
+		{
+			if ( val == null || val == "" ) return false;
+
+			double temp = 0;
+			if ( double.TryParse( val, out temp ) )
+			{
+				if ( temp > MinVal && temp < MaxVal )
+					return true;
+				else
+					return false;
+			}
+			else
+				return false;
+		}
 	}
 }

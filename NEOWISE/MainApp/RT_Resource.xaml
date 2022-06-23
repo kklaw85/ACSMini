@@ -159,6 +159,12 @@
         <Setter Property="CornerRadius" Value="3"/>
         <Setter Property="Background" Value="{StaticResource WindowsBackground}"/>
     </Style>
+    <Style x:Key="PowerSource" TargetType="Border">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="3"/>
+        <Setter Property="Background" Value="{StaticResource WindowsBackground}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
+    </Style>
     <Style x:Key="IOInd" TargetType="Border">
         <Setter Property="BorderBrush" Value="Lime"/>
         <Setter Property="BorderThickness" Value="2"/>
@@ -344,6 +350,39 @@
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontSize" Value="16" />
     </Style>
+    <Style x:Key="LB_PowerSourceReadingBigRight" TargetType="Label" BasedOn="{StaticResource LB_ItemData}">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Padding" Value="0,0,3,0"/>
+    </Style>
+    <Style x:Key="LB_PowerSourceReadingBigLeft" TargetType="Label" BasedOn="{StaticResource LB_ItemData}">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+    <Style x:Key="LB_PowerSourceReadingSmallLeft" TargetType="Label" BasedOn="{StaticResource LB_ItemData}">
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="Gray"/>
+    </Style>
+    <Style x:Key="LB_PowerSourceReadingSmallCenter" TargetType="Label" BasedOn="{StaticResource LB_ItemData}">
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="Gray"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+    <Style x:Key="LB_PowerSourceReadingSmallRight" TargetType="Label" BasedOn="{StaticResource LB_ItemData}">
+        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="Gray"/>
+        <Setter Property="Padding" Value="0,0,3,0"/>
+    </Style>
     <Style x:Key="LB_StatsContent_Left" TargetType="Label" BasedOn="{StaticResource LB_ItemContent}">
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontSize" Value="16" />
@@ -388,6 +427,9 @@
         <Style.Triggers>
             <Trigger Property="Validation.HasError" Value="true">
                 <Setter Property="Background" Value="{StaticResource BR_TEXT_INVALID}"/>
+            </Trigger>
+            <Trigger Property="Validation.HasError" Value="false">
+                <Setter Property="Background" Value="Transparent"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -1568,7 +1610,7 @@
                             <Setter Property="HorizontalAlignment" Value="Left"/>
                             <Setter Property="VerticalAlignment" Value="Center"/>
                             <Setter Property="FontFamily" Value="Segoe"/>
-                            <Setter Property="FontSize" Value="13"/>
+                            <Setter Property="FontSize" Value="11"/>
                             <Setter Property="FontWeight" Value="Normal"/>
                         </Style>
                     </ControlTemplate.Resources>

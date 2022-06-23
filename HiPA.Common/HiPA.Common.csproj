@@ -164,6 +164,8 @@
     <Compile Include="Utils\RectangleD.cs" />
     <Compile Include="Utils\SizeD.cs" />
     <Compile Include="Utils\Win32Extension.cs" />
+    <Compile Include="Validation.cs" />
+    <Compile Include="Validator.cs" />
     <Compile Include="XmlHelper.cs" />
   </ItemGroup>
   <ItemGroup>

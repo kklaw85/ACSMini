@@ -1,6 +1,6 @@
 ﻿<Panelbase:PanelBase
 			 xmlns:Panelbase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
-			 x:Class="NeoWisePlatform.SystemControls.Panels.Ctrl_HomingParamAdlinkPnl"
+			 x:Class="HiPA.Instrument.Motion.Adlink.UI.Ctrl_HomingParamAdlinkPnl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

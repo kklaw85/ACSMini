@@ -3,10 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:Panels="clr-namespace:NeoWisePlatform.UI.SystemControls.Panels.Motion"
 			 xmlns:Pagebase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
-             xmlns:Panels1="clr-namespace:NeoWisePlatform.SystemControls.Panels"
-    x:Class="NeoWisePlatform.UI.SystemControls.SubPages.Ctrl_InstrumentOfMotion"
+             xmlns:Panels2="clr-namespace:HiPA.Instrument.Motion.Adlink.UI"
+             x:Class="HiPA.Instrument.Motion.Adlink.UI.SubPage.Ctrl_InstrumentOfMotion"
              mc:Ignorable="d" 
              Width="auto" Height="auto"
              Loaded="UserControl_Loaded">
@@ -27,7 +26,7 @@
                             </Label.RenderTransform>
                         </Label>
                     </Expander.Header>
-                    <Panels1:Ctrl_InstrumentOfAxisBoard x:Name="AxisBoard"/>
+                    <Panels2:Ctrl_InstrumentOfAxisBoard x:Name="AxisBoard"/>
                 </Expander>
                 <Expander ExpandDirection="Right" Background="{StaticResource MahApps.Brushes.ThemeBackground}" IsExpanded="True" Margin="5,0,0,0">
                     <Expander.Header>
@@ -57,7 +56,7 @@
                             </Label.RenderTransform>
                         </Label>
                     </Expander.Header>
-                    <Panels:Ctrl_InstrumentOfAxis x:Name="AxisConfig" />
+                    <Panels2:Ctrl_InstrumentOfAxis x:Name="AxisConfig" />
                 </Expander>
             </StackPanel>
         </StackPanel>

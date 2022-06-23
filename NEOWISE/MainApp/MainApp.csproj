@@ -326,7 +326,6 @@
     <Compile Include="UI\CommonControls\Panels\Ctrl_IOMotionViewOnly.xaml.cs">
       <DependentUpon>Ctrl_IOMotionViewOnly.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converter\Converter.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -338,9 +337,6 @@
     </Compile>
     <Compile Include="UI\CommonControls\Ctrl_IOMotionPnl.xaml.cs">
       <DependentUpon>Ctrl_IOMotionPnl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CommonControls\Ctrl_InitBar.xaml.cs">
-      <DependentUpon>Ctrl_InitBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Module\SubModule\GenIO.cs" />
     <Compile Include="UI\CommonControls\Panels\Ctrl_DPAD.xaml.cs">
@@ -403,9 +399,6 @@
     <Compile Include="UI\SystemControls\Panels\Ctrl_AlarmConfig.xaml.cs">
       <DependentUpon>Ctrl_AlarmConfig.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\SystemControls\Panels\Motion\Ctrl_InstrumentOfIOBoard.xaml.cs">
-      <DependentUpon>Ctrl_InstrumentOfIOBoard.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\ProductionSetup\SubPages\Ctrl_SetupWorkPosPage.xaml.cs">
       <DependentUpon>Ctrl_SetupWorkPosPage.xaml</DependentUpon>
     </Compile>
@@ -426,8 +419,6 @@
     <Compile Include="Sequence\SequenceBase.cs" />
     <Compile Include="Sequence\WorkerThread.cs" />
     <Compile Include="Classes\SystemInfo.cs" />
-    <Compile Include="Classes\Validation.cs" />
-    <Compile Include="Classes\Validator.cs" />
     <Compile Include="Module\SubModule\IoModules.cs" />
     <Compile Include="Module\PNPModule.cs" />
     <Compile Include="Module\MTEquipment.cs" />
@@ -440,32 +431,14 @@
     <Compile Include="Recipe\Window\Win_DialogProductName.xaml.cs">
       <DependentUpon>Win_DialogProductName.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\SystemControls\Panels\Motion\Ctrl_HomingParamAdlinkPnl.xaml.cs">
-      <DependentUpon>Ctrl_HomingParamAdlinkPnl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\SystemControls\Panels\Motion\Ctrl_InstrumentOfAxis.xaml.cs">
-      <DependentUpon>Ctrl_InstrumentOfAxis.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\SystemControls\Panels\Motion\Ctrl_InstrumentOfAxisBoard.xaml.cs">
-      <DependentUpon>Ctrl_InstrumentOfAxisBoard.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\SystemControls\Panels\Motion\Ctrl_MotionProfile.xaml.cs">
-      <DependentUpon>Ctrl_MotionProfile.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\CommonControls\Ctrl_DisplayPanels.xaml.cs">
       <DependentUpon>Ctrl_DisplayPanels.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\SystemControls\SubPages\Ctrl_ManufacturerBypassOption.xaml.cs">
       <DependentUpon>Ctrl_ManufacturerBypassOption.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\SystemControls\SubPages\Ctrl_InstrumentOfIO.xaml.cs">
-      <DependentUpon>Ctrl_InstrumentOfIO.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\SystemControls\SubPages\Ctrl_InstrumentOfCamera.xaml.cs">
       <DependentUpon>Ctrl_InstrumentOfCamera.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\SystemControls\SubPages\Ctrl_InstrumentOfMotion.xaml.cs">
-      <DependentUpon>Ctrl_InstrumentOfMotion.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\SystemControls\SubPages\Ctrl_TestSequences.xaml.cs">
       <DependentUpon>Ctrl_TestSequences.xaml</DependentUpon>
@@ -513,10 +486,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\CommonControls\Ctrl_IOMotionPnl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\CommonControls\Ctrl_InitBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -657,10 +626,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\SystemControls\Panels\Motion\Ctrl_InstrumentOfIOBoard.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="UI\ProductionSetup\SubPages\Ctrl_SetupWorkPosPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -701,22 +666,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\SystemControls\Panels\Motion\Ctrl_HomingParamAdlinkPnl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\SystemControls\Panels\Motion\Ctrl_InstrumentOfAxis.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\SystemControls\Panels\Motion\Ctrl_InstrumentOfAxisBoard.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\SystemControls\Panels\Motion\Ctrl_MotionProfile.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="UI\CommonControls\Ctrl_DisplayPanels.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -725,15 +674,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\SystemControls\SubPages\Ctrl_InstrumentOfIO.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="UI\SystemControls\SubPages\Ctrl_InstrumentOfCamera.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\SystemControls\SubPages\Ctrl_InstrumentOfMotion.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

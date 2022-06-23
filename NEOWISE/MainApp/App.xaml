@@ -1,11 +1,11 @@
 ﻿<App:GlobalizedApplication x:Class="NeoWisePlatform.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:Converter="clr-namespace:Converter"
              xmlns:DataUtility="clr-namespace:N_Data_Utilities"
              xmlns:DataUtility1="clr-namespace:N_Data_Utilities;assembly=HiPA.Common"
              xmlns:App="clr-namespace:WPFSharp.Globalizer;assembly=WPFSharp.Globalizer"
-             Startup="App_Startup">
+                           xmlns:Converter1="clr-namespace:Converter;assembly=HiPA.Instrument"
+                           Startup="App_Startup">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -15,18 +15,18 @@
                 <ResourceDictionary Source="RT_Resource.xaml" />
                 <ResourceDictionary Source="RT_Eng.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <Converter:FloatTo3DecimalDisplay x:Key="Fto3D"/>
-            <Converter:FloatTo2DecimalDisplay x:Key="Fto2D"/>
-            <Converter:DoubleTo3DecimalDisplay x:Key="DTo3D"/>
-            <Converter:DoubleTo2DecimalDisplay x:Key="Dto2D"/>
-            <Converter:IntegerToString x:Key="Int2Str"/>
-            <Converter:UIntegerToString x:Key="UInt2Str"/>
+            <Converter1:FloatTo3DecimalDisplay x:Key="Fto3D"/>
+            <Converter1:FloatTo2DecimalDisplay x:Key="Fto2D"/>
+            <Converter1:DoubleTo3DecimalDisplay x:Key="DTo3D"/>
+            <Converter1:DoubleTo2DecimalDisplay x:Key="Dto2D"/>
+            <Converter1:IntegerToString x:Key="Int2Str"/>
+            <Converter1:UIntegerToString x:Key="UInt2Str"/>
             <DataUtility1:BoolToStyleRed x:Key="BoolToStyleRed"/>
             <DataUtility1:StateBGColorConv x:Key="StateBGColorConv"/>
             <DataUtility1:StateFGColorConv x:Key="StateFGColorConv"/>
-            <Converter:LimeWhiteBoolToStateColor x:Key="LimeBoolToStateColor"/>
-            <Converter:BoolToTextBoxBg x:Key="BoolToTextBoxBg"/>
-            <Converter:DioValueToBool x:Key="DioValueToBool"/>
+            <Converter1:LimeWhiteBoolToStateColor x:Key="LimeBoolToStateColor"/>
+            <Converter1:BoolToTextBoxBg x:Key="BoolToTextBoxBg"/>
+            <DataUtility:DioValueToBool x:Key="DioValueToBool"/>
             <DataUtility:DioValueToBrushResetIORec x:Key="DioValueToBrushResetIORec"/>
             <DataUtility:DioValueToBrushIORec x:Key="DioValueToBrushIORec"/>
             <DataUtility1:BoolToBrushIORec x:Key="BoolToBrushIORec"/>

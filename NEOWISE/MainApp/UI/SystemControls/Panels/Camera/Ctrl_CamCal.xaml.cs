@@ -3,10 +3,10 @@ using HiPA.Common;
 using HiPA.Common.UControl;
 using HiPA.Instrument.Camera;
 using MahApps.Metro.Controls;
+using Matrox.MatroxImagingLibrary;
 using Microsoft.Win32;
 using N_Data_Utilities;
 using System;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -170,6 +170,11 @@ namespace NeoWisePlatform.UI.SystemControls.Panels.Camera
 					var Ext = Path.GetExtension( filename );
 					if ( ( ErrorMessage = this._Source.ExportCalMMF( filename ) ) != "" ) throw new Exception( ErrorMessage );
 				}
+				else if ( Action == "Capture" )
+				{
+					if ( ( ErrorMessage = this._Source.SingleShotToConfigCal() ) != "" ) throw new Exception( ErrorMessage );
+					this.Display_MMF();
+				}
 			}
 			catch ( Exception ex )
 			{
@@ -182,13 +187,13 @@ namespace NeoWisePlatform.UI.SystemControls.Panels.Camera
 			try
 			{
 				string ErrorMessage = string.Empty;
-				Bitmap model_image = null;
+				MIL_ID model_image = MIL.M_NULL;
 				if ( this._Source?.Configuration?.MMFs?.Calibration != null )
 				{
 					if ( ( ErrorMessage = this._Source?.GetCalBMP( ref model_image ) ) != "" ) throw new Exception( ErrorMessage );
 				}
 
-				this.wfHost_DispMMF.BackgroundImage = model_image;
+				this.DisplayMMF.DisplayBuffer( model_image );
 			}
 			catch ( Exception ex )
 			{
@@ -218,17 +223,7 @@ namespace NeoWisePlatform.UI.SystemControls.Panels.Camera
 				else if ( btn == this.Calculate )
 					if ( ( sErr = this._Source.Configuration.ScalePixperMM.CalculateScale() ) != string.Empty ) throw new Exception( sErr );
 
-
-
-
-				string ErrorMessage = string.Empty;
-				Bitmap model_image = null;
-				if ( this._Source?.Configuration?.MMFs?.Calibration != null )
-				{
-					if ( ( ErrorMessage = this._Source?.GetCalBMP( ref model_image ) ) != "" ) throw new Exception( ErrorMessage );
-				}
-
-				this.wfHost_DispMMF.BackgroundImage = model_image;
+				//this.Display_MMF();
 			}
 			catch ( Exception ex )
 			{

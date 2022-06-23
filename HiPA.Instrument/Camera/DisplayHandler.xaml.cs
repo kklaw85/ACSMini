@@ -166,24 +166,15 @@ namespace HiPA.Instrument.Camera
 			if ( this.Win_CamSetting_Dlg != null )
 				this.Win_CamSetting_Dlg.Close();
 			if ( this._CAM?.Camera == null ) return;
-			if ( ( bool )e.NewValue && this.IsLoaded )
+			if ( this.IsLoaded )
 			{
 				this.Dispatcher.BeginInvoke( DispatcherPriority.Input,
 					new Action( delegate ()
 					{
 						if ( this._CAM != null )
 						{
-							//this._CAM.Camera.IsShowCrossLine = ( bool )this.Chk_xHair.IsChecked;
-							if ( this.b_EnableROI )
-							{
-								this._CAM.Camera.Cal.ShowROI = this.eROItype == ROI.Cal ? ( bool )this.Chk_ROI.IsChecked : false;
-								this._CAM.Camera.Inspect.ShowROI = this.eROItype == ROI.Inspect ? ( bool )this.Chk_ROI.IsChecked : false;
-							}
-							else
-							{
-								this._CAM.Camera.Cal.ShowROI = false;
-								this._CAM.Camera.Inspect.ShowROI = false;
-							}
+							this._CAM.Camera.Cal.ShowROI = this.eROItype == ROI.Cal && this.b_EnableROI ? ( bool )this.Chk_ROI.IsChecked : false;
+							this._CAM.Camera.Inspect.ShowROI = this.eROItype == ROI.Inspect && this.b_EnableROI ? ( bool )this.Chk_ROI.IsChecked : false;
 						}
 						this._CAM.UpdateDisplayZoom();
 					} ) );

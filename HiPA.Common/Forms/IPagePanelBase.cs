@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace HiPA.Common.Forms
 {
@@ -35,35 +36,85 @@ namespace HiPA.Common.Forms
 		}
 		#endregion
 		#region Shared error handling
-		protected string Result = string.Empty;
-		protected void ClearErrorFlags()
-		{
-			this.Result = string.Empty;
-		}
+		protected ErrorResult Result { get; private set; } = new ErrorResult();
 		protected void ThrowError( string ErrorMessage )
 		{
-			if ( ErrorMessage == null ) this.ClearErrorFlags();
-			this.Result = ErrorMessage;
-			throw new Exception( this.Result );
+			if ( string.IsNullOrEmpty( ErrorMessage ) ) this.ClearErrorFlags();
+			this.Result.Set( ErrorClass.E6, ErrorMessage );
+			throw new Exception( this.Result.ErrorMessage );
 		}
-		protected void CheckAndThrowIfError( string ErrorMessage )
+		protected void CatchException( Exception ex )
 		{
-			if ( ErrorMessage == null )
+			this.Result.Set( this.Result.EClass == ErrorClass.OK ? ErrorClass.E6 : this.Result.EClass, this.FormatErrMsg2( null, ex ) );
+		}
+		protected void CatchException( ErrorClass eclass, string err )
+		{
+			this.Result.Set( eclass, err );
+		}
+		protected void CatchAndPromptErr( Exception ex )
+		{
+			this.CatchException( ex );
+			Equipment.ErrManager.RaiseError( null, this.Result.ErrorMessage, ErrorTitle.OperationFailure, this.Result.EClass );
+		}
+		protected void ClearErrorFlags()
+		{
+			this.Result.Reset();
+		}
+		protected void ThrowError( ErrorClass EClass, string ErrorMessage )
+		{
+			this.Result.Set( EClass, ErrorMessage );
+			throw new Exception( ErrorMessage );
+		}
+		private void ThrowError( ErrorResult Result )
+		{
+			this.Result.Set( Result );
+			throw new Exception( Result.ErrorMessage );
+		}
+		protected void CheckAndThrowIfError( string Result )
+		{
+			if ( string.IsNullOrEmpty( Result ) )
 			{
 				this.ClearErrorFlags();
 				return;
 			}
-			this.Result = ErrorMessage;
-			if ( this.Result != string.Empty ) this.ThrowError( this.Result );
+			this.Result.Set( ErrorClass.E6, Result );
+			if ( this.Result.EClass != ErrorClass.OK ) this.ThrowError( this.Result );
 			else this.ClearErrorFlags();
 		}
-		protected void CatchAndPromptErr( Exception ex )
+		protected void CheckAndThrowIfError( ErrorResult Result )
 		{
-			this.Result = Equipment.ErrManager.RaiseError( null, this.FormatErrMsg2( null, ex ), ErrorTitle.OperationFailure, ErrorClass.E6 );
+			if ( Result == null )
+			{
+				this.ClearErrorFlags();
+				return;
+			}
+			this.Result.Set( Result );
+			if ( this.Result.EClass != ErrorClass.OK ) this.ThrowError( this.Result );
+			else this.ClearErrorFlags();
 		}
-		protected void CatchException( Exception ex )
+		protected void CheckAndThrowIfError( ErrorClass EClassIfFail, string ErrorMessage )
 		{
-			this.Result = this.FormatErrMsg2( null, ex );
+			this.Result.Set( EClassIfFail, ErrorMessage );
+			if ( this.Result.ErrorMessage != string.Empty ) this.ThrowError( this.Result );
+			else this.ClearErrorFlags();
+		}
+		protected void CheckAndThrowIfError( Task<ErrorResult>[] tasks )
+		{
+			Task.WaitAll( tasks );
+			foreach ( var task in tasks )
+			{
+				this.CheckAndThrowIfError( task.Result );
+			}
+			this.ClearErrorFlags();
+		}
+		protected void CheckAndThrowIfError( ErrorClass EClass, Task<string>[] tasks )
+		{
+			Task.WaitAll( tasks );
+			foreach ( var task in tasks )
+			{
+				this.CheckAndThrowIfError( EClass, task.Result );
+			}
+			this.ClearErrorFlags();
 		}
 		#endregion
 		#region Cloneable
@@ -208,7 +259,6 @@ namespace HiPA.Common.Forms
 			//return false;
 		}
 		#endregion
-
 	}
 	public class RecipeBaseUtility : B_Utility, INotifyPropertyChanged, System.ICloneable
 	{

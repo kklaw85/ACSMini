@@ -49,6 +49,17 @@ namespace HiPA.Instrument.Motion
 			}
 		}
 
+		private double d_Jerk = 0;
+		public double Jerk
+		{
+			get => Interlocked.CompareExchange( ref this.d_Jerk, 0, 0 );
+			set
+			{
+				Interlocked.Exchange( ref this.d_Jerk, value );
+				this.OnPropertyChanged( "Jerk" );
+			}
+		}
+
 		private double d_deceleration = 0;
 		public double Deceleration
 		{
@@ -59,6 +70,17 @@ namespace HiPA.Instrument.Motion
 				this.OnPropertyChanged( "Deceleration" );
 				if ( this.d_deceleration != 0 )
 					this.TimeDeceleration = this.d_velocity / this.d_deceleration;
+			}
+		}
+
+		private double d_killdeceleration = 0;
+		public double KillDeceleration
+		{
+			get => Interlocked.CompareExchange( ref this.d_killdeceleration, 0, 0 );
+			set
+			{
+				Interlocked.Exchange( ref this.d_killdeceleration, value );
+				this.OnPropertyChanged( "KillDeceleration" );
 			}
 		}
 

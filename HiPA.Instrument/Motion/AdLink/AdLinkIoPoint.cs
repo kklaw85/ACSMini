@@ -1,4 +1,5 @@
 ﻿using HiPA.Common;
+using HiPA.Common.Forms;
 using System;
 using System.Xml.Serialization;
 
@@ -167,6 +168,11 @@ namespace HiPA.Instrument.Motion.APS
 		protected override string OnTerminate()
 		{
 			return string.Empty;
+		}
+
+		public override void ApplyRecipe( RecipeBaseUtility recipeItem )
+		{
+			throw new NotImplementedException();
 		}
 		#endregion
 	}

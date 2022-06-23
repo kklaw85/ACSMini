@@ -6,7 +6,7 @@
         ShowCloseButton="False" ShowMinButton="False" ShowMaxRestoreButton="False"
         WindowStyle="None" Background="Transparent"
 		IsWindowDraggable="True"
-        Loaded="MetroWindow_Loaded_1" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/xaml/behaviors" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="295" Width="137" Visibility="Visible" ShowInTaskbar="False" ResizeMode="NoResize">
+        Loaded="MetroWindow_Loaded_1" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/xaml/behaviors" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="295" Width="200" Visibility="Visible" ShowInTaskbar="False" ResizeMode="NoResize">
     <Border Style="{StaticResource FrameWithShadow}">
         <StackPanel>
             <DockPanel>
@@ -14,15 +14,20 @@
                 <Button x:Name="Btn_Close_Cam_Sett" Content="✖" Style="{StaticResource Button_FrameMenu_RedContent}" HorizontalAlignment="Right" ToolTip="Camera Setting" Width="30" Height="30" Click="Btn_Close_Cam_Sett_Click"/>
             </DockPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <StackPanel Orientation="Vertical">
-                    <Slider Height="200" x:Name="Sld_Gain" HorizontalAlignment="Center" IsMoveToPointEnabled="True" Orientation="Vertical" ValueChanged="Sld_ValueChanged" Thumb.DragCompleted="Slider_DragCompleted" Style="{StaticResource MahApps.Styles.Slider.Win10}"/>
-                    <Label Content="{StaticResource Gain}" Style="{StaticResource LB_ItemContent_Center}" Width="60"/>
-                    <Label Content="0" x:Name="Lbl_Gain_Val" Style="{StaticResource LB_ItemData_Center}" Width="60"/>
+                <StackPanel Orientation="Vertical" x:Name="Gamma">
+                    <Slider Height="200" x:Name="Sld_Gamma" HorizontalAlignment="Center" IsMoveToPointEnabled="True" Orientation="Vertical" Maximum="{Binding Max}" Minimum="{Binding Min}" Value="{Binding Value}" ValueChanged="Sld_ValueChanged" Thumb.DragCompleted="Slider_DragCompleted" Style="{StaticResource MahApps.Styles.Slider.Win10}"/>
+                    <Label Content="{StaticResource Gamma}" Style="{StaticResource LB_ItemContent_Center}" Width="60"/>
+                    <Label Content="{Binding Value}" Style="{StaticResource LB_ItemData_Center}" Width="60"/>
                 </StackPanel>
-                <StackPanel Orientation="Vertical" Margin="5,0,0,0">
-                    <Slider Height="200" x:Name="Sld_Exposure" Orientation="Vertical" HorizontalAlignment="Center" IsMoveToPointEnabled="True" ValueChanged="Sld_ValueChanged" Thumb.DragCompleted="Slider_DragCompleted" Style="{StaticResource MahApps.Styles.Slider.Win10}" Minimum="0" Maximum="497"/>
+                <StackPanel Orientation="Vertical" x:Name="Gain" Margin="5,0,0,0">
+                    <Slider Height="200" x:Name="Sld_Gain" HorizontalAlignment="Center" IsMoveToPointEnabled="True" Orientation="Vertical" Maximum="{Binding Max}" Minimum="{Binding Min}" Value="{Binding Value}" ValueChanged="Sld_ValueChanged" Thumb.DragCompleted="Slider_DragCompleted" Style="{StaticResource MahApps.Styles.Slider.Win10}"/>
+                    <Label Content="{StaticResource Gain}" Style="{StaticResource LB_ItemContent_Center}" Width="60"/>
+                    <Label Content="{Binding Value}" Style="{StaticResource LB_ItemData_Center}" Width="60"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" x:Name="Exposure" Margin="5,0,0,0">
+                    <Slider Height="200" x:Name="Sld_Exposure" Orientation="Vertical" HorizontalAlignment="Center" IsMoveToPointEnabled="True" ValueChanged="Sld_ValueChanged" Value="{Binding Value}" Thumb.DragCompleted="Slider_DragCompleted" Style="{StaticResource MahApps.Styles.Slider.Win10}"  Maximum="{Binding Max}" Minimum="{Binding Min}"/>
                     <Label Content="{StaticResource Exposure}" HorizontalAlignment="Left" Style="{StaticResource LB_ItemContent_Center}" Width="60"/>
-                    <Label Content="0" x:Name="Lbl_Exposure_Val" Style="{StaticResource LB_ItemData_Center}" Width="60"/>
+                    <Label Content="{Binding Value}" Style="{StaticResource LB_ItemData_Center}" Width="60"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

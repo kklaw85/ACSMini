@@ -1,4 +1,5 @@
 ﻿using HiPA.Common;
+using HiPA.Common.Forms;
 using HiPA.Common.Utils;
 using HiPA.Instrument.Motion.APS;
 using System;
@@ -487,6 +488,11 @@ namespace HiPA.Instrument.Motion.Dask
 				result = this.FormatErrMsg( this.Name, ex );
 			}
 			return result;
+		}
+
+		public override void ApplyRecipe( RecipeBaseUtility recipeItem )
+		{
+			throw new NotImplementedException();
 		}
 		#endregion
 	}

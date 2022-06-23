@@ -31,18 +31,10 @@ namespace HiPA.Common
 		F,//speak to manufacturer
 	}
 
-	public class ErrorResult : BaseUtility
+	public class ErrorResult
 	{
-		public ErrorClass EClass
-		{
-			get => this.GetValue( () => this.EClass );
-			set => this.SetValue( () => this.EClass, value );
-		}
-		public string ErrorMessage
-		{
-			get => this.GetValue( () => this.ErrorMessage );
-			set => this.SetValue( () => this.ErrorMessage, value );
-		}
+		public ErrorClass EClass { get; set; }
+		public string ErrorMessage { get; set; }
 		public void Reset()
 		{
 			this.EClass = ErrorClass.OK;
@@ -63,6 +55,7 @@ namespace HiPA.Common
 			this.EClass = Source.EClass;
 			this.ErrorMessage = Source.ErrorMessage;
 		}
+		public bool IsStoppable => ( int )this.EClass >= ( int )ErrorClass.E4;
 	}
 
 	[Serializable]
@@ -299,7 +292,7 @@ namespace HiPA.Common
 				this.AlarmErrLog.WriteLog( DecodedMsg[ 0 ] );
 				Application.Current.Dispatcher.BeginInvoke( ( Action )delegate // <--- HERE
 				{
-					this.AlarmList.Add( alarm );
+					this.AlarmList.Insert( 0, alarm );
 					this.AlarmIdx = this.AlarmList.Count;
 				} );
 			}
@@ -317,7 +310,7 @@ namespace HiPA.Common
 				this.AlarmErrLog.WriteLog( DecodedMsg[ 0 ] );
 				Application.Current.Dispatcher.BeginInvoke( ( Action )delegate // <--- HERE
 				{
-					this.AlarmList.Add( alarm );
+					this.AlarmList.Insert( 0, alarm );
 					this.AlarmIdx = this.AlarmList.Count;
 				} );
 			}
@@ -335,7 +328,7 @@ namespace HiPA.Common
 				this.AlarmWarnLog.WriteLog( DecodedMsg[ 0 ] );
 				Application.Current.Dispatcher.BeginInvoke( ( Action )delegate // <--- HERE
 				{
-					this.AlarmList.Add( alarm );
+					this.AlarmList.Insert( 0, alarm );
 					this.AlarmIdx = this.AlarmList.Count;
 				} );
 			}
@@ -353,7 +346,7 @@ namespace HiPA.Common
 				this.AlarmWarnLog.WriteLog( DecodedMsg[ 0 ] );
 				Application.Current.Dispatcher.BeginInvoke( ( Action )delegate // <--- HERE
 				{
-					this.AlarmList.Add( alarm );
+					this.AlarmList.Insert( 0, alarm );
 					this.AlarmIdx = this.AlarmList.Count;
 				} );
 			}

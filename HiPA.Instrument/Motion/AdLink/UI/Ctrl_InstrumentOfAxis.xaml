@@ -4,11 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:Panelbase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
-             xmlns:local="clr-namespace:NeoWisePlatform.SystemControls.Panels"
-			 xmlns:CommonControls="clr-namespace:NeoWisePlatform.CommonControls"
-             x:Class="NeoWisePlatform.UI.SystemControls.Panels.Motion.Ctrl_InstrumentOfAxis"
+             x:Class="HiPA.Instrument.Motion.Adlink.UI.Ctrl_InstrumentOfAxis"
              xmlns:mahapp="http://metro.mahapps.com/winfx/xaml/controls"
-             mc:Ignorable="d" 
+    xmlns:validations="clr-namespace:Validations;assembly=HiPA.Common"
+    xmlns:local="clr-namespace:HiPA.Instrument.Motion.Adlink.UI"
+    xmlns:CommonControls="clr-namespace:HiPA.Instrument.Common"
+    mc:Ignorable="d" 
              Width="746" Height="Auto"
              Loaded="UserControl_Loaded">
     <Grid Margin="0,0,0,0">
@@ -23,45 +24,89 @@
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,0,0,0" Width="355">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5">
                                     <Label Content="{StaticResource AxisID}" Style="{StaticResource LB_ItemContent_Right}" Width="200"/>
-                                    <mahapp:NumericUpDown  x:Name="AxisID" Width="120" StringFormat="F0"/>
+                                    <mahapp:NumericUpDown StringFormat="f0" Width="120" Margin="0,0,0,0">
+                                        <mahapp:NumericUpDown.Value>
+                                            <Binding Path="AxisId" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <validations:Valid_Rule_Base Max="1600" Min="0"/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </mahapp:NumericUpDown.Value>
+                                    </mahapp:NumericUpDown>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5">
                                     <Label Content="{StaticResource ModuleNo}" Style="{StaticResource LB_ItemContent_Right}" Width="200"/>
-                                    <mahapp:NumericUpDown  x:Name="Txt_ModuleNo" Width="120" StringFormat="F0"/>
+                                    <mahapp:NumericUpDown StringFormat="f0" Width="120" Margin="0,0,0,0">
+                                        <mahapp:NumericUpDown.Value>
+                                            <Binding Path="ModuleNo" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <validations:Valid_Rule_Base Max="255" Min="0"/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </mahapp:NumericUpDown.Value>
+                                    </mahapp:NumericUpDown>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5">
                                     <Label Content="{StaticResource AxisNegDir}" Style="{StaticResource LB_ItemContent_Right}" Width="200"/>
-                                    <ComboBox HorizontalAlignment="Left" Width="120"  x:Name="Cb_AxisNegDir"/>
+                                    <ComboBox x:Name="Cb_AxisNegDir" HorizontalAlignment="Left" Width="120" SelectedItem="{Binding NegativeDirection, UpdateSourceTrigger=PropertyChanged}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5">
                                     <Label Content="{StaticResource MotionScale}" Style="{StaticResource LB_ItemContent_Right}" Width="200"/>
-                                    <mahapp:NumericUpDown  x:Name="Txt_MotionScale" Width="120" StringFormat="F0"/>
+                                    <mahapp:NumericUpDown StringFormat="f0" Width="120" Margin="0,0,0,0">
+                                        <mahapp:NumericUpDown.Value>
+                                            <Binding Path="MotionScale" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <validations:Valid_Rule_Base Max="50000" Min="0"/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </mahapp:NumericUpDown.Value>
+                                    </mahapp:NumericUpDown>
                                 </StackPanel>
-                                <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5">
-                                <Label Content="{StaticResource MotionUnit}" Style="{StaticResource LB_ItemContent_Right}" Width="200" Margin="0,2"/>
-                                <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"  x:Name="Cb_MotionUnit"/>
-                            </StackPanel>-->
                             </StackPanel>
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10,0,0,0" Width="340">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5">
                                     <Label Content="{StaticResource MaxAcc}" Style="{StaticResource LB_ItemContent_Right}" Width="198"/>
-                                    <mahapp:NumericUpDown  x:Name="Txt_MaxAcc" Width="120" StringFormat="F3"/>
+                                    <mahapp:NumericUpDown StringFormat="f3" Width="120" Margin="0,0,0,0">
+                                        <mahapp:NumericUpDown.Value>
+                                            <Binding Path="MaxAcceleration" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <validations:Valid_Rule_Base Max="20000" Min="0"/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </mahapp:NumericUpDown.Value>
+                                    </mahapp:NumericUpDown>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5">
                                     <Label Content="{StaticResource MaxDec}" Style="{StaticResource LB_ItemContent_Right}" Width="198"/>
-                                    <mahapp:NumericUpDown  x:Name="Txt_MaxDec" Width="120" StringFormat="F3"/>
+                                    <mahapp:NumericUpDown StringFormat="f3" Width="120" Margin="0,0,0,0">
+                                        <mahapp:NumericUpDown.Value>
+                                            <Binding Path="MaxDeceleration" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <validations:Valid_Rule_Base Max="20000" Min="0"/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </mahapp:NumericUpDown.Value>
+                                    </mahapp:NumericUpDown>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5">
                                     <Label Content="{StaticResource MaxVel}" Style="{StaticResource LB_ItemContent_Right}" Width="198"/>
-                                    <mahapp:NumericUpDown  x:Name="Txt_MaxVel" Width="120" StringFormat="F3"/>
+                                    <mahapp:NumericUpDown StringFormat="f3" Width="120" Margin="0,0,0,0">
+                                        <mahapp:NumericUpDown.Value>
+                                            <Binding Path="MaxVelocity" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <validations:Valid_Rule_Base Max="20000" Min="0"/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </mahapp:NumericUpDown.Value>
+                                    </mahapp:NumericUpDown>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5">
                                     <Label Content="{StaticResource PosUSL}" Style="{StaticResource LB_ItemContent_Right}" Width="198"/>
-                                    <mahapp:NumericUpDown  x:Name="Txt_PosUSL" Width="120" StringFormat="F3"/>
+                                    <mahapp:NumericUpDown StringFormat="f3" Width="120" Margin="0,0,0,0" Value="{Binding UpperPosLimit, UpdateSourceTrigger=PropertyChanged}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5">
                                     <Label Content="{StaticResource PosLSL}" Style="{StaticResource LB_ItemContent_Right}" Width="198"/>
-                                    <mahapp:NumericUpDown  x:Name="Txt_PosLSL" Width="120" StringFormat="F3"/>
+                                    <mahapp:NumericUpDown StringFormat="f3" Width="120" Margin="0,0,0,0" Value="{Binding LowerPosLimit, UpdateSourceTrigger=PropertyChanged}"/>
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
@@ -93,69 +138,69 @@
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,0,0,0">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
                                     <Label Content="{StaticResource CMDPos}" Style="{StaticResource LB_ItemContent_Right}" Width="170" Margin="0,2"/>
-                                    <Label x:Name="Txt_Cmd_Pos" Style="{StaticResource LB_ItemData_Center}" Width="120"/>
+                                    <Label Style="{StaticResource LB_ItemData_Center}" Content="{Binding CommandPosition, Converter={StaticResource DisplayThreeDecPlacesDouble}}" Width="120"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
                                     <Label Content="{StaticResource FeedBackPos}" Style="{StaticResource LB_ItemContent_Right}" Width="170" Margin="0,2"/>
-                                    <Label x:Name="Txt_FeedBack_Pos" Style="{StaticResource LB_ItemData_Center}" Width="120"/>
+                                    <Label Style="{StaticResource LB_ItemData_Center}" Content="{Binding ActualPosition, Converter={StaticResource DisplayThreeDecPlacesDouble}}" Width="120"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
                                     <Label Content="{StaticResource ErrorPos}" Style="{StaticResource LB_ItemContent_Right}" Width="170" Margin="0,2"/>
-                                    <Label x:Name="Txt_Err_Pos" Style="{StaticResource LB_ItemData_Center}" Width="120"/>
+                                    <Label Style="{StaticResource LB_ItemData_Center}" Content="{Binding ErrorPosition, Converter={StaticResource DisplayThreeDecPlacesDouble}}" Width="120"/>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="15,0,0,0">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,0,0,0">
-                                    <Rectangle x:Name="Rec_PEL" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding PEL, Converter={StaticResource BoolToBrushIORec}}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="PEL" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_HM" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding HM, Converter={StaticResource BoolToBrushIORec}}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="HM" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_MEL" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding NEL, Converter={StaticResource BoolToBrushIORec}}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="MEL" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_INP" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding INP, Converter={StaticResource BoolToBrushIORec}}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="INP" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10,0,0,0">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,0,0,0">
-                                    <Rectangle x:Name="Rec_NST" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding NSTP, Converter={StaticResource BoolToBrushIORec}}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="NSTP" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_CSTP" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding CSTP, Converter={StaticResource BoolToBrushIORec}}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="CSTP" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_ASTP" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding ASTP, Converter={StaticResource BoolToBrushIORec}}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="ASTP" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_ACC" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding ACC, Converter={StaticResource BoolToBrushIORec}}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="ACC" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10,0,0,0">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,0,0,0">
-                                    <Rectangle x:Name="Rec_DEC" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding DEC, Converter={StaticResource BoolToBrushIORec}}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="DEC" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_VM" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding VM, Converter={StaticResource BoolToBrushIORec}}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="VM" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="0,5,0,0">
-                                    <Rectangle x:Name="Rec_SVRALM" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding ALM, Converter={StaticResource BoolToBrushIORec}}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                     <Label Content="Servo Alm" Style="{StaticResource LB_ItemContent_Right}" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel x:Name="AxisStatusCtrl" Orientation="Vertical" HorizontalAlignment="Left" Margin="10,2,0,0">
-                                <Rectangle x:Name="Rec_SVRSW" Style="{StaticResource Rec_Input}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <Rectangle Style="{StaticResource Rec_Input}" Fill="{Binding SVON, Converter={StaticResource BoolToBrushIORec}}"  HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                 <Button x:Name="Btn_SvrSW" Content="Servo On/Off" Margin="30,-22,0,0" Width="105" Height="25" Click="Btn_SvrSW_Click"/>
                                 <Button x:Name="Btn_SvrHM" Content="Home" Margin="30,30,0,0" Height="25" Width="105" Click="Btn_SvrHM_Click" VerticalAlignment="Top"/>
                             </StackPanel>

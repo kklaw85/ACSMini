@@ -464,6 +464,11 @@ namespace HiPA.Instrument.BarCodeScanner
 			}
 			return sErr;
 		}
+
+		public override void ApplyRecipe( RecipeBaseUtility recipeItem )
+		{
+			throw new NotImplementedException();
+		}
 	}
 	public class ResultType : BaseUtility
 	{

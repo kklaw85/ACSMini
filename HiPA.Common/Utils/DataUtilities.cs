@@ -81,6 +81,57 @@ namespace N_Data_Utilities
 			return dValue;
 		}
 	}
+	[ValueConversion( typeof( double ), typeof( string ) )]
+	public class CurrentAutoRanging : IValueConverter
+	{
+		public object Convert( object value, Type targetType,
+		object parameter, System.Globalization.CultureInfo culture )
+		{
+			if ( value == null ) return "0";
+			var Val = ( double )value;
+			char[] incPrefixes = new[] { 'k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y' };
+			char[] decPrefixes = new[] { 'm', '\u03bc', 'n', 'p', 'f', 'a', 'z', 'y' };
+
+			int degree = ( int )Math.Floor( Math.Log10( Math.Abs( Val ) ) / 3 );
+			if ( Val != 0 && degree < 7 && degree > -7 )
+			{
+				double scaled = Val * Math.Pow( 1000, -degree );
+
+				char? prefix = null;
+				switch ( Math.Sign( degree ) )
+				{
+					case 1: prefix = incPrefixes[ degree - 1 ]; break;
+					case -1: prefix = decPrefixes[ -degree - 1 ]; break;
+				}
+
+				return scaled.ToString( "f3" ) + prefix;
+			}
+			else
+				return "0";
+		}
+		public object ConvertBack( object value, Type targetType,
+		object parameter, System.Globalization.CultureInfo culture )
+		{
+			return null;
+		}
+	}
+	[ValueConversion( typeof( double ), typeof( string ) )]
+	public class VSRate : IValueConverter
+	{
+		public object Convert( object value, Type targetType,
+		object parameter, System.Globalization.CultureInfo culture )
+		{
+			if ( value == null ) return "0V/s";
+			var Val = ( double )value;
+			return $"{Val.ToString( "f3" )}V/s";
+		}
+		public object ConvertBack( object value, Type targetType,
+		object parameter, System.Globalization.CultureInfo culture )
+		{
+			return null;
+		}
+	}
+
 
 	[ValueConversion( typeof( float ), typeof( string ) )]
 	public class DisplaySixDecPlacesDouble : IValueConverter
@@ -541,6 +592,7 @@ namespace N_Data_Utilities
 		object parameter, System.Globalization.CultureInfo culture )
 		{
 			bool tempBool = false;
+			if ( value == null ) return Visibility.Visible;
 			if ( bool.TryParse( value.ToString(), out tempBool ) )
 				return tempBool ? Visibility.Visible : Visibility.Collapsed;
 			return Visibility.Visible;
@@ -560,6 +612,7 @@ namespace N_Data_Utilities
 		object parameter, System.Globalization.CultureInfo culture )
 		{
 			bool tempBool = false;
+			if ( value == null ) return Visibility.Collapsed;
 			if ( bool.TryParse( value.ToString(), out tempBool ) )
 				return tempBool ? Visibility.Collapsed : Visibility.Visible;
 			return Visibility.Collapsed;

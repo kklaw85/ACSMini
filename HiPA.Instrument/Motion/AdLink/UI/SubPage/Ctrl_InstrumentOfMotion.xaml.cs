@@ -1,13 +1,12 @@
 ﻿using HiPA.Common;
 using HiPA.Common.Forms;
 using HiPA.Common.UControl;
-using HiPA.Instrument.Motion;
 using HiPA.Instrument.Motion.APS;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace NeoWisePlatform.UI.SystemControls.SubPages
+namespace HiPA.Instrument.Motion.Adlink.UI.SubPage
 {
 	/// <summary>
 	/// Interaction logic for Ctrl_X_Motor.xaml

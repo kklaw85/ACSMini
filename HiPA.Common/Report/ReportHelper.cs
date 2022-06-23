@@ -1,10 +1,6 @@
-﻿using HiPA.Common.Forms;
-using HiPA.Common.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Threading;
 
 namespace HiPA.Common.Report
@@ -298,94 +294,51 @@ namespace HiPA.Common.Report
 	}
 	public enum eLogItems
 	{
-		//[LoggingAttr( true, false, eMachineType.All )]
-		//Start,
-		//[LoggingAttr( true, false, eMachineType.All )]
-		//End,
-		//[LoggingAttr( false, true, eMachineType.All )]
-		//Counter,
-		//[LoggingAttr( false, true, eMachineType.All )]
-		//ProdCode,
-		//[LoggingAttr( false, true, eMachineType.All )]
-		//Color,
-		//[LoggingAttr( false, true, eMachineType.All )]
-		//SerialNo,
-		//[LoggingAttr( false, true, eMachineType.All )]
-		//Station,
-		//[LoggingAttr( true, false, eMachineType.B228 )]
-		//StopperClosedTime,
-		//[LoggingAttr( true, false, eMachineType.B228 )]
-		//NFCWorkPosTime,
-		//[LoggingAttr( true, false, eMachineType.B228 )]
-		//ReadNFCTime,
-		//[LoggingAttr( true, false, eMachineType.B228 )]
-		//NFCBottomALTime,
-		//[LoggingAttr( true, false, eMachineType.B228 )]
-		//GetImageNameTime,
-		//[LoggingAttr( true, false, eMachineType.B228 )]
-		//OpenTopCoverTime,
-		//[LoggingAttr( true, false, eMachineType.B262 )]
-		//FirstPalletToPos2Time,
-		//[LoggingAttr( true, false, eMachineType.B262 )]
-		//ScanBarCodeTime,
-		//[LoggingAttr( true, false, eMachineType.B262 )]
-		//FirstPalletToPos1Time,
-		//[LoggingAttr( true, false, eMachineType.B262 )]
-		//SendRequestToShopFloorTime,
-		//[LoggingAttr( true, false, eMachineType.B262 )]
-		//GetCavityInfoFromShopFloorTime,
-		//[LoggingAttr( true, false, eMachineType.B262 )]
-		//MoveProductPresserTime,
-		//[LoggingAttr( true, false, eMachineType.B262 )]
-		//ThreePalletsInMachineTime,
-		//[LoggingAttr( true, false, eMachineType.All )]
-		//MotionInPos,
-		//[LoggingAttr( true, false, eMachineType.All )]
-		//ScanHeightTime,
-		//[LoggingAttr( false, true, eMachineType.All )]
-		//ScanHeightValue,
-		//[LoggingAttr( true, false, eMachineType.All )]
-		//ZCompensationChkTime,
-		//[LoggingAttr( false, true, eMachineType.All )]
-		//ZCompensationValue,
-		//[LoggingAttr( true, false, eMachineType.All )]
-		//VisionAlignChkTime,
-		//[LoggingAttr( false, true, eMachineType.All )]
-		//VisionAlignXValue,
-		//[LoggingAttr( false, true, eMachineType.All )]
-		//VisionAlignYValue,
-		//[LoggingAttr( false, true, eMachineType.All )]
-		//VisionAlignWidthValue,
-		//[LoggingAttr( false, true, eMachineType.All )]
-		//VisionAlignRotationYValue,
-		//[LoggingAttr( true, false, eMachineType.All )]
-		//MarkingTime,
-		//[LoggingAttr( true, false, eMachineType.All )]
-		//ContentChkTime,
-		//[LoggingAttr( true, false, eMachineType.B228 )]
-		//SendToWMSTime,
-		//[LoggingAttr( true, false, eMachineType.B228 )]
-		//PopUpWinCloseTime,
-		//[LoggingAttr( true, false, eMachineType.All )]
-		//FilePostHandleTime,
-		//[LoggingAttr( true, false, eMachineType.B228 )]
-		//CloseTopCoverTime,
-		//[LoggingAttr( true, false, eMachineType.B228 )]
-		//ReleaseStopperTime,
-		//[LoggingAttr( true, false, eMachineType.B262 )]
-		//LiftZStandbyDoorOpenTime,
-		//[LoggingAttr( true, false, eMachineType.B262 )]
-		//StartSendResultShopFloorTime,
-		//[LoggingAttr( true, false, eMachineType.B262 )]
-		//WaitSmemaOutAvailableTime,
-		//[LoggingAttr( true, false, eMachineType.B262 )]
-		//SmemaOutFlagOnTime,
-		//[LoggingAttr( true, false, eMachineType.B262 )]
-		//StoppersResetandConveyorsOnTime,
-		//[LoggingAttr( true, false, eMachineType.B262 )]
-		//ConveyorClearedTime,
-		//[LoggingAttr( true, false, eMachineType.All )]
-		//TotalUsageTime,
+		//bool toRecordTime, bool toRecordData
+		[LoggingAttr( true, false )]
+		Start,
+		[LoggingAttr( true, false )]
+		End,
+		[LoggingAttr( true, false )]
+		CycleDuration,
+
+
+		[LoggingAttr( false, false )]
+		Vision,
+		[LoggingAttr( false, true )]
+		FOV1_VisionRawPos_X,
+		[LoggingAttr( false, true )]
+		FOV1_VisionRawPos_Y,
+		[LoggingAttr( false, true )]
+		FOV1_VisionRawOffset_X,
+		[LoggingAttr( false, true )]
+		FOV1_VisionRawOffset_Y,
+		[LoggingAttr( false, true )]
+		FOV1_PositionOffset_X,
+		[LoggingAttr( false, true )]
+		FOV1_PositionOffset_Y,
+		[LoggingAttr( false, true )]
+		FOV1_PositionOffsetMM_X,
+		[LoggingAttr( false, true )]
+		FOV1_PositionOffsetMM_Y,
+		[LoggingAttr( false, true )]
+		FOV2_VisionRawPos_X,
+		[LoggingAttr( false, true )]
+		FOV2_VisionRawPos_Y,
+		[LoggingAttr( false, true )]
+		FOV2_VisionRawOffset_X,
+		[LoggingAttr( false, true )]
+		FOV2_VisionRawOffset_Y,
+		[LoggingAttr( false, true )]
+		FOV2_PositionOffset_X,
+		[LoggingAttr( false, true )]
+		FOV2_PositionOffset_Y,
+		[LoggingAttr( false, true )]
+		FOV2_PositionOffsetMM_X,
+		[LoggingAttr( false, true )]
+		FOV2_PositionOffsetMM_Y,
+		[LoggingAttr( false, true )]
+		VisionResult,
 	}
 	public class LoggingAttr : Attribute
 	{
@@ -395,72 +348,6 @@ namespace HiPA.Common.Report
 		{
 			this.ToRecordTime = toRecordTime;
 			this.ToRecordData = toRecordData;
-		}
-	}
-	public class AutoRunLogging : BaseUtility
-	{
-		public Dictionary<eLogItems, string> LogContent = new Dictionary<eLogItems, string>();
-		public AutoRunLogging()
-		{
-			foreach ( var ele in Enum.GetValues( typeof( eLogItems ) ).Cast<eLogItems>() )
-			{
-				var attr = ReflectionTool.GetEnumAttribute<LoggingAttr>( ele );
-				this.LogContent[ ele ] = string.Empty;
-			}
-		}
-		public string AutoRunLogHeader()
-		{
-			var s_Header = string.Empty;
-			foreach ( var ele in this.LogContent.Keys )
-			{
-				s_Header += ele.ToString() + ( ele.ToString().Contains( "Time" ) ? " (ms)" : "" ) + ",";
-			}
-			return s_Header;
-		}
-		private Stopwatch SW = new Stopwatch();
-		private Stopwatch TotalSW = new Stopwatch();
-
-		private void RecordElapsedTime( eLogItems item )
-		{
-			try
-			{
-				this.LogContent[ item ] = this.SW.ElapsedMilliseconds.ToString();
-			}
-			catch
-			{
-			}
-			finally
-			{
-				this.SW.Restart();
-			}
-		}
-		private void RecordCurrentTime( eLogItems Name )
-		{
-			try
-			{
-				this.LogContent[ Name ] = DateTime.Now.ToString( "MM/dd/yyyy HH:mm:ss" );
-			}
-			catch
-			{
-			}
-			finally
-			{
-				this.SW.Restart();
-			}
-		}
-		private void RecordData( eLogItems item, Object Source )
-		{
-			try
-			{
-				this.LogContent[ item ] = Source?.ToString();
-			}
-			catch
-			{
-			}
-		}
-		private void Clear()
-		{
-			this.LogContent = this.LogContent.ToDictionary( p => p.Key, p => string.Empty );
 		}
 	}
 }

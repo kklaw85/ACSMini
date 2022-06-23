@@ -1,5 +1,6 @@
 ﻿using B262_Vision_Processing;
 using HiPA.Common;
+using HiPA.Common.Forms;
 using JptMatroxSystem;
 using Matrox.MatroxImagingLibrary;
 using System;
@@ -101,7 +102,7 @@ namespace HiPA.Instrument.Camera
 		}
 		#endregion
 		#region processing
-		public Task<(ErrorClass EClass, string ErrorMessage, C_PointD RawPos, C_PointD RawOffsetCenter, C_PointD OffPos)> CheckModelPosition( byte[] mmf, CameraObj MilImg, ROIRectangle ROI )
+		public Task<(ErrorResult EResult, C_PointD RawPos, C_PointD RawOffsetCenter, C_PointD OffPos)> CheckModelPosition( byte[] mmf, CameraObj MilImg, ROIRectangle ROI )
 		{
 			return Task.Run( () =>
 			{
@@ -111,13 +112,13 @@ namespace HiPA.Instrument.Camera
 				var RawOffsetCenter = new C_PointD();
 				try
 				{
-					this.CheckAndThrowIfError( ErrorClass.E4, B262_Process.FindModel( mmf, MilImg, ROI, out RawPos, out RawOffsetCenter, out OffPos ) );
+					this.CheckAndThrowIfError( B262_Process.FindModel( mmf, MilImg, ROI, out RawPos, out RawOffsetCenter, out OffPos ) );
 				}
 				catch ( Exception ex )
 				{
-					this.CatchAndPromptErr( ex );
+					this.CatchException( ex );
 				}
-				return (this.Result.EClass, this.Result.ErrorMessage, RawPos, RawOffsetCenter, OffPos);
+				return (this.Result, RawPos, RawOffsetCenter, OffPos);
 			} );
 		}
 		#endregion
@@ -142,7 +143,7 @@ namespace HiPA.Instrument.Camera
 			}
 			return sErr;
 		}
-		private string MMFToByteArr( out byte[] mmf_Arr, MIL_ID m_modcontext )
+		public string MMFToByteArr( MIL_ID m_modcontext, out byte[] mmf_Arr )
 		{
 			string sErr = string.Empty;
 			MIL_INT sizeRequired = 0;
@@ -172,10 +173,8 @@ namespace HiPA.Instrument.Camera
 			mmf_Arr = null;
 			try
 			{
-				sErr = this.LoadMMF( filename, ref mmfcontext );
-				if ( sErr != string.Empty ) throw new Exception( sErr );
-				sErr = this.MMFToByteArr( out mmf_Arr, mmfcontext );
-				if ( sErr != string.Empty ) throw new Exception( sErr );
+				this.CheckAndThrowIfError( ErrorClass.E5, this.LoadMMF( filename, ref mmfcontext ) );
+				this.CheckAndThrowIfError( ErrorClass.E5, this.MMFToByteArr( mmfcontext, out mmf_Arr ) );
 			}
 			catch ( Exception ex )
 			{
@@ -262,9 +261,16 @@ namespace HiPA.Instrument.Camera
 						8 + MIL.M_UNSIGNED,
 						MIL.M_IMAGE + MIL.M_DISP + MIL.M_PROC,
 						ref modelBuf );
-
-				MIL.MmodDraw( MIL.M_DEFAULT, m_modcontext, modelBuf, MIL.M_DRAW_IMAGE, MIL.M_DEFAULT, MIL.M_DEFAULT );
-
+				//MIL.MbufAllocColor( m_system,
+				//		3,
+				//		MIL.MmodInquire( m_modcontext, MIL.M_DEFAULT, MIL.M_ALLOC_SIZE_X, MIL.M_NULL ),
+				//		MIL.MmodInquire( m_modcontext, MIL.M_DEFAULT, MIL.M_ALLOC_SIZE_Y, MIL.M_NULL ),
+				//		8 + MIL.M_UNSIGNED,E:\NeowiseWhite\NEOWISE\MainApp\Sequence\PNPSeq.cs
+				//		MIL.M_IMAGE + MIL.M_DISP + MIL.M_PROC,
+				//		ref modelBuf );
+				MIL.MgraColor( MIL.M_DEFAULT, MIL.M_COLOR_RED );
+				MIL.MmodDraw( MIL.M_DEFAULT, m_modcontext, modelBuf, MIL.M_DRAW_IMAGE + MIL.M_DRAW_EDGES, MIL.M_DEFAULT, MIL.M_DEFAULT );
+				//B262_Process.Save( "c:\\test.bmp", modelBuf );
 				ModelBitmap = this.CreateBitmapFromMILBuffer( modelBuf );
 			}
 			catch ( Exception ex )
@@ -274,6 +280,42 @@ namespace HiPA.Instrument.Camera
 			finally
 			{
 				if ( modelBuf != MIL.M_NULL ) MIL.MbufFree( modelBuf );
+				if ( m_modcontext != MIL.M_NULL ) MIL.MmodFree( m_modcontext );
+			}
+
+			return string.Empty;
+		}
+		private string GetMMFModelMilImg( MIL_ID m_modcontext, ref MIL_ID ModelBitmap )
+		{
+			//modelBuf = MIL.M_NULL;
+			try
+			{
+				if ( m_modcontext == MIL.M_NULL ) { return "Model Context is null"; }
+				//MIL.MbufAlloc2d( m_system,
+				//		MIL.MmodInquire( m_modcontext, MIL.M_DEFAULT, MIL.M_ALLOC_SIZE_X, MIL.M_NULL ),
+				//		MIL.MmodInquire( m_modcontext, MIL.M_DEFAULT, MIL.M_ALLOC_SIZE_Y, MIL.M_NULL ),
+				//		8 + MIL.M_UNSIGNED,
+				//		MIL.M_IMAGE + MIL.M_DISP + MIL.M_PROC,
+				//		ref ModelBitmap );
+				MIL.MbufAllocColor( m_system,
+						3,
+						MIL.MmodInquire( m_modcontext, MIL.M_DEFAULT, MIL.M_ALLOC_SIZE_X, MIL.M_NULL ),
+						MIL.MmodInquire( m_modcontext, MIL.M_DEFAULT, MIL.M_ALLOC_SIZE_Y, MIL.M_NULL ),
+						8 + MIL.M_UNSIGNED,
+						MIL.M_IMAGE + MIL.M_DISP + MIL.M_PROC,
+						ref ModelBitmap );
+				MIL.MgraColor( MIL.M_DEFAULT, MIL.M_COLOR_RED );
+				MIL.MmodDraw( MIL.M_DEFAULT, m_modcontext, ModelBitmap, MIL.M_DRAW_IMAGE + MIL.M_DRAW_EDGES, MIL.M_DEFAULT, MIL.M_DEFAULT );
+				//B262_Process.Save( "c:\\test.bmp", modelBuf );
+				//ModelBitmap = this.CreateBitmapFromMILBuffer( modelBuf );
+			}
+			catch ( Exception ex )
+			{
+				return this.FormatErrMsg( this.Name, ex );
+			}
+			finally
+			{
+				//if ( modelBuf != MIL.M_NULL ) MIL.MbufFree( modelBuf );
 				if ( m_modcontext != MIL.M_NULL ) MIL.MmodFree( m_modcontext );
 			}
 
@@ -291,6 +333,30 @@ namespace HiPA.Instrument.Camera
 				if ( sErr != string.Empty )
 					throw new Exception( sErr );
 				sErr = this.GetMMFModelBitmap( mmfContext, ref ModelBitmap );
+				if ( sErr != string.Empty )
+					throw new Exception( sErr );
+			}
+			catch ( Exception ex )
+			{
+				return this.FormatErrMsg( this.Name, ex );
+			}
+			finally
+			{
+
+			}
+			return string.Empty;
+		}
+		public string ArrayMMFToMilIMG( byte[] mmf_Arr, ref MIL_ID ModelBitmap )
+		{
+			MIL_ID mmfContext = MIL.M_NULL;
+			var sErr = string.Empty;
+			try
+			{
+				if ( mmf_Arr == null ) return sErr;
+				sErr = this.MMFLoadByteArr( mmf_Arr, ref mmfContext );
+				if ( sErr != string.Empty )
+					throw new Exception( sErr );
+				sErr = this.GetMMFModelMilImg( mmfContext, ref ModelBitmap );
 				if ( sErr != string.Empty )
 					throw new Exception( sErr );
 			}
@@ -611,6 +677,11 @@ namespace HiPA.Instrument.Camera
 				return null;
 			}
 			//return tempBitmap;    
+		}
+
+		public override void ApplyRecipe( RecipeBaseUtility recipeItem )
+		{
+			throw new NotImplementedException();
 		}
 		#endregion
 	}

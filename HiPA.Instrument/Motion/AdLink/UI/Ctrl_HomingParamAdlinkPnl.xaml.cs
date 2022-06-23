@@ -1,6 +1,5 @@
 ﻿using HiPA.Common;
 using HiPA.Common.UControl;
-using HiPA.Instrument.Motion;
 using MahApps.Metro.Controls;
 using System;
 using System.Linq;
@@ -9,7 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using Validations;
 
-namespace NeoWisePlatform.SystemControls.Panels
+namespace HiPA.Instrument.Motion.Adlink.UI
 {
 	/// <summary>
 	/// Interaction logic for Ctrl_InstrumentOfLTDMC.xaml
@@ -52,9 +51,9 @@ namespace NeoWisePlatform.SystemControls.Panels
 				//b.Source = this._source;
 				b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
 				b.Path = new PropertyPath( "HOME_MODE" );
-				var RU = new Valid_Rule_INT();
-				RU.Min = 0;
-				RU.Max = 40;
+				var RU = new Valid_Rule_Base();
+				RU.Min = 0d;
+				RU.Max = 40d;
 				b.ValidationRules.Clear();
 				b.ValidationRules.Add( RU );
 				this.Txt_HomeMode.SetBinding( NumericUpDown.ValueProperty, b );
@@ -69,9 +68,9 @@ namespace NeoWisePlatform.SystemControls.Panels
 				//b.Source = ( this._Axis as AdLinkAxis ).Configuration.HomingProfile;
 				b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
 				b.Path = new PropertyPath( "HOME_EZ" );
-				var d_RU = new Valid_Rule_Double();
-				d_RU.Min = 0;
-				d_RU.Max = 10000;
+				var d_RU = new Valid_Rule_Base();
+				d_RU.Min = 0d;
+				d_RU.Max = 10000d;
 				b.ValidationRules.Clear();
 				b.ValidationRules.Add( d_RU );
 				this.Txt_HomeEZ.SetBinding( NumericUpDown.ValueProperty, b );
@@ -80,9 +79,9 @@ namespace NeoWisePlatform.SystemControls.Panels
 				//b.Source = ( this._Axis as AdLinkAxis ).Configuration.HomingProfile;
 				b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
 				b.Path = new PropertyPath( "HOME_VM" );
-				d_RU = new Valid_Rule_Double();
-				d_RU.Min = 0;
-				d_RU.Max = 10000;
+				d_RU = new Valid_Rule_Base();
+				d_RU.Min = 0d;
+				d_RU.Max = 10000d;
 				b.ValidationRules.Clear();
 				b.ValidationRules.Add( d_RU );
 				this.Txt_HomeMaxVel.SetBinding( NumericUpDown.ValueProperty, b );
@@ -91,9 +90,9 @@ namespace NeoWisePlatform.SystemControls.Panels
 				//b.Source = ( this._Axis as AdLinkAxis ).Configuration.HomingProfile;
 				b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
 				b.Path = new PropertyPath( "HOME_VO" );
-				d_RU = new Valid_Rule_Double();
-				d_RU.Min = 0;
-				d_RU.Max = 10000;
+				d_RU = new Valid_Rule_Base();
+				d_RU.Min = 0d;
+				d_RU.Max = 10000d;
 				b.ValidationRules.Clear();
 				b.ValidationRules.Add( d_RU );
 				this.Txt_HomeOrgVel.SetBinding( NumericUpDown.ValueProperty, b );
