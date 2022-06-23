@@ -1,4 +1,5 @@
 ﻿using HiPA.Common;
+using HiPA.Common.Forms;
 using System;
 using System.Diagnostics;
 using System.Timers;
@@ -19,8 +20,6 @@ namespace NeoWisePlatform.Module
 		public override Type InstrumentType => typeof( MachineMiscSystem );
 		public override MachineVariant MachineVar { get; set; } = new MachineVar();
 		public EquipmentBypass ByPassConfig { get; set; } = new EquipmentBypass();
-		public Statistic Stats { get; set; } = new Statistic();
-
 	}
 
 	public class MachineMiscSystem
@@ -113,6 +112,10 @@ namespace NeoWisePlatform.Module
 		{
 			var TimePassed = ( double )this.SW.ElapsedMilliseconds / ( 1000 * 60 * 60 );
 			this.SW.Restart();
+		}
+		public override void ApplyRecipe( RecipeBaseUtility recipeItem )
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

@@ -1,0 +1,18 @@
+﻿<Panelbase:PanelBase
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mahapp="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:Panelbase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+    xmlns:CommonControls1="clr-namespace:HiPA.Instrument.Common"
+    x:Class="HiPA.Instrument.Motion.ACS.UI.Ctrl_InstrumentOfAxisBoard"
+			 mc:Ignorable="d" 
+             Width="auto" Height="auto"
+             Loaded="UserControl_Loaded">
+    <Grid Margin="0,0,0,0">
+        <StackPanel Orientation="Vertical" Margin="10">
+            <CommonControls1:Ctrl_InitBar x:Name="InitBar"/>
+        </StackPanel>
+	</Grid>
+</Panelbase:PanelBase>

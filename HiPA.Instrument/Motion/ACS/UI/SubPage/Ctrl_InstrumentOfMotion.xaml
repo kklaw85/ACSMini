@@ -1,0 +1,64 @@
+﻿<Pagebase:PageBase
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:Pagebase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+             xmlns:Panels2="clr-namespace:HiPA.Instrument.Motion.ACS.UI"
+             x:Class="HiPA.Instrument.Motion.ACS.UI.SubPage.Ctrl_InstrumentOfMotion"
+             mc:Ignorable="d" 
+             Width="auto" Height="auto"
+             Loaded="UserControl_Loaded">
+    <Grid x:Name="Grid">
+        <StackPanel Orientation="Vertical">
+            <Label Content="{StaticResource Motion}" Style="{StaticResource LB_MainTitle}"/>
+            <StackPanel Orientation="Horizontal" Margin="10" Height="730">
+                <Expander ExpandDirection="Right" Background="{StaticResource MahApps.Brushes.ThemeBackground}">
+                    <Expander.Header>
+                        <Label Content="{StaticResource AxisBoardCfg}" Style="{StaticResource LB_PanelTitle}" RenderTransformOrigin="0.5,0.5" Margin="-63,60,0,0" Width="154">
+                            <Label.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Label.RenderTransform>
+                        </Label>
+                    </Expander.Header>
+                    <Panels2:Ctrl_InstrumentOfAxisBoard x:Name="AxisBoard"/>
+                </Expander>
+                <Expander ExpandDirection="Right" Background="{StaticResource MahApps.Brushes.ThemeBackground}" IsExpanded="True" Margin="5,0,0,0">
+                    <Expander.Header>
+                        <Label Content="{StaticResource ListOfAxis}" Style="{StaticResource LB_PanelTitle}" RenderTransformOrigin="0.5,0.5" Margin="-63,60,0,0" Width="154">
+                            <Label.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Label.RenderTransform>
+                        </Label>
+                    </Expander.Header>
+                    <ListBox x:Name="lstAxesList" HorizontalAlignment="Left" Margin="10" Width="250" SelectionChanged="lstAxesList_SelectionChanged" Height="auto"/>
+                </Expander>
+                <Expander ExpandDirection="Right" IsExpanded="True" Background="{StaticResource MahApps.Brushes.ThemeBackground}" Margin="5,0,0,0">
+                    <Expander.Header>
+                        <Label Content="{StaticResource AxisConfig}" Style="{StaticResource LB_PanelTitle}" RenderTransformOrigin="0.5,0.5" Margin="-186,183,0,0" Width="400">
+                            <Label.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Label.RenderTransform>
+                        </Label>
+                    </Expander.Header>
+                    <Panels2:Ctrl_InstrumentOfAxis x:Name="AxisConfig" />
+                </Expander>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Pagebase:PageBase>

@@ -1,0 +1,80 @@
+﻿<Panelbase:PanelBase
+			 xmlns:Panelbase="clr-namespace:HiPA.Common.UControl;assembly=HiPA.Common"
+			 x:Class="HiPA.Instrument.Motion.ACS.UI.Ctrl_MotionProfile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			xmlns:MahApp="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:validations="clr-namespace:Validations;assembly=HiPA.Common"
+    mc:Ignorable="d">
+    <Border Style="{StaticResource FrameWithoutShadow}">
+        <Grid x:Name="MotionProfileGrid">
+            <StackPanel Orientation="Vertical">
+                <Label x:Name="Lbl_MotionProfileTitle" Content="{StaticResource MotionProfileGen}" Style="{StaticResource LB_ItemTitle}"/>
+                <StackPanel Margin="10">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Label Content="{StaticResource Vel}" Style="{StaticResource LB_ItemContent_Right}" Width="200"/>
+                        <MahApp:NumericUpDown StringFormat="f3" Width="120" Margin="0,0,0,0">
+                            <MahApp:NumericUpDown.Value>
+                                <Binding Path="Velocity" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validations:Valid_Rule_Base Max="20000" Min="0"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </MahApp:NumericUpDown.Value>
+                        </MahApp:NumericUpDown>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
+                        <Label Content="{StaticResource Acc}" Style="{StaticResource LB_ItemContent_Right}" Width="200"/>
+                        <MahApp:NumericUpDown StringFormat="f3" Width="120" Margin="0,0,0,0">
+                            <MahApp:NumericUpDown.Value>
+                                <Binding Path="Acceleration" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validations:Valid_Rule_Base Max="20000" Min="0"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </MahApp:NumericUpDown.Value>
+                        </MahApp:NumericUpDown>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
+                        <Label Content="{StaticResource Dec}" Style="{StaticResource LB_ItemContent_Right}" Width="200"/>
+                        <MahApp:NumericUpDown StringFormat="f3" Width="120" Margin="0,0,0,0">
+                            <MahApp:NumericUpDown.Value>
+                                <Binding Path="Deceleration" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validations:Valid_Rule_Base Max="20000" Min="0"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </MahApp:NumericUpDown.Value>
+                        </MahApp:NumericUpDown>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
+                        <Label Content="{StaticResource KillDec}" Style="{StaticResource LB_ItemContent_Right}" Width="200"/>
+                        <MahApp:NumericUpDown StringFormat="f3" Width="120" Margin="0,0,0,0">
+                            <MahApp:NumericUpDown.Value>
+                                <Binding Path="KillDeceleration" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validations:Valid_Rule_Base Max="20000" Min="0"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </MahApp:NumericUpDown.Value>
+                        </MahApp:NumericUpDown>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0">
+                        <Label Content="{StaticResource Jerk}" Style="{StaticResource LB_ItemContent_Right}" Width="200"/>
+                        <MahApp:NumericUpDown StringFormat="f3" Width="120" Margin="0,0,0,0">
+                            <MahApp:NumericUpDown.Value>
+                                <Binding Path="Jerk" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validations:Valid_Rule_Base Max="20000" Min="0"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </MahApp:NumericUpDown.Value>
+                        </MahApp:NumericUpDown>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Panelbase:PanelBase>

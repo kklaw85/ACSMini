@@ -333,7 +333,7 @@ namespace HiPA.Common
 		};
 		public void Logout()
 		{
-			this.CurrentLoginUser = this.Guest;
+			this.CurrentLoginUser = this.Manu;
 		}
 		#endregion
 		#region Set Page Visibility

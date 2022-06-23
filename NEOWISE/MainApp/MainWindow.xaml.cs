@@ -3,19 +3,11 @@ using HiPA.Common;
 using HiPA.Common.Forms;
 using HiPA.Common.Recipe;
 using HiPA.Common.UControl;
-using HiPA.Instrument.Motion.Adlink.UI.SubPage;
 using N_Data_Utilities;
 using NeoWisePlatform.Module;
-using NeoWisePlatform.Production.SubPages;
-using NeoWisePlatform.ProductionSetup.SubPages;
 using NeoWisePlatform.Recipe;
 using NeoWisePlatform.Recipe.Windows;
-using NeoWisePlatform.SystemControls.SubPages;
-using NeoWisePlatform.UI.Alarm.Subpages;
-using NeoWisePlatform.UI.ProductionSetup.SubPages;
-using NeoWisePlatform.UI.SystemControls.SubPages;
 using NeoWisePlatform.UI.Windows;
-using NeoWisePlatform.UserAccess.SubPages;
 using NeoWisePlatform.Windows;
 using System;
 using System.Collections.Generic;
@@ -147,7 +139,7 @@ namespace NeoWisePlatform
 					else
 						this.Visibility = System.Windows.Visibility.Visible;
 					this.SetBinding();
-					this.Setup_Pages( this.Ctrl_Production );
+					//this.Setup_Pages( this.Ctrl_Diagnostics );
 					this.Visibility = System.Windows.Visibility.Visible;
 					this._MachStateMgr.EM = this._EM;
 					Win_Wait_Home winHome = new Win_Wait_Home();
@@ -313,20 +305,9 @@ namespace NeoWisePlatform
 				//double x = pad;
 				//double y = pad + 2;
 				Thickness loc = new Thickness( 0, 0, 0, 0 );
-				var IOPage = new Ctrl_InstrumentOfIO();
-				IOPage.Source = ( Constructor.GetInstance()?.Equipment as MTEquipment ).IoBoard;
-				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_Alarm, this.Cvs_Wrapper, loc, new Ctrl_Alarm() );
-				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_Production, this.Cvs_Wrapper, loc, new Ctrl_Production() );
-				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_Diagnostics, this.Cvs_Wrapper, loc, new Ctrl_InstrumentOfMotion() );
-				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_Diagnostics, this.Cvs_Wrapper, loc, IOPage );
-				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_Diagnostics, this.Cvs_Wrapper, loc, new Ctrl_InstrumentOfCamera() );
-				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_Diagnostics, this.Cvs_Wrapper, loc, new Ctrl_ManufacturerBypassOption() );
-				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_Diagnostics, this.Cvs_Wrapper, loc, new Ctrl_TestSequences() );
-				//C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_ProcessSetup, this.Cvs_Wrapper, loc, new Ctrl_SetupLoadUnload() );
-				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_ProcessSetup, this.Cvs_Wrapper, loc, new Ctrl_SetupWorkPosPage() );
-				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_ProcessSetup, this.Cvs_Wrapper, loc, new Ctrl_SetupVision() );
-				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_UserAccess, this.Cvs_Wrapper, loc, new Ctrl_User_Access() );
-				C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainWindow, this.Cvs_Wrapper, loc, this );
+				//C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_Alarm, this.Cvs_Wrapper, loc, new Ctrl_Alarm() );
+				//C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainMenu_Diagnostics, this.Cvs_Wrapper, loc, new Ctrl_InstrumentOfMotion() );
+				//C_UI_Manager.Register_UI_Elements( C_UI_Manager.MainWindow, this.Cvs_Wrapper, loc, this );
 			}
 			catch ( Exception ex )
 			{
@@ -498,11 +479,6 @@ namespace NeoWisePlatform
 		#endregion
 		private void Win_Main_Closing( object sender, System.ComponentModel.CancelEventArgs e )
 		{
-			if ( ( Constructor.GetInstance()?.Equipment as MTEquipment ).AutoSeq?.State != Sequence.SequenceState.IsNotStarted )
-			{
-				e.Cancel = true;
-				return;
-			}
 			Constructor.GetInstance().Save();
 			if ( !this.Exit_Without_Confirm )
 			{

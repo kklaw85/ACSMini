@@ -134,6 +134,8 @@
     <System:String x:Key="Vel">Velocity (mm/s)</System:String>
     <System:String x:Key="Acc">Acceleration (mm/s2)</System:String>
     <System:String x:Key="Dec">Deceleration (mm/s2)</System:String>
+    <System:String x:Key="KillDec">Kill Deceleration (mm/s2)</System:String>
+    <System:String x:Key="Jerk">Jerk (mm/s3)</System:String>
     <System:String x:Key="UseGen">Use General</System:String>
     <System:String x:Key="UseCom">Use Commanded</System:String>
 

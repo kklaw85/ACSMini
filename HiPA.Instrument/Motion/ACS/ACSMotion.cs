@@ -244,10 +244,11 @@ namespace HiPA.Instrument.Motion.ACS
 				var dec = profile.Deceleration * scale;
 				var killdec = profile.KillDeceleration * scale;
 				var vel = profile.Velocity * scale;
+				var jerk = profile.Jerk * scale;
 				this.CheckAndThrowIfError( this.Board.SetVelocity( this.Configuration.AxisId, vel ) );
 				this.CheckAndThrowIfError( this.Board.SetAcceleration( this.Configuration.AxisId, acc ) );
 				this.CheckAndThrowIfError( this.Board.SetDeceleration( this.Configuration.AxisId, dec ) );
-				this.CheckAndThrowIfError( this.Board.SetJerk( this.Configuration.AxisId, profile.Jerk ) );
+				this.CheckAndThrowIfError( this.Board.SetJerk( this.Configuration.AxisId, jerk ) );
 				this.CheckAndThrowIfError( this.Board.SetKillDeceleration( this.Configuration.AxisId, killdec ) );
 			}
 			catch ( Exception ex )

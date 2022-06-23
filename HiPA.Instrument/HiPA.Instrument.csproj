@@ -141,6 +141,18 @@
     <Compile Include="HeightSensor\KeyenceHighSensor.cs" />
     <Compile Include="Motion\ACS\ACSMotion.cs" />
     <Compile Include="Motion\ACS\ACSMotionBoard.cs" />
+    <Compile Include="Motion\ACS\UI\Ctrl_InstrumentOfAxis.xaml.cs">
+      <DependentUpon>Ctrl_InstrumentOfAxis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Motion\ACS\UI\Ctrl_InstrumentOfAxisBoard.xaml.cs">
+      <DependentUpon>Ctrl_InstrumentOfAxisBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Motion\ACS\UI\Ctrl_MotionProfile.xaml.cs">
+      <DependentUpon>Ctrl_MotionProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Motion\ACS\UI\SubPage\Ctrl_InstrumentOfMotion.xaml.cs">
+      <DependentUpon>Ctrl_InstrumentOfMotion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Motion\AdLink\UI\Ctrl_HomingParamAdlinkPnl.xaml.cs">
       <DependentUpon>Ctrl_HomingParamAdlinkPnl.xaml</DependentUpon>
     </Compile>
@@ -214,6 +226,22 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Common\Ctrl_InitBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Motion\ACS\UI\Ctrl_InstrumentOfAxis.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Motion\ACS\UI\Ctrl_InstrumentOfAxisBoard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Motion\ACS\UI\Ctrl_MotionProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Motion\ACS\UI\SubPage\Ctrl_InstrumentOfMotion.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

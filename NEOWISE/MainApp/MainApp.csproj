@@ -86,7 +86,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <PlatformTarget>x64</PlatformTarget>
-    <OutputPath>C:\Neowise\</OutputPath>
+    <OutputPath>C:\ACSMini\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <PlatformTarget>x64</PlatformTarget>
@@ -308,140 +308,31 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Module\SubModule\Statistic.cs" />
-    <Compile Include="Sequence\PNPSeq.cs" />
-    <Compile Include="Sequence\LiftSeq.cs" />
-    <Compile Include="Sequence\StageSeq.cs" />
     <Compile Include="UI\Alarm\Subpages\Ctrl_Alarm.xaml.cs">
       <DependentUpon>Ctrl_Alarm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CommonControls\Ctrl_LiftsControl.xaml.cs">
-      <DependentUpon>Ctrl_LiftsControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CommonControls\Ctrl_SingleAxisJog.xaml.cs">
-      <DependentUpon>Ctrl_SingleAxisJog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CommonControls\Panels\Ctrl_EntryMotion.xaml.cs">
-      <DependentUpon>Ctrl_EntryMotion.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CommonControls\Panels\Ctrl_IOMotionViewOnly.xaml.cs">
-      <DependentUpon>Ctrl_IOMotionViewOnly.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Module\LiftModuleBase.cs" />
-    <Compile Include="Module\StageModule.cs" />
     <Compile Include="Module\MachineMiscSystem.cs" />
-    <Compile Include="UI\CommonControls\Ctrl_IOMotionViewOnlyPnl.xaml.cs">
-      <DependentUpon>Ctrl_IOMotionViewOnlyPnl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CommonControls\Ctrl_IOMotionPnl.xaml.cs">
-      <DependentUpon>Ctrl_IOMotionPnl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Module\SubModule\GenIO.cs" />
-    <Compile Include="UI\CommonControls\Panels\Ctrl_DPAD.xaml.cs">
-      <DependentUpon>Ctrl_DPAD.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CommonControls\Panels\Ctrl_LiftControl.xaml.cs">
-      <DependentUpon>Ctrl_LiftControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CommonControls\Panels\Ctrl_Stage.xaml.cs">
-      <DependentUpon>Ctrl_Stage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CommonControls\Panels\Ctrl_PNPControl.xaml.cs">
-      <DependentUpon>Ctrl_PNPControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CommonControls\Panels\Ctrl_ROIParameter.xaml.cs">
-      <DependentUpon>Ctrl_ROIParameter.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CommonControls\Panels\Ctrl_PNPArm.xaml.cs">
-      <DependentUpon>Ctrl_PNPArm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ProductionSetup\Panels\Camera\Ctrl_CollectiveInspection.xaml.cs">
-      <DependentUpon>Ctrl_CollectiveInspection.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ProductionSetup\Panels\Camera\Ctrl_CollectiveInspectionStatus.xaml.cs">
-      <DependentUpon>Ctrl_CollectiveInspectionStatus.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ProductionSetup\Panels\Camera\Ctrl_SingleInspectionStatus.xaml.cs">
-      <DependentUpon>Ctrl_SingleInspectionStatus.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ProductionSetup\Panels\WorkPos\Ctrl_ShortCuts.xaml.cs">
-      <DependentUpon>Ctrl_ShortCuts.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ProductionSetup\SubPages\Ctrl_SetupVision.xaml.cs">
-      <DependentUpon>Ctrl_SetupVision.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ProductionSetup\SubPages\Ctrl_SetupLoadUnload.xaml.cs">
-      <DependentUpon>Ctrl_SetupLoadUnload.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Production\Panels\Ctrl_AutoRunCommon.xaml.cs">
-      <DependentUpon>Ctrl_AutoRunCommon.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Production\Panels\Ctrl_AutoRunStats.xaml.cs">
-      <DependentUpon>Ctrl_AutoRunStats.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Production\Panels\Ctrl_AutoRunCommonSeq.xaml.cs">
-      <DependentUpon>Ctrl_AutoRunCommonSeq.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ProductionSetup\Panels\WorkPos\Ctrl_PNPWorkPos.xaml.cs">
-      <DependentUpon>Ctrl_PNPWorkPos.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ProductionSetup\Panels\Camera\Ctrl_InspectionModel.xaml.cs">
-      <DependentUpon>Ctrl_InspectionModel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\SystemControls\Panels\Camera\Ctrl_CamCal.xaml.cs">
-      <DependentUpon>Ctrl_CamCal.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\SystemControls\Panels\Camera\Ctrl_CamConfigPnl.xaml.cs">
-      <DependentUpon>Ctrl_CamConfigPnl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\SystemControls\Panels\Ctrl_AlarmConfig.xaml.cs">
-      <DependentUpon>Ctrl_AlarmConfig.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ProductionSetup\SubPages\Ctrl_SetupWorkPosPage.xaml.cs">
-      <DependentUpon>Ctrl_SetupWorkPosPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Production\Panels\Ctrl_AutoPnl.xaml.cs">
-      <DependentUpon>Ctrl_AutoPnl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Production\SubPages\Ctrl_Production.xaml.cs">
-      <DependentUpon>Ctrl_Production.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Recipe\Panels\Ctrl_SelectedRecipe.xaml.cs">
       <DependentUpon>Ctrl_SelectedRecipe.xaml</DependentUpon>
     </Compile>
     <Compile Include="Recipe\Window\Win_RecipeList.xaml.cs">
       <DependentUpon>Win_RecipeList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sequence\AutoSeq.cs" />
     <Compile Include="Sequence\FuncObjects.cs" />
     <Compile Include="Sequence\SequenceBase.cs" />
     <Compile Include="Sequence\WorkerThread.cs" />
     <Compile Include="Classes\SystemInfo.cs" />
     <Compile Include="Module\SubModule\IoModules.cs" />
-    <Compile Include="Module\PNPModule.cs" />
     <Compile Include="Module\MTEquipment.cs" />
     <Compile Include="Recipe\RecipeContainer.cs" />
     <Compile Include="Recipe\RecipeItemHandler.cs" />
     <Compile Include="Recipe\PackageRecipe.cs" />
-    <Compile Include="UI\CommonControls\Ctrl_AxisJogPage.xaml.cs">
-      <DependentUpon>Ctrl_AxisJogPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Recipe\Window\Win_DialogProductName.xaml.cs">
       <DependentUpon>Win_DialogProductName.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CommonControls\Ctrl_DisplayPanels.xaml.cs">
-      <DependentUpon>Ctrl_DisplayPanels.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\SystemControls\SubPages\Ctrl_ManufacturerBypassOption.xaml.cs">
-      <DependentUpon>Ctrl_ManufacturerBypassOption.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\SystemControls\SubPages\Ctrl_InstrumentOfCamera.xaml.cs">
-      <DependentUpon>Ctrl_InstrumentOfCamera.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\SystemControls\SubPages\Ctrl_TestSequences.xaml.cs">
-      <DependentUpon>Ctrl_TestSequences.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\UserAccess\Panels\Ctrl_CurrentLoginUser.xaml.cs">
       <DependentUpon>Ctrl_CurrentLoginUser.xaml</DependentUpon>
@@ -462,30 +353,6 @@
       <DependentUpon>Win_Pre_Init.xaml</DependentUpon>
     </Compile>
     <Page Include="UI\Alarm\Subpages\Ctrl_Alarm.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\CommonControls\Ctrl_LiftsControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\CommonControls\Ctrl_SingleAxisJog.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\CommonControls\Panels\Ctrl_EntryMotion.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\CommonControls\Panels\Ctrl_IOMotionViewOnly.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\CommonControls\Ctrl_IOMotionViewOnlyPnl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\CommonControls\Ctrl_IOMotionPnl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -542,99 +409,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\CommonControls\Panels\Ctrl_DPAD.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Include="UI\CommonControls\Panels\Ctrl_LiftControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\CommonControls\Panels\Ctrl_Stage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\CommonControls\Panels\Ctrl_PNPControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\CommonControls\Panels\Ctrl_ROIParameter.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\CommonControls\Panels\Ctrl_PNPArm.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\ProductionSetup\Panels\Camera\Ctrl_CollectiveInspection.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\ProductionSetup\Panels\Camera\Ctrl_CollectiveInspectionStatus.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\ProductionSetup\Panels\Camera\Ctrl_SingleInspectionStatus.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\ProductionSetup\Panels\WorkPos\Ctrl_ShortCuts.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\ProductionSetup\SubPages\Ctrl_SetupVision.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\ProductionSetup\SubPages\Ctrl_SetupLoadUnload.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\Production\Panels\Ctrl_AutoRunCommon.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\Production\Panels\Ctrl_AutoRunStats.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\Production\Panels\Ctrl_AutoRunCommonSeq.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\ProductionSetup\Panels\WorkPos\Ctrl_PNPWorkPos.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="RT_Resource.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\ProductionSetup\Panels\Camera\Ctrl_InspectionModel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\SystemControls\Panels\Camera\Ctrl_CamCal.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\SystemControls\Panels\Camera\Ctrl_CamConfigPnl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\SystemControls\Panels\Ctrl_AlarmConfig.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\ProductionSetup\SubPages\Ctrl_SetupWorkPosPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\Production\Panels\Ctrl_AutoPnl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\Production\SubPages\Ctrl_Production.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -659,26 +434,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="RT_Eng.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\CommonControls\Ctrl_AxisJogPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\CommonControls\Ctrl_DisplayPanels.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\SystemControls\SubPages\Ctrl_ManufacturerBypassOption.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\SystemControls\SubPages\Ctrl_InstrumentOfCamera.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\SystemControls\SubPages\Ctrl_TestSequences.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -817,7 +572,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Recipe\SubPages\" />
+    <Folder Include="UI\CommonControls\Panels\" />
+    <Folder Include="UI\ProductionSetup\Panels\Camera\" />
+    <Folder Include="UI\ProductionSetup\Panels\WorkPos\" />
+    <Folder Include="UI\ProductionSetup\SubPages\" />
+    <Folder Include="UI\Production\Panels\" />
+    <Folder Include="UI\Production\SubPages\" />
+    <Folder Include="UI\SystemControls\Panels\Camera\" />
     <Folder Include="UI\SystemControls\Panels\Lift\" />
+    <Folder Include="UI\SystemControls\SubPages\" />
     <Folder Include="UI\UserAccess\Window\" />
   </ItemGroup>
   <ItemGroup>
