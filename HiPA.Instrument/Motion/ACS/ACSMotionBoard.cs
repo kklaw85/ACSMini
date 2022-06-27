@@ -189,7 +189,7 @@ namespace HiPA.Instrument.Motion.ACS
 
 		public override bool IsOpen()
 		{
-			return this._IsOpen;
+			return this._IsOpen && this.Comm != null;
 		}
 
 		protected override string CreateAxes()
@@ -656,7 +656,26 @@ namespace HiPA.Instrument.Motion.ACS
 			}
 			return this.Result;
 		}
-
+		public ErrorResult SetCurrentLimit( int Axis, double Value )
+		{
+			this.ClearErrorFlags();
+			try
+			{
+				var cmd = $"XCURI({Axis})={Value}";
+				Monitor.Enter( this.SyncRoot );
+				if ( MachineStateMng.isSimulation ) return this.Result;
+				this.Comm.Send( cmd );
+			}
+			catch ( COMException ex )
+			{
+				this.CatchException( ex );
+			}
+			finally
+			{
+				Monitor.Exit( this.SyncRoot );
+			}
+			return this.Result;
+		}
 		public override void ApplyRecipe( RecipeBaseUtility recipeItem )
 		{
 			throw new NotImplementedException();
